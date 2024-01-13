@@ -1,0 +1,17 @@
+version: "3.8"
+
+
+services:
+  strapiDb:
+    image: mariadb
+    environment:
+      # TODO: fix env variables to read from env file
+      MYSQL_ROOT_PASSWORD: strapi
+      MYSQL_DATABASE: strapi
+      MYSQL_USER: strapi
+      MYSQL_PASSWORD: strapi
+    ports:
+      - 3306:3306
+
+
+ 
