@@ -1353,26 +1353,6 @@
     react-query "3.39.3"
     yup "0.32.9"
 
-"@strapi/plugin-i18n@4.13.6":
-  version "4.13.6"
-  resolved "https://registry.npmjs.org/@strapi/plugin-i18n/-/plugin-i18n-4.13.6.tgz"
-  integrity sha512-DeEqyHBAvpdQ15XEUODiiaTjcyX9zEsh5oLdcSSIJE4lk5JKYfVv3qWbiIEvkIuxIu9sW6NDCRrwaG69YVmuqA==
-  dependencies:
-    "@strapi/design-system" "1.10.1"
-    "@strapi/helper-plugin" "4.13.6"
-    "@strapi/icons" "1.10.1"
-    "@strapi/utils" "4.13.6"
-    formik "2.4.0"
-    immer "9.0.19"
-    lodash "4.17.21"
-    prop-types "^15.8.1"
-    qs "6.11.1"
-    react-intl "6.4.1"
-    react-query "3.39.3"
-    react-redux "8.1.1"
-    redux "^4.2.1"
-    yup "0.32.9"
-
 "@strapi/plugin-upload@4.13.6":
   version "4.13.6"
   resolved "https://registry.npmjs.org/@strapi/plugin-upload/-/plugin-upload-4.13.6.tgz"
