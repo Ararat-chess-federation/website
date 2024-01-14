@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_img_img_with_descriptions",
+  "info": {
+    "displayName": "imgWithDescription",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "string"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

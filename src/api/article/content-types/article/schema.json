@@ -4,7 +4,8 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Article"
+    "displayName": "Article",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,16 +20,23 @@
       "required": true
     },
     "mainImage": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "fbPost": {
       "type": "string",
       "required": true
+    },
+    "imgWithDescription": {
+      "type": "dynamiczone",
+      "components": [
+        "img.img-with-description",
+        "text.paragraph"
+      ]
     }
   }
 }
