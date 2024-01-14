@@ -4,7 +4,8 @@
   "info": {
     "singularName": "trainer",
     "pluralName": "trainers",
-    "displayName": "Trainer"
+    "displayName": "Trainer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,6 +33,14 @@
       "relation": "manyToMany",
       "target": "api::branch.branch",
       "mappedBy": "trainers"
+    },
+    "profilePhoto": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

@@ -27,6 +27,14 @@
       "relation": "manyToMany",
       "target": "api::trainer.trainer",
       "inversedBy": "branches"
+    },
+    "mainImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }
