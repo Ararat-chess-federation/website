@@ -1,0 +1,16 @@
+.navigation {
+  width: 70%;
+}
+
+.nav > ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.nav_li {
+  list-style-type: none;
+}
+
+.nav_li > a {
+  color: var(--secondary-color);
+}
