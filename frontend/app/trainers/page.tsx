@@ -24,7 +24,7 @@ export default async function Branches() {
 
           <div className="trainer_info">
             <Link href={`/trainers/${el.attributes.url}`}>
-              <h2>{el.attributes.fullName}</h2>{" "}
+              <h2>{el.attributes.fullName}</h2>
             </Link>
             <span>Մասնաճյուղեր՝</span>
 

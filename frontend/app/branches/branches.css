@@ -1,0 +1,23 @@
+.branch_card {
+  display: flex;
+  padding: 8px;
+}
+
+.branch_img {
+  border-radius: 50%;
+}
+
+.branch_info {
+  padding-left: 24px;
+}
+
+.branches_trainer_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.branches_trainer {
+  list-style-type: none;
+  text-decoration: underline;
+  padding: 4px;
+}
