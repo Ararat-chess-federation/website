@@ -1,7 +1,6 @@
 interface INavigation {
   link: string;
   title: string;
-  className?: string;
 }
 
 export const NAVIGATION: INavigation[] = [

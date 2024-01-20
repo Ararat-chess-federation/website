@@ -8,7 +8,7 @@ export default function Navigation() {
       <nav className="nav">
         <ul>
           {NAVIGATION.map((el) => (
-            <li key={el.link} className={`${el.className} nav_li`}>
+            <li key={el.link} className="nav_li">
               <Link href={el.link}>{el.title}</Link>
             </li>
           ))}
