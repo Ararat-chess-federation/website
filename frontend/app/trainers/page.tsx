@@ -10,7 +10,7 @@ export default async function Branches() {
       {data.map((el: any) => (
         <div key={el.attributes.fullName} className="trainer_card">
           <div className="profile_photo">
-            <Link href={`/branches/${el.attributes.url}`}>
+            <Link href={`/trainers/${el.attributes.url}`}>
               <Image
                 width={100}
                 height={100}
@@ -23,7 +23,7 @@ export default async function Branches() {
           </div>
 
           <div className="trainer_info">
-            <Link href={`/branches/${el.attributes.url}`}>
+            <Link href={`/trainers/${el.attributes.url}`}>
               <h2>{el.attributes.fullName}</h2>{" "}
             </Link>
             <span>Մասնաճյուղեր՝</span>
