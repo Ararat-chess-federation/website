@@ -12,6 +12,7 @@ export default function Logo() {
           height={50}
           alt="logo"
           className="logo"
+          priority
         />
       </section>
     </Link>
