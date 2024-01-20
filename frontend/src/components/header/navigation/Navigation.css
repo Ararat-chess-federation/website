@@ -25,6 +25,12 @@
   background: var(--primary-color);
   transform: translateX(256px);
   transition: 0.5s;
+  padding: 48px 24px;
+}
+
+#burger_menu > ul > li {
+  padding: 8px;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
 #burger_menuAvPaa {
