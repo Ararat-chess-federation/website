@@ -17,6 +17,7 @@ export default async function Branches() {
                 alt={el.attributes.fullName}
                 src={`http://localhost:1337${data[0].attributes.profilePhoto.data.attributes.url}`}
                 className="trainer_img"
+                priority
               />
             </Link>
           </div>
