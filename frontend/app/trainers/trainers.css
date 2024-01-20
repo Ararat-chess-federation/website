@@ -1,0 +1,25 @@
+.trainer_card {
+  display: flex;
+  padding: 8px;
+}
+
+.trainer_img {
+  border-radius: 50%;
+}
+
+.trainer_info {
+  padding-left: 24px;
+}
+
+.trainer_branches {
+  list-style-type: none;
+}
+
+.trainer_branches_list {
+  display: flex;
+}
+
+.trainer_branches {
+  text-decoration: underline;
+  padding: 4px;
+}
