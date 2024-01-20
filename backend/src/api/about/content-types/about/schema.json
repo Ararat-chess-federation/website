@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "about",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "about": {
+      "type": "dynamiczone",
+      "components": [
+        "img.img-with-description",
+        "text.paragraph"
+      ]
+    }
+  }
+}
