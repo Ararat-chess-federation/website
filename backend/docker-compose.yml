@@ -1,6 +1,5 @@
 version: "3.8"
 
-
 services:
   strapiDb:
     image: mariadb
@@ -13,7 +12,7 @@ services:
     ports:
       - 3306:3306
 
-  phpmyadmin:
+  phpMyAdmin:
     image: phpmyadmin
     restart: always
     ports:
