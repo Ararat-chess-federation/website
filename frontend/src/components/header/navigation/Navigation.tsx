@@ -14,6 +14,29 @@ export default function Navigation() {
           ))}
         </ul>
       </nav>
+      <BurgerMenu />
     </section>
+  );
+}
+
+function BurgerMenu() {
+  return (
+    <div className="burger_menu">
+      <input type="checkbox" id="burger_menuAvPaa" />
+      <label id="burger" htmlFor="burger_menuAvPaa">
+        <div></div>
+        <div></div>
+        <div></div>
+      </label>
+      <nav id="burger_menu">
+        <ul>
+          {NAVIGATION.map((el) => (
+            <li key={el.link} className="nav_li">
+              <Link href={el.link}>{el.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 }
