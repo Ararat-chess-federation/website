@@ -12,8 +12,8 @@
 }
 
 .content_container {
-  margin-top: 16px;
-  width: 50%;
+  padding: 24px;
+  width: 70%;
 }
 
 @media only screen and (max-width: 768px) {
