@@ -36,7 +36,7 @@ export const LEFT_MENU: INavigation[] = [
     title: "Կարգեր",
   },
   {
-    link: "/about-us",
+    link: "/about",
     title: "Մեր մասին",
   },
   {
