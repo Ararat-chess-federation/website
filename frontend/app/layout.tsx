@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Header from "../src/components/header/Header";
 import "../styles/variables.css";
 import "../styles/global.css";
-import "./layout.css"
+import "./layout.css";
+import LeftMenu from "@/src/components/leftMenu/LeftMenu";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <main>
+        <main className="main_container">
+          <section className="left_menu_container">
+            <LeftMenu />
+          </section>
           <section className="content_container">{children}</section>
         </main>
       </body>
