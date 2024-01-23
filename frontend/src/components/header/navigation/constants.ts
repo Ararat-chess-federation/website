@@ -12,6 +12,10 @@ export const NAVIGATION: INavigation[] = [
     link: "/trainers",
     title: "Մարզիչներ",
   },
+    {
+    link: "/statistic",
+    title: "Վիճակագրություն",
+  },
   {
     link: "/branches",
     title: "Մասնաճյուղեր",
