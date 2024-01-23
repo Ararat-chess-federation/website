@@ -6,4 +6,6 @@
   align-items: center;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  position: fixed;
+  height: 60px;
 }
