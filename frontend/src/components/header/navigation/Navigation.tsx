@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LEFT_MENU } from "../../leftMenu/constants";
 import { NAVIGATION } from "./constants";
 import "./Navigation.css";
 
@@ -30,7 +31,7 @@ function BurgerMenu() {
       </label>
       <nav id="burger_menu">
         <ul>
-          {NAVIGATION.map((el) => (
+          {NAVIGATION.concat(LEFT_MENU).map((el) => (
             <li key={el.link} className="nav_li">
               <Link href={el.link}>{el.title}</Link>
             </li>
