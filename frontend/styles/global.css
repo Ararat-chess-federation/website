@@ -8,7 +8,31 @@ body {
   background-color: var(--secondary-color);
 }
 
+h1,
+h2,
+h3,
+h4 {
+  text-align: center;
+}
+
+h2,
+h3,
+h4 {
+  margin-top: 16px;
+}
+
+p {
+  padding: 16px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+}
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+figure,
+figcaption {
+  text-align: center;
 }
