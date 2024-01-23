@@ -1,6 +1,8 @@
 .left_menu_wrapper {
   position: fixed;
-  margin-top: 16px;
+  background-color: var(--primary-color);
+  height: 100vh;
+  width: 15%;
 }
 
 .left_menu_li {
