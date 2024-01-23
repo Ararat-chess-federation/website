@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { LEFT_MENU } from "../../leftMenu/constants";
-import { NAVIGATION } from "./constants";
+import { NAVIGATION, LEFT_MENU } from "../../../constants/navigation";
 import "./Navigation.css";
 
 export default function Navigation() {
