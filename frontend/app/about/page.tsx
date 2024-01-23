@@ -1,7 +1,6 @@
 import Markdown from "react-markdown";
 
 import Image from "next/image";
-import "./page.css";
 
 export default async function About() {
   const data = await getData();
@@ -9,6 +8,8 @@ export default async function About() {
 
   return (
     <main>
+      <h1>Ֆեդերացիայի պատմություն</h1>
+
       {about.map((el: any, idx: number) => {
         if (el.__component === "text.paragraph") {
           return <Markdown key={el.paragraph}>{el.paragraph}</Markdown>;
