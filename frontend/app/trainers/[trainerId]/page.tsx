@@ -1,5 +1,5 @@
-import Link from "next/link";
 import Markdown from "react-markdown";
+import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
 import "../trainers.css";
 
@@ -11,20 +11,10 @@ export default async function Trainer({ params }: any) {
       <h1>{data[0].attributes.fullName}</h1>
 
       <PhoneNumber phoneNumber={data[0].attributes.phoneNumber} />
-
-      <p>Մասնաճյուղեր՝</p>
-
-      <div>
-        <ul className="trainer_branches_list trainer_branches_list_bio">
-          {data[0].attributes.branches.data.map((el: any) => (
-            <li key={el.attributes.url} className="trainer_branches">
-              <Link href={`/branches/${el.attributes.url}`}>
-                {el.attributes.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <BranchesList
+        branches={data[0].attributes.branches.data}
+        classNames="trainer_branches_list_bio"
+      />
 
       <h2>Կենսագրություն</h2>
       <Markdown>{data[0].attributes.bio}</Markdown>

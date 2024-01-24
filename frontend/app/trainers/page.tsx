@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BranchesList from "../../src/shared/branchesList/BranchesList";
 import "./trainers.css";
 
 export default async function Branches() {
@@ -25,19 +26,10 @@ export default async function Branches() {
               <h2 className="trainer_name">{el.attributes.fullName}</h2>
             </Link>
 
-            <p className="trainer_branches_title">Մասնաճյուղեր՝</p>
-
-            <div>
-              <ul className="trainer_branches_list">
-                {el.attributes.branches.data.map((el: any) => (
-                  <li key={el.attributes.url} className="trainer_branches">
-                    <Link href={`/branches/${el.attributes.url}`}>
-                      {el.attributes.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <BranchesList
+              branches={el.attributes.branches.data}
+              titleClassName="trainer_branches_title"
+            />
           </div>
         </div>
       ))}
