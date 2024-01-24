@@ -19,5 +19,10 @@ export const LINKS: ILinks[] = [
     img: "/academy.webp",
     alt: "Chess academy",
     url: "https://www.chessacademy.am/",
+  }, 
+  {
+    img: "/facebook.svg",
+    alt: "Facebook",
+    url: "https://www.facebook.com/araratchessfed/",
   },
 ];
