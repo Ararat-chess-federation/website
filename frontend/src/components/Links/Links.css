@@ -12,6 +12,10 @@
   padding: 16px;
 }
 
+.link_img {
+  border-radius: 50%;
+}
+
 @media only screen and (max-width: 768px) {
   .links_container {
     position: static;
