@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Markdown from "react-markdown";
+import PhoneNumber from "../../../src/shared/PhoneNumber";
 import "../trainers.css";
 
 export default async function Trainer({ params }: any) {
@@ -9,15 +10,7 @@ export default async function Trainer({ params }: any) {
     <div>
       <h1>{data[0].attributes.fullName}</h1>
 
-      <p>
-        Հեռախոսահամար՝
-        <a
-          className="phone_number"
-          href={`tel:${data[0].attributes.phoneNumber}`}
-        >
-          {data[0].attributes.phoneNumber}
-        </a>
-      </p>
+      <PhoneNumber phoneNumber={data[0].attributes.phoneNumber} />
 
       <p>Մասնաճյուղեր՝</p>
 
