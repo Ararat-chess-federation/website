@@ -36,3 +36,8 @@ figure,
 figcaption {
   text-align: center;
 }
+
+.phone_number {
+  text-decoration: underline;
+  padding-left: 8px;
+}
