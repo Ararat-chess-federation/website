@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Markdown from "react-markdown";
-import PhoneNumber from "../../../src/shared/PhoneNumber";
+import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
 import "../trainers.css";
 
 export default async function Trainer({ params }: any) {
