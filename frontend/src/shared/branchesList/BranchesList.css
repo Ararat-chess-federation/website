@@ -1,5 +1,9 @@
-.trainer_branches_title {
-  padding: 4px;
+.trainer_branches_list_container {
+  padding-left: 16px;
+}
+
+.trainer_branches_list_title {
+  padding-left: 0;
 }
 
 .trainer_branches_list {
@@ -10,8 +14,4 @@
   list-style-type: none;
   text-decoration: underline;
   padding: 4px;
-}
-
-.trainer_branches_list_bio {
-  padding-left: 12px;
 }

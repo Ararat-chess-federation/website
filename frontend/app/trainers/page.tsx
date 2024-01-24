@@ -27,10 +27,7 @@ export default async function Branches() {
               <h2 className="trainer_name">{el.attributes.fullName}</h2>
             </Link>
 
-            <BranchesList
-              branches={el.attributes.branches.data}
-              titleClassName="trainer_branches_title"
-            />
+            <BranchesList branches={el.attributes.branches.data} />
           </div>
         </div>
       ))}
