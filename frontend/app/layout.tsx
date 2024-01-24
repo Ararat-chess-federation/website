@@ -4,6 +4,8 @@ import "../styles/variables.css";
 import "../styles/global.css";
 import "./layout.css";
 import LeftMenu from "../src/components/leftMenu/LeftMenu";
+import Image from "next/image";
+import Links from "../src/components/Links/Links";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,6 +26,9 @@ export default function RootLayout({
             <LeftMenu />
           </section>
           <section className="content_container">{children}</section>
+          <section className="links_container">
+            <Links />
+          </section>
         </main>
       </body>
     </html>
