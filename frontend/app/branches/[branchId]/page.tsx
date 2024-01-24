@@ -1,8 +1,10 @@
 import Link from "next/link";
+import getData from "../../../src/helpers/getData";
 
 export default async function Branch({ params }: any) {
-  const { data } = await getData(params.branchId);
-  console.log(data[0]);
+  const { data } = await getData(
+    `/api/branches?populate=deep&url=${params.branchId}`
+  );
 
   return (
     <div>
@@ -21,15 +23,4 @@ export default async function Branch({ params }: any) {
       </ul>
     </div>
   );
-}
-
-async function getData(url: string) {
-  try {
-    const res = await fetch(
-      `http://localhost:1337/api/branches?populate=deep&url=${url}`
-    );
-    return res.json();
-  } catch (e) {
-    console.log(e);
-  }
 }

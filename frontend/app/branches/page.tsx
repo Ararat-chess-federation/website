@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
+import getData from "../../src/helpers/getData";
 import "./branches.css";
 
 export default async function Branches() {
-  const { data } = await getData();
+  const { data } = await getData("/api/branches?populate=deep");
   console.log(data);
 
   return (
@@ -45,13 +46,4 @@ export default async function Branches() {
       ))}
     </section>
   );
-}
-
-async function getData() {
-  try {
-    const res = await fetch("http://localhost:1337/api/branches?populate=deep");
-    return res.json();
-  } catch (e) {
-    console.log(e);
-  }
 }

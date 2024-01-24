@@ -1,9 +1,10 @@
 import Markdown from "react-markdown";
 
 import Image from "next/image";
+import getData from "../../src/helpers/getData";
 
 export default async function About() {
-  const data = await getData();
+  const data = await getData("/api/about?populate=deep");
   const { about } = data.data.attributes;
 
   return (
@@ -31,13 +32,4 @@ export default async function About() {
       })}
     </main>
   );
-}
-
-async function getData() {
-  try {
-    const res = await fetch("http://localhost:1337/api/about?populate=deep");
-    return res.json();
-  } catch (e) {
-    console.log(e);
-  }
 }
