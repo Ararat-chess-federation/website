@@ -9,34 +9,35 @@ export default async function Branches() {
     <section>
       {data.map((el: any) => (
         <div key={el.attributes.fullName} className="trainer_card">
-          <div className="profile_photo">
-            <Link href={`/trainers/${el.attributes.url}`}>
-              <Image
-                width={100}
-                height={100}
-                alt={el.attributes.fullName}
-                src={`http://localhost:1337${data[0].attributes.profilePhoto.data.attributes.url}`}
-                className="trainer_img"
-                priority
-              />
-            </Link>
-          </div>
+          <Link href={`/trainers/${el.attributes.url}`}>
+            <Image
+              width={100}
+              height={100}
+              alt={el.attributes.fullName}
+              src={`http://localhost:1337${data[0].attributes.profilePhoto.data.attributes.url}`}
+              className="trainer_img"
+              priority
+            />
+          </Link>
 
           <div className="trainer_info">
             <Link href={`/trainers/${el.attributes.url}`}>
-              <h2>{el.attributes.fullName}</h2>
+              <h2 className="trainer_name">{el.attributes.fullName}</h2>
             </Link>
-            <span>Մասնաճյուղեր՝</span>
 
-            <ul className="trainer_branches_list">
-              {data[0].attributes.branches.data.map((el: any) => (
-                <li key={el.attributes.url} className="trainer_branches">
-                  <Link href={`/branches/${el.attributes.url}`}>
-                    {el.attributes.address}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <p className="trainer_branches_title">Մասնաճյուղեր՝</p>
+
+            <div>
+              <ul className="trainer_branches_list">
+                {el.attributes.branches.data.map((el: any) => (
+                  <li key={el.attributes.url} className="trainer_branches">
+                    <Link href={`/branches/${el.attributes.url}`}>
+                      {el.attributes.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       ))}
