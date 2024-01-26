@@ -13,7 +13,8 @@
   "attributes": {
     "url": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "address": {
       "type": "string",
