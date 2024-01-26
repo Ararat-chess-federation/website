@@ -6,7 +6,7 @@ import "../trainers.css";
 
 export default async function Trainer({ params }: any) {
   const { data } = await getData(
-    `/api/trainers?populate=deep&url=${params.trainerId}`
+    `/api/trainers?populate=deep&filters[url][$eq]=${params.trainerId}`
   );
 
   return (

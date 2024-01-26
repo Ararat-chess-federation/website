@@ -5,7 +5,6 @@ import "./Articles.css";
 
 export default async function Articles() {
   const { data } = await getData("/api/articles?populate=deep");
-  // console.log(data);
 
   return (
     <section className="articles_container">

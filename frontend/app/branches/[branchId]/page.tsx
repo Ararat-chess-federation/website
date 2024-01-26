@@ -7,10 +7,8 @@ import TrainingDays from "../../../src/shared/trainingDays/TrainingDays";
 
 export default async function Branch({ params }: any) {
   const { data } = await getData(
-    `/api/branches?populate=deep&url=${params.branchId}`
+    `/api/branches?populate=deep&filters[url][$eq]=${params.branchId}`
   );
-
-  console.log(data[0].attributes);
 
   return (
     <div>
