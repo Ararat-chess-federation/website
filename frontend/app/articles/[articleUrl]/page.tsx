@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Markdown from "react-markdown";
 import getData from "../../../src/helpers/getData";
 import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import "./Article.css";
