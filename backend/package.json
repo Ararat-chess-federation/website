@@ -13,7 +13,8 @@
     "@strapi/plugin-users-permissions": "4.13.6",
     "@strapi/strapi": "4.13.6",
     "mysql": "^2.18.1",
-    "strapi-plugin-populate-deep": "^3.0.1"
+    "strapi-plugin-populate-deep": "^3.0.1",
+    "strapi-plugin-responsive-image": "^1.2.0"
   },
   "author": {
     "name": "A Strapi developer"
