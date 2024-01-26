@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  strapiDb:
+  strapidb-admin:
     image: mariadb
     environment:
       # TODO: fix env variables to read from env file
@@ -12,13 +12,13 @@ services:
     ports:
       - 3306:3306
 
-  phpMyAdmin:
+  php-my-admin:
     image: phpmyadmin
     restart: always
     ports:
       - 8080:80
     environment:
-      PMA_HOST: strapiDb
+      PMA_HOST: strapidb-admin
       PMA_PORT: 3306
     depends_on:
-      - strapiDb
+      - strapidb-admin
