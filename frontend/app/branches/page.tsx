@@ -7,7 +7,6 @@ import "./branches.css";
 
 export default async function Branches() {
   const { data } = await getData("/api/branches?populate=deep");
-  console.log(data);
 
   return (
     <section>
