@@ -5,7 +5,7 @@ import "./Article.css";
 
 export default async function Article({ params }: any) {
   const { data } = await getData(
-    `/api/articles?populate=deep&url=${params.articleUrl}`
+    `/api/articles?populate=deep&filters[url][$eq]=${params.articleUrl}`
   );
 
   return (
