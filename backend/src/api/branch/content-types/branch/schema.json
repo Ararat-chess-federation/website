@@ -39,6 +39,11 @@
     "title": {
       "type": "string",
       "required": true
+    },
+    "description": {
+      "type": "component",
+      "repeatable": true,
+      "component": "text.paragraph"
     }
   }
 }
