@@ -28,15 +28,18 @@
       ]
     },
     "fbPost": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
-    "imgWithDescription": {
+    "articleText": {
       "type": "dynamiczone",
       "components": [
         "img.img-with-description",
         "text.paragraph"
       ]
+    },
+    "publishDate": {
+      "type": "date"
     }
   }
 }
