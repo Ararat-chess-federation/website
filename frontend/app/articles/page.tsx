@@ -20,7 +20,6 @@ export default async function Articles() {
                 height={50}
                 src={`http://localhost:1337${el.attributes.mainImage.data.attributes.url}`}
                 alt={el.attributes.url}
-                className="branch_img"
                 style={{
                   width: "100%",
                   height: "auto",
