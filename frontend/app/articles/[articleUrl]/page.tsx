@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Markdown from "react-markdown";
 import getData from "../../../src/helpers/getData";
+import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import "./Article.css";
 
 export default async function Article({ params }: any) {
@@ -21,11 +22,9 @@ export default async function Article({ params }: any) {
       </div>
 
       <div>
-        {data[0].attributes.articleText.map((el: any) => {
-          if (el.__component === "text.paragraph") {
-            return <Markdown key={el.paragraph}>{el.paragraph}</Markdown>;
-          }
-        })}
+        {data[0].attributes.articleText.map((el: any) => (
+          <DynamicComponent el={el} />
+        ))}
       </div>
 
       <div>
