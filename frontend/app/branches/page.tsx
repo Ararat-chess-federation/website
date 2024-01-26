@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import getData from "../../src/helpers/getData";
+import Address from "../../src/shared/address/Address";
+import TrainersList from "../../src/shared/trainersList/TrainersList";
 import "./branches.css";
 
 export default async function Branches() {
@@ -28,19 +30,10 @@ export default async function Branches() {
 
           <div className="branch_info">
             <Link href={`/branches/${el.attributes.url}`}>
-              <h2>{el.attributes.title}</h2>
+              <h2 className="branch_name">{el.attributes.title}</h2>
             </Link>
-            <div> Հասցե՝ {el.attributes.address}</div>
-            <span>Մարզիչներ՝ </span>
-            <ul className="branches_trainer_list">
-              {data[0].attributes.trainers.data.map((el: any) => (
-                <li key={el.attributes.url} className="branches_trainer">
-                  <Link href={`/branches/${el.attributes.url}`}>
-                    {el.attributes.fullName}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <Address address={el.attributes.address} />
+            <TrainersList trainers={data[0].attributes.trainers.data} />
           </div>
         </div>
       ))}
