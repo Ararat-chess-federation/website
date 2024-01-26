@@ -18,7 +18,7 @@ export default async function Articles() {
               <Image
                 width={150}
                 height={50}
-                src={`http://localhost:1337${el.attributes.mainImage.data.attributes.url}`}
+                src={`${process.env.BACKEND_URL}${el.attributes.mainImage.data.attributes.url}`}
                 alt={el.attributes.url}
                 style={{
                   width: "100%",

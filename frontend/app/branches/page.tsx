@@ -20,7 +20,7 @@ export default async function Branches() {
               <Image
                 width={100}
                 height={100}
-                src={`http://localhost:1337${el.attributes.mainImage.data.attributes.url}`}
+                src={`${process.env.BACKEND_URL}${el.attributes.mainImage.data.attributes.url}`}
                 alt={el.attributes.url}
                 className="branch_img"
               />

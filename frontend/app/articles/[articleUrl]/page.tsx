@@ -16,7 +16,7 @@ export default async function Article({ params }: any) {
           width={500}
           height={200}
           alt={data[0].attributes.title}
-          src={`http://localhost:1337${data[0].attributes.mainImage.data.attributes.url}`}
+          src={`${process.env.BACKEND_URL}${data[0].attributes.mainImage.data.attributes.url}`}
         />
       </div>
 

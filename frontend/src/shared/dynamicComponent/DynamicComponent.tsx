@@ -18,7 +18,7 @@ export default function DynamicComponent({
           <Image
             width={100}
             height={100}
-            src={`http://localhost:1337${el.image.data.attributes.url}`}
+            src={`${process.env.BACKEND_URL}${el.image.data.attributes.url}`}
             alt={el.description}
           />
           <figcaption>{el.description}</figcaption>

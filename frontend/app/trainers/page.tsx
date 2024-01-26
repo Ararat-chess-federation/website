@@ -16,7 +16,7 @@ export default async function Branches() {
               width={100}
               height={100}
               alt={el.attributes.fullName}
-              src={`http://localhost:1337${data[0].attributes.profilePhoto.data.attributes.url}`}
+              src={`${process.env.BACKEND_URL}${data[0].attributes.profilePhoto.data.attributes.url}`}
               className="trainer_img"
               priority
             />
