@@ -4,7 +4,11 @@ import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
 import "../trainers.css";
 
-export default async function Trainer({ params }: any) {
+interface ITrainerParams {
+  params: { trainerId: string };
+}
+
+export default async function Trainer({ params }: ITrainerParams) {
   const { data } = await getData(
     `/api/trainers?populate=deep&filters[url][$eq]=${params.trainerId}`
   );
