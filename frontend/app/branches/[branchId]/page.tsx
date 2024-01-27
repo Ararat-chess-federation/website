@@ -1,7 +1,7 @@
-import getData from "../../../src/helpers/getData";
-import Address from "../../../src/shared/address/Address";
 import TrainersList from "../../../src/shared/trainersList/TrainersList";
 import TrainingDays from "../../../src/shared/trainingDays/TrainingDays";
+import Address from "../../../src/shared/address/Address";
+import getData from "../../../src/helpers/getData";
 
 interface IBranchParams {
   params: { branchId: string };
