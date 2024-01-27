@@ -1,7 +1,7 @@
 import Markdown from "react-markdown";
-import getData from "../../../src/helpers/getData";
 import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
+import getData from "../../../src/helpers/getData";
 import "../trainers.css";
 
 interface ITrainerParams {
