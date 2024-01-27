@@ -12,10 +12,7 @@ export default async function Articles() {
       {data.map((el: any) => (
         <div key={el.attributes.url} className="article_card">
           <div className="article_photo">
-            <Link
-              href={`/articles/${el.attributes.url}`}
-              key={el.attributes.url}
-            >
+            <Link href={`/articles/${el.attributes.url}`}>
               <Image
                 width={150}
                 height={50}
