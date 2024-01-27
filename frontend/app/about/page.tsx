@@ -1,11 +1,10 @@
+import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent";
 import getData from "../../src/helpers/getData";
 import { IAboutData } from "../../src/models/interfaces/about";
-import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent";
 
 export default async function About() {
   const { data } = await getData("/api/about?populate=deep");
   const { about } = data.attributes;
-console.log(about[0]);
 
   return (
     <main>
