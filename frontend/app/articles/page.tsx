@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import getData from "../../src/helpers/getData";
+import { IArticle } from "../../src/models/interfaces/article";
 import "./Articles.css";
 
 export default async function Articles() {
@@ -8,7 +9,7 @@ export default async function Articles() {
 
   return (
     <section className="articles_container">
-      {data.map((el: any) => (
+      {data.map((el: IArticle) => (
         <div key={el.attributes.url} className="article_card">
           <div className="article_photo">
             <Link
@@ -24,7 +25,7 @@ export default async function Articles() {
                   width: "100%",
                   height: "auto",
                   objectFit: "cover",
-                  maxHeight:"300px"
+                  maxHeight: "300px",
                 }}
               />
             </Link>

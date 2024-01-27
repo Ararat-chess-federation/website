@@ -1,9 +1,14 @@
 import Image from "next/image";
 import getData from "../../../src/helpers/getData";
+import { IArticleText } from "../../../src/models/interfaces/articleText";
 import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import "./Article.css";
 
-export default async function Article({ params }: any) {
+interface IArticleParams {
+  params: { articleUrl: string };
+}
+
+export default async function Article({ params }: IArticleParams) {
   const { data } = await getData(
     `/api/articles?populate=deep&filters[url][$eq]=${params.articleUrl}`
   );
@@ -21,7 +26,7 @@ export default async function Article({ params }: any) {
       </div>
 
       <div>
-        {data[0].attributes.articleText.map((el: any) => (
+        {data[0].attributes.articleText.map((el: IArticleText) => (
           <DynamicComponent el={el} />
         ))}
       </div>
