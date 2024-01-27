@@ -1,4 +1,5 @@
 import getData from "../../src/helpers/getData";
+import { IAboutData } from "../../src/models/interfaces/about";
 import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent";
 
 export default async function About() {
@@ -9,7 +10,7 @@ export default async function About() {
     <main>
       <h1>Ֆեդերացիայի պատմություն</h1>
 
-      {about.map((el: any, idx: number) => (
+      {about.map((el: IAboutData, idx: number) => (
         <DynamicComponent key={idx} el={el} idx={idx} />
       ))}
     </main>
