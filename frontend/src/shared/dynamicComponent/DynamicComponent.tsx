@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Markdown from "react-markdown";
 
-export default function DynamicComponent({
-  el,
-  idx,
-}: {
-  el: any;
+interface IDynamicComponent {
+  el: {
+    __component: string;
+    [key: string]: any;
+  };
   idx?: number;
-}) {
+}
+
+export default function DynamicComponent({ el, idx }: IDynamicComponent) {
   switch (el.__component) {
     case "text.paragraph":
       return <Markdown key={idx}>{el.paragraph}</Markdown>;
