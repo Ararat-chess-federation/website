@@ -11,8 +11,6 @@ interface IDynamicComponent {
 }
 
 export default function DynamicComponent({ el, idx }: IDynamicComponent) {
-  console.log(el);
-
   switch (el.__component) {
     case "text.paragraph":
       return <Markdown key={idx}>{el.paragraph}</Markdown>;
