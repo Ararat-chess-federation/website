@@ -18,7 +18,7 @@ export default async function Branches() {
               width={100}
               height={100}
               alt={el.attributes.fullName}
-              src={getImageSrc(data[0])}
+              src={getImageSrc(data[0].attributes.mainImage)}
               className="trainer_img"
               priority
             />

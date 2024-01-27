@@ -19,7 +19,7 @@ export default async function Articles() {
               <Image
                 width={150}
                 height={50}
-                src={getImageSrc(el)}
+                src={getImageSrc(el.attributes.mainImage)}
                 alt={el.attributes.url}
                 style={{
                   width: "100%",

@@ -22,7 +22,7 @@ export default async function Branches() {
               <Image
                 width={100}
                 height={100}
-                src={getImageSrc(el)}
+                src={getImageSrc(el.attributes.mainImage)}
                 alt={el.attributes.url}
                 className="branch_img"
               />

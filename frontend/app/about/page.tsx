@@ -5,6 +5,7 @@ import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent
 export default async function About() {
   const { data } = await getData("/api/about?populate=deep");
   const { about } = data.attributes;
+console.log(about[0]);
 
   return (
     <main>

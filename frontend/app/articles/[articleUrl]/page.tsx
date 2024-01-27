@@ -22,7 +22,7 @@ export default async function Article({ params }: IArticleParams) {
           width={500}
           height={200}
           alt={data[0].attributes.title}
-          src={getImageSrc(data[0])}
+          src={getImageSrc(data[0].attributes.mainImage)}
         />
       </div>
 

@@ -11,6 +11,8 @@ interface IDynamicComponent {
 }
 
 export default function DynamicComponent({ el, idx }: IDynamicComponent) {
+  console.log(el);
+
   switch (el.__component) {
     case "text.paragraph":
       return <Markdown key={idx}>{el.paragraph}</Markdown>;
@@ -21,7 +23,7 @@ export default function DynamicComponent({ el, idx }: IDynamicComponent) {
           <Image
             width={100}
             height={100}
-            src={getImageSrc(el)}
+            src={getImageSrc(el?.image)}
             alt={el.description}
           />
           <figcaption>{el.description}</figcaption>
