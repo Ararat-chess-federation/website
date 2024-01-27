@@ -3,7 +3,11 @@ import Address from "../../../src/shared/address/Address";
 import TrainersList from "../../../src/shared/trainersList/TrainersList";
 import TrainingDays from "../../../src/shared/trainingDays/TrainingDays";
 
-export default async function Branch({ params }: any) {
+interface IBranchParams {
+  params: { branchId: string };
+}
+
+export default async function Branch({ params }: IBranchParams) {
   const { data } = await getData(
     `/api/branches?populate=deep&filters[url][$eq]=${params.branchId}`
   );

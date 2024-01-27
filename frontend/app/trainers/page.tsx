@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import getData from "../../src/helpers/getData";
+import { ITrainer } from "../../src/models/interfaces/trainer";
 import BranchesList from "../../src/shared/branchesList/BranchesList";
 import "./trainers.css";
 
@@ -9,7 +10,7 @@ export default async function Branches() {
 
   return (
     <section>
-      {data.map((el: any) => (
+      {data.map((el: ITrainer) => (
         <div key={el.attributes.fullName} className="trainer_card">
           <Link href={`/trainers/${el.attributes.url}`}>
             <Image
