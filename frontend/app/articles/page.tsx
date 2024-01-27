@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import getData from "../../src/helpers/getData";
-import { IArticle } from "../../src/models/interfaces/article";
+import getImageSrc from "../../src/helpers/getImageSrc";
 import "./Articles.css";
 
 export default async function Articles() {
@@ -9,7 +9,7 @@ export default async function Articles() {
 
   return (
     <section className="articles_container">
-      {data.map((el: IArticle) => (
+      {data.map((el: any) => (
         <div key={el.attributes.url} className="article_card">
           <div className="article_photo">
             <Link
@@ -19,7 +19,7 @@ export default async function Articles() {
               <Image
                 width={150}
                 height={50}
-                src={`${process.env.BACKEND_URL}${el.attributes.mainImage.data.attributes.url}`}
+                src={getImageSrc(el)}
                 alt={el.attributes.url}
                 style={{
                   width: "100%",

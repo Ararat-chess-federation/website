@@ -1,5 +1,6 @@
 import Image from "next/image";
 import getData from "../../../src/helpers/getData";
+import getImageSrc from "../../../src/helpers/getImageSrc";
 import { IArticleText } from "../../../src/models/interfaces/articleText";
 import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import "./Article.css";
@@ -21,7 +22,7 @@ export default async function Article({ params }: IArticleParams) {
           width={500}
           height={200}
           alt={data[0].attributes.title}
-          src={`${process.env.BACKEND_URL}${data[0].attributes.mainImage.data.attributes.url}`}
+          src={getImageSrc(data[0])}
         />
       </div>
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import getData from "../../src/helpers/getData";
+import getImageSrc from "../../src/helpers/getImageSrc";
 import { IBranch } from "../../src/models/interfaces/branch";
 import Address from "../../src/shared/address/Address";
 import TrainersList from "../../src/shared/trainersList/TrainersList";
@@ -21,7 +22,7 @@ export default async function Branches() {
               <Image
                 width={100}
                 height={100}
-                src={`${process.env.BACKEND_URL}${el.attributes.mainImage.data.attributes.url}`}
+                src={getImageSrc(el)}
                 alt={el.attributes.url}
                 className="branch_img"
               />

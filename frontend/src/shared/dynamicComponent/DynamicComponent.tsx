@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Markdown from "react-markdown";
+import getImageSrc from "../../helpers/getImageSrc";
 
 interface IDynamicComponent {
   el: {
@@ -20,7 +21,7 @@ export default function DynamicComponent({ el, idx }: IDynamicComponent) {
           <Image
             width={100}
             height={100}
-            src={`${process.env.BACKEND_URL}${el.image.data.attributes.url}`}
+            src={getImageSrc(el)}
             alt={el.description}
           />
           <figcaption>{el.description}</figcaption>

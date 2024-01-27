@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import getData from "../../src/helpers/getData";
+import getImageSrc from "../../src/helpers/getImageSrc";
 import { ITrainer } from "../../src/models/interfaces/trainer";
 import BranchesList from "../../src/shared/branchesList/BranchesList";
 import "./trainers.css";
@@ -17,7 +18,7 @@ export default async function Branches() {
               width={100}
               height={100}
               alt={el.attributes.fullName}
-              src={`${process.env.BACKEND_URL}${data[0].attributes.profilePhoto.data.attributes.url}`}
+              src={getImageSrc(data[0])}
               className="trainer_img"
               priority
             />
