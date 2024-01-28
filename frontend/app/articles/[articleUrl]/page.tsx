@@ -1,5 +1,6 @@
 import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import Img from "../../../src/shared/img/Img";
+import DataNotFound from "../../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../../src/helpers/getData";
 import { IArticle } from "../../../src/models/interfaces/article";
 import "./Article.css";
@@ -13,6 +14,10 @@ export default async function Article({ params }: IArticleParams) {
     type: "articles",
     searchUrl: params.articleUrl,
   });
+
+  if (!data?.length) {
+    return <DataNotFound />;
+  }
 
   const { title, mainImage, articleText, fbPost } = data[0].attributes;
 

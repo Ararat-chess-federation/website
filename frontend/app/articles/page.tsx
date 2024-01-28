@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
 import Img from "../../src/shared/img/Img";
@@ -6,6 +7,10 @@ import "./Articles.css";
 
 export default async function Articles() {
   const { data }: { data: IArticle[] } = await getData({ type: "articles" });
+
+  if (!data?.length) {
+    return <DataNotFound />;
+  }
 
   return (
     <section className="articles_container">

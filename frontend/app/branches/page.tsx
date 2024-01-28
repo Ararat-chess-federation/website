@@ -2,12 +2,17 @@ import Link from "next/link";
 import TrainersList from "../../src/shared/trainersList/TrainersList";
 import Address from "../../src/shared/address/Address";
 import Img from "../../src/shared/img/Img";
+import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IBranch } from "../../src/models/interfaces/branch";
 import "./branches.css";
 
 export default async function Branches() {
   const { data }: { data: IBranch[] } = await getData({ type: "branches" });
+
+  if (!data?.length) {
+    return <DataNotFound />;
+  }
 
   return (
     <section>
