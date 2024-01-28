@@ -4,7 +4,7 @@ export interface IArticleText {
   id: number;
   __component: string;
   image?: {
-    data: any;
+    data: IImage;
   };
   paragraph?: string;
   description?: string;
