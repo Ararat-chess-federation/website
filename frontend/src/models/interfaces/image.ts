@@ -6,7 +6,30 @@ export interface IImage {
     caption: string | null;
     width: number;
     height: number;
-    formats: any;
+    formats: {
+      thumbnail: {
+        name: string;
+        hash: string;
+        ext: string;
+        mime: string;
+        path: string | null;
+        width: number;
+        height: number;
+        size: number;
+        url: string;
+      };
+      optimized: {
+        name: string;
+        hash: string;
+        ext: string;
+        mime: string;
+        path: string | null;
+        width: number;
+        height: number;
+        size: number;
+        url: string;
+      };
+    };
     hash: string;
     ext: string;
     mime: string;
