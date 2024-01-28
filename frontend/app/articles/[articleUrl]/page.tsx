@@ -19,8 +19,8 @@ export default async function Article({ params }: IArticleParams) {
 
   return (
     <div>
-      <div className="article_image">
-        <div>
+      <div className="article_header">
+        <div className="article_image">
           <Image
             width={500}
             height={200}
@@ -28,7 +28,7 @@ export default async function Article({ params }: IArticleParams) {
             src={getImageSrc(mainImage)}
           />
         </div>
-        <h1>{title}</h1>
+        <h1 className="article_title">{title}</h1>
       </div>
 
       <div>
