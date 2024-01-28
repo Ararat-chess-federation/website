@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Header from "../src/components/header/Header";
+import LeftMenu from "../src/components/leftMenu/LeftMenu";
+import Links from "../src/components/Links/Links";
 import "../styles/variables.css";
 import "../styles/global.css";
 import "./layout.css";
-import LeftMenu from "../src/components/leftMenu/LeftMenu";
-import Image from "next/image";
-import Links from "../src/components/Links/Links";
 
 export const metadata: Metadata = {
   title: "Create Next App",
