@@ -5,13 +5,13 @@ import getData from "../../../src/helpers/getData";
 import { IBranch } from "../../../src/models/interfaces/branch";
 
 interface IBranchParams {
-  params: { branchId: string };
+  params: { branchUrl: string };
 }
 
 export default async function Branch({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
-    searchUrl: params.branchId,
+    searchUrl: params.branchUrl,
   });
 
   return (
