@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Markdown from "react-markdown";
-import getImageSrc from "../../helpers/getImageSrc";
 import { IArticleText } from "../../models/interfaces/article";
 import { IImage } from "../../models/interfaces/image";
 import ImgWithDescription from "../imgWithDescription/ImgWithDescription";
