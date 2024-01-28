@@ -4,13 +4,12 @@ services:
   strapidb-admin:
     image: mariadb
     environment:
-      # TODO: fix env variables to read from env file
-      MYSQL_ROOT_PASSWORD: strapi
-      MYSQL_DATABASE: strapi
-      MYSQL_USER: strapi
-      MYSQL_PASSWORD: strapi
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USERNAME}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - 3306:3306
+      - ${DATABASE_PORT}:${DATABASE_PORT}
 
   php-my-admin:
     image: phpmyadmin
@@ -19,6 +18,6 @@ services:
       - 8080:80
     environment:
       PMA_HOST: strapidb-admin
-      PMA_PORT: 3306
+      PMA_PORT: ${DATABASE_PORT}
     depends_on:
       - strapidb-admin
