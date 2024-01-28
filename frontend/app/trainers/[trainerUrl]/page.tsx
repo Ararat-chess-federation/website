@@ -6,13 +6,13 @@ import "../trainers.css";
 import { ITrainer } from "../../../src/models/interfaces/trainer";
 
 interface ITrainerParams {
-  params: { trainerId: string };
+  params: { trainerUrl: string };
 }
 
 export default async function Trainer({ params }: ITrainerParams) {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
-    searchUrl: params.trainerId,
+    searchUrl: params.trainerUrl,
   });
 
   return (
