@@ -3,6 +3,7 @@ import Link from "next/link";
 import getData from "../../src/helpers/getData";
 import getImageSrc from "../../src/helpers/getImageSrc";
 import { IArticle } from "../../src/models/interfaces/article";
+import Img from "../../src/shared/img/Img";
 import "./Articles.css";
 
 export default async function Articles() {
@@ -14,17 +15,11 @@ export default async function Articles() {
         <div key={el.attributes.url} className="article_card">
           <div className="article_photo">
             <Link href={`/articles/${el.attributes.url}`}>
-              <Image
-                width={150}
-                height={50}
-                src={getImageSrc(el.attributes.mainImage)}
+              <Img
+                width={500}
+                height={300}
+                src={el.attributes.mainImage}
                 alt={el.attributes.url}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                  maxHeight: "300px",
-                }}
               />
             </Link>
           </div>
