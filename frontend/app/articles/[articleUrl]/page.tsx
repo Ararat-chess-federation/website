@@ -2,7 +2,6 @@ import Image from "next/image";
 import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import getData from "../../../src/helpers/getData";
 import getImageSrc from "../../../src/helpers/getImageSrc";
-import { IArticleText } from "../../../src/models/interfaces/articleText";
 import "./Article.css";
 
 interface IArticleParams {
@@ -27,7 +26,7 @@ export default async function Article({ params }: IArticleParams) {
       </div>
 
       <div>
-        {data[0].attributes.articleText.map((el: IArticleText) => (
+        {data[0].attributes.articleText.map((el: any) => (
           <DynamicComponent el={el} />
         ))}
       </div>

@@ -4,7 +4,6 @@ import TrainersList from "../../src/shared/trainersList/TrainersList";
 import Address from "../../src/shared/address/Address";
 import getData from "../../src/helpers/getData";
 import getImageSrc from "../../src/helpers/getImageSrc";
-import { IBranch } from "../../src/models/interfaces/branch";
 import "./branches.css";
 
 export default async function Branches() {
@@ -12,7 +11,7 @@ export default async function Branches() {
 
   return (
     <section>
-      {data.map((el: IBranch) => (
+      {data.map((el: any) => (
         <div key={el.attributes.url} className="branch_card">
           <div className="branch_photo">
             <Link href={`/branches/${el.attributes.url}`}>
