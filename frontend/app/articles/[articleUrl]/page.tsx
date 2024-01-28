@@ -3,30 +3,34 @@ import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicCompon
 import getData from "../../../src/helpers/getData";
 import getImageSrc from "../../../src/helpers/getImageSrc";
 import "./Article.css";
+import { IArticle } from "../../../src/models/interfaces/article";
 
 interface IArticleParams {
   params: { articleUrl: string };
 }
 
 export default async function Article({ params }: IArticleParams) {
-  const { data } = await getData(
+  const { data }: { data: IArticle[] } = await getData(
     `/api/articles?populate=deep&filters[url][$eq]=${params.articleUrl}`
   );
+  console.log(data[0].attributes.mainImage);
 
   return (
     <div>
-      <h1>{data[0].attributes.title}</h1>
       <div className="article_image">
-        <Image
-          width={500}
-          height={200}
-          alt={data[0].attributes.title}
-          src={getImageSrc(data[0].attributes.mainImage)}
-        />
+        <div>
+          <Image
+            width={500}
+            height={200}
+            alt={data[0].attributes.title}
+            src={getImageSrc(data[0].attributes.mainImage)}
+          />
+        </div>
+        <h1>{data[0].attributes.title}</h1>
       </div>
 
       <div>
-        {data[0].attributes.articleText.map((el: any) => (
+        {data[0].attributes.articleText.map((el) => (
           <DynamicComponent el={el} />
         ))}
       </div>

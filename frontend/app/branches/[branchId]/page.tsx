@@ -2,13 +2,14 @@ import TrainersList from "../../../src/shared/trainersList/TrainersList";
 import TrainingDays from "../../../src/shared/trainingDays/TrainingDays";
 import Address from "../../../src/shared/address/Address";
 import getData from "../../../src/helpers/getData";
+import { IBranch } from "../../../src/models/interfaces/branch";
 
 interface IBranchParams {
   params: { branchId: string };
 }
 
 export default async function Branch({ params }: IBranchParams) {
-  const { data } = await getData(
+  const { data }: { data: IBranch[] } = await getData(
     `/api/branches?populate=deep&filters[url][$eq]=${params.branchId}`
   );
 

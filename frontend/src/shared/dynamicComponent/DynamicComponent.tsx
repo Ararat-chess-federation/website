@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Markdown from "react-markdown";
 import getImageSrc from "../../helpers/getImageSrc";
+import { IArticleText } from "../../models/interfaces/article";
+import { IImage } from "../../models/interfaces/image";
 
 interface IDynamicComponent {
-  el: {
-    __component: string;
-    [key: string]: any;
-  };
+  el: IArticleText;
   idx?: number;
 }
 
@@ -21,8 +20,8 @@ export default function DynamicComponent({ el, idx }: IDynamicComponent) {
           <Image
             width={100}
             height={100}
-            src={getImageSrc(el?.image)}
-            alt={el.description}
+            src={getImageSrc(el.image as { data: IImage })}
+            alt={el.description as string}
           />
           <figcaption>{el.description}</figcaption>
         </figure>
