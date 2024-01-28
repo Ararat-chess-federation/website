@@ -26,7 +26,7 @@ export default function Img({
       alt={alt}
       src={getImageSrc(src)}
       className={className}
-      priority
+      priority={priority}
       style={{
         aspectRatio: width / height,
         width: "100%",
