@@ -12,28 +12,32 @@ export default async function Branches() {
 
   return (
     <section>
-      {data.map((el) => (
-        <div key={el.attributes.fullName} className="trainer_card">
-          <Link href={`/trainers/${el.attributes.url}`}>
-            <Img
-              width={100}
-              height={100}
-              src={el.attributes.profilePhoto}
-              alt={el.attributes.fullName}
-              className="trainer_img"
-              priority={true}
-            />
-          </Link>
+      {data.map(({ attributes }) => {
+        const { fullName, url, profilePhoto, branches } = attributes;
 
-          <div className="trainer_info">
-            <Link href={`/trainers/${el.attributes.url}`}>
-              <h2 className="trainer_name">{el.attributes.fullName}</h2>
+        return (
+          <div key={fullName} className="trainer_card">
+            <Link href={`/trainers/${url}`}>
+              <Img
+                width={100}
+                height={100}
+                src={profilePhoto}
+                alt={fullName}
+                className="trainer_img"
+                priority={true}
+              />
             </Link>
 
-            <BranchesList branches={el.attributes.branches.data} />
+            <div className="trainer_info">
+              <Link href={`/trainers/${url}`}>
+                <h2 className="trainer_name">{fullName}</h2>
+              </Link>
+
+              <BranchesList branches={branches.data} />
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </section>
   );
 }
