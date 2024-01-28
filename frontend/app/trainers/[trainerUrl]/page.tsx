@@ -2,8 +2,8 @@ import Markdown from "react-markdown";
 import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
 import getData from "../../../src/helpers/getData";
-import "../trainers.css";
 import { ITrainer } from "../../../src/models/interfaces/trainer";
+import "../trainers.css";
 
 interface ITrainerParams {
   params: { trainerUrl: string };
@@ -15,15 +15,17 @@ export default async function Trainer({ params }: ITrainerParams) {
     searchUrl: params.trainerUrl,
   });
 
+  const { fullName, phoneNumber, branches, bio } = data[0].attributes;
+
   return (
     <div>
-      <h1>{data[0].attributes.fullName}</h1>
+      <h1>{fullName}</h1>
 
-      <PhoneNumber phoneNumber={data[0].attributes.phoneNumber} />
-      <BranchesList branches={data[0].attributes.branches.data} />
+      <PhoneNumber phoneNumber={phoneNumber} />
+      <BranchesList branches={branches.data} />
 
       <h2>Կենսագրություն</h2>
-      <Markdown>{data[0].attributes.bio}</Markdown>
+      <Markdown>{bio}</Markdown>
     </div>
   );
 }

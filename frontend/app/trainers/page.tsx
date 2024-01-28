@@ -8,7 +8,6 @@ import "./trainers.css";
 
 export default async function Branches() {
   const { data }: { data: ITrainer[] } = await getData({ type: "trainers" });
-  console.log(data);
 
   return (
     <section>
