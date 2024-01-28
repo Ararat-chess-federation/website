@@ -1,6 +1,7 @@
 import Image from "next/image";
 import getImageSrc from "../../helpers/getImageSrc";
 import { IImage } from "../../models/interfaces/image";
+import Img from "../img/Img";
 
 interface IImgWithDescriptionProps {
   description: string;
@@ -15,12 +16,7 @@ export default function ImgWithDescription({
 }: IImgWithDescriptionProps) {
   return (
     <figure key={idx}>
-      <Image
-        width={100}
-        height={100}
-        src={getImageSrc(image)}
-        alt={description as string}
-      />
+      <Img width={200} height={200} src={image} alt={description} />
       <figcaption>{description}</figcaption>
     </figure>
   );
