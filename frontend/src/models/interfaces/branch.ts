@@ -1,3 +1,7 @@
+import { IArticleText } from "./article";
+import { IImage } from "./image";
+import { ITrainer } from "./trainer";
+
 export interface IBranch {
   id: number;
   attributes: {
@@ -8,8 +12,8 @@ export interface IBranch {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    trainers: any;
-    mainImage: any;
-    description: any;
+    trainers: { data: ITrainer[] };
+    mainImage: { data: IImage };
+    description: IArticleText[];
   };
 }
