@@ -5,13 +5,16 @@ import Address from "../../src/shared/address/Address";
 import getData from "../../src/helpers/getData";
 import getImageSrc from "../../src/helpers/getImageSrc";
 import "./branches.css";
+import { IBranch } from "../../src/models/interfaces/branch";
 
 export default async function Branches() {
-  const { data } = await getData("/api/branches?populate=deep");
+  const { data }: { data: IBranch[] } = await getData(
+    "/api/branches?populate=deep"
+  );
 
   return (
     <section>
-      {data.map((el: any) => (
+      {data.map((el) => (
         <div key={el.attributes.url} className="branch_card">
           <div className="branch_photo">
             <Link href={`/branches/${el.attributes.url}`}>
