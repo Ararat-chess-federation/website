@@ -1,3 +1,6 @@
+import { IBranch } from "./branch";
+import { IImage } from "./image";
+
 export interface ITrainer {
   id: number;
   attributes: {
@@ -8,7 +11,7 @@ export interface ITrainer {
     createdAt: string;
     updatedAt: string;
     publishedAt: string;
-    branches: any;
-    profilePhoto: any;
+    branches: { data: IBranch[] };
+    profilePhoto: { data: IImage };
   };
 }
