@@ -4,8 +4,8 @@ import TrainersList from "../../src/shared/trainersList/TrainersList";
 import Address from "../../src/shared/address/Address";
 import getData from "../../src/helpers/getData";
 import getImageSrc from "../../src/helpers/getImageSrc";
-import "./branches.css";
 import { IBranch } from "../../src/models/interfaces/branch";
+import "./branches.css";
 
 export default async function Branches() {
   const { data }: { data: IBranch[] } = await getData({ type: "branches" });

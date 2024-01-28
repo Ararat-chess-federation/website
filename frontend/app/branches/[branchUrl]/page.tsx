@@ -14,11 +14,13 @@ export default async function Branch({ params }: IBranchParams) {
     searchUrl: params.branchUrl,
   });
 
+  const { title, address, trainers } = data[0].attributes;
+
   return (
     <div>
-      <h1>{data[0].attributes.title}</h1>
-      <Address address={data[0].attributes.address} />
-      <TrainersList trainers={data[0].attributes.trainers.data} />
+      <h1>{title}</h1>
+      <Address address={address} />
+      <TrainersList trainers={trainers.data} />
 
       <TrainingDays attributes={data[0].attributes} />
     </div>
