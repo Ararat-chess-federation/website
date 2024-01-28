@@ -7,9 +7,8 @@ interface IDataParams {
 export default async function getData({ type, searchUrl }: IDataParams) {
   try {
     const url = getUrl({ type, searchUrl });
-    console.log(url);
-
     const res = await fetch(`${process.env.BACKEND_URL}/api${url}`);
+
     return res.json();
   } catch (e) {
     return { e };
