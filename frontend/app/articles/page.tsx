@@ -6,9 +6,7 @@ import { IArticle } from "../../src/models/interfaces/article";
 import "./Articles.css";
 
 export default async function Articles() {
-  const { data }: { data: IArticle[] } = await getData(
-    "/api/articles?populate=deep"
-  );
+  const { data }: { data: IArticle[] } = await getData({ type: "articles" });
 
   return (
     <section className="articles_container">

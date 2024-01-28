@@ -10,9 +10,10 @@ interface IArticleParams {
 }
 
 export default async function Article({ params }: IArticleParams) {
-  const { data }: { data: IArticle[] } = await getData(
-    `/api/articles?populate=deep&filters[url][$eq]=${params.articleUrl}`
-  );
+  const { data }: { data: IArticle[] } = await getData({
+    type: "articles",
+    searchUrl: params.articleUrl,
+  });
   console.log(data[0].attributes.mainImage);
 
   return (

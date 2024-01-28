@@ -7,9 +7,7 @@ import { ITrainer } from "../../src/models/interfaces/trainer";
 import "./trainers.css";
 
 export default async function Branches() {
-  const { data }: { data: ITrainer[] } = await getData(
-    "/api/trainers?populate=deep"
-  );
+  const { data }: { data: ITrainer[] } = await getData({ type: "trainers" });
   console.log(data);
 
   return (

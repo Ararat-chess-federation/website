@@ -9,9 +9,10 @@ interface IBranchParams {
 }
 
 export default async function Branch({ params }: IBranchParams) {
-  const { data }: { data: IBranch[] } = await getData(
-    `/api/branches?populate=deep&filters[url][$eq]=${params.branchId}`
-  );
+  const { data }: { data: IBranch[] } = await getData({
+    type: "branches",
+    searchUrl: params.branchId,
+  });
 
   return (
     <div>

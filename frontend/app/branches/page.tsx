@@ -8,9 +8,7 @@ import "./branches.css";
 import { IBranch } from "../../src/models/interfaces/branch";
 
 export default async function Branches() {
-  const { data }: { data: IBranch[] } = await getData(
-    "/api/branches?populate=deep"
-  );
+  const { data }: { data: IBranch[] } = await getData({ type: "branches" });
 
   return (
     <section>

@@ -3,9 +3,7 @@ import getData from "../../src/helpers/getData";
 import { IAboutData } from "../../src/models/interfaces/about";
 
 export default async function About() {
-  const { data }: { data: IAboutData } = await getData(
-    "/api/about?populate=deep"
-  );
+  const { data }: { data: IAboutData } = await getData({ type: "about" });
   const { about } = data.attributes;
 
   return (
