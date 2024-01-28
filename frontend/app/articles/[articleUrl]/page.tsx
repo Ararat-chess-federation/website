@@ -2,8 +2,8 @@ import Image from "next/image";
 import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
 import getData from "../../../src/helpers/getData";
 import getImageSrc from "../../../src/helpers/getImageSrc";
-import "./Article.css";
 import { IArticle } from "../../../src/models/interfaces/article";
+import "./Article.css";
 
 interface IArticleParams {
   params: { articleUrl: string };
@@ -14,7 +14,8 @@ export default async function Article({ params }: IArticleParams) {
     type: "articles",
     searchUrl: params.articleUrl,
   });
-  console.log(data[0].attributes.mainImage);
+
+  const { title, mainImage, articleText, fbPost } = data[0].attributes;
 
   return (
     <div>
@@ -23,21 +24,21 @@ export default async function Article({ params }: IArticleParams) {
           <Image
             width={500}
             height={200}
-            alt={data[0].attributes.title}
-            src={getImageSrc(data[0].attributes.mainImage)}
+            alt={title}
+            src={getImageSrc(mainImage)}
           />
         </div>
-        <h1>{data[0].attributes.title}</h1>
+        <h1>{title}</h1>
       </div>
 
       <div>
-        {data[0].attributes.articleText.map((el) => (
+        {articleText.map((el) => (
           <DynamicComponent el={el} />
         ))}
       </div>
 
       <div>
-        <a target="_blank" href={data[0].attributes.fbPost}>
+        <a target="_blank" href={fbPost}>
           Ֆոտոշարք
         </a>
       </div>
