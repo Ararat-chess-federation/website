@@ -6,7 +6,10 @@ import Img from "../../src/shared/img/Img";
 import "./Articles.css";
 
 export default async function Articles() {
-  const { data }: { data: IArticle[] } = await getData({ type: "articles" });
+  const { data }: { data: IArticle[] } = await getData({
+    type: "articles",
+    params: "sort[0]=publishDate:desc",
+  });
 
   if (!data?.length) {
     return <DataNotFound />;
