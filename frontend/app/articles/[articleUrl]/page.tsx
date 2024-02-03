@@ -9,6 +9,10 @@ interface IArticleParams {
   params: { articleUrl: string };
 }
 
+export const metadata = {
+  title: "",
+};
+
 export default async function Article({ params }: IArticleParams) {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
@@ -20,6 +24,7 @@ export default async function Article({ params }: IArticleParams) {
   }
 
   const { title, mainImage, articleText, fbPost } = data[0].attributes;
+  metadata.title = title + " | Արարատի մարզի շախմատի ֆեդերացիա";
 
   return (
     <div>
