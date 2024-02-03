@@ -7,6 +7,10 @@ import getData from "../../src/helpers/getData";
 import { IBranch } from "../../src/models/interfaces/branch";
 import "./branches.css";
 
+export const metadata = {
+  title: "Մասնաճյուղեր | Արարատի մարզի շախմատի ֆեդերացիա",
+};
+
 export default async function Branches() {
   const { data }: { data: IBranch[] } = await getData({ type: "branches" });
 
