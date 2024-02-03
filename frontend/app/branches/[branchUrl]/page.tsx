@@ -9,6 +9,10 @@ interface IBranchParams {
   params: { branchUrl: string };
 }
 
+export const metadata = {
+  title: "",
+};
+
 export default async function Branch({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
@@ -20,6 +24,7 @@ export default async function Branch({ params }: IBranchParams) {
   }
 
   const { title, address, trainers } = data[0].attributes;
+  metadata.title = title + " | Արարատի մարզի շախմատի ֆեդերացիա";
 
   return (
     <div>
