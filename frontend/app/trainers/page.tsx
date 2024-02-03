@@ -6,6 +6,10 @@ import getData from "../../src/helpers/getData";
 import { ITrainer } from "../../src/models/interfaces/trainer";
 import "./trainers.css";
 
+export const metadata = {
+  title: "Մարզիչներ | Արարատի մարզի շախմատի ֆեդերացիա",
+};
+
 export default async function Branches() {
   const { data }: { data: ITrainer[] } = await getData({ type: "trainers" });
 
