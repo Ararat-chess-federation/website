@@ -5,6 +5,10 @@ import { IArticle } from "../../src/models/interfaces/article";
 import Img from "../../src/shared/img/Img";
 import "./Articles.css";
 
+export const metadata = {
+  title: "Նորություններ | Արարատի մարզի շախմատի ֆեդերացիա",
+};
+
 export default async function Articles() {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
