@@ -10,6 +10,10 @@ interface ITrainerParams {
   params: { trainerUrl: string };
 }
 
+export const metadata = {
+  title: "",
+};
+
 export default async function Trainer({ params }: ITrainerParams) {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
@@ -21,6 +25,7 @@ export default async function Trainer({ params }: ITrainerParams) {
   }
 
   const { fullName, phoneNumber, branches, bio } = data[0].attributes;
+  metadata.title = fullName;
 
   return (
     <div>
