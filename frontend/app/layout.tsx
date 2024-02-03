@@ -4,9 +4,11 @@ import Links from "../src/components/Links/Links";
 import "../styles/variables.css";
 import "../styles/global.css";
 import "./layout.css";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Արարատի մարզի շախմատի ֆեդերացիա",
+  description: "Արարատի մարզի շախմատի ֆեդերացիա",
 };
 
 interface ILayout {
