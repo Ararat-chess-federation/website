@@ -3,6 +3,10 @@ import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IAboutData } from "../../src/models/interfaces/about";
 
+export const metadata = {
+  title: "Մեր մասին | Արարատի մարզի շախմատի ֆեդերացիա",
+};
+
 export default async function About() {
   const { data }: { data: IAboutData } = await getData({ type: "about" });
 
