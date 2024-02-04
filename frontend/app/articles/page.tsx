@@ -21,6 +21,14 @@ export default async function Articles() {
 
   return (
     <section className="articles_container">
+      <ArticleList data={data} />
+    </section>
+  );
+}
+
+export function ArticleList({ data }: { data: IArticle[] }) {
+  return (
+    <>
       {data.map(({ attributes }) => {
         const { url, mainImage, title } = attributes;
 
@@ -40,6 +48,6 @@ export default async function Articles() {
           </div>
         );
       })}
-    </section>
+    </>
   );
 }
