@@ -1,10 +1,9 @@
-import Image from "next/image";
 import getData from "../src/helpers/getData";
 import { IArticle } from "../src/models/interfaces/article";
 import { ArticleList } from "./articles/page";
-import "./Home.css";
-import defaultExample from "../public/defaultExample.webp";
 import MoreButton from "../src/components/moreButton/MoreButton";
+import ShortInfo from "../src/components/shortInfo/ShortInfo";
+import "./Home.css";
 
 export default async function Home() {
   const { meta: trainersMeta }: { meta: any } = await getData({
@@ -32,35 +31,16 @@ export default async function Home() {
         <MoreButton link="/articles" />
       </div>
       <section className="region_info">
-        <div className="short_info_container">
-          <div>
-            <h2>Մասնաճյուղեր</h2>
-          </div>
-          <div className="short_info">
-            <Image src={defaultExample} alt="Chess board" />
-            <span className="short_info_text">
-              Արարատի մարզի բոլոր համայնքներում ընհանուր առմամբ գործում է{" "}
-              {branchesMeta.pagination.total} մասնաճյուղ, որտեղ շախմատի
-              պարապմունքների են հաճախում ավելի քան 1000 երեխա
-            </span>
-          </div>
-          <MoreButton link="/branches" />
-        </div>
-
-        <div className="short_info_container">
-          <div>
-            <h2>Մարզիչներ</h2>
-          </div>
-          <div className="short_info">
-            <Image src={defaultExample} alt="Chess board" />
-            <span className="short_info_text">
-              Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում ընհանուր առմամբ
-              աշխատում է {trainersMeta.pagination.total} մարզիչ, ովքեր իրենց
-              փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։
-            </span>
-          </div>
-          <MoreButton link="/trainers" />
-        </div>
+        <ShortInfo
+          title="Մասնաճյուղեր"
+          data={branchesMeta.pagination.total}
+          link="/branches"
+        />
+        <ShortInfo
+          title="Մարզիչներ"
+          data={trainersMeta.pagination.total}
+          link="/trainers"
+        />
       </section>
     </main>
   );
