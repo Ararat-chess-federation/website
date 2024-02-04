@@ -25,11 +25,10 @@
 .more_button_container{
   display: flex;
   justify-content: end;
+  padding: 8px;
 }
 
 .more_button {
-  /* display: flex; */
-  /* justify-content: end; */
   background-color: var(--primary-color);
   color: var(--secondary-color);
   padding: 8px 16px;
