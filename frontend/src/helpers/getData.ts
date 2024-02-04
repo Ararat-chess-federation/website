@@ -1,6 +1,7 @@
 type IUrlTypes = "about" | "articles" | "branches" | "trainers";
 interface IDataParams {
   type: IUrlTypes;
+  populate?: string;
   searchUrl?: string;
   params?: string;
 }
@@ -9,9 +10,10 @@ export default async function getData({
   type,
   searchUrl,
   params,
+  populate = "deep",
 }: IDataParams) {
   try {
-    const url = getUrl({ type, searchUrl, params });
+    const url = getUrl({ type, searchUrl, params, populate });
     const res = await fetch(`${process.env.BACKEND_URL}/api${url}`);
 
     return res.json();
@@ -20,8 +22,8 @@ export default async function getData({
   }
 }
 
-function getUrl({ type, searchUrl, params }: IDataParams) {
+function getUrl({ type, searchUrl, params, populate }: IDataParams) {
   return searchUrl
-    ? `/${type}?populate=deep&filters[url][$eq]=${searchUrl}&${params}`
-    : `/${type}?populate=deep&${params}`;
+    ? `/${type}?populate=${populate}&filters[url][$eq]=${searchUrl}&${params}`
+    : `/${type}?populate=${populate}&${params}`;
 }
