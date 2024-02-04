@@ -4,7 +4,7 @@ import { IArticle } from "../src/models/interfaces/article";
 import { ArticleList } from "./articles/page";
 import "./Home.css";
 import defaultExample from "../public/defaultExample.webp";
-import Link from "next/link";
+import MoreButton from "../src/components/moreButton/MoreButton";
 
 export default async function Home() {
   const { meta: trainersMeta }: { meta: any } = await getData({
@@ -29,11 +29,7 @@ export default async function Home() {
         <section className="articles_container">
           <ArticleList data={articles} />
         </section>
-        <div className="more_button_container">
-          <span className="more_button">
-            <Link href="/articles">Ավելին</Link>
-          </span>
-        </div>
+        <MoreButton link="/articles" />
       </div>
       <section className="region_info">
         <div className="short_info_container">
@@ -48,11 +44,7 @@ export default async function Home() {
               պարապմունքների են հաճախում ավելի քան 1000 երեխա
             </span>
           </div>
-          <div className="more_button_container">
-            <span className="more_button">
-              <Link href="/articles">Ավելին</Link>
-            </span>
-          </div>
+          <MoreButton link="/branches" />
         </div>
 
         <div className="short_info_container">
@@ -67,11 +59,7 @@ export default async function Home() {
               փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։
             </span>
           </div>
-          <div className="more_button_container">
-            <span className="more_button">
-              <Link href="/articles">Ավելին</Link>
-            </span>
-          </div>
+          <MoreButton link="/trainers" />
         </div>
       </section>
     </main>
