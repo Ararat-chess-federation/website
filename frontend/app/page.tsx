@@ -1,8 +1,8 @@
 import getData from "../src/helpers/getData";
-import { IArticle } from "../src/models/interfaces/article";
 import { ArticleList } from "./articles/page";
 import MoreButton from "../src/components/moreButton/MoreButton";
 import ShortInfo from "../src/components/shortInfo/ShortInfo";
+import { IArticle } from "../src/models/interfaces/article";
 import "./Home.css";
 
 export default async function Home() {
@@ -31,16 +31,8 @@ export default async function Home() {
         <MoreButton link="/articles" />
       </div>
       <section className="region_info">
-        <ShortInfo
-          title="Մասնաճյուղեր"
-          data={branchesMeta.pagination.total}
-          link="/branches"
-        />
-        <ShortInfo
-          title="Մարզիչներ"
-          data={trainersMeta.pagination.total}
-          link="/trainers"
-        />
+        <ShortInfo type="branches" count={branchesMeta.pagination.total} />
+        <ShortInfo type="trainers" count={trainersMeta.pagination.total} />
       </section>
     </main>
   );
