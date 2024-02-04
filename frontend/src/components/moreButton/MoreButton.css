@@ -1,0 +1,12 @@
+.more_button_container {
+  display: flex;
+  justify-content: end;
+  padding: 8px;
+}
+
+.more_button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+}
