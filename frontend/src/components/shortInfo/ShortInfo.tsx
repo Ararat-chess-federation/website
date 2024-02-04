@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { use } from "react";
 import defaultExample from "../../../public/defaultExample.webp";
+import getData from "../../helpers/getData";
 import MoreButton from "../moreButton/MoreButton";
 import "./ShortInfo.css";
 
@@ -10,7 +12,12 @@ export default function ShortInfo({
   type: "trainers" | "branches";
   count: number;
 }) {
-  const { title, text } = getData(type, count);
+  const res = getData({
+    type: "trainers",
+    params: "pagination[limit]=2",
+  });
+  const data = use(res);
+  const { title, text } = getInfo(type, count);
 
   return (
     <div className="short_info_container">
@@ -26,7 +33,7 @@ export default function ShortInfo({
   );
 }
 
-function getData(type: "trainers" | "branches", count: number) {
+function getInfo(type: "trainers" | "branches", count: number) {
   const data = {
     trainers: {
       title: "Մարզիչներ",
