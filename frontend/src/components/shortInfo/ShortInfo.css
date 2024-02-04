@@ -1,0 +1,19 @@
+.short_info_container {
+  width: 50%;
+}
+
+.short_info {
+  display: flex;
+  width: 100%;
+  padding: 8px;
+}
+
+.short_info_text {
+  padding-left: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .short_info_container {
+    width: 100%;
+  }
+}
