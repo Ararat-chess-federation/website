@@ -1,0 +1,29 @@
+.loading_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  perspective: 1000px;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2.8rem;
+  background-color: var(--primary-color);
+  animation: 3s linear infinite spin forwards;
+}
+
+@keyframes spin {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotateY(360deg);
+  }
+  70% {
+    transform: rotateX(360deg);
+  }
+}
