@@ -1,0 +1,17 @@
+.error_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.phone_number_link {
+  text-decoration: underline;
+}
+
+.update_button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 8px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}

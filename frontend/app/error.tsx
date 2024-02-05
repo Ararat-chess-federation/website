@@ -1,6 +1,7 @@
-"use client"; // Error components must be Client Components
+"use client";
 
 import { useEffect } from "react";
+import "./Error.css";
 
 export default function Error({
   error,
@@ -14,15 +15,14 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
-      <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
+    <div className="error_container">
+      <h2>Ինչ-որ բան սխալ է գնացել</h2>
+      <p>
+        Փորձեք թարմացնել էջը, կրկին սխալ ստանալու դեպքում խնդրում ենք զանգահարել{" "}
+        <a className="phone_number_link" href={`tel:+37498339020`}>098339020</a> կամ գրել մեր ֆեյսբուքյան էջին
+      </p>
+      <button className="update_button" onClick={() => reset()}>
+        Թարմացնել
       </button>
     </div>
   );
