@@ -1,11 +1,3 @@
-import "./Loading.css";
+import Loading from "../src/components/loading/loading";
 
-export default function Loading() {
-  return (
-    <div className="loading_container">
-      <div className="wrapper">
-        <div className="spinner"></div>
-      </div>
-    </div>
-  );
-}
+export default Loading;
