@@ -6,14 +6,6 @@ import { IArticle } from "../src/models/interfaces/article";
 import "./Home.css";
 
 export default async function Home() {
-  const { meta: trainersMeta }: { meta: any } = await getData({
-    type: "trainers",
-    params: "pagination[limit]=2",
-  });
-  const { meta: branchesMeta }: { meta: any } = await getData({
-    type: "branches",
-    params: "pagination[limit]=2",
-  });
   const { data: articles }: { data: IArticle[] } = await getData({
     type: "articles",
     params: "sort[0]=publishDate:desc&pagination[limit]=2",
@@ -31,8 +23,8 @@ export default async function Home() {
         <MoreButton link="/articles" />
       </div>
       <section className="region_info">
-        <ShortInfo type="branches" count={branchesMeta.pagination.total} />
-        <ShortInfo type="trainers" count={trainersMeta.pagination.total} />
+        <ShortInfo type="branches" />
+        <ShortInfo type="trainers" />
       </section>
     </main>
   );

@@ -5,19 +5,14 @@ import getData from "../../helpers/getData";
 import MoreButton from "../moreButton/MoreButton";
 import "./ShortInfo.css";
 
-export default function ShortInfo({
-  type,
-  count,
-}: {
-  type: "trainers" | "branches";
-  count: number;
-}) {
+export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
   const res = getData({
-    type: "trainers",
+    type: type,
     params: "pagination[limit]=2",
   });
-  const data = use(res);
-  const { title, text } = getInfo(type, count);
+
+  const { meta } = use(res);
+  const { title, text } = getInfo(type, meta.pagination.total);
 
   return (
     <div className="short_info_container">
