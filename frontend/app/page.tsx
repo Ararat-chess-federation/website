@@ -4,12 +4,17 @@ import MoreButton from "../src/components/moreButton/MoreButton";
 import ShortInfo from "../src/components/shortInfo/ShortInfo";
 import { IArticle } from "../src/models/interfaces/article";
 import "./Home.css";
+import NotFound from "./not-found";
 
 export default async function Home() {
   const { data: articles }: { data: IArticle[] } = await getData({
     type: "articles",
     params: "sort[0]=publishDate:desc&pagination[limit]=2",
   });
+
+  if(!articles?.length){
+    return <NotFound />
+  }
 
   return (
     <main>
