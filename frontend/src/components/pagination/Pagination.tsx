@@ -8,12 +8,12 @@ interface IPagination {
   basePath: string;
 }
 
-const Pagination = ({
+export default function Pagination({
   currentPage,
   totalCount,
   pageSize,
   basePath,
-}: IPagination) => {
+}: IPagination) {
   const totalPages = Math.ceil(totalCount / pageSize);
   const getPages = () => {
     const endNumber = totalPages - 2;
@@ -82,6 +82,4 @@ const Pagination = ({
       )}
     </div>
   );
-};
-
-export default Pagination;
+}
