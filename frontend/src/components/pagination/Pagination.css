@@ -1,6 +1,7 @@
 .pagination {
   display: flex;
   list-style: none;
+  padding-top: 32px;
 }
 
 .prev,
@@ -9,11 +10,12 @@
   margin: 0 5px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary-color);
+  border-radius: 8px; 
 }
 
 .pageNumber[data-active="page"] {
-  background-color: #0070f3;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   border-color: #0070f3;
 }
