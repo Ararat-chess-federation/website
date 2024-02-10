@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Pagination from "../../src/components/pagination/Pagination";
 import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
@@ -9,10 +10,21 @@ export const metadata = {
   title: "Նորություններ | Արարատի մարզի շախմատի ֆեդերացիա",
 };
 
-export default async function Articles() {
-  const { data }: { data: IArticle[] } = await getData({
+interface ISearchParams {
+  searchParams: {
+    page: string;
+  };
+}
+
+export default async function Articles({ searchParams }: ISearchParams) {
+  const pageSize = 10;
+  const page = Number(searchParams.page) || 1;
+
+  const pageStart = (page - 1) * 10;
+
+  const { data, meta }: { data: IArticle[]; meta: any } = await getData({
     type: "articles",
-    params: "sort[0]=publishDate:desc",
+    params: `sort[0]=publishDate:desc&pagination[start]=${pageStart}&pagination[limit]=${pageSize}`,
   });
 
   if (!data?.length) {
@@ -22,6 +34,12 @@ export default async function Articles() {
   return (
     <section className="articles_container">
       <ArticleList data={data} />
+      <Pagination
+        basePath="/articles"
+        currentPage={Number(page)}
+        pageSize={pageSize}
+        totalCount={meta.pagination.total}
+      />
     </section>
   );
 }
