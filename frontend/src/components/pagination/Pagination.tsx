@@ -32,7 +32,7 @@ export default function Pagination({
     <div className="pagination">
       {currentPage > 1 && (
         <Link href={`${basePath}?page=${currentPage - 1}`}>
-          <span className="prev">Previous</span>
+          <span className="prev">Նախորդ</span>
         </Link>
       )}
 
@@ -54,7 +54,7 @@ export default function Pagination({
 
       {currentPage < totalPages && (
         <Link href={`${basePath}?page=${currentPage + 1}`}>
-          <span className="next">Next</span>
+          <span className="next">Հաջորդ</span>
         </Link>
       )}
     </div>
