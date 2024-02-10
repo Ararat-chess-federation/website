@@ -11,11 +11,24 @@
   padding: 5px 10px;
   text-decoration: none;
   border: 1px solid var(--primary-color);
-  border-radius: 8px; 
+  border-radius: 8px;
 }
 
 .pageNumber[data-active="page"] {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   border-color: #0070f3;
+}
+
+@media only screen and (max-width: 768px) {
+  .pagination {
+    font-size: 12px;
+  }
+
+  .prev,
+  .next,
+  .pageNumber {
+    margin: 0 2px;
+    padding: 4px 8px;
+  }
 }
