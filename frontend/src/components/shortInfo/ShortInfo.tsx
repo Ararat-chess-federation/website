@@ -12,6 +12,11 @@ export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
   });
 
   const { meta } = use(res);
+
+  if (!meta) {
+    return null;
+  }
+
   const { title, text } = getInfo(type, meta.pagination.total);
 
   return (
