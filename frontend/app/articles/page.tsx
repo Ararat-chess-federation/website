@@ -17,7 +17,7 @@ interface ISearchParams {
 }
 
 export default async function Articles({ searchParams }: ISearchParams) {
-  const pageSize = 1;
+  const pageSize = 10;
   const page = Number(searchParams.page) || 1;
 
   const pageStart = (page - 1) * pageSize;
