@@ -19,15 +19,16 @@ const Pagination = ({
     const endNumber = totalPages - 2;
     const startNumber =
       currentPage < endNumber - 2 ? currentPage - 1 : endNumber - 3;
-    const isHasDots = totalCount - startNumber > 5;
+    const isHasDots = totalPages - startNumber > 5;
 
     return {
       startNumber: startNumber > 1 ? startNumber : 1,
-      endNumber,
+      endNumber: endNumber > 0 ? endNumber : 1,
       isHasDots,
     };
   };
   const { startNumber, endNumber, isHasDots } = getPages();
+  console.log({ ...getPages(), totalPages, totalCount });
 
   return (
     <div className="pagination">
@@ -49,7 +50,7 @@ const Pagination = ({
               className="pageNumber"
               data-active={page === currentPage ? "page" : undefined}
             >
-              {page}
+              {page} start
             </span>
           </Link>
         );
@@ -59,17 +60,17 @@ const Pagination = ({
 
       {Array.from(
         {
-          length: totalPages - endNumber < 2 ? totalPages - endNumber : 3,
+          length: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 3,
         },
         (_, idx) => endNumber + idx
-      ).map((page, index) => {
+      ).map((page, index, arr) => {
         return (
           <Link key={index} href={`${basePath}?page=${page}`}>
             <span
               className="pageNumber"
               data-active={page === currentPage ? "page" : undefined}
             >
-              {page}
+              {page} end
             </span>
           </Link>
         );
