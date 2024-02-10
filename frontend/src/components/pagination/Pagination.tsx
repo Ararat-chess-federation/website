@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getLengths, getPages } from "./pagination.helpers";
 import "./Pagination.css";
 
 interface IPagination {
@@ -16,29 +17,16 @@ export default function Pagination({
 }: IPagination) {
   const totalPages = Math.ceil(totalCount / pageSize);
 
-  const getPages = () => {
-    const endNumber = totalPages - 2;
-    const startNumber =
-      currentPage < endNumber - 2 ? currentPage - 1 : endNumber - 3;
-    const isHasDots = totalPages - startNumber > 5;
+  const { startNumber, endNumber, isHasDots } = getPages(
+    totalPages,
+    currentPage
+  );
 
-    return {
-      startNumber: startNumber > 1 ? startNumber : 1,
-      endNumber: endNumber > 0 ? endNumber : 1,
-      isHasDots,
-    };
-  };
-
-  const { startNumber, endNumber, isHasDots } = getPages();
-
-  const getLengths = () => {
-    return {
-      startLength: endNumber - startNumber < 3 ? endNumber - startNumber : 3,
-      endLength: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 3,
-    };
-  };
-
-  const { startLength, endLength } = getLengths();
+  const { startLength, endLength } = getLengths(
+    totalPages,
+    startNumber,
+    endNumber
+  );
 
   return (
     <div className="pagination">
