@@ -15,6 +15,7 @@ export default function Pagination({
   basePath,
 }: IPagination) {
   const totalPages = Math.ceil(totalCount / pageSize);
+
   const getPages = () => {
     const endNumber = totalPages - 2;
     const startNumber =
@@ -27,7 +28,17 @@ export default function Pagination({
       isHasDots,
     };
   };
+
   const { startNumber, endNumber, isHasDots } = getPages();
+
+  const getLengths = () => {
+    return {
+      startLength: endNumber - startNumber < 3 ? endNumber - startNumber : 3,
+      endLength: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 3,
+    };
+  };
+
+  const { startLength, endLength } = getLengths();
 
   return (
     <div className="pagination">
@@ -37,43 +48,21 @@ export default function Pagination({
         </Link>
       )}
 
-      {Array.from(
-        {
-          length: endNumber - startNumber < 3 ? endNumber - startNumber : 3,
-        },
-        (_, idx) => startNumber + idx
-      ).map((page, index) => {
-        return (
-          <Link key={index} href={`${basePath}?page=${page}`}>
-            <span
-              className="pageNumber"
-              data-active={page === currentPage ? "page" : undefined}
-            >
-              {page}
-            </span>
-          </Link>
-        );
-      })}
+      <PagesNumbers
+        basePath={basePath}
+        currentPage={currentPage}
+        length={startLength}
+        number={startNumber}
+      />
 
       {isHasDots && "..."}
 
-      {Array.from(
-        {
-          length: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 3,
-        },
-        (_, idx) => endNumber + idx
-      ).map((page, index) => {
-        return (
-          <Link key={index} href={`${basePath}?page=${page}`}>
-            <span
-              className="pageNumber"
-              data-active={page === currentPage ? "page" : undefined}
-            >
-              {page}
-            </span>
-          </Link>
-        );
-      })}
+      <PagesNumbers
+        basePath={basePath}
+        currentPage={currentPage}
+        length={endLength}
+        number={endNumber}
+      />
 
       {currentPage < totalPages && (
         <Link href={`${basePath}?page=${currentPage + 1}`}>
@@ -81,5 +70,36 @@ export default function Pagination({
         </Link>
       )}
     </div>
+  );
+}
+
+interface IPagesNumber {
+  number: number;
+  basePath: string;
+  currentPage: number;
+  length: number;
+}
+
+function PagesNumbers({ number, basePath, currentPage, length }: IPagesNumber) {
+  return (
+    <>
+      {Array.from(
+        {
+          length,
+        },
+        (_, idx) => number + idx
+      ).map((page, index) => {
+        return (
+          <Link key={index} href={`${basePath}?page=${page}`}>
+            <span
+              className="pageNumber"
+              data-active={page === currentPage ? "page" : undefined}
+            >
+              {page}
+            </span>
+          </Link>
+        );
+      })}
+    </>
   );
 }
