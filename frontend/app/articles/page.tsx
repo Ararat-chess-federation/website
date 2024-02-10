@@ -17,10 +17,10 @@ interface ISearchParams {
 }
 
 export default async function Articles({ searchParams }: ISearchParams) {
-  const pageSize = 10;
+  const pageSize = 1;
   const page = Number(searchParams.page) || 1;
 
-  const pageStart = (page - 1) * 10;
+  const pageStart = (page - 1) * pageSize;
 
   const { data, meta }: { data: IArticle[]; meta: any } = await getData({
     type: "articles",
@@ -32,8 +32,10 @@ export default async function Articles({ searchParams }: ISearchParams) {
   }
 
   return (
-    <section className="articles_container">
-      <ArticleList data={data} />
+    <section>
+      <div className="articles_list_container">
+        <ArticleList data={data} />
+      </div>
       <Pagination
         basePath="/articles"
         currentPage={Number(page)}
