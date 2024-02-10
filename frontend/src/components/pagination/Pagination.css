@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  list-style: none;
+}
+
+.prev,
+.next,
+.pageNumber {
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  border: 1px solid #ccc;
+}
+
+.pageNumber[data-active="page"] {
+  background-color: #0070f3;
+  color: white;
+  border-color: #0070f3;
+}
