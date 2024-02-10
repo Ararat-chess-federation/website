@@ -6,7 +6,7 @@ interface IPagination {
   currentPage: number;
   totalCount: number;
   pageSize: number;
-  basePath: string;
+  basePath: "/articles";
 }
 
 export default function Pagination({
@@ -69,20 +69,21 @@ interface IPagesNumber {
 }
 
 function PagesNumbers({ number, basePath, currentPage, length }: IPagesNumber) {
+  const numbers = Array.from(
+    {
+      length,
+    },
+    (_, idx) => number + idx
+  );
+
   return (
     <>
-      {Array.from(
-        {
-          length,
-        },
-        (_, idx) => number + idx
-      ).map((page, index) => {
+      {numbers.map((page, index) => {
+        const active = page === currentPage ? "page" : "";
+
         return (
           <Link key={index} href={`${basePath}?page=${page}`}>
-            <span
-              className="pageNumber"
-              data-active={page === currentPage ? "page" : undefined}
-            >
+            <span className="pageNumber" data-active={active}>
               {page}
             </span>
           </Link>
