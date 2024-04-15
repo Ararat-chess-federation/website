@@ -1,6 +1,6 @@
 .more_button_container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 8px;
 }
 
