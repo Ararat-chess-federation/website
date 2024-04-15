@@ -34,7 +34,7 @@ services:
 
   nginx:
     image: nginx
-    container_name: nginx-auth
+    container_name: nginx
     restart: unless-stopped
     ports:
       - "443:443"
