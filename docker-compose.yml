@@ -21,9 +21,12 @@ services:
       - ~/strapi-uploads:/opt/app/public/uploads
     depends_on:
       - mariadb
-
+    ports:
+      - 1337:1337
   mariadb:
     image: mariadb
+    container_name: mariadb
+    restart: unless-stopped
     volumes:
       - ~/strapi-db-data-sql:/var/lib/mysql
     environment:
