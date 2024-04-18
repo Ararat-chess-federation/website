@@ -19,6 +19,8 @@ export default function Img({
   className = "",
   priority = false,
 }: IImgProps) {
+  console.log("srcInImg", src);
+
   return (
     <Image
       width={width}
