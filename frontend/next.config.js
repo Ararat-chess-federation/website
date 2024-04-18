@@ -3,9 +3,9 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "new.ararat.chessnews.am",
-        port: "",
+        protocol: process.env.PROTOCOL,
+        hostname: process.env.HOST_NAME,
+        port: process.env.PORT,
         
       },
     ],
