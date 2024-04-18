@@ -5,7 +5,7 @@ module.exports = {
       {
         protocol: process.env.PROTOCOL,
         hostname: process.env.HOST_NAME,
-        port: process.env.PORT,
+        port: process.env.PORT || "",
       },
     ],
   },
