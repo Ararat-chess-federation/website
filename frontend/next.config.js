@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'http',
-          hostname: 'localhost',
-          port: '1337',
-        },
-      ],
-    },
-  }
+  images: {
+    remotePatterns: [
+      {
+        protocol: process.env.PROTOCOL,
+        hostname: process.env.HOST_NAME,
+        port: process.env.PORT,
+      },
+    ],
+  },
+};
