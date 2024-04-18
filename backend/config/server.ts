@@ -7,5 +7,5 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
-  url: 'http://localhost:1337/strapi',
+  url: (env('SERVER_URL') + '/strapi') || '',
 });
