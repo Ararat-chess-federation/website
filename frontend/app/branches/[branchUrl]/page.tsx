@@ -16,6 +16,10 @@ export async function generateMetadata({ params }: any) {
     searchUrl: params.branchUrl,
   });
 
+  if (!data?.length) {
+    return;
+  }
+
   const { title } = data[0].attributes;
 
   return {

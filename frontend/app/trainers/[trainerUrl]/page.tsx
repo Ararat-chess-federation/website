@@ -17,6 +17,10 @@ export async function generateMetadata({ params }: any) {
     searchUrl: params.trainerUrl,
   });
 
+  if (!data?.length) {
+    return;
+  }
+
   const { fullName } = data[0].attributes;
 
   return {
