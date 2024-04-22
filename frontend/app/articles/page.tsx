@@ -4,10 +4,12 @@ import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
 import Img from "../../src/shared/img/Img";
+import { siteTitle } from "../../src/constants/titles";
 import "./Articles.css";
 
 export const metadata = {
-  title: "Նորություններ | Արարատի մարզի շախմատի ֆեդերացիա",
+  title: `Նորություններ | ${siteTitle}`,
+  description: "Արարատի մարզի շախմատի ֆեդերացիայի նորություններ",
 };
 
 interface ISearchParams {
