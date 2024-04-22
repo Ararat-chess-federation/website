@@ -2,9 +2,11 @@ import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent
 import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IAboutData } from "../../src/models/interfaces/about";
+import { siteTitle } from "../../src/constants/titles";
 
 export const metadata = {
-  title: "Մեր մասին | Արարատի մարզի շախմատի ֆեդերացիա",
+  title: `Մեր մասին | ${siteTitle}`,
+  description: "Արարատի մարզի շախմատի ֆեդերացիայի պատմություն",
 };
 
 export default async function About() {
