@@ -26,8 +26,8 @@ export default async function Branches() {
           <div key={fullName} className="trainer_card">
             <Link href={`/trainers/${url}`}>
               <Img
-                width={100}
-                height={100}
+                width={150}
+                height={150}
                 src={profilePhoto}
                 alt={fullName}
                 className="trainer_img"
