@@ -1,11 +1,11 @@
 import Markdown from "react-markdown";
 import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
-import DataNotFound from "../../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../../src/helpers/getData";
 import { ITrainer } from "../../../src/models/interfaces/trainer";
 import "../trainers.css";
 import { siteTitle } from "../../../src/constants/titles";
+import NotFound from "../../not-found";
 
 interface ITrainerParams {
   params: { trainerUrl: string };
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: any) {
   });
 
   if (!data?.length) {
-    return;
+    return <NotFound />;
   }
 
   const { fullName } = data[0].attributes;
@@ -35,7 +35,7 @@ export default async function Trainer({ params }: ITrainerParams) {
   });
 
   if (!data?.length) {
-    return <DataNotFound />;
+    return <NotFound />;
   }
 
   const { fullName, phoneNumber, branches, bio } = data[0].attributes;

@@ -1,10 +1,10 @@
 import TrainersList from "../../../src/shared/trainersList/TrainersList";
 import TrainingDays from "../../../src/shared/trainingDays/TrainingDays";
 import Address from "../../../src/shared/address/Address";
-import DataNotFound from "../../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../../src/helpers/getData";
 import { IBranch } from "../../../src/models/interfaces/branch";
 import { siteTitle } from "../../../src/constants/titles";
+import NotFound from "../../not-found";
 
 interface IBranchParams {
   params: { branchUrl: string };
@@ -35,7 +35,7 @@ export default async function Branch({ params }: IBranchParams) {
   });
 
   if (!data?.length) {
-    return <DataNotFound />;
+    return <NotFound />;
   }
 
   const { title, address, trainers } = data[0].attributes;
