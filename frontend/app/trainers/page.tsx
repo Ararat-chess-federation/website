@@ -1,11 +1,11 @@
 import Link from "next/link";
 import BranchesList from "../../src/shared/branchesList/BranchesList";
-import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import Img from "../../src/shared/img/Img";
 import getData from "../../src/helpers/getData";
 import { ITrainer } from "../../src/models/interfaces/trainer";
 import { siteTitle } from "../../src/constants/titles";
 import "./trainers.css";
+import NotFound from "../not-found";
 
 export const metadata = {
   title: `Մարզիչներ | ${siteTitle}`,
@@ -16,7 +16,7 @@ export default async function Branches() {
   const { data }: { data: ITrainer[] } = await getData({ type: "trainers" });
 
   if (!data?.length) {
-    return <DataNotFound />;
+    return <NotFound />;
   }
 
   return (

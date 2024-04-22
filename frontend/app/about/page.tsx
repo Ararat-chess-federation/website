@@ -1,8 +1,8 @@
 import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent";
-import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IAboutData } from "../../src/models/interfaces/about";
 import { siteTitle } from "../../src/constants/titles";
+import NotFound from "../not-found";
 
 export const metadata = {
   title: `Մեր մասին | ${siteTitle}`,
@@ -13,7 +13,7 @@ export default async function About() {
   const { data }: { data: IAboutData } = await getData({ type: "about" });
 
   if (!data) {
-    return <DataNotFound />;
+    return <NotFound />;
   }
 
   const { about } = data.attributes;

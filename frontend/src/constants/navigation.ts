@@ -12,18 +12,18 @@ export const NAVIGATION: INavigation[] = [
     link: "/trainers",
     title: "Մարզիչներ",
   },
-  {
-    link: "/statistic",
-    title: "Վիճակագրություն",
-  },
+  // {
+  //   link: "/statistic",
+  //   title: "Վիճակագրություն",
+  // },
   {
     link: "/branches",
     title: "Մասնաճյուղեր",
   },
-  {
-    link: "/calendar",
-    title: "Օրացուցային պլան",
-  },
+  // {
+  //   link: "/calendar",
+  //   title: "Օրացուցային պլան",
+  // },
 ];
 
 export const LEFT_MENU: INavigation[] = [

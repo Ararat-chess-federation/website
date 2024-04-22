@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Pagination from "../../src/components/pagination/Pagination";
-import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
 import Img from "../../src/shared/img/Img";
 import { siteTitle } from "../../src/constants/titles";
 import "./Articles.css";
+import NotFound from "../not-found";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,
@@ -30,7 +30,7 @@ export default async function Articles({ searchParams }: ISearchParams) {
   });
 
   if (!data?.length) {
-    return <DataNotFound />;
+    return <NotFound />;
   }
 
   return (
