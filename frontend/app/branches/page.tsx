@@ -5,10 +5,12 @@ import Img from "../../src/shared/img/Img";
 import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../src/helpers/getData";
 import { IBranch } from "../../src/models/interfaces/branch";
+import { siteTitle } from "../../src/constants/titles";
 import "./branches.css";
 
 export const metadata = {
-  title: "Մասնաճյուղեր | Արարատի մարզի շախմատի ֆեդերացիա",
+  title: `Մասնաճյուղեր | ${siteTitle}`,
+  description: "Արարատի մարզի շախմատի ֆեդերացիայի մասնաճյուղերի ցանկ",
 };
 
 export default async function Branches() {
