@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "ararat_region_chess_federation_frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,5 +21,10 @@
     "eslint": "^8",
     "eslint-config-next": "^14.1.0",
     "typescript": "^5"
+  },
+  "author": {
+    "name": "Artyom Sukiasyan",
+    "email": "artiom.suqiasyan1401@gmail.com",
+    "url": "https://devchessplayer.com/"
   }
 }
