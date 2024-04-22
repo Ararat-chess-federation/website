@@ -4,14 +4,25 @@ import Address from "../../../src/shared/address/Address";
 import DataNotFound from "../../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../../src/helpers/getData";
 import { IBranch } from "../../../src/models/interfaces/branch";
+import { siteTitle } from "../../../src/constants/titles";
 
 interface IBranchParams {
   params: { branchUrl: string };
 }
 
-export const metadata = {
-  title: "",
-};
+export async function generateMetadata({ params }: any) {
+  const { data }: { data: IBranch[] } = await getData({
+    type: "branches",
+    searchUrl: params.branchUrl,
+  });
+
+  const { title } = data[0].attributes;
+
+  return {
+    title: `${title} | ${siteTitle}`,
+    description: title,
+  };
+}
 
 export default async function Branch({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
@@ -24,7 +35,6 @@ export default async function Branch({ params }: IBranchParams) {
   }
 
   const { title, address, trainers } = data[0].attributes;
-  metadata.title = title + " | Արարատի մարզի շախմատի ֆեդերացիա";
 
   return (
     <div>
