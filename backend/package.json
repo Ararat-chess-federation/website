@@ -1,8 +1,8 @@
 {
-  "name": "my-project",
+  "name": "ararat_region_chess_federation",
   "private": true,
   "version": "0.1.0",
-  "description": "A Strapi application",
+  "description": "Ararat region chess federation website backend and admin panel",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -17,7 +17,9 @@
     "strapi-plugin-responsive-image": "^1.2.0"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Artyom Sukiasyan",
+    "email": "artiom.suqiasyan1401@gmail.com",
+    "url": "https://devchessplayer.com/"
   },
   "strapi": {
     "uuid": "7c0f27a8-0573-444b-9bc8-0dbc09f67a3b"
