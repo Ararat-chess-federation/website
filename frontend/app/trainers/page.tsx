@@ -4,10 +4,12 @@ import DataNotFound from "../../src/shared/dataNotFound/DataNotFound";
 import Img from "../../src/shared/img/Img";
 import getData from "../../src/helpers/getData";
 import { ITrainer } from "../../src/models/interfaces/trainer";
+import { siteTitle } from "../../src/constants/titles";
 import "./trainers.css";
 
 export const metadata = {
-  title: "Մարզիչներ | Արարատի մարզի շախմատի ֆեդերացիա",
+  title: `Մարզիչներ | ${siteTitle}`,
+  description: "Արարատի մարզի շախմատի ֆեդերացիայի մարզիչներ",
 };
 
 export default async function Branches() {
