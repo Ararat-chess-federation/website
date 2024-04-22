@@ -1,5 +1,5 @@
 {
-  "name": "ararat_region_chess_federation",
+  "name": "ararat_region_chess_federation_backend",
   "private": true,
   "version": "0.1.0",
   "description": "Ararat region chess federation website backend and admin panel",
