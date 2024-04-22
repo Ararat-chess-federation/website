@@ -27,14 +27,14 @@ export const NAVIGATION: INavigation[] = [
 ];
 
 export const LEFT_MENU: INavigation[] = [
-  {
-    link: "/ratings",
-    title: "Վարկանիշներ",
-  },
-  {
-    link: "/category-players-list",
-    title: "Կարգեր",
-  },
+  // {
+  //   link: "/ratings",
+  //   title: "Վարկանիշներ",
+  // },
+  // {
+  //   link: "/category-players-list",
+  //   title: "Կարգեր",
+  // },
   {
     link: "/about",
     title: "Մեր մասին",
@@ -42,5 +42,9 @@ export const LEFT_MENU: INavigation[] = [
   {
     link: "/contacts",
     title: "Կոնտակտներ",
+  },
+  {
+    link: "/team",
+    title: "Կայքի թիմը",
   },
 ];
