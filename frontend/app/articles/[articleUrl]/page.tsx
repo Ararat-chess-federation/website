@@ -4,14 +4,25 @@ import DataNotFound from "../../../src/shared/dataNotFound/DataNotFound";
 import getData from "../../../src/helpers/getData";
 import { IArticle } from "../../../src/models/interfaces/article";
 import "./Article.css";
+import { siteTitle } from "../../../src/constants/titles";
 
 interface IArticleParams {
   params: { articleUrl: string };
 }
 
-export const metadata = {
-  title: "",
-};
+export async function generateMetadata({ params }: any) {
+  const { data }: { data: IArticle[] } = await getData({
+    type: "articles",
+    searchUrl: params.articleUrl,
+  });
+
+  const { title } = data[0].attributes;
+
+  return {
+    title: `${title} | ${siteTitle}`,
+    description: title,
+  };
+}
 
 export default async function Article({ params }: IArticleParams) {
   const { data }: { data: IArticle[] } = await getData({
@@ -24,7 +35,6 @@ export default async function Article({ params }: IArticleParams) {
   }
 
   const { title, mainImage, articleText, fbPost } = data[0].attributes;
-  metadata.title = title + " | Արարատի մարզի շախմատի ֆեդերացիա";
 
   return (
     <div>
