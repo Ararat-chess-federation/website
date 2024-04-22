@@ -1,30 +1,32 @@
+import Link from "next/link";
 import { useEffect } from "react";
 import "./Error.css";
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export default function Error({ error }: { error: Error }) {
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
     <div className="error_container">
-      <h2>Ինչ-որ բան սխալ է գնացել</h2>
+      <h1>Արքան շախի տակ է։ Ինչ-որ բան սխալ է գնացել</h1>
       <p>
-        Փորձեք թարմացնել էջը, կրկին սխալ ստանալու դեպքում խնդրում ենք զանգահարել{" "}
-        <a className="phone_number_link" href={`tel:+37498339020`}>
-          098339020
-        </a>{" "}
-        կամ գրել մեր ֆեյսբուքյան էջին
+        Մենք բախվեցինք իրավիճակի, որը նախատեսվատ չէր։ Կատարեք հետևյալ քայլերը
       </p>
-      <button className="update_button" onClick={() => reset()}>
-        Թարմացնել
-      </button>
+      <ul>
+        <li>Թարմացրեք էջը կամ վերադարձեք նախորդ էջ</li>
+        <li>
+          Համոզվեք, որ Ձեր ինտերնետ կապը նույնքան ուժեղ է, որքան զինվորային
+          շղթան
+        </li>
+        <li>
+          Եթե խնդիրը չի լուծվել, փորձեք կապ հաստատել մեր տեխնիկական
+          գրոսսմայստերների հետ
+        </li>
+      </ul>
+      <Link href="/contacts">
+        <span>Կապ գրոսսմայստերների հետ</span>
+      </Link>
     </div>
   );
 }
