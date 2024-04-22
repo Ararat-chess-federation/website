@@ -1,3 +1,3 @@
-export default function NotFound(){
-    return <h1>Not found</h1>
-}
+import NotFound from "../src/components/404/404";
+
+export default NotFound;

@@ -1,0 +1,34 @@
+.error_container {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  background-color: var(--white-bg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.error_container h1 {
+  color: var(--danger);
+}
+
+.error_container p {
+  font-size: 16px;
+  color: var(--black);
+}
+
+.error_container ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+.error_container li {
+  margin-bottom: 10px;
+}
+
+.error_container span {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 8px;
+  border-radius: 8px;
+}
