@@ -6,6 +6,7 @@ import { ITrainer } from "../../../src/models/interfaces/trainer";
 import "../trainers.css";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
+import getImageSrc from "../../../src/helpers/getImageSrc";
 
 interface ITrainerParams {
   params: { trainerUrl: string };
@@ -21,11 +22,14 @@ export async function generateMetadata({ params }: ITrainerParams) {
     return <NotFound />;
   }
 
-  const { fullName } = data[0].attributes;
+  const { fullName, profilePhoto } = data[0].attributes;
 
   return {
     title: `${fullName} | ${siteTitle}`,
     description: `Արարատի մարզի շախմատի ֆեդերացիայի մարզիչ ${fullName}ի կենսագրություն`,
+    openGraph: {
+      images: getImageSrc(profilePhoto),
+    },
   };
 }
 export default async function Trainer({ params }: ITrainerParams) {
