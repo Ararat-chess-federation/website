@@ -28,7 +28,15 @@
   .prev,
   .next,
   .pageNumber {
-    margin: 0 2px;
-    padding: 4px 8px;
+    margin: 0 4px;
+    padding: 6px 12px;
   }
+}
+
+.prev_news_link {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 8px;
+  border-radius: 8px;
+  margin-top: 32px;
 }
