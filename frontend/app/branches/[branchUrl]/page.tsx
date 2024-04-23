@@ -5,6 +5,7 @@ import getData from "../../../src/helpers/getData";
 import { IBranch } from "../../../src/models/interfaces/branch";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
+import getImageSrc from "../../../src/helpers/getImageSrc";
 
 interface IBranchParams {
   params: { branchUrl: string };
@@ -20,11 +21,14 @@ export async function generateMetadata({ params }: IBranchParams) {
     return;
   }
 
-  const { title } = data[0].attributes;
+  const { title, mainImage } = data[0].attributes;
 
   return {
     title: `${title} | ${siteTitle}`,
     description: title,
+    openGraph: {
+      images: getImageSrc(mainImage),
+    },
   };
 }
 
