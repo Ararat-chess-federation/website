@@ -17,7 +17,7 @@ interface ILayout {
 
 export default function RootLayout({ children }: ILayout) {
   return (
-    <html lang="en">
+    <html lang="hy">
       <body>
         <Header />
         <main className="main_container">
