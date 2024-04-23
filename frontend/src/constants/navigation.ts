@@ -43,8 +43,8 @@ export const LEFT_MENU: INavigation[] = [
     link: "/contacts",
     title: "Կոնտակտներ",
   },
-  {
-    link: "/team",
-    title: "Կայքի թիմը",
-  },
+  // {
+  //   link: "/team",
+  //   title: "Կայքի թիմը",
+  // },
 ];
