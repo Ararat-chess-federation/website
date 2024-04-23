@@ -4,6 +4,12 @@ import gmailIcon from "../../public/gmail.svg";
 import facebookIcon from "../../public/facebook.svg";
 import phoneIcon from "../../public/phone.svg";
 import "./Contacts.css";
+import { siteTitle } from "../../src/constants/titles";
+
+export const metadata = {
+  title: `Կոնտակտներ | ${siteTitle}`,
+  description: "Արարատի մարզի շախմատի ֆեդերացիայի կոնտակտային տվյալներ",
+};
 
 export default async function Contacts() {
   return (
