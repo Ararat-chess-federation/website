@@ -10,7 +10,7 @@ interface IArticleParams {
   params: { articleUrl: string };
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: IArticleParams) {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     searchUrl: params.articleUrl,

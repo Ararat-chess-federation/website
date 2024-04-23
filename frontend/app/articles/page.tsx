@@ -6,6 +6,7 @@ import Img from "../../src/shared/img/Img";
 import { siteTitle } from "../../src/constants/titles";
 import "./Articles.css";
 import NotFound from "../not-found";
+import { IMeta } from "../../src/models/interfaces/meta";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,
@@ -24,7 +25,7 @@ export default async function Articles({ searchParams }: ISearchParams) {
 
   const pageStart = (page - 1) * pageSize;
 
-  const { data, meta }: { data: IArticle[]; meta: any } = await getData({
+  const { data, meta }: { data: IArticle[]; meta: IMeta } = await getData({
     type: "articles",
     params: `sort[0]=publishDate:desc&pagination[start]=${pageStart}&pagination[limit]=${pageSize}`,
   });

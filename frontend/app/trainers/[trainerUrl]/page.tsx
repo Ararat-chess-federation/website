@@ -11,7 +11,7 @@ interface ITrainerParams {
   params: { trainerUrl: string };
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: ITrainerParams) {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
     searchUrl: params.trainerUrl,

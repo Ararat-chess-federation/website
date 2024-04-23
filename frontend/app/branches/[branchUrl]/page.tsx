@@ -10,7 +10,7 @@ interface IBranchParams {
   params: { branchUrl: string };
 }
 
-export async function generateMetadata({ params }: any) {
+export async function generateMetadata({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
     searchUrl: params.branchUrl,
