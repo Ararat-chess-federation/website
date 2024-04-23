@@ -5,6 +5,7 @@ import { IArticle } from "../../../src/models/interfaces/article";
 import "./Article.css";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
+import getImageSrc from "../../../src/helpers/getImageSrc";
 
 interface IArticleParams {
   params: { articleUrl: string };
@@ -20,11 +21,14 @@ export async function generateMetadata({ params }: IArticleParams) {
     return;
   }
 
-  const { title } = data[0].attributes;
+  const { title, mainImage } = data[0].attributes;
 
   return {
     title: `${title} | ${siteTitle}`,
     description: title,
+    openGraph: {
+      images: getImageSrc(mainImage),
+    },
   };
 }
 
