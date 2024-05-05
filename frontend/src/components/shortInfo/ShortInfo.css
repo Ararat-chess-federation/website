@@ -8,6 +8,10 @@
   padding: 8px;
 }
 
+.short_info_photo {
+  border-radius: 8px;
+}
+
 .short_info_text {
   padding-left: 16px;
 }
