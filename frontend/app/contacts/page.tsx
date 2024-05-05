@@ -52,11 +52,11 @@ export default async function Contacts() {
         Ընդունելության կամ որևէ մասնաճյուղի հետ կապված հարցերի դեպքում կարող եք
         զանգահարել տվյալ մասնաճյուղի մարզչին
       </p>
-      <p>
+      {/* <p>
         <span className="contact_trainers_link">
           <Link href="/trainers">Մարզիչների ցանկ</Link>
         </span>
-      </p>
+      </p> */}
     </>
   );
 }
