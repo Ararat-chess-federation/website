@@ -14,9 +14,13 @@ export default function ImgWithDescription({
   image,
   description,
 }: IImgWithDescriptionProps) {
+  const { width, height } = image.data.attributes.formats.optimized;
+  const imgWidth = width < 500 ? width : 500;
+  const imgHeight = height < 300 ? height : 300;
+
   return (
     <figure key={idx}>
-      <Img width={200} height={200} src={image} alt={description} />
+      <Img width={imgWidth} height={imgHeight} src={image} alt={description} />
       <figcaption>{description}</figcaption>
     </figure>
   );
