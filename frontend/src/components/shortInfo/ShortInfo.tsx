@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { use } from "react";
-import defaultExample from "../../../public/defaultExample.webp";
+import mainTrainer from "../../../public/mainTrainer.webp";
 import getData from "../../helpers/getData";
 import MoreButton from "../moreButton/MoreButton";
+import mainBranch from "../../../public/mainBranch.webp";
 import "./ShortInfo.css";
 
 export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
@@ -17,15 +18,15 @@ export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
     return null;
   }
 
-  const { title, text } = getInfo(type, meta.pagination.total);
+  const { title, text, img, alt } = getInfo(type, meta.pagination.total);
 
   return (
     <div className="short_info_container">
       <div>
-        <h2>{title}</h2>
+        <h2>{title}</h2>  
       </div>
       <div className="short_info">
-        <Image src={defaultExample} alt="Chess board" />
+        <Image src={img} alt={alt} className="short_info_photo" />
         <span className="short_info_text">{text}</span>
       </div>
       <MoreButton link={`/${type}`} />
@@ -38,10 +39,14 @@ function getInfo(type: "trainers" | "branches", count: number) {
     trainers: {
       title: "Մարզիչներ",
       text: `Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում ընհանուր առմամբ աշխատում է ${count} մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։`,
+      img: mainTrainer,
+      alt: "Trainer photo",
     },
     branches: {
       title: "Մասնաճյուղեր",
       text: ` Արարատի մարզի բոլոր համայնքներում ընհանուր առմամբ գործում է ${count} մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 1000 երեխա`,
+      img: mainBranch,
+      alt: "Branch photo",
     },
   };
 
