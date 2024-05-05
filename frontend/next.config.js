@@ -4,7 +4,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "new.ararat.chessnews.am",
+        hostname: "ararat.chessnews.am",
         port: "",
       },
       {
