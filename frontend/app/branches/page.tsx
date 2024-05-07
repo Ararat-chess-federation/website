@@ -23,7 +23,7 @@ export default async function Branches() {
   return (
     <section>
       {data.map(({ attributes }) => {
-        const { url, mainImage, title, address } = attributes;
+        const { url, mainImage, title, address, trainers } = attributes;
 
         return (
           <div key={url} className="branch_card">
@@ -42,7 +42,7 @@ export default async function Branches() {
                 <h2 className="branch_name">{title}</h2>
               </Link>
               <Address address={address} />
-              <TrainersList trainers={data[0].attributes.trainers.data} />
+              <TrainersList trainers={trainers.data} />
             </div>
           </div>
         );
