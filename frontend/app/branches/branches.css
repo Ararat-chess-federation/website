@@ -6,8 +6,8 @@
 
 .branch_img {
   border-radius: 50%;
-  min-width: 100px;
-  min-height: 100px;
+  min-width: 150px;
+  min-height: 150px;
 }
 
 .branch_info {
@@ -25,10 +25,10 @@
   
   .branch_info {
     padding-left: 8px;
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .branch_info a h2{
-    font-size: 14px;
+    font-size: 16px;
   }
 }
