@@ -37,10 +37,10 @@ export default async function Home() {
         </section>
         <MoreButton link="/articles" />
       </div>
-      {/* <section className="region_info">
+      <section className="region_info">
         <ShortInfo type="branches" />
         <ShortInfo type="trainers" />
-      </section> */}
+      </section>
     </main>
   );
 }
