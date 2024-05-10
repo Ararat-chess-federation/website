@@ -23,7 +23,7 @@ export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
   return (
     <div className="short_info_container">
       <div>
-        <h2>{title}</h2>  
+        <h2>{title}</h2>
       </div>
       <div className="short_info">
         <Image src={img} alt={alt} className="short_info_photo" />
@@ -44,7 +44,7 @@ function getInfo(type: "trainers" | "branches", count: number) {
     },
     branches: {
       title: "Մասնաճյուղեր",
-      text: ` Արարատի մարզի բոլոր համայնքներում ընհանուր առմամբ գործում է ${count} մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 1000 երեխա`,
+      text: ` Արարատի մարզի բոլոր համայնքներում ընհանուր առմամբ գործում է ${count} մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա`,
       img: mainBranch,
       alt: "Branch photo",
     },
