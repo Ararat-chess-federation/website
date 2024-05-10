@@ -1,16 +1,34 @@
 .branch_card {
   display: flex;
+  align-items: flex-start;
   padding: 8px;
 }
 
 .branch_img {
   border-radius: 50%;
+  min-width: 100px;
+  min-height: 100px;
 }
 
 .branch_info {
   padding-left: 24px;
 }
 
-.branch_name{
-  text-align: left  ;
+.branch_name {
+  text-align: left;
+}
+
+@media only screen and (max-width: 426px) {
+  .branch_card {
+    align-items: center;
+  }
+  
+  .branch_info {
+    padding-left: 8px;
+    font-size: 12px;
+  }
+
+  .branch_info a h2{
+    font-size: 14px;
+  }
 }
