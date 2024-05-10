@@ -9,7 +9,7 @@ export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
       <ul className="branches_trainer_list">
         {trainers.map((el) => (
           <li key={el.attributes.url} className="branches_trainer">
-            <Link href={`/branches/${el.attributes.url}`}>
+            <Link href={`/trainers/${el.attributes.url}`}>
               {el.attributes.fullName}
             </Link>
           </li>
