@@ -16,6 +16,8 @@ Steps to install:
 - npm run develop
 
 Application uses port **1337**
+
 MySql uses port **3306**
+
 phpMyAdmin uses port **8080**
 
