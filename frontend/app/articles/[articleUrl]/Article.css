@@ -17,3 +17,14 @@
 .article_title {
   padding: 24px 0;
 }
+
+.fb_link_container {
+  text-align: center;
+}
+
+.fb_link {
+  padding: 16px;
+  border-radius: 16px;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+}

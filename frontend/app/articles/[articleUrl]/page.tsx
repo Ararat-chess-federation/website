@@ -59,8 +59,8 @@ export default async function Article({ params }: IArticleParams) {
         ))}
       </div>
 
-      <div>
-        <a target="_blank" href={fbPost}>
+      <div className="fb_link_container">
+        <a target="_blank" className="fb_link" href={fbPost}>
           Ֆոտոշարք
         </a>
       </div>
