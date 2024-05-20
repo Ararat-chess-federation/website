@@ -29,8 +29,7 @@
       ]
     },
     "fbPost": {
-      "type": "text",
-      "required": true
+      "type": "text"
     },
     "articleText": {
       "type": "dynamiczone",
