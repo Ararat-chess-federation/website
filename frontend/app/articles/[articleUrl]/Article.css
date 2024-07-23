@@ -1,3 +1,7 @@
+.article_container a {
+  text-decoration: underline;
+}
+
 .article_header {
   width: 100%;
   display: flex;
