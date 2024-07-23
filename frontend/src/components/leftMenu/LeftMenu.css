@@ -5,6 +5,10 @@
   width: 15%;
 }
 
+.left_menu_wrapper a {
+  text-decoration: none;
+}
+
 .left_menu_li {
   list-style-type: none;
   padding: 16px;

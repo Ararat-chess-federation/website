@@ -2,6 +2,10 @@
   width: 90%;
 }
 
+.navigation a {
+  text-decoration: none;
+}
+
 .nav > ul {
   display: flex;
   justify-content: space-evenly;
