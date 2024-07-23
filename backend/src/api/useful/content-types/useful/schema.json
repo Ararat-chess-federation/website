@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "usefuls",
+  "info": {
+    "singularName": "useful",
+    "pluralName": "usefuls",
+    "displayName": "useful"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "links": {
+      "type": "richtext"
+    }
+  }
+}
