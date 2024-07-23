@@ -35,6 +35,7 @@ export const LEFT_MENU: INavigation[] = [
   //   link: "/category-players-list",
   //   title: "Կարգեր",
   // },
+  { link: "/useful", title: "Օգտակար հղումներ" },
   {
     link: "/about",
     title: "Մեր մասին",
