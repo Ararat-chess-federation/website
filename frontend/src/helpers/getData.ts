@@ -17,7 +17,6 @@ export default async function getData({
     const res = await fetch(`${process.env.BACKEND_URL}/api${url}`, {
       next: { revalidate: 3600 },
     });
-console.log({res});
 
     return res.json();
   } catch (e) {
