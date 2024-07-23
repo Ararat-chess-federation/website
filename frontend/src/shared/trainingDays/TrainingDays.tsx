@@ -1,4 +1,4 @@
-import Markdown from "react-markdown";
+import ModifiedMarkdown from "../../hok/modifiedMarkdown";
 import { ITrainingDays } from "../../models/interfaces/trainingDays";
 
 export default function TrainingDays({ attributes }: ITrainingDays) {
@@ -9,7 +9,7 @@ export default function TrainingDays({ attributes }: ITrainingDays) {
       {attributes.description.map((el, idx: number) => (
         <div key={idx}>
           <h4>{attributes.trainers.data[idx].attributes.fullName}</h4>
-          <Markdown>{el.paragraph}</Markdown>
+          <ModifiedMarkdown>{el.paragraph}</ModifiedMarkdown>
         </div>
       ))}
     </div>

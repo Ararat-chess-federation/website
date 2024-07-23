@@ -1,4 +1,4 @@
-import Markdown from "react-markdown";
+import ModifiedMarkdown from "../../hok/modifiedMarkdown";
 import { IArticleText } from "../../models/interfaces/article";
 import { IImage } from "../../models/interfaces/image";
 import ImgWithDescription from "../imgWithDescription/ImgWithDescription";
@@ -13,7 +13,7 @@ export default function DynamicComponent({ el, idx }: IDynamicComponent) {
 
   switch (__component) {
     case "text.paragraph":
-      return <Markdown key={idx}>{paragraph}</Markdown>;
+      return <ModifiedMarkdown key={idx}>{paragraph}</ModifiedMarkdown>;
 
     case "img.img-with-description":
       return (

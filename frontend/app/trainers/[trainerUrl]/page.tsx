@@ -1,4 +1,3 @@
-import Markdown from "react-markdown";
 import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
 import getData from "../../../src/helpers/getData";
@@ -7,6 +6,7 @@ import "../trainers.css";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
 import getImageSrc from "../../../src/helpers/getImageSrc";
+import ModifiedMarkdown from "../../../src/hok/modifiedMarkdown";
 
 interface ITrainerParams {
   params: { trainerUrl: string };
@@ -52,7 +52,7 @@ export default async function Trainer({ params }: ITrainerParams) {
       <BranchesList branches={branches.data} />
 
       <h2>Կենսագրություն</h2>
-      <Markdown>{bio}</Markdown>
+      <ModifiedMarkdown>{bio}</ModifiedMarkdown>
     </div>
   );
 }

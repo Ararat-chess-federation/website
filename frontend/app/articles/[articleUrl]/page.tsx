@@ -45,7 +45,7 @@ export default async function Article({ params }: IArticleParams) {
   const { title, mainImage, articleText, fbPost } = data[0].attributes;
 
   return (
-    <div>
+    <div className="article_container">
       <div className="article_header">
         <div className="article_image">
           <Img width={500} height={200} src={mainImage} alt={title} />
