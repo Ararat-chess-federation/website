@@ -1,3 +1,7 @@
-.useful_container li{
-    margin-top: 16px;
+.useful_container a {
+  text-decoration: underline;
+}
+
+.useful_container li {
+  margin-top: 16px;
 }
