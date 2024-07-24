@@ -2,6 +2,8 @@ import lichess from "../../public/lichess.webp";
 import chessFed from "../../public/chessFed.webp";
 import academy from "../../public/academy.webp";
 import facebook from "../../public/facebook.svg";
+import fide from "../../public/fide.webp";
+import chessArbiter from "../../public/chessArbiter.webp";
 import { StaticImageData } from "next/image";
 
 interface ILinks {
@@ -17,6 +19,11 @@ export const LINKS: ILinks[] = [
     url: "https://lichess.org/team/wDWVDihn",
   },
   {
+    img: facebook,
+    alt: "Facebook",
+    url: "https://www.facebook.com/araratchessfed/",
+  },
+  {
     img: chessFed,
     alt: "Chess federation",
     url: "https://www.chessfed.am/",
@@ -27,8 +34,13 @@ export const LINKS: ILinks[] = [
     url: "https://www.chessacademy.am/",
   },
   {
-    img: facebook,
-    alt: "Facebook",
-    url: "https://www.facebook.com/araratchessfed/",
+    img: fide,
+    alt: "FIDE",
+    url: "https://www.fide.com/",
+  },
+  {
+    img: chessArbiter,
+    alt: "Chess Arbiter",
+    url: "https://chessarbiter.info/hy/laws/intro",
   },
 ];
