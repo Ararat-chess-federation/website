@@ -35,7 +35,8 @@
       "type": "dynamiczone",
       "components": [
         "img.img-with-description",
-        "text.paragraph"
+        "text.paragraph",
+        "chess.chess-game-link"
       ]
     },
     "publishDate": {

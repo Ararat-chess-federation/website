@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_chess_chess_game_links",
+  "info": {
+    "displayName": "Chess game link"
+  },
+  "options": {},
+  "attributes": {
+    "link": {
+      "type": "string"
+    }
+  }
+}
