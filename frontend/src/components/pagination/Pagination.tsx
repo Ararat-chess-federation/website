@@ -9,8 +9,6 @@ interface IPagination {
   basePath: "/articles";
 }
 
-const oldWebsiteUrl = "https://old.ararat.chessnews.am/category/news/";
-
 export default function Pagination({
   currentPage,
   totalCount,
@@ -32,15 +30,6 @@ export default function Pagination({
 
   return (
     <>
-      {currentPage === totalPages && (
-        <div>
-          <span className="prev_news_link">
-            <a href={oldWebsiteUrl} target="_blank">
-              Նախորդ նորություններ
-            </a>
-          </span>
-        </div>
-      )}
       <div className="pagination">
         {currentPage > 1 && (
           <Link href={`${basePath}?page=${currentPage - 1}`}>
