@@ -5,46 +5,34 @@ services:
     image: next
     build:
       context: frontend
-    container_name: next
+    container_name: araratchessnews-next
     restart: unless-stopped
+    ports:
+        - 3001:3000
    
   strapi:
     image: strapi
     build:
       context: backend
-    container_name: strapi
+    container_name: araratchessnews-strapi
     restart: unless-stopped
     env_file: ./backend/.env
+    ports:
+        - 1337:1337
     volumes:
-      - ~/strapi-uploads:/opt/app/public/uploads
+      - ./strapi-uploads:/opt/app/public/uploads
     depends_on:
       - mariadb
   
   mariadb:
     image: mariadb
-    container_name: mariadb
+    container_name: araratchessnews-mariadb
     restart: unless-stopped
     volumes:
-      - ~/strapi-db-data-sql:/var/lib/mysql
+      - ./strapi-db-data-sql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: strapi
       MYSQL_DATABASE: strapi
       MYSQL_USER: strapi
       MYSQL_PASSWORD: strapi
-
-  nginx:
-    image: nginx
-    container_name: nginx
-    restart: unless-stopped
-    ports:
-      - "443:443"
-      - "80:80"
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      # - ./nginx/.htpasswd:/etc/nginx/.htpasswd
-      - ./nginx/certs:/etc/nginx/ssl/ararat.chessnews.am
-      - ./nginx/options-ssl-nginx.conf:/etc/nginx/conf.d/options-ssl-nginx.conf
-      - ./nginx/ssl-dhparams.pem:/etc/nginx/conf.d/ssl-dhparams.pem
-    depends_on:
-      - next
-      - strapi
+      
