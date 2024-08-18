@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "calendars",
+  "info": {
+    "singularName": "calendar",
+    "pluralName": "calendars",
+    "displayName": "calendar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "calendar": {
+      "type": "richtext"
+    }
+  }
+}

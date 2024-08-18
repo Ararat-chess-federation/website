@@ -1,4 +1,4 @@
-type IUrlTypes = "about" | "articles" | "branches" | "trainers" | "useful";
+type IUrlTypes = "about" | "articles" | "branches" | "trainers" | "useful" | "calendar";
 interface IDataParams {
   type: IUrlTypes;
   populate?: string;
