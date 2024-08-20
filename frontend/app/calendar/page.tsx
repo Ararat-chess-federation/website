@@ -6,7 +6,7 @@ import { ICalendarData } from "../../src/models/interfaces/calendar";
 import ModifiedMarkdown from "../../src/hok/modifiedMarkdown";
 
 export const metadata = {
-  title: `Օրացուցային պլան| ${siteTitle}`,
+  title: `Օրացուցային պլան | ${siteTitle}`,
   description: "Արարատի մարզի շախմատի ֆեդերացիայի օրացուցային պլան",
 };
 
@@ -23,8 +23,7 @@ export default async function About() {
     <main>
       <h1>Օրացուցային պլան</h1>
       <p>
-        *Մրցաշարի անցկացման ժամկետը կախված ՀՇԱ օրացուցային պլանից կարող է մի
-        փոքր փոփոխվել։ Բոլոր մրցաշարերի անցկացման մասին նախօրոք կհայտարարվի
+        *Ժամկետը կախված ՀՇԱ օրացուցային պլանից կարող է փոփոխվել։ Բոլոր մրցաշարերի անցկացման մասին նախօրոք կհայտարարվի
         կայքում և ֆեյսբուքյան էջում։
       </p>
 

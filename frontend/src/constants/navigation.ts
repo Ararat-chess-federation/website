@@ -20,10 +20,10 @@ export const NAVIGATION: INavigation[] = [
   //   link: "/statistic",
   //   title: "Վիճակագրություն",
   // },
-  // {
-  //   link: "/calendar",
-  //   title: "Օրացուցային պլան",
-  // },
+  {
+    link: "/calendar",
+    title: "Օրացուցային պլան",
+  },
 ];
 
 export const LEFT_MENU: INavigation[] = [
