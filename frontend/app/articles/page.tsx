@@ -50,6 +50,10 @@ export default async function Articles({ searchParams }: ISearchParams) {
 }
 
 export function ArticleList({ data }: { data: IArticle[] }) {
+  if (!data) {
+    return null;
+  }
+  
   return (
     <>
       {data.map(({ attributes }) => {

@@ -17,14 +17,10 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const { data: articles }: { data: IArticle[] } = await getData({
+  const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     params: "sort[0]=publishDate:desc&pagination[limit]=2",
   });
-
-  if (!articles?.length) {
-    return <NotFound />;
-  }
 
   return (
     <main>
@@ -33,7 +29,7 @@ export default async function Home() {
           <h2>Վերջին նորություններ</h2>
         </div>
         <section className="articles_container">
-          <ArticleList data={articles} />
+          <ArticleList data={data} />
         </section>
         <MoreButton link="/articles" />
       </div>

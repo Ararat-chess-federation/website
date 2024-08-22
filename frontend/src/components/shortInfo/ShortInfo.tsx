@@ -9,7 +9,8 @@ import "./ShortInfo.css";
 export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
   const res = getData({
     type: type,
-    params: "pagination[limit]=2",
+    params: "&fields=id",
+    populate:""
   });
 
   const { meta } = use(res);
