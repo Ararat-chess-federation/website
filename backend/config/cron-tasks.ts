@@ -9,45 +9,34 @@ export default {
   importArticlesFromFB: {
     task: async ({ strapi }) => {
       try {
-        const response = await fetch(RSS_URL);
-        const xmlText = await response.text();
+        const [data, latestArticle] = await Promise.all([
+          getDataFromRSS(),
+          getLatestArticle(),
+        ]);
 
-        const result = await parseStringPromise(xmlText);
-        const data = result.rss.channel[0].item.reverse();
+        const isDataSaved =
+          latestArticle &&
+          new Date(latestArticle.publishDate) > new Date(data[0].pubDate[0]);
 
-        const latestEntries = await strapi.entityService.findMany(API, {
-          sort: { publishDate: "desc" },
-          limit: 1,
-        });
-
-        if (
-          latestEntries.length &&
-          new Date(latestEntries[0].publishDate) > new Date(data[0].pubDate[0])
-        ) {
+        if (isDataSaved) {
           console.log("no need");
           return;
         }
 
         for (const post of data) {
-          const { title, url, mainImage, articleText, fbPost } =
-            getPostData(post);
-
-          if (!articleText) {
+          const postData = getPostData(post);
+          if (!postData.articleText) {
             continue;
           }
 
-          const uploadedImage = await uploadImageFromUrl(mainImage);
+          const uploadedImage = await uploadImageFromUrl(postData.mainImage);
 
-          await strapi.entityService.create(API, {
-            data: {
-              title: title,
-              articleText: articleText,
-              fbPost: fbPost,
-              url: url,
-              publishDate: new Date(post.pubDate[0]),
-              mainImage: uploadedImage.id || null,
-            },
-          });
+          const data = {
+            ...postData,
+            mainImage: uploadedImage.id || null,
+          };
+
+          await saveArticle(data);
         }
       } catch (error) {
         console.error("Error:", error);
@@ -58,6 +47,29 @@ export default {
     },
   },
 };
+
+async function saveArticle(data) {
+  await strapi.entityService.create(API, {
+    data,
+  });
+}
+
+async function getLatestArticle() {
+  const latestArticle = await strapi.entityService.findMany(API, {
+    sort: { publishDate: "desc" },
+    limit: 1,
+  });
+
+  return latestArticle[0];
+}
+
+async function getDataFromRSS() {
+  const response = await fetch(RSS_URL);
+  const xmlText = await response.text();
+
+  const result = await parseStringPromise(xmlText);
+  return result.rss.channel[0].item.reverse();
+}
 
 async function uploadImageFromUrl(imageUrl) {
   try {
@@ -99,6 +111,7 @@ function getPostData(post) {
     mainImage: post["media:content"][0].$.url,
     fbPost: post.link[0],
     articleText: [{ __component: "text.paragraph", paragraph: markdown }],
+    publishDate: new Date(post.pubDate[0]),
   };
 }
 
