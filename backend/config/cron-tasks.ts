@@ -1,5 +1,6 @@
 import { parseStringPromise } from "xml2js";
-const STRAPI_URL = "http://localhost:1337";
+
+const STRAPI_URL = strapi.config.server.url || "http://localhost:1337";
 const API = "api::article.article";
 const BASE_URL = "https://ararat.chessnews.am";
 const RSS_URL =
