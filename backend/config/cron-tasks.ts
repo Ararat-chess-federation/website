@@ -58,6 +58,7 @@ async function getLatestArticle() {
   const latestArticle = await strapi.entityService.findMany(API, {
     sort: { publishDate: "desc" },
     limit: 1,
+    fields: ["publishDate"],
   });
 
   return latestArticle[0];
@@ -71,17 +72,15 @@ async function getDataFromRSS() {
   return result.rss.channel[0].item.reverse();
 }
 
-async function uploadImageFromUrl(imageUrl) {
+async function uploadImageFromUrl(imageUrl: string) {
   try {
     const myImage = await fetch(imageUrl);
     const myBlob = await myImage.blob();
 
-    const fileNameWithQuery = imageUrl.split("/").pop();
-    const queryStartIdx = fileNameWithQuery.indexOf("?");
-    const fileName = fileNameWithQuery.slice(0, queryStartIdx);
+    const fileName = getImgFileName(imageUrl);
 
     const formData = new FormData();
-    formData.append("files", myBlob, fileName || "uploadedImage.jpg");
+    formData.append("files", myBlob, fileName);
 
     const imageUploaded = await fetch(`${STRAPI_URL}/api/upload`, {
       method: "POST",
@@ -96,6 +95,13 @@ async function uploadImageFromUrl(imageUrl) {
     return res[0];
   } catch (error) {
     console.error("Error:", error);
+  }
+
+  function getImgFileName(imageUrl: string): string {
+    const fileNameWithQuery = imageUrl.split("/").pop();
+    const queryStartIdx = fileNameWithQuery.indexOf("?");
+
+    return fileNameWithQuery.slice(0, queryStartIdx) || "uploadedImage.jpg";
   }
 }
 
