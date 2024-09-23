@@ -1,14 +1,15 @@
 import { parseStringPromise } from "xml2js";
 const STRAPI_URL = "http://localhost:1337";
 const API = "api::article.article";
+const BASE_URL = "https://ararat.chessnews.am";
+const RSS_URL =
+  "https://fetchrss.com/rss/66f17165789ae466320d993266f17183abe507c1920a28b6.xml";
 
 export default {
   importArticlesFromFB: {
     task: async ({ strapi }) => {
-      const URL =
-        "https://fetchrss.com/rss/66f17165789ae466320d993266f17183abe507c1920a28b6.xml";
       try {
-        const response = await fetch(URL);
+        const response = await fetch(RSS_URL);
         const xmlText = await response.text();
 
         const result = await parseStringPromise(xmlText);
@@ -35,19 +36,17 @@ export default {
             continue;
           }
 
-          const res = await uploadImageFromUrl(mainImage);
-          const { id: imageId } = res[0];
-          const data = {
-            title: title,
-            articleText: articleText,
-            fbPost: fbPost,
-            url: url,
-            publishDate: new Date(post.pubDate[0]),
-            mainImage: imageId || null,
-          };
+          const uploadedImage = await uploadImageFromUrl(mainImage);
 
           await strapi.entityService.create(API, {
-            data: data,
+            data: {
+              title: title,
+              articleText: articleText,
+              fbPost: fbPost,
+              url: url,
+              publishDate: new Date(post.pubDate[0]),
+              mainImage: uploadedImage.id || null,
+            },
           });
         }
       } catch (error) {
@@ -81,29 +80,26 @@ async function uploadImageFromUrl(imageUrl) {
       throw new Error(`Upload failed with status ${imageUploaded.status}`);
     }
 
-    return await imageUploaded.json();
+    const res = await imageUploaded.json();
+    return res[0];
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
 function getPostData(post) {
-  if (post.description[0].includes("https://ararat.chessnews.am")) {
+  if (post.description[0].includes(BASE_URL)) {
     return { articleText: "" };
   }
 
-  const feedGeneratedTextStartIdx =
-    post.description[0].indexOf("(Feed generated");
-  const markdown = replaceHtmlToMarkdown(
-    post.description[0].slice(0, feedGeneratedTextStartIdx)
-  );
-  const title = post.title[0];
-  const url = title;
-  const mainImage = post["media:content"][0].$.url;
-  const fbPost = post.link[0];
-  const articleText = [{ __component: "text.paragraph", paragraph: markdown }];
-
-  return { title, url, mainImage, fbPost, articleText };
+  const markdown = replaceHtmlToMarkdown(post.description[0]);
+  return {
+    title: post.title[0],
+    url: post.title[0],
+    mainImage: post["media:content"][0].$.url,
+    fbPost: post.link[0],
+    articleText: [{ __component: "text.paragraph", paragraph: markdown }],
+  };
 }
 
 function replaceHtmlToMarkdown(html: string) {
