@@ -1,61 +1,11 @@
 import { parseStringPromise } from "xml2js";
 
-const STRAPI_URL = strapi.config.server.url || "http://localhost:1337";
 const API = "api::article.article";
 const BASE_URL = "https://ararat.chessnews.am";
 const RSS_URL =
   "https://fetchrss.com/rss/66f17165789ae466320d993266f17183abe507c1920a28b6.xml";
 
-export default {
-  importArticlesFromFB: {
-    task: async ({ strapi }) => {
-      try {
-        const [data, latestArticle] = await Promise.all([
-          getDataFromRSS(),
-          getLatestArticle(),
-        ]);
-
-        const isDataSaved =
-          latestArticle &&
-          new Date(latestArticle.publishDate) > new Date(data[0].pubDate[0]);
-
-        if (isDataSaved) {
-          console.log("no need");
-          return;
-        }
-
-        for (const post of data) {
-          const postData = getPostData(post);
-          if (!postData.articleText) {
-            continue;
-          }
-
-          const uploadedImage = await uploadImageFromUrl(postData.mainImage);
-
-          const data = {
-            ...postData,
-            mainImage: uploadedImage.id || null,
-          };
-
-          await saveArticle(data);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    },
-    options: {
-      rule: process.env.GET_FB_DATA_TIMER,
-    },
-  },
-};
-
-async function saveArticle(data) {
-  await strapi.entityService.create(API, {
-    data,
-  });
-}
-
-async function getLatestArticle() {
+export async function getLatestArticle(strapi) {
   const latestArticle = await strapi.entityService.findMany(API, {
     sort: { publishDate: "desc" },
     limit: 1,
@@ -65,7 +15,7 @@ async function getLatestArticle() {
   return latestArticle[0];
 }
 
-async function getDataFromRSS() {
+export async function getDataFromRSS() {
   const response = await fetch(RSS_URL);
   const xmlText = await response.text();
 
@@ -73,7 +23,9 @@ async function getDataFromRSS() {
   return result.rss.channel[0].item.reverse();
 }
 
-async function uploadImageFromUrl(imageUrl: string) {
+export async function uploadImageFromUrl(imageUrl: string, strapi) {
+  const STRAPI_URL = strapi.config.server.url || "http://localhost:1337";
+
   try {
     const myImage = await fetch(imageUrl);
     const myBlob = await myImage.blob();
@@ -106,7 +58,7 @@ async function uploadImageFromUrl(imageUrl: string) {
   }
 }
 
-function getPostData(post) {
+export function getPostData(post) {
   if (post.description[0].includes(BASE_URL)) {
     return { articleText: "" };
   }
@@ -120,6 +72,12 @@ function getPostData(post) {
     articleText: [{ __component: "text.paragraph", paragraph: markdown }],
     publishDate: new Date(post.pubDate[0]),
   };
+}
+
+export async function saveArticle(data, strapi) {
+  await strapi.entityService.create(API, {
+    data,
+  });
 }
 
 function replaceHtmlToMarkdown(html: string) {
