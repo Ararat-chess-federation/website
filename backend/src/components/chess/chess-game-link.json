@@ -1,12 +1,14 @@
 {
   "collectionName": "components_chess_chess_game_links",
   "info": {
-    "displayName": "Chess game link"
+    "displayName": "Chess game link",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "link": {
-      "type": "string"
+      "type": "string",
+      "regex": "^<iframe width=\"600\" height=\"371\" src=\"https:\\/\\/lichess\\.org\\/study\\/embed\\/[A-Za-z0-9]+\\/[A-Za-z0-9]+\" frameborder=0><\\/iframe>$"
     }
   }
 }
