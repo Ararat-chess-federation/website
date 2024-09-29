@@ -20,9 +20,6 @@
       "type": "string",
       "required": true
     },
-    "mapUrl": {
-      "type": "string"
-    },
     "trainers": {
       "type": "relation",
       "relation": "manyToMany",
