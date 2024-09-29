@@ -1,3 +1,5 @@
+import cronTasks from "./cron";
+
 export default ({ env }) => ({
   host: env("HOST", "0.0.0.0"),
   port: env.int("PORT", 1337),
@@ -8,4 +10,8 @@ export default ({ env }) => ({
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", false),
   },
   url: env("SERVER_URL") ? env("SERVER_URL") + "/strapi" : "",
+  cron: {
+    enabled: true,
+    tasks: cronTasks,
+  },
 });
