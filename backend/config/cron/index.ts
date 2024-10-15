@@ -1,4 +1,10 @@
-import { getDataFromRSS, getLatestArticle, getPostData, saveArticle, uploadImageFromUrl } from "./helpers/importArticles";
+import {
+  getDataFromRSS,
+  getLatestArticle,
+  getPostData,
+  saveArticle,
+  uploadImageFromUrl,
+} from "./helpers/importArticles";
 
 export default {
   importArticlesFromFB: {
@@ -24,17 +30,17 @@ export default {
             continue;
           }
 
-          const uploadedImage = await uploadImageFromUrl(
-            postData.mainImage,
-            strapi
-          );
+          const article = { ...postData };
 
-          const data = {
-            ...postData,
-            mainImage: uploadedImage.id || null,
-          };
+          if (postData.mainImage) {
+            const uploadedImage = await uploadImageFromUrl(
+              postData.mainImage,
+              strapi
+            );
+            article.mainImage = uploadedImage.id || null;
+          }
 
-          await saveArticle(data, strapi);
+          await saveArticle(article, strapi);
         }
       } catch (error) {
         console.error("Error:", error);

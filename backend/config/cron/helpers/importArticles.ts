@@ -66,8 +66,8 @@ export function getPostData(post) {
   const markdown = replaceHtmlToMarkdown(post.description[0]);
   return {
     title: post.title[0],
-    url: post.title[0],
-    mainImage: post["media:content"][0].$.url,
+    url: post.title[0] + new Date(post.pubDate[0]),
+    mainImage: post["media:content"] && post["media:content"][0].$.url,
     fbPost: post.link[0],
     articleText: [{ __component: "text.paragraph", paragraph: markdown }],
     publishDate: new Date(post.pubDate[0]),
