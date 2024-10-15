@@ -5,6 +5,7 @@ import {
   saveArticle,
   uploadImageFromUrl,
 } from "./helpers/importArticles";
+import checkUpToDate from "./helpers/isUpToDate";
 
 export default {
   importArticlesFromFB: {
@@ -15,16 +16,21 @@ export default {
           getLatestArticle(strapi),
         ]);
 
-        const isDataSaved =
-          latestArticle &&
-          new Date(latestArticle.publishDate) > new Date(data[0].pubDate[0]);
-
-        if (isDataSaved) {
-          console.log("no need");
-          return;
-        }
-
         for (const post of data) {
+          const isUpToDate = checkUpToDate(
+            new Date(latestArticle.publishDate),
+            new Date(post.pubDate[0])
+          );
+          const isDataSaved = latestArticle && isUpToDate;
+
+          if (isDataSaved) {
+            console.log("Data is up to date", {
+              latestArticle: latestArticle.publishDate,
+              fbArticle: post.pubDate[0],
+            });
+            continue;
+          }
+
           const postData = getPostData(post);
           if (!postData.articleText) {
             continue;
@@ -41,6 +47,10 @@ export default {
           }
 
           await saveArticle(article, strapi);
+          console.log("Added new article", {
+            title: article.title,
+            pubDate: article.publishDate,
+          });
         }
       } catch (error) {
         console.error("Error:", error);
