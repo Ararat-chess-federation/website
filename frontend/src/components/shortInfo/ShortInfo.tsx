@@ -10,7 +10,7 @@ export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
   const res = getData({
     type: type,
     params: "&fields=id",
-    populate:""
+    populate: "",
   });
 
   const { meta } = use(res);
@@ -39,13 +39,13 @@ function getInfo(type: "trainers" | "branches", count: number) {
   const data = {
     trainers: {
       title: "Մարզիչներ",
-      text: `Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում ընհանուր առմամբ աշխատում է ${count} մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։`,
+      text: `Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում աշխատում է ${count} մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։`,
       img: mainTrainer,
       alt: "Trainer photo",
     },
     branches: {
       title: "Մասնաճյուղեր",
-      text: ` Արարատի մարզի բոլոր համայնքներում ընհանուր առմամբ գործում է ${count} մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա`,
+      text: ` Արարատի մարզի համայնքներում գործում է ${count} մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։`,
       img: mainBranch,
       alt: "Branch photo",
     },
