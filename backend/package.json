@@ -12,7 +12,7 @@
   "dependencies": {
     "@strapi/plugin-users-permissions": "4.13.6",
     "@strapi/strapi": "4.13.6",
-    "mysql": "^2.18.1",
+    "mysql2": "^3.11.3",
     "strapi-plugin-populate-deep": "^3.0.1",
     "strapi-plugin-responsive-image": "^1.2.0",
     "xml2js": "^0.6.2"

@@ -1,8 +1,8 @@
 export default ({ env }) => {
-  const client = env("DATABASE_CLIENT", "sqlite");
+  const client = env("DATABASE_CLIENT", "mysql2");
 
   const connections = {
-    mysql: {
+    mysql2: {
       connection: {
         connectionString: env("DATABASE_URL"),
         host: env("DATABASE_HOST", "localhost"),
