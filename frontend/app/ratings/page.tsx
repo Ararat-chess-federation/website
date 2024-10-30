@@ -1,17 +1,14 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import getData from "../../src/helpers/getData";
 import { IRatings } from "../../src/models/interfaces/ratings";
 
-export default function Ratings() {
-  const params = useSearchParams();
+type IGrid = "national" | "qualification-rules";
 
-  const [grid, setGrid] = useState<"national" | "qualification-rules">(
-    "national"
-  );
-  const [page, setPage] = useState(params.get("page") || 1);
+export default function Ratings() {
+  const [grid, setGrid] = useState<IGrid>("national");
+  const [page, setPage] = useState(1);
   const [ratings, setRatings] = useState<string[][]>([[]]);
   const [totalRows, setTotalRows] = useState(0);
 
@@ -33,8 +30,22 @@ export default function Ratings() {
   return (
     <div>
       <div>
-        <span onClick={() => setGrid("national")}>Ազգային</span>
-        <span onClick={() => setGrid("qualification-rules")}>Կարգեր</span>
+        <span
+          onClick={() => {
+            setGrid("national");
+            setPage(1);
+          }}
+        >
+          Ազգային
+        </span>
+        <span
+          onClick={() => {
+            setGrid("qualification-rules");
+            setPage(1);
+          }}
+        >
+          Կարգեր
+        </span>
       </div>
       <table>
         <thead>
