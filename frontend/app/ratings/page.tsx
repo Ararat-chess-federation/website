@@ -39,6 +39,7 @@ export default function Ratings() {
   return (
     <div className="rating_container">
       <h1>Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշային աղյուսակ</h1>
+      <p>*Տվյալները վերցվում են ՀՇՎ կայքից</p>
       <div className="rating_grid_container">
         <span className="rating_grid" onClick={() => checkGrid("national")}>
           <Link href={"/ratings?grid=national&page=1"}> Ազգային</Link>
