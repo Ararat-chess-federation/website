@@ -1,0 +1,16 @@
+.rating_grid_container {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rating_grid {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 8px;
+}

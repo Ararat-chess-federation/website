@@ -1,14 +1,18 @@
 "use client";
 
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import getData from "../../src/helpers/getData";
 import { IRatings } from "../../src/models/interfaces/ratings";
+import "./Rating.css";
 
 type IGrid = "national" | "qualification-rules";
 
 export default function Ratings() {
-  const [grid, setGrid] = useState<IGrid>("national");
-  const [page, setPage] = useState(1);
+  const params = useSearchParams();
+  const [grid, setGrid] = useState(params.get("grid") || "national");
+  const [page, setPage] = useState(params.get("page") || 1);
   const [ratings, setRatings] = useState<string[][]>([[]]);
   const [totalRows, setTotalRows] = useState(0);
 
@@ -27,24 +31,22 @@ export default function Ratings() {
     getRatings();
   }, [grid, page]);
 
+  const checkGrid = (grid: IGrid) => {
+    setGrid(grid);
+    setPage(1);
+  };
+
   return (
     <div>
-      <div>
-        <span
-          onClick={() => {
-            setGrid("national");
-            setPage(1);
-          }}
-        >
-          Ազգային
+      <div className="rating_grid_container">
+        <span className="rating_grid" onClick={() => checkGrid("national")}>
+          <Link href={"/ratings?grid=national&page=1"}> Ազգային</Link>
         </span>
         <span
-          onClick={() => {
-            setGrid("qualification-rules");
-            setPage(1);
-          }}
+          className="rating_grid"
+          onClick={() => checkGrid("qualification-rules")}
         >
-          Կարգեր
+          <Link href={"/ratings?grid=qualification-rules&page=1"}>Կարգեր</Link>
         </span>
       </div>
       <table>
@@ -62,7 +64,7 @@ export default function Ratings() {
                 <td key={idx}>
                   {nextEl.includes("/am/profile") ? (
                     <a href={`https://chessfed.am${nextEl}`} target="_blank">
-                      Պռոֆիլ
+                      Պրոֆիլ ՀՇՖ կայքում
                     </a>
                   ) : (
                     nextEl
@@ -74,19 +76,22 @@ export default function Ratings() {
         </tbody>
       </table>
       <div>
-        {new Array(Math.ceil(totalRows / 50))
-          .fill(0)
-          .map((el, idx) => idx + 1)
-          .map((el) => (
-            <span
-              style={{ margin: "40px" }}
-              onClick={() => setPage(el)}
-              key={el}
+        {getPagesArr(totalRows).map((el) => (
+          <span className="rating_grid" onClick={() => setPage(el)} key={el}>
+            <Link
+              href={`/ratings?grid=${
+                params.get("grid") || "national"
+              }&page=${el}`}
             >
               {el}
-            </span>
-          ))}
+            </Link>
+          </span>
+        ))}
       </div>
     </div>
   );
+}
+
+function getPagesArr(totalRows: number) {
+  return new Array(Math.ceil(totalRows / 50)).fill(0).map((_, idx) => idx + 1);
 }
