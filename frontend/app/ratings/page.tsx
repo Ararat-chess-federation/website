@@ -37,7 +37,8 @@ export default function Ratings() {
   };
 
   return (
-    <div>
+    <div className="rating_container">
+      <h1>Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշային աղյուսակ</h1>
       <div className="rating_grid_container">
         <span className="rating_grid" onClick={() => checkGrid("national")}>
           <Link href={"/ratings?grid=national&page=1"}> Ազգային</Link>
@@ -75,7 +76,7 @@ export default function Ratings() {
           ))}
         </tbody>
       </table>
-      <div>
+      <div className="rating_grid_container">
         {getPagesArr(totalRows).map((el) => (
           <span className="rating_grid" onClick={() => setPage(el)} key={el}>
             <Link

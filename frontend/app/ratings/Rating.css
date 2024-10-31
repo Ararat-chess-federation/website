@@ -1,8 +1,18 @@
+.rating_container {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+/* Optional: Add padding and set the table width */
+.rating_container table {
+  width: 100%;
+  border-collapse: collapse; /* Removes space between table cells */
+}
 .rating_grid_container {
   width: 100%;
   max-width: 200px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
 }
 
