@@ -9,6 +9,7 @@ import "./Rating.css";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import Loading from "../loading";
+import RatingTable from "../../src/components/ratingTable/RatingTable";
 
 type IGrid = "national" | "qualification-rules";
 
@@ -59,6 +60,11 @@ export default function Ratings() {
     setPage(1);
   };
 
+  const getPagesArr = (totalRows: number) => {
+    const pagesArr = new Array(Math.ceil(totalRows / 50)).fill(0);
+    return pagesArr.map((_, idx) => idx + 1);
+  };
+
   return (
     <div className="rating_container">
       <h1>Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշային աղյուսակ</h1>
@@ -81,32 +87,7 @@ export default function Ratings() {
         </span>
       </div>
       {isLoading && <Loading />}
-      <table>
-        <thead>
-          <tr>
-            {ratings[0].map((el: string) => (
-              <th key={el}>{el}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {ratings.slice(1).map((el: string[], idx: number) => (
-            <tr key={idx}>
-              {el.map((nextEl, idx) => (
-                <td key={idx}>
-                  {nextEl.includes("/am/profile") ? (
-                    <a href={`https://chessfed.am${nextEl}`} target="_blank">
-                      Պրոֆիլ ՀՇՖ կայքում
-                    </a>
-                  ) : (
-                    nextEl
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <RatingTable ratings={ratings} />
       <div className="rating_grid_container">
         {getPagesArr(totalRows).map((el) => (
           <span className="rating_grid" onClick={() => changePage(el)} key={el}>
@@ -116,8 +97,4 @@ export default function Ratings() {
       </div>
     </div>
   );
-}
-
-function getPagesArr(totalRows: number) {
-  return new Array(Math.ceil(totalRows / 50)).fill(0).map((_, idx) => idx + 1);
 }
