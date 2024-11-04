@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import getData from "../../src/helpers/getData";
 import { IRatings } from "../../src/models/interfaces/ratings";
 import newTabIcon from "../../public/newTab.svg";
 import "./Rating.css";
+import { useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Loading from "../loading";
 
 type IGrid = "national" | "qualification-rules";
@@ -19,6 +19,9 @@ export default function Ratings() {
   const [ratings, setRatings] = useState<string[][]>([[]]);
   const [totalRows, setTotalRows] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const { replace } = useRouter();
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,7 +40,21 @@ export default function Ratings() {
     getRatings();
   }, [grid, page]);
 
-  const checkGrid = (grid: IGrid) => {
+  const changePage = (page: number) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("page", String(page));
+
+    replace(`${pathname}?${params.toString()}`);
+    setPage(page);
+  };
+
+  const changeGrid = (grid: IGrid) => {
+    const params = new URLSearchParams(searchParams);
+    params.set("grid", grid);
+    params.set("page", "1");
+
+    replace(`${pathname}?${params.toString()}`);
+
     setGrid(grid);
     setPage(1);
   };
@@ -53,14 +70,14 @@ export default function Ratings() {
         </a>
       </p>
       <div className="rating_grid_container">
-        <span className="rating_grid" onClick={() => checkGrid("national")}>
-          <Link href={"/ratings?grid=national&page=1"}> Ազգային</Link>
+        <span className="rating_grid" onClick={() => changeGrid("national")}>
+          Ազգային
         </span>
         <span
           className="rating_grid"
-          onClick={() => checkGrid("qualification-rules")}
+          onClick={() => changeGrid("qualification-rules")}
         >
-          <Link href={"/ratings?grid=qualification-rules&page=1"}>Կարգեր</Link>
+          Կարգեր
         </span>
       </div>
       {isLoading && <Loading />}
@@ -92,14 +109,8 @@ export default function Ratings() {
       </table>
       <div className="rating_grid_container">
         {getPagesArr(totalRows).map((el) => (
-          <span className="rating_grid" onClick={() => setPage(el)} key={el}>
-            <Link
-              href={`/ratings?grid=${
-                params.get("grid") || "national"
-              }&page=${el}`}
-            >
-              {el}
-            </Link>
+          <span className="rating_grid" onClick={() => changePage(el)} key={el}>
+            {el}
           </span>
         ))}
       </div>
