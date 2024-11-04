@@ -66,15 +66,8 @@ export default function Ratings() {
         </a>
       </p>
       <div className="rating_grid_container">
-        <span className="rating_grid" onClick={() => changeQuery("national")}>
-          Ազգային
-        </span>
-        <span
-          className="rating_grid"
-          onClick={() => changeQuery("qualification-rules")}
-        >
-          Կարգեր
-        </span>
+        <Grid type="national" onClick={changeQuery} grid={grid} />
+        <Grid type="qualification-rules" onClick={changeQuery} grid={grid} />
       </div>
       {isLoading && <Loading />}
       <RatingTable ratings={ratings} />
@@ -85,5 +78,30 @@ export default function Ratings() {
         totalCount={totalRows}
       />
     </div>
+  );
+}
+
+interface IGridProps {
+  onClick: (grid: IGrid) => void;
+  type: IGrid;
+  grid: IGrid;
+}
+
+function Grid({ onClick, type, grid }: IGridProps) {
+  const texts = {
+    national: "Ազգային",
+    "qualification-rules": "Կարգեր",
+  };
+
+  const active = grid === type ? "grid" : "";
+  
+  return (
+    <span
+      data-active={active}
+      className="rating_grid"
+      onClick={() => onClick(type)}
+    >
+      {texts[type]}
+    </span>
   );
 }
