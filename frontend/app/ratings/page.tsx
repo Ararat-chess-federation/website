@@ -14,15 +14,17 @@ import RatingTable from "../../src/components/ratingTable/RatingTable";
 type IGrid = "national" | "qualification-rules";
 
 export default function Ratings() {
-  const params = useSearchParams();
-  const [grid, setGrid] = useState(params.get("grid") || "national");
-  const [page, setPage] = useState(params.get("page") || 1);
-  const [ratings, setRatings] = useState<string[][]>([[]]);
-  const [totalRows, setTotalRows] = useState(0);
-  const [isLoading, setIsLoading] = useState(false);
   const { replace } = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
+
+  const [grid, setGrid] = useState<IGrid>(
+    (searchParams.get("grid") as IGrid) || "national"
+  );
+  const [page, setPage] = useState(searchParams.get("page") || 1);
+  const [ratings, setRatings] = useState<string[][]>([[]]);
+  const [totalRows, setTotalRows] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -41,23 +43,15 @@ export default function Ratings() {
     getRatings();
   }, [grid, page]);
 
-  const changePage = (page: number) => {
+  const changeQuery = (pageGrid: IGrid, page: number = 1) => {
     const params = new URLSearchParams(searchParams);
+    params.set("grid", pageGrid);
     params.set("page", String(page));
 
     replace(`${pathname}?${params.toString()}`);
+
+    setGrid(pageGrid);
     setPage(page);
-  };
-
-  const changeGrid = (grid: IGrid) => {
-    const params = new URLSearchParams(searchParams);
-    params.set("grid", grid);
-    params.set("page", "1");
-
-    replace(`${pathname}?${params.toString()}`);
-
-    setGrid(grid);
-    setPage(1);
   };
 
   const getPagesArr = (totalRows: number) => {
@@ -76,12 +70,12 @@ export default function Ratings() {
         </a>
       </p>
       <div className="rating_grid_container">
-        <span className="rating_grid" onClick={() => changeGrid("national")}>
+        <span className="rating_grid" onClick={() => changeQuery("national")}>
           Ազգային
         </span>
         <span
           className="rating_grid"
-          onClick={() => changeGrid("qualification-rules")}
+          onClick={() => changeQuery("qualification-rules")}
         >
           Կարգեր
         </span>
@@ -90,7 +84,11 @@ export default function Ratings() {
       <RatingTable ratings={ratings} />
       <div className="rating_grid_container">
         {getPagesArr(totalRows).map((el) => (
-          <span className="rating_grid" onClick={() => changePage(el)} key={el}>
+          <span
+            className="rating_grid"
+            onClick={() => changeQuery(grid, el)}
+            key={el}
+          >
             {el}
           </span>
         ))}
