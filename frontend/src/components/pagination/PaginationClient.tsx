@@ -1,12 +1,9 @@
-import { getLengths, getPages } from "./pagination.helpers";
+import { getLengths, getNumbers, getPages } from "./pagination.helpers";
 import "./Pagination.css";
 import { IPagesNumber, IPagination } from "./models";
 
 interface IPaginationClient extends IPagination {
-  currentPage: number;
-  totalCount: number;
   onClick: (pageNumber: number) => void;
-  pageSize: number;
 }
 
 export default function PaginationClient({
@@ -73,12 +70,7 @@ function PagesNumbers({
   length,
   onClick,
 }: IPagesNumberClient) {
-  const numbers = Array.from(
-    {
-      length,
-    },
-    (_, idx) => number + idx
-  );
+  const numbers = getNumbers(number, length);
 
   return (
     <>

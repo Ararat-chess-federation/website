@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getLengths, getPages } from "./pagination.helpers";
+import { getLengths, getNumbers, getPages } from "./pagination.helpers";
 import "./Pagination.css";
 import { IPagesNumber, IPagination } from "./models";
 
@@ -71,12 +71,7 @@ function PagesNumbers({
   currentPage,
   length,
 }: IPagesNumberServer) {
-  const numbers = Array.from(
-    {
-      length,
-    },
-    (_, idx) => number + idx
-  );
+  const numbers = getNumbers(number, length);
 
   return (
     <>

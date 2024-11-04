@@ -21,3 +21,6 @@ export const getLengths = (
     endLength: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 3,
   };
 };
+
+export const getNumbers = (number: number, length: number) =>
+  Array.from({ length }, (_, idx) => number + idx);
