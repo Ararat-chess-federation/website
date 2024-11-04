@@ -12,6 +12,7 @@
   text-decoration: none;
   border: 1px solid var(--primary-color);
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .pageNumber[data-active="page"] {
