@@ -8,6 +8,7 @@ import getData from "../../src/helpers/getData";
 import { IRatings } from "../../src/models/interfaces/ratings";
 import newTabIcon from "../../public/newTab.svg";
 import "./Rating.css";
+import Loading from "../loading";
 
 type IGrid = "national" | "qualification-rules";
 
@@ -17,8 +18,10 @@ export default function Ratings() {
   const [page, setPage] = useState(params.get("page") || 1);
   const [ratings, setRatings] = useState<string[][]>([[]]);
   const [totalRows, setTotalRows] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     const getRatings = async () => {
       const { data, rows }: IRatings = await getData({
         type: "ratings",
@@ -28,6 +31,7 @@ export default function Ratings() {
 
       setRatings(data);
       setTotalRows(rows);
+      setIsLoading(false);
     };
 
     getRatings();
@@ -59,6 +63,7 @@ export default function Ratings() {
           <Link href={"/ratings?grid=qualification-rules&page=1"}>Կարգեր</Link>
         </span>
       </div>
+      {isLoading && <Loading />}
       <table>
         <thead>
           <tr>
