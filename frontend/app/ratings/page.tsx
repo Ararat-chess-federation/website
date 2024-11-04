@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
 import Loading from "../loading";
 import RatingTable from "../../src/components/ratingTable/RatingTable";
+import PaginationClient from "../../src/components/pagination/PaginationClient";
 
 type IGrid = "national" | "qualification-rules";
 
@@ -21,7 +22,7 @@ export default function Ratings() {
   const [grid, setGrid] = useState<IGrid>(
     (searchParams.get("grid") as IGrid) || "national"
   );
-  const [page, setPage] = useState(searchParams.get("page") || 1);
+  const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
   const [ratings, setRatings] = useState<string[][]>([[]]);
   const [totalRows, setTotalRows] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -54,11 +55,6 @@ export default function Ratings() {
     setPage(page);
   };
 
-  const getPagesArr = (totalRows: number) => {
-    const pagesArr = new Array(Math.ceil(totalRows / 50)).fill(0);
-    return pagesArr.map((_, idx) => idx + 1);
-  };
-
   return (
     <div className="rating_container">
       <h1>Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշային աղյուսակ</h1>
@@ -82,17 +78,12 @@ export default function Ratings() {
       </div>
       {isLoading && <Loading />}
       <RatingTable ratings={ratings} />
-      <div className="rating_grid_container">
-        {getPagesArr(totalRows).map((el) => (
-          <span
-            className="rating_grid"
-            onClick={() => changeQuery(grid, el)}
-            key={el}
-          >
-            {el}
-          </span>
-        ))}
-      </div>
+      <PaginationClient
+        onClick={(pageNumber: number) => changeQuery(grid, pageNumber)}
+        currentPage={page as number}
+        pageSize={50}
+        totalCount={totalRows}
+      />
     </div>
   );
 }
