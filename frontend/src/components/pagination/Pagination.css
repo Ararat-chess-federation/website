@@ -12,6 +12,7 @@
   text-decoration: none;
   border: 1px solid var(--primary-color);
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .pageNumber[data-active="page"] {
@@ -31,12 +32,4 @@
     margin: 0 4px;
     padding: 6px 12px;
   }
-}
-
-.prev_news_link {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  padding: 8px;
-  border-radius: 8px;
-  margin-top: 32px;
 }

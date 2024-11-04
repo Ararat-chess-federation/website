@@ -1,18 +1,17 @@
-import Link from "next/link";
 import { getLengths, getNumbers, getPages } from "./pagination.helpers";
 import "./Pagination.css";
 import { IPagesNumber, IPagination } from "./models";
 
-interface IPaginationServer extends IPagination {
-  basePath: "/articles";
+interface IPaginationClient extends IPagination {
+  onClick: (pageNumber: number) => void;
 }
 
-export default function Pagination({
+export default function PaginationClient({
   currentPage,
   totalCount,
   pageSize,
-  basePath,
-}: IPaginationServer) {
+  onClick,
+}: IPaginationClient) {
   const totalPages = Math.ceil(totalCount / pageSize);
 
   const { startNumber, endNumber, isHasDots } = getPages(
@@ -30,47 +29,47 @@ export default function Pagination({
     <>
       <div className="pagination">
         {currentPage > 1 && (
-          <Link href={`${basePath}?page=${currentPage - 1}`}>
-            <span className="prev">{"<"}</span>
-          </Link>
+          <span className="prev" onClick={() => onClick(currentPage - 1)}>
+            {"<"}
+          </span>
         )}
 
         <PagesNumbers
-          basePath={basePath}
           currentPage={currentPage}
           length={startLength}
           number={startNumber}
+          onClick={onClick}
         />
 
         {isHasDots && "..."}
 
         <PagesNumbers
-          basePath={basePath}
           currentPage={currentPage}
           length={endLength}
           number={endNumber}
+          onClick={onClick}
         />
 
         {currentPage < totalPages && (
-          <Link href={`${basePath}?page=${currentPage + 1}`}>
-            <span className="next">{">"}</span>
-          </Link>
+          <span className="next" onClick={() => onClick(currentPage + 1)}>
+            {">"}
+          </span>
         )}
       </div>
     </>
   );
 }
 
-interface IPagesNumberServer extends IPagesNumber {
-  basePath: string;
+interface IPagesNumberClient extends IPagesNumber {
+  onClick: (pageNumber: number) => void;
 }
 
 function PagesNumbers({
   number,
-  basePath,
   currentPage,
   length,
-}: IPagesNumberServer) {
+  onClick,
+}: IPagesNumberClient) {
   const numbers = getNumbers(number, length);
 
   return (
@@ -79,11 +78,14 @@ function PagesNumbers({
         const active = page === currentPage ? "page" : "";
 
         return (
-          <Link key={index} href={`${basePath}?page=${page}`}>
-            <span className="pageNumber" data-active={active}>
-              {page}
-            </span>
-          </Link>
+          <span
+            key={index}
+            onClick={() => onClick(page)}
+            className="pageNumber"
+            data-active={active}
+          >
+            {page}
+          </span>
         );
       })}
     </>

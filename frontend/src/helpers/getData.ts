@@ -1,4 +1,4 @@
-type IUrlTypes = "about" | "articles" | "branches" | "trainers" | "useful" | "calendar";
+type IUrlTypes = "about" | "articles" | "branches" | "trainers" | "useful" | "calendar" | "ratings"; 
 interface IDataParams {
   type: IUrlTypes;
   populate?: string;
@@ -14,7 +14,7 @@ export default async function getData({
 }: IDataParams) {
   try {
     const url = getUrl({ type, searchUrl, params, populate });
-    const res = await fetch(`${process.env.BACKEND_URL}/api${url}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api${url}`, {
       next: { revalidate: 3600 },
     });
 
