@@ -1,7 +1,8 @@
 import { getLengths, getPages } from "./pagination.helpers";
 import "./Pagination.css";
+import { IPagesNumber, IPagination } from "./models";
 
-interface IPagination {
+interface IPaginationClient extends IPagination {
   currentPage: number;
   totalCount: number;
   onClick: (pageNumber: number) => void;
@@ -13,7 +14,7 @@ export default function PaginationClient({
   totalCount,
   pageSize,
   onClick,
-}: IPagination) {
+}: IPaginationClient) {
   const totalPages = Math.ceil(totalCount / pageSize);
 
   const { startNumber, endNumber, isHasDots } = getPages(
@@ -62,14 +63,16 @@ export default function PaginationClient({
   );
 }
 
-interface IPagesNumber {
-  number: number;
-  currentPage: number;
-  length: number;
+interface IPagesNumberClient extends IPagesNumber {
   onClick: (pageNumber: number) => void;
 }
 
-function PagesNumbers({ number, currentPage, length, onClick }: IPagesNumber) {
+function PagesNumbers({
+  number,
+  currentPage,
+  length,
+  onClick,
+}: IPagesNumberClient) {
   const numbers = Array.from(
     {
       length,

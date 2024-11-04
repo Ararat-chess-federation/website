@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { getLengths, getPages } from "./pagination.helpers";
 import "./Pagination.css";
+import { IPagesNumber, IPagination } from "./models";
 
-interface IPagination {
-  currentPage: number;
-  totalCount: number;
-  pageSize: number;
+interface IPaginationServer extends IPagination {
   basePath: "/articles";
 }
 
@@ -14,7 +12,7 @@ export default function Pagination({
   totalCount,
   pageSize,
   basePath,
-}: IPagination) {
+}: IPaginationServer) {
   const totalPages = Math.ceil(totalCount / pageSize);
 
   const { startNumber, endNumber, isHasDots } = getPages(
@@ -63,14 +61,16 @@ export default function Pagination({
   );
 }
 
-interface IPagesNumber {
-  number: number;
+interface IPagesNumberServer extends IPagesNumber {
   basePath: string;
-  currentPage: number;
-  length: number;
 }
 
-function PagesNumbers({ number, basePath, currentPage, length }: IPagesNumber) {
+function PagesNumbers({
+  number,
+  basePath,
+  currentPage,
+  length,
+}: IPagesNumberServer) {
   const numbers = Array.from(
     {
       length,
