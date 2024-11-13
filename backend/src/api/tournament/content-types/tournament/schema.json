@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "tournaments",
+  "info": {
+    "singularName": "tournament",
+    "pluralName": "tournaments",
+    "displayName": "tournament"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "ids": {
+      "type": "string"
+    }
+  }
+}
