@@ -1,5 +1,6 @@
 import Logo from "./logo/Logo";
 import Navigation from "./navigation/Navigation";
+import LiveTournaments from "./liveTournaments/LiveTournaments";
 import "./Header.css";
 
 export default function Header() {
@@ -7,6 +8,7 @@ export default function Header() {
     <header className="header">
       <Logo />
       <Navigation />
+      <LiveTournaments />
     </header>
   );
 }

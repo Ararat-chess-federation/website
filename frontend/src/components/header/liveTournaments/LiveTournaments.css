@@ -1,0 +1,33 @@
+.live_container {
+  display: flex;
+}
+
+.live {
+  cursor: pointer;
+  position: relative;
+}
+
+.live::marker {
+  color: red;
+}
+
+.tournaments {
+  display: none;
+  width: 300px;
+  position: absolute;
+  top: 100%;
+  left: -240px;
+  margin-top: 20px;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+.live:hover .tournaments {
+  display: block;
+}
+
+@media only screen and (max-width: 768px) {
+  .live {
+    width: 50%;
+  }
+}
