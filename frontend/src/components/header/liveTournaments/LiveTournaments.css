@@ -17,7 +17,6 @@
   position: absolute;
   top: 100%;
   left: -240px;
-  margin-top: 20px;
   background: var(--secondary-color);
   color: var(--primary-color);
 }
@@ -26,8 +25,16 @@
   display: block;
 }
 
+.tournaments:hover {
+  display: block;
+}
+
 @media only screen and (max-width: 768px) {
   .live {
     width: 50%;
+  }
+
+  .tournaments {
+    margin-top: 20px;
   }
 }
