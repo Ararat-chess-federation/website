@@ -12,7 +12,7 @@ interface ITournamentData {
 export default function LiveTournaments() {
   const { data } = use(getData({ type: "tournament" }));
 
-  if (!data.length) {
+  if (!data) {
     return null;
   }
 
