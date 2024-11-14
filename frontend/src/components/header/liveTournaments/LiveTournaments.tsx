@@ -22,7 +22,7 @@ export default function LiveTournaments() {
         LIVE
         <div className="tournaments">
           {data.map((el: ITournamentData) => (
-            <Tournament tournament={el} />
+            <Tournament key={el.url} tournament={el} />
           ))}
         </div>
       </li>
