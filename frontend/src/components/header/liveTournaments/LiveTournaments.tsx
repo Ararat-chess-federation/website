@@ -31,6 +31,10 @@ export default function LiveTournaments() {
 }
 
 function Tournament({ tournament }: { tournament: ITournamentData }) {
+  if (!tournament) {
+    return null;
+  }
+
   const { image, standings, url } = tournament;
   return (
     <div key={url} className="live_container">
