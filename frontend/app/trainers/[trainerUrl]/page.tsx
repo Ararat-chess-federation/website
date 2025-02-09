@@ -9,10 +9,11 @@ import getImageSrc from "../../../src/helpers/getMediaSrc";
 import ModifiedMarkdown from "../../../src/hok/modifiedMarkdown";
 
 interface ITrainerParams {
-  params: { trainerUrl: string };
+  params: Promise<{ trainerUrl: string }>;
 }
 
-export async function generateMetadata({ params }: ITrainerParams) {
+export async function generateMetadata(props: ITrainerParams) {
+  const params = await props.params;
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
     filters: {
@@ -34,7 +35,8 @@ export async function generateMetadata({ params }: ITrainerParams) {
     },
   };
 }
-export default async function Trainer({ params }: ITrainerParams) {
+export default async function Trainer(props: ITrainerParams) {
+  const params = await props.params;
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
     filters: {

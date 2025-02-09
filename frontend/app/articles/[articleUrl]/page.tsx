@@ -8,10 +8,11 @@ import NotFound from "../../not-found";
 import getImageSrc from "../../../src/helpers/getMediaSrc";
 
 interface IArticleParams {
-  params: { articleUrl: string };
+  params: Promise<{ articleUrl: string }>;
 }
 
-export async function generateMetadata({ params }: IArticleParams) {
+export async function generateMetadata(props: IArticleParams) {
+  const params = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     filters: {
@@ -34,7 +35,8 @@ export async function generateMetadata({ params }: IArticleParams) {
   };
 }
 
-export default async function Article({ params }: IArticleParams) {
+export default async function Article(props: IArticleParams) {
+  const params = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     filters: {
