@@ -4,6 +4,7 @@ import {
   IUrlTypes,
   TypeMapping,
 } from "../models/interfaces/getData";
+import { IMeta } from "../models/interfaces/meta";
 
 export default async function getData<T extends IUrlTypes>({
   type,
@@ -14,7 +15,7 @@ export default async function getData<T extends IUrlTypes>({
   sort = "",
   offset = 0,
   limit = 10,
-}: IDataParams<T>): Promise<{ data: TypeMapping[T] }> {
+}: IDataParams<T>): Promise<{ data: TypeMapping[T]; meta: IMeta }> {
   const query = qs.stringify(
     {
       populate,

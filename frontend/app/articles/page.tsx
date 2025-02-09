@@ -35,7 +35,7 @@ export default async function Articles({ searchParams }: ISearchParams) {
         fields: ["url"],
       },
     },
-  }) as any; // fix meta type
+  });
 
   if (!data?.length) {
     return <NotFound />;

@@ -36,12 +36,6 @@ export type TypeMapping = {
   calendar: ICalendarData;
   ratings: IRatings;
   useful: IUsefulData;
-  //   projects: IProject[];
-  //   blogs: IBlog[];
-  //   contributors: IContributor[];
-  //   menus: IMenu[];
-  //   "static-pages": IStaticPage[];
-  //   "site-config": ISiteConfig;
 };
 
 export type IUrlTypes = keyof TypeMapping;
