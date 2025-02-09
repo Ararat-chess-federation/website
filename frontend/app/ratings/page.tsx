@@ -35,7 +35,6 @@ export default function Ratings() {
         type: "ratings",
         params: { grid, page },
       });
-console.log({data, meta});
 
       setRatings(data);
       setTotalRows(meta.pagination.total);
