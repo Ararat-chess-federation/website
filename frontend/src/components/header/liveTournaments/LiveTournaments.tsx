@@ -8,7 +8,6 @@ export default function LiveTournaments() {
   const { data }: { data: ITournamentData[] } = use(
     getData({ type: "tournament" })
   );
-  console.log({ data });
 
   if (!data || !data.length) {
     return null;
