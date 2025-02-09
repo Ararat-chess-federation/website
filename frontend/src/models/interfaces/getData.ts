@@ -1,6 +1,7 @@
 import { IAboutData } from "./about";
 import { IArticle } from "./article";
 import { IBranch } from "./branch";
+import { ICalendarData } from "./calendar";
 import { ITrainer } from "./trainer";
 
 export type INestedObject = {
@@ -30,6 +31,7 @@ export type TypeMapping = {
   about: IAboutData;
   branches: IBranch[];
   trainers: ITrainer[];
+  calendar: ICalendarData;
   //   projects: IProject[];
   //   blogs: IBlog[];
   //   contributors: IContributor[];
