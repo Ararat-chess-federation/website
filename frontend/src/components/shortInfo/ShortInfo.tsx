@@ -9,8 +9,7 @@ import "./ShortInfo.css";
 export default function ShortInfo({ type }: { type: "trainers" | "branches" }) {
   const res = getData({
     type: type,
-    params: "&fields=id",
-    populate: "",
+    fields: ["id"],
   });
 
   const { meta } = use(res);
