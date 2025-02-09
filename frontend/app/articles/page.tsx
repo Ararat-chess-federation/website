@@ -14,12 +14,13 @@ export const metadata = {
 };
 
 interface ISearchParams {
-  searchParams: {
+  searchParams: Promise<{
     page: string;
-  };
+  }>;
 }
 
-export default async function Articles({ searchParams }: ISearchParams) {
+export default async function Articles(props: ISearchParams) {
+  const searchParams = await props.searchParams;
   const pageSize = 10;
   const page = Number(searchParams.page) || 1;
 

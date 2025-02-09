@@ -8,10 +8,11 @@ import NotFound from "../../not-found";
 import getImageSrc from "../../../src/helpers/getMediaSrc";
 
 interface IBranchParams {
-  params: { branchUrl: string };
+  params: Promise<{ branchUrl: string }>;
 }
 
-export async function generateMetadata({ params }: IBranchParams) {
+export async function generateMetadata(props: IBranchParams) {
+  const params = await props.params;
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
     filters: { url: params.branchUrl },
@@ -32,7 +33,8 @@ export async function generateMetadata({ params }: IBranchParams) {
   };
 }
 
-export default async function Branch({ params }: IBranchParams) {
+export default async function Branch(props: IBranchParams) {
+  const params = await props.params;
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
     filters: { url: params.branchUrl },
