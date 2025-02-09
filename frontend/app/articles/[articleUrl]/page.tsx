@@ -5,7 +5,7 @@ import { IArticle } from "../../../src/models/interfaces/article";
 import "./Article.css";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
-import getImageSrc from "../../../src/helpers/getImageSrc";
+import getImageSrc from "../../../src/helpers/getMediaSrc";
 
 interface IArticleParams {
   params: { articleUrl: string };
@@ -14,14 +14,16 @@ interface IArticleParams {
 export async function generateMetadata({ params }: IArticleParams) {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
-    searchUrl: params.articleUrl,
+    filters: {
+      url: params.articleUrl,
+    },
   });
 
   if (!data?.length) {
     return;
   }
 
-  const { title, mainImage } = data[0].attributes;
+  const { title, mainImage } = data[0];
 
   return {
     title: `${title} | ${siteTitle}`,
@@ -35,14 +37,25 @@ export async function generateMetadata({ params }: IArticleParams) {
 export default async function Article({ params }: IArticleParams) {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
-    searchUrl: params.articleUrl,
+    filters: {
+      url: params.articleUrl,
+    },
+    populate: {
+      mainImage: {
+        fields: ["url"],
+      },
+      articleText: {
+        populate: "*",
+      },
+    },
   });
 
   if (!data?.length) {
     return <NotFound />;
   }
+  console.log(data[0]);
 
-  const { title, mainImage, articleText, fbPost } = data[0].attributes;
+  const { title, mainImage, articleText, fbPost } = data[0];
 
   return (
     <div className="article_container">

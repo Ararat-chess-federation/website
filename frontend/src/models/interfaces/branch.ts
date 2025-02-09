@@ -13,7 +13,7 @@ export interface IBranch {
     updatedAt: string;
     publishedAt: string;
     trainers: { data: ITrainer[] };
-    mainImage: { data: IImage };
+    mainImage: IImage;
     description: IArticleText[];
   };
 }

@@ -8,7 +8,7 @@ export default function Header() {
     <header className="header">
       <Logo />
       <Navigation />
-      <LiveTournaments />
+      {/* <LiveTournaments /> */}
     </header>
   );
 }

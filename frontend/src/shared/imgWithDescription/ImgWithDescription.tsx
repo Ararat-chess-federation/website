@@ -1,11 +1,11 @@
 import Image from "next/image";
-import getImageSrc from "../../helpers/getImageSrc";
+import getImageSrc from "../../helpers/getMediaSrc";
 import { IImage } from "../../models/interfaces/image";
 import Img from "../img/Img";
 
 interface IImgWithDescriptionProps {
   description: string;
-  image: { data: IImage };
+  image: IImage;
   idx?: number;
 }
 
@@ -14,7 +14,7 @@ export default function ImgWithDescription({
   image,
   description,
 }: IImgWithDescriptionProps) {
-  const { width, height } = image.data.attributes.formats.optimized;
+  const { width, height } = image.formats.optimized;
   const imgWidth = width < 500 ? width : 500;
   const imgHeight = height < 300 ? height : 300;
 

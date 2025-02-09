@@ -5,7 +5,7 @@ import getData from "../../../src/helpers/getData";
 import { IBranch } from "../../../src/models/interfaces/branch";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
-import getImageSrc from "../../../src/helpers/getImageSrc";
+import getImageSrc from "../../../src/helpers/getMediaSrc";
 
 interface IBranchParams {
   params: { branchUrl: string };

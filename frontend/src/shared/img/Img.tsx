@@ -1,12 +1,12 @@
 import Image from "next/image";
-import getImageSrc from "../../helpers/getImageSrc";
+import getImageSrc from "../../helpers/getMediaSrc";
 import { IImage } from "../../models/interfaces/image";
 
 interface IImgProps {
   width: number;
   height: number;
   alt: string;
-  src: { data: IImage };
+  src: IImage;
   className?: string;
   priority?: boolean;
 }

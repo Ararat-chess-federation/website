@@ -19,7 +19,13 @@ export const metadata = {
 export default async function Home() {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
-    params: "sort[0]=publishDate:desc&pagination[limit]=2",
+    sort: "publishDate:desc",
+    limit: 2,
+    populate: {
+      mainImage: {
+        fields: ["url"],
+      },
+    },
   });
 
   return (
@@ -33,10 +39,10 @@ export default async function Home() {
         </section>
         <MoreButton link="/articles" />
       </div>
-      <section className="region_info">
+      {/* <section className="region_info">
         <ShortInfo type="branches" />
         <ShortInfo type="trainers" />
-      </section>
+      </section> */}
     </main>
   );
 }

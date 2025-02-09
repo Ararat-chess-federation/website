@@ -12,6 +12,6 @@ export interface ITrainer {
     updatedAt: string;
     publishedAt: string;
     branches: { data: IBranch[] };
-    profilePhoto: { data: IImage };
+    profilePhoto: IImage;
   };
 }
