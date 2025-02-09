@@ -53,7 +53,6 @@ export default async function Article({ params }: IArticleParams) {
   if (!data?.length) {
     return <NotFound />;
   }
-  console.log(data[0]);
 
   const { title, mainImage, articleText, fbPost } = data[0];
 

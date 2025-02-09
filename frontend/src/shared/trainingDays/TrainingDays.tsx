@@ -2,9 +2,6 @@ import ModifiedMarkdown from "../../hok/modifiedMarkdown";
 import { ITrainingDays } from "../../models/interfaces/trainingDays";
 
 export default function TrainingDays({ data }: { data: ITrainingDays }) {
-  console.log({data});
-  console.log(data.trainers);
-  
   return (
     <div>
       <h3>Պարապմունքի օրեր</h3>

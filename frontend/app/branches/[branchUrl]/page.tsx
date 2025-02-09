@@ -36,7 +36,14 @@ export default async function Branch({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
     filters: { url: params.branchUrl },
-    populate: ["mainImage", "trainers", "description"],
+    populate: {
+      trainers: {
+        fields: ["url", "fullName"],
+      },
+      description: {
+        fields: ["paragraph"],
+      },
+    },
   });
 
   if (!data?.length) {

@@ -15,7 +15,14 @@ export const metadata = {
 export default async function Branches() {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
-    populate: "*",
+    populate: {
+      profilePhoto: {
+        fields: ["url"],
+      },
+      branches: {
+        fields: ["url", "title"],
+      },
+    },
   });
 
   if (!data?.length) {

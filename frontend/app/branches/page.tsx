@@ -16,9 +16,15 @@ export const metadata = {
 export default async function Branches() {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
-    populate: ["mainImage", "trainers"],
+    populate: {
+      mainImage: {
+        fields: ["url"],
+      },
+      trainers: {
+        fields: ["url", "fullName"],
+      },
+    },
   });
-console.log(data);
 
   if (!data?.length) {
     return <NotFound />;

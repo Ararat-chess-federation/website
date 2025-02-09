@@ -3,8 +3,6 @@ import { ITrainer } from "../../models/interfaces/trainer";
 import "./TrainersList.css";
 
 export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
-  console.log(trainers);
-  
   return (
     <div className="branches_list_container">
       <span>Մարզիչներ՝ </span>

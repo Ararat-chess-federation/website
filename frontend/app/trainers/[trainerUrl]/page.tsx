@@ -40,7 +40,11 @@ export default async function Trainer({ params }: ITrainerParams) {
     filters: {
       url: params.trainerUrl,
     },
-    populate: "*",
+    populate: {
+      branches: {
+        fields: ["url", "title"],
+      },
+    },
   });
 
   if (!data?.length) {
