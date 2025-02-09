@@ -12,7 +12,7 @@
   "dependencies": {
     "@strapi/plugin-users-permissions": "5.9.0",
     "@strapi/strapi": "5.9.0",
-    "mysql2": "3.9.8",
+    "mysql2": "^3.12.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
@@ -28,7 +28,7 @@
     "uuid": "7c0f27a8-0573-444b-9bc8-0dbc09f67a3b"
   },
   "engines": {
-    "node": ">=16.0.0 <=20.x.x",
+    "node": ">=18.0.0 <=22.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT",
