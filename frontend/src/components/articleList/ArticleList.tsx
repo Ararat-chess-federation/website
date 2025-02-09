@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { IArticle } from "../../models/interfaces/article";
 import Img from "../../shared/img/Img";
+import "./Article.css"
 
 export function ArticleList({ data }: { data: IArticle[] }) {
   if (!data) {
