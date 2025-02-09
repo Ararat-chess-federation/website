@@ -8,9 +8,9 @@ export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
       <span>Մարզիչներ՝ </span>
       <ul className="branches_trainer_list">
         {trainers.map((el) => (
-          <li key={el.attributes.url} className="branches_trainer">
-            <Link href={`/trainers/${el.attributes.url}`}>
-              {el.attributes.fullName}
+          <li key={el.url} className="branches_trainer">
+            <Link href={`/trainers/${el.url}`}>
+              {el.fullName}
             </Link>
           </li>
         ))}

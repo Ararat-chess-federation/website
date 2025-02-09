@@ -1,8 +1,8 @@
 export default ({ env }) => {
-  const client = env("DATABASE_CLIENT", "mysql2");
+  const client = env("DATABASE_CLIENT", "mysql");
 
   const connections = {
-    mysql2: {
+    mysql: {
       connection: {
         host: env("DATABASE_HOST", "localhost"),
         port: env.int("DATABASE_PORT", 3306),

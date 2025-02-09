@@ -11,6 +11,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import Loading from "../loading";
 import RatingTable from "../../src/components/ratingTable/RatingTable";
 import PaginationClient from "../../src/components/pagination/PaginationClient";
+import { IMeta } from "../../src/models/interfaces/meta";
 
 type IGrid = "national" | "qualification-rules";
 
@@ -30,14 +31,13 @@ export default function Ratings() {
   useEffect(() => {
     setIsLoading(true);
     const getRatings = async () => {
-      const { data, rows }: IRatings = await getData({
+      const { data, meta }: { data: IRatings; meta: IMeta } = await getData({
         type: "ratings",
-        populate: "",
-        params: `grid=${grid}&page=${page}`,
+        params: { grid, page },
       });
 
       setRatings(data);
-      setTotalRows(rows);
+      setTotalRows(meta.pagination.total);
       setIsLoading(false);
     };
 
@@ -94,7 +94,7 @@ function Grid({ onClick, type, grid }: IGridProps) {
   };
 
   const active = grid === type ? "grid" : "";
-  
+
   return (
     <span
       data-active={active}

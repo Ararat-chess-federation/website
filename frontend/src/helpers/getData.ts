@@ -1,42 +1,50 @@
-type IUrlTypes =
-  | "about"
-  | "articles"
-  | "branches"
-  | "trainers"
-  | "useful"
-  | "calendar"
-  | "ratings"
-  | "tournament";
-interface IDataParams {
-  type: IUrlTypes;
-  populate?: string;
-  searchUrl?: string;
-  params?: string;
-}
+import qs from "qs";
+import {
+  IDataParams,
+  IUrlTypes,
+  TypeMapping,
+} from "../models/interfaces/getData";
+import { IMeta } from "../models/interfaces/meta";
 
-export default async function getData({
+export default async function getData<T extends IUrlTypes>({
   type,
-  searchUrl,
-  params,
-  populate = "deep",
-}: IDataParams) {
+  params = {},
+  filters = {},
+  populate = {},
+  fields = [],
+  sort = "",
+  offset = 0,
+  limit = 10,
+}: IDataParams<T>): Promise<{ data: TypeMapping[T]; meta: IMeta }> {
+  const query = qs.stringify(
+    {
+      populate,
+      fields,
+      filters,
+      sort,
+      pagination: { start: offset, limit },
+      ...params,
+    },
+    {
+      encodeValuesOnly: true,
+    }
+  );
+
+  const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/${type}?${query}`;
+
   try {
-    const url = getUrl({ type, searchUrl, params, populate });
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/api${url}`,
-      {
-        next: { revalidate: 3600 },
-      }
-    );
+    const res = await fetch(url, {
+      next: { revalidate: 3600 },
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data: ${res.statusText}`);
+    }
 
     return res.json();
   } catch (e) {
-    return { e };
-  }
-}
+    console.error(e);
 
-function getUrl({ type, searchUrl, params, populate }: IDataParams) {
-  return searchUrl
-    ? `/${type}?populate=${populate}&filters[url][$eq]=${searchUrl}&${params}`
-    : `/${type}?populate=${populate}&${params}`;
+    return { data: [] } as any;
+  }
 }

@@ -15,8 +15,8 @@ export default ({ strapi }) => ({
     });
 
     const data = tableToJson(table);
-    const rows = getTotalRows(pagination);
+    const total = getTotalRows(pagination);
 
-    return { data, rows };
+    return { data, meta: { pagination: { total } } };
   },
 });
