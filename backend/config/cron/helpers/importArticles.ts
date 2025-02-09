@@ -63,7 +63,9 @@ export function getPostData(post) {
     return { articleText: "" };
   }
 
-  const markdown = replaceHtmlToMarkdown(post.description[0]);
+  const text = removeImagesFromHtml(post.description[0]);
+  const markdown = replaceHtmlToMarkdown(text);
+
   return {
     title: post.title[0],
     url: post.title[0] + Math.random(),
@@ -71,7 +73,7 @@ export function getPostData(post) {
     fbPost: post.link[0],
     articleText: [{ __component: "text.paragraph", paragraph: markdown }],
     publishDate: new Date(post.pubDate[0]),
-    publishedAt: null
+    publishedAt: null,
   };
 }
 
@@ -83,4 +85,10 @@ export async function saveArticle(data, strapi) {
 
 function replaceHtmlToMarkdown(html: string) {
   return html.replace(/<br\s*\/?>/g, "  \n").trim();
+}
+
+function removeImagesFromHtml(html: string) {
+  const imgStartIdx = html.indexOf("<img");
+
+  return html.slice(0, imgStartIdx);
 }
