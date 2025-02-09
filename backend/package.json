@@ -10,8 +10,8 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-users-permissions": "4.25.14",
-    "@strapi/strapi": "4.25.14",
+    "@strapi/plugin-users-permissions": "4.25.20",
+    "@strapi/strapi": "4.25.20",
     "mysql2": "^3.11.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
