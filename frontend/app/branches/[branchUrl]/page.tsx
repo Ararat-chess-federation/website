@@ -14,14 +14,14 @@ interface IBranchParams {
 export async function generateMetadata({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
-    searchUrl: params.branchUrl,
+    filters: { url: params.branchUrl },
   });
 
   if (!data?.length) {
     return;
   }
 
-  const { title, mainImage } = data[0].attributes;
+  const { title, mainImage } = data[0];
 
   return {
     title: `${title} | ${siteTitle}`,
@@ -35,22 +35,23 @@ export async function generateMetadata({ params }: IBranchParams) {
 export default async function Branch({ params }: IBranchParams) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
-    searchUrl: params.branchUrl,
+    filters: { url: params.branchUrl },
+    populate: ["mainImage", "trainers", "description"],
   });
 
   if (!data?.length) {
     return <NotFound />;
   }
 
-  const { title, address, trainers } = data[0].attributes;
+  const { title, address, trainers } = data[0];
 
   return (
     <div>
       <h1>{title}</h1>
       <Address address={address} />
-      <TrainersList trainers={trainers.data} />
+      <TrainersList trainers={trainers} />
 
-      <TrainingDays attributes={data[0].attributes} />
+      <TrainingDays data={data[0]} />
     </div>
   );
 }

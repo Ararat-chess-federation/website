@@ -15,14 +15,16 @@ interface ITrainerParams {
 export async function generateMetadata({ params }: ITrainerParams) {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
-    searchUrl: params.trainerUrl,
+    filters: {
+      url: params.trainerUrl,
+    },
   });
 
   if (!data?.length) {
     return <NotFound />;
   }
 
-  const { fullName, profilePhoto } = data[0].attributes;
+  const { fullName, profilePhoto } = data[0];
 
   return {
     title: `${fullName} | ${siteTitle}`,
@@ -35,21 +37,24 @@ export async function generateMetadata({ params }: ITrainerParams) {
 export default async function Trainer({ params }: ITrainerParams) {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
-    searchUrl: params.trainerUrl,
+    filters: {
+      url: params.trainerUrl,
+    },
+    populate: "*",
   });
 
   if (!data?.length) {
     return <NotFound />;
   }
 
-  const { fullName, phoneNumber, branches, bio } = data[0].attributes;
+  const { fullName, phoneNumber, branches, bio } = data[0];
 
   return (
     <div>
       <h1>{fullName}</h1>
 
       <PhoneNumber phoneNumber={phoneNumber} />
-      <BranchesList branches={branches.data} />
+      <BranchesList branches={branches} />
 
       <h2>Կենսագրություն</h2>
       <ModifiedMarkdown>{bio}</ModifiedMarkdown>

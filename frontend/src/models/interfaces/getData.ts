@@ -1,5 +1,7 @@
 import { IAboutData } from "./about";
 import { IArticle } from "./article";
+import { IBranch } from "./branch";
+import { ITrainer } from "./trainer";
 
 export type INestedObject = {
   [key: string]:
@@ -26,6 +28,8 @@ export interface IDataParams<T extends IUrlTypes> {
 export type TypeMapping = {
   articles: IArticle[];
   about: IAboutData;
+  branches: IBranch[];
+  trainers: ITrainer[];
   //   projects: IProject[];
   //   blogs: IBlog[];
   //   contributors: IContributor[];
