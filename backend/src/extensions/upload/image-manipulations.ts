@@ -1,14 +1,11 @@
 import fs from "fs";
 import { join } from "path";
 import sharp from "sharp";
-import pluginUpload from "@strapi/plugin-upload/strapi-server";
 import { file } from "@strapi/utils";
 
 const { bytesToKbytes } = file;
 
 const mime = require("mime-types");
-
-const imageManipulation = pluginUpload().services["image-manipulation"];
 
 const writeStreamToFile = (stream, path) =>
   new Promise((resolve, reject) => {
@@ -32,7 +29,7 @@ const resizeFileTo = async (
   quality,
   progressive,
   autoOrientation,
-  { name, hash, ext, format }
+  { name, hash, ext, format },
 ) => {
   const filePath = join(file.tmpWorkingDirectory, hash);
 
@@ -129,7 +126,7 @@ const getFileExtension = (file, { convertToFormat }) => {
 
 const generateBreakpoint = async (
   key,
-  { file, format, quality, progressive, autoOrientation }
+  { file, format, quality, progressive, autoOrientation },
 ) => {
   const newFile = await resizeFileTo(
     file,
@@ -142,7 +139,7 @@ const generateBreakpoint = async (
       hash: `${key}_${file.hash}`,
       ext: getFileExtension(file, format),
       format,
-    }
+    },
   );
   return {
     key,
@@ -150,7 +147,6 @@ const generateBreakpoint = async (
   };
 };
 
-export default () => ({
-  ...imageManipulation(),
+export default {
   generateResponsiveFormats,
-});
+};
