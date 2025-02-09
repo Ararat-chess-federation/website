@@ -1,7 +1,9 @@
 export default {
-  "strapi-plugin-populate-deep": {
+  upload: {
     config: {
-      defaultDepth: 3,
+      breakpoints: {
+        optimized: 500,
+      },
     },
   },
 };
