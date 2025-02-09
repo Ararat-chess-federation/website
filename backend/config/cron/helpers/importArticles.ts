@@ -71,6 +71,7 @@ export function getPostData(post) {
     fbPost: post.link[0],
     articleText: [{ __component: "text.paragraph", paragraph: markdown }],
     publishDate: new Date(post.pubDate[0]),
+    publishedAt: null
   };
 }
 

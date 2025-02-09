@@ -18,7 +18,7 @@ export default {
 
         for (const post of data) {
           const isUpToDate = checkUpToDate(
-            new Date(latestArticle.publishDate),
+            new Date(latestArticle?.publishDate),
             new Date(post.pubDate[0])
           );
           const isDataSaved = latestArticle && isUpToDate;
