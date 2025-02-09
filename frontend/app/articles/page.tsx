@@ -1,12 +1,11 @@
-import Link from "next/link";
 import Pagination from "../../src/components/pagination/Pagination";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
-import Img from "../../src/shared/img/Img";
 import { siteTitle } from "../../src/constants/titles";
 import "./Articles.css";
 import NotFound from "../not-found";
 import { IMeta } from "../../src/models/interfaces/meta";
+import { ArticleList } from "../../src/components/articleList/ArticleList";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,
@@ -54,33 +53,5 @@ export default async function Articles(props: ISearchParams) {
         totalCount={meta.pagination.total}
       />
     </section>
-  );
-}
-
-export function ArticleList({ data }: { data: IArticle[] }) {
-  if (!data) {
-    return null;
-  }
-
-  return (
-    <>
-      {data.map(({ url, mainImage, title }) => {
-        return (
-          <div key={url} className="article_card">
-            <div className="article_photo">
-              <Link href={`/articles/${url}`}>
-                <Img width={500} height={300} src={mainImage} alt={url} />
-              </Link>
-            </div>
-
-            <div className="article_info">
-              <Link href={`/articles/${url}`}>
-                <h2 className="article_name">{title}</h2>
-              </Link>
-            </div>
-          </div>
-        );
-      })}
-    </>
   );
 }

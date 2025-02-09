@@ -1,11 +1,11 @@
 import getData from "../src/helpers/getData";
-import { ArticleList } from "./articles/page";
 import MoreButton from "../src/components/moreButton/MoreButton";
 import ShortInfo from "../src/components/shortInfo/ShortInfo";
 import { IArticle } from "../src/models/interfaces/article";
 import "./Home.css";
 import NotFound from "./not-found";
 import { siteTitle } from "../src/constants/titles";
+import { ArticleList } from "../src/components/articleList/ArticleList";
 
 export const metadata = {
   title: siteTitle,
