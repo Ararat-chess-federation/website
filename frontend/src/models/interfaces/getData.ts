@@ -1,3 +1,4 @@
+import { IAboutData } from "./about";
 import { IArticle } from "./article";
 
 export type INestedObject = {
@@ -24,6 +25,7 @@ export interface IDataParams<T extends IUrlTypes> {
 
 export type TypeMapping = {
   articles: IArticle[];
+  about: IAboutData;
   //   projects: IProject[];
   //   blogs: IBlog[];
   //   contributors: IContributor[];
