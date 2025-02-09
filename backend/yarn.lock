@@ -1685,7 +1685,7 @@
     "@strapi/utils" "4.25.14"
     fs-extra "10.0.0"
 
-"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.15.1", "@strapi/strapi@^4.3.4", "@strapi/strapi@^4.x", "@strapi/strapi@4.25.14":
+"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.15.1", "@strapi/strapi@^4.3.4", "@strapi/strapi@4.25.14":
   version "4.25.14"
   resolved "https://registry.npmjs.org/@strapi/strapi/-/strapi-4.25.14.tgz"
   integrity sha512-BnfwojgDkwlm2DsXjGGK5HOL+kmOzOpmB5xx2AIHwjbmh0gX9x6gPZlsqEfSvAqSnTKr9jZZHg3SP8TIJR2ikA==
@@ -8755,11 +8755,6 @@ strapi-plugin-populate-deep@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/strapi-plugin-populate-deep/-/strapi-plugin-populate-deep-3.0.1.tgz"
   integrity sha512-7t1bPPBN1AGKZlFT/6qsqmwgd7SzTA9CNzEBSzeYEjL/e0GKD2lf4wF11C2vMkfsQW2GhRAXZQRCGlLnV2XHFQ==
-
-strapi-plugin-responsive-image@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/strapi-plugin-responsive-image/-/strapi-plugin-responsive-image-1.2.0.tgz"
-  integrity sha512-8+0W2A10fFGuEZW8fl8bilcJeosMJpnBxEF6NpJxxigpCo2kfKzHQ/gnV5TOw1nynRGEqHdUShvrnwLa2uLceA==
 
 stream-chain@^2.2.5, stream-chain@2.2.5:
   version "2.2.5"

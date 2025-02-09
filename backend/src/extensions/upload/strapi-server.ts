@@ -1,4 +1,4 @@
-const imageManipulation = require("strapi-plugin-responsive-image/server/services/image-manipulation");
+import imageManipulation from "./image-manipulations";
 
 export default (plugin) => {
   plugin.services["image-manipulation"] = imageManipulation();
