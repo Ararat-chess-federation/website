@@ -3,6 +3,7 @@ import { IArticle } from "./article";
 import { IBranch } from "./branch";
 import { ICalendarData } from "./calendar";
 import { IRatings } from "./ratings";
+import { ITournamentData } from "./tournament";
 import { ITrainer } from "./trainer";
 import { IUsefulData } from "./useful";
 
@@ -36,6 +37,7 @@ export type TypeMapping = {
   calendar: ICalendarData;
   ratings: IRatings;
   useful: IUsefulData;
+  tournament: ITournamentData[];
 };
 
 export type IUrlTypes = keyof TypeMapping;
