@@ -2,15 +2,12 @@ import getData from "../../../helpers/getData";
 import { use } from "react";
 import Image from "next/image";
 import "./LiveTournaments.css";
-
-interface ITournamentData {
-  image: string;
-  url: string;
-  standings: string;
-}
+import { ITournamentData } from "../../../models/interfaces/tournament";
 
 export default function LiveTournaments() {
-  const { data } = use(getData({ type: "tournament" }));
+  const { data }: { data: ITournamentData[] } = use(
+    getData({ type: "tournament" })
+  );
 
   if (!data || !data.length) {
     return null;
@@ -21,7 +18,7 @@ export default function LiveTournaments() {
       <li className="live">
         LIVE
         <div className="tournaments">
-          {data.map((el: ITournamentData) => (
+          {data.map((el) => (
             <Tournament key={el.url} tournament={el} />
           ))}
         </div>

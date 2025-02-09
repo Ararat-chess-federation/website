@@ -10,13 +10,20 @@ export const metadata = {
 };
 
 export default async function About() {
-  const { data }: { data: IAboutData } = await getData({ type: "about" });
+  const { data }: { data: IAboutData } = await getData({
+    type: "about",
+    populate: {
+      about: {
+        populate: "*",
+      },
+    },
+  });
 
   if (!data) {
     return <NotFound />;
   }
 
-  const { about } = data.attributes;
+  const { about } = data;
 
   return (
     <main>

@@ -32,8 +32,7 @@ export default function Ratings() {
     const getRatings = async () => {
       const { data, rows }: IRatings = await getData({
         type: "ratings",
-        populate: "",
-        params: `grid=${grid}&page=${page}`,
+        params: { grid, page },
       });
 
       setRatings(data);
@@ -94,7 +93,7 @@ function Grid({ onClick, type, grid }: IGridProps) {
   };
 
   const active = grid === type ? "grid" : "";
-  
+
   return (
     <span
       data-active={active}

@@ -23,7 +23,7 @@ export default function DynamicComponent({ el, idx }: IDynamicComponent) {
       return (
         <ImgWithDescription
           description={description as string}
-          image={image as { data: IImage }}
+          image={image as IImage}
           idx={idx}
         />
       );

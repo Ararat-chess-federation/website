@@ -14,7 +14,17 @@ export const metadata = {
 };
 
 export default async function Branches() {
-  const { data }: { data: IBranch[] } = await getData({ type: "branches" });
+  const { data }: { data: IBranch[] } = await getData({
+    type: "branches",
+    populate: {
+      mainImage: {
+        fields: ["url"],
+      },
+      trainers: {
+        fields: ["url", "fullName"],
+      },
+    },
+  });
 
   if (!data?.length) {
     return <NotFound />;
@@ -22,9 +32,7 @@ export default async function Branches() {
 
   return (
     <section>
-      {data.map(({ attributes }) => {
-        const { url, mainImage, title, address, trainers } = attributes;
-
+      {data.map(({ url, mainImage, title, address, trainers }) => {
         return (
           <div key={url} className="branch_card">
             <Link href={`/branches/${url}`}>
@@ -42,7 +50,7 @@ export default async function Branches() {
                 <h2 className="branch_name">{title}</h2>
               </Link>
               <Address address={address} />
-              <TrainersList trainers={trainers.data} />
+              <TrainersList trainers={trainers} />
             </div>
           </div>
         );

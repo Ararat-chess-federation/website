@@ -27,7 +27,14 @@ export default async function Articles({ searchParams }: ISearchParams) {
 
   const { data, meta }: { data: IArticle[]; meta: IMeta } = await getData({
     type: "articles",
-    params: `sort[0]=publishDate:desc&pagination[start]=${pageStart}&pagination[limit]=${pageSize}`,
+    sort: "publishDate:desc",
+    offset: pageStart,
+    limit: pageSize,
+    populate: {
+      mainImage: {
+        fields: ["url"],
+      },
+    },
   });
 
   if (!data?.length) {
@@ -53,12 +60,10 @@ export function ArticleList({ data }: { data: IArticle[] }) {
   if (!data) {
     return null;
   }
-  
+
   return (
     <>
-      {data.map(({ attributes }) => {
-        const { url, mainImage, title } = attributes;
-
+      {data.map(({ url, mainImage, title }) => {
         return (
           <div key={url} className="article_card">
             <div className="article_photo">

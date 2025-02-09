@@ -17,7 +17,7 @@ export default async function Useful() {
     return <NotFound />;
   }
 
-  const { links } = data.attributes;
+  const { links } = data;
 
   return (
     <main>

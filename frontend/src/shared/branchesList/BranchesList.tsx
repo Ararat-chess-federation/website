@@ -9,9 +9,9 @@ export default function BranchesList({ branches }: { branches: IBranch[] }) {
 
       <ul className="trainer_branches_list">
         {branches.map((el) => (
-          <li key={el.attributes.url} className="trainer_branches">
-            <Link href={`/branches/${el.attributes.url}`}>
-              {el.attributes.title}
+          <li key={el.url} className="trainer_branches">
+            <Link href={`/branches/${el.url}`}>
+              {el.title}
             </Link>
           </li>
         ))}

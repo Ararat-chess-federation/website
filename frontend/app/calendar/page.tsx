@@ -17,7 +17,7 @@ export default async function About() {
     return <NotFound />;
   }
 
-  const { calendar } = data.attributes;
+  const { calendar } = data;
 
   return (
     <main>

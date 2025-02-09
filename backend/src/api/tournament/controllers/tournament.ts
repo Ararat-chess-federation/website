@@ -6,7 +6,7 @@ export default factories.createCoreController(API, ({ strapi }) => ({
     const service = strapi.service(API);
     const { data, meta } = await super.find(ctx);
 
-    const modifiedData = await service.getTournamentsData(data.attributes.ids);
+    const modifiedData = await service.getTournamentsData(data.ids);
     const filteredData = modifiedData.filter((el) => el);
 
     return { data: filteredData, meta };

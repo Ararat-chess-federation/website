@@ -3,15 +3,13 @@ import { IImage } from "./image";
 
 export interface ITrainer {
   id: number;
-  attributes: {
-    url: string;
-    fullName: string;
-    bio: string;
-    phoneNumber: string;
-    createdAt: string;
-    updatedAt: string;
-    publishedAt: string;
-    branches: { data: IBranch[] };
-    profilePhoto: { data: IImage };
-  };
+  url: string;
+  fullName: string;
+  bio: string;
+  phoneNumber: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  branches: IBranch[];
+  profilePhoto: IImage;
 }
