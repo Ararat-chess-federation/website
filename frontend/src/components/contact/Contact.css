@@ -1,0 +1,10 @@
+.contact {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.contact_link {
+  text-decoration: underline;
+}

@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import gmailIcon from "../../public/gmail.svg";
 import facebookIcon from "../../public/facebook.svg";
 import phoneIcon from "../../public/phone.svg";
 import "./Contacts.css";
 import { siteTitle } from "../../src/constants/titles";
+import Contact from "../../src/components/contact/Contact";
 
 export const metadata = {
   title: `Կոնտակտներ | ${siteTitle}`,
@@ -58,34 +58,5 @@ export default async function Contacts() {
         </span>
       </p>
     </>
-  );
-}
-
-interface IContactProps {
-  img: string;
-  alt: string;
-  link: string;
-  text: string;
-  additionalText?: string;
-}
-
-function Contact({ img, alt, link, text, additionalText }: IContactProps) {
-  return (
-    <div className="contact">
-      <span>
-        <Image src={img} alt={alt} width={24} height={24} />
-      </span>
-      <span>
-        <a
-          className="contact_link"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {text}
-        </a>
-      </span>
-      <span>{additionalText}</span>
-    </div>
   );
 }

@@ -1,9 +1,4 @@
-.contact {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 16px 0;
-}
+
 
 .contact span {
   padding: 0 4px;
@@ -16,6 +11,4 @@
   border-radius: 8px;
 }
 
-.contact_link {
-  text-decoration: underline;
-}
+
