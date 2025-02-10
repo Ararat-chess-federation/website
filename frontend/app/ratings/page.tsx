@@ -12,8 +12,7 @@ import Loading from "../loading";
 import RatingTable from "../../src/components/ratingTable/RatingTable";
 import PaginationClient from "../../src/components/pagination/PaginationClient";
 import { IMeta } from "../../src/models/interfaces/meta";
-
-type IGrid = "national" | "qualification-rules";
+import Grid, { IGrid } from "../../src/components/grid/Grid";
 
 export default function Ratings() {
   const { replace } = useRouter();
@@ -78,30 +77,5 @@ export default function Ratings() {
         totalCount={totalRows}
       />
     </div>
-  );
-}
-
-interface IGridProps {
-  onClick: (grid: IGrid) => void;
-  type: IGrid;
-  grid: IGrid;
-}
-
-function Grid({ onClick, type, grid }: IGridProps) {
-  const texts = {
-    national: "Ազգային",
-    "qualification-rules": "Կարգեր",
-  };
-
-  const active = grid === type ? "grid" : "";
-
-  return (
-    <span
-      data-active={active}
-      className="rating_grid"
-      onClick={() => onClick(type)}
-    >
-      {texts[type]}
-    </span>
   );
 }
