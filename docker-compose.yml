@@ -9,6 +9,8 @@ services:
     restart: unless-stopped
     ports:
         - 3001:3000
+    depends_on:
+        - strapi
    
   strapi:
     image: strapi
