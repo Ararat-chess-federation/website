@@ -7,6 +7,8 @@ import "./layout.css";
 import { Metadata } from "next";
 import { CSPostHogProvider } from "./providers";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Արարատի մարզի շախմատի ֆեդերացիա",
   description: "Արարատի մարզի շախմատի ֆեդերացիա",
