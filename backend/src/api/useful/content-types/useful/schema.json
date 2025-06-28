@@ -4,14 +4,25 @@
   "info": {
     "singularName": "useful",
     "pluralName": "usefuls",
-    "displayName": "useful"
+    "displayName": "useful",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "links": {
-      "type": "richtext"
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
