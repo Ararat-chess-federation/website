@@ -2,11 +2,16 @@ import { factories } from "@strapi/strapi";
 import axios from "axios";
 
 const BASE_URL = "https://lichess.org/api/broadcast";
+const FED_QUERY = "&fedb=ARM";
 
 export default factories.createCoreService(
   "api::tournament.tournament",
   ({ strapi }) => ({
     async getTournamentsData(idsStr: string) {
+      if (!idsStr) {
+        return [];
+      }
+
       const ids: string[] = idsStr.split(",");
 
       return Promise.all(
@@ -29,7 +34,6 @@ async function getTournamentById(id: string) {
     const { url } = ongoingRound;
     const { info, image } = tour;
     const { standings } = info;
-    const FED_QUERY = "&fedb=ARM";
 
     return { url, image, standings: `${standings}${FED_QUERY}` };
   } catch (e) {
