@@ -11,15 +11,7 @@ Links:
 Installation instructions and tech stack can be found in the README of each section.
 
 ## Our technical team
-- Artyom Sukiasyan, developer
-  - [Github](https://github.com/ArtyomSukiasyan/)
-  - [Linkedin](https://www.linkedin.com/in/artyomsukiasyan/)
-  - [Lichess](https://lichess.org/@/artiom1401)
-  - [Portfolio](https://devchessplayer.com/)
-  - [Telegram](https://t.me/artyom1401)
-
-- Gor Saribekyan, devOps
-  - [Github](https://github.com/gorsaribekyan)
-  - [Linkedin](https://www.linkedin.com/in/gor-saribekyan-272b61229)
-  - [Portfolio](https://devopsgor.am/)
-  - [Telegram](https://t.me/d0tfl0w)
+| Name               | Role     | Github                                           | Linkedin                                                       | Portfolio                 | Contacts              |Other                                     | 
+|--------------------|----------|--------------------------------------------------|----------------------------------------------------------------|---------------------------------------------|---------------------------|------------------------|
+| Artyom Sukiasyan   | Author, Developer| [Github](https://github.com/ArtyomSukiasyan/)    | [Linkedin](https://www.linkedin.com/in/artyomsukiasyan/)       |[Portfolio](https://devchessplayer.com/) | [Telegram](https://t.me/artyom1401) |  [Lichess](https://lichess.org/@/artiom1401) | 
+| Gor Saribekyan     | DevOps   | [Github](https://github.com/gorsaribekyan)       | [Linkedin](https://www.linkedin.com/in/gor-saribekyan-272b61229)| [Portfolio](https://devopsgor.am/)      | [Telegram](https://t.me/d0tfl0w)    | –                                           | 
