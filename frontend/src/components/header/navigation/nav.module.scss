@@ -64,6 +64,13 @@
     }
   }
 }
+
+.navBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
 // @media only screen and (max-width: 768px) {
 //   .nav {
 //     display: none;
