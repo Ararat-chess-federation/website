@@ -19,4 +19,7 @@ module.exports = {
       },
     ],
   },
+  sassOptions: {
+    prependData: `@import "styles/_variables.scss";`,
+  },
 };

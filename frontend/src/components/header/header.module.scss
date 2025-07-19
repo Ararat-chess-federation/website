@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 64px;
+  padding: 8px 5%;
+  background-color: $primary;
+  color: $secondary;
+  position: fixed;
+  z-index: 1000;
+  border-bottom: 1px solid $secondary;
+}

@@ -6,9 +6,7 @@ import "./Logo.css";
 export default function Logo() {
   return (
     <Link href="/">
-      <section className="logo_section">
-        <Image src={logo} alt="logo" className="logo" priority />
-      </section>
+      <Image src={logo} alt="logo" className="logo" priority />
     </Link>
   );
 }
