@@ -1,5 +1,5 @@
 import Logo from "./logo/Logo";
-import Navigation from "./navigation/Navigation";
+import Navigation from "./navigation";
 import LiveTournaments from "./liveTournaments/LiveTournaments";
 import styles from "./header.module.scss";
 

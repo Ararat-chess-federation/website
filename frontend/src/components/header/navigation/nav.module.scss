@@ -1,0 +1,41 @@
+
+.nav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  ul {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+.navLi {
+  a {
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    color: $secondary;
+  }
+}
+.branchesBtn {
+  width: 160px;
+  height: 40px;
+  border-radius: 6px;
+  padding: 10px;
+  border-width: 1px;
+  border: 1px solid $secondary;
+  background: none;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 16px;
+  color: $secondary;
+}
+// @media only screen and (max-width: 768px) {
+//   .nav {
+//     display: none;
+//   }
+//   .navBtns{
+
+//   }
+// }
