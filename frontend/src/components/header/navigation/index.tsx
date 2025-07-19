@@ -17,7 +17,9 @@ export default function Navigation() {
       </nav>
       <div className={styles.navBtns}>
         <Link href={NAVIGATIONBTN.link}>
-          <button className={styles.branchesBtn}>{NAVIGATIONBTN.title}</button>
+          <button className={styles.branchesBtn}>
+            <span className={styles.text}>{NAVIGATIONBTN.title}</span>
+          </button>
         </Link>
         <BurgerMenu />
       </div>
