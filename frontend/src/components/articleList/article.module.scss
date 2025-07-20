@@ -1,0 +1,28 @@
+.article_card {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  background: $gradient-light;
+  border: 1px solid $gradient-srtoke;
+  width: 340px;
+}
+
+.article_photo {
+  width: 100%;
+}
+
+.name_container {
+  
+}
+.article_name {
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  color: $black;
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
