@@ -10,7 +10,7 @@ export function ArticleList({ data }: { data: IArticle[] }) {
 
   return (
     <>
-      {data.map(({ url, mainImage, title }) => {
+      {data.map(({ url, mainImage, title, publishedAt }) => {
         return (
           <div key={url} className={styles.article_card}>
             <div className={styles.article_photo}>
@@ -20,6 +20,9 @@ export function ArticleList({ data }: { data: IArticle[] }) {
             {/* <Link href={`/articles/${url}`}> */}
             <div className={styles.name_container}>
               <h3 className={styles.article_name}>{title}</h3>
+            </div>
+            <div className={styles.published_data}>
+              <span>{publishedAt}</span>
             </div>
             {/* </Link> */}
           </div>
