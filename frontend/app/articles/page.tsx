@@ -5,7 +5,7 @@ import { siteTitle } from "../../src/constants/titles";
 import "./Articles.css";
 import NotFound from "../not-found";
 import { IMeta } from "../../src/models/interfaces/meta";
-import { ArticleList } from "../../src/components/articleList/ArticleList";
+import { ArticleList } from "../../src/components/articleList";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,

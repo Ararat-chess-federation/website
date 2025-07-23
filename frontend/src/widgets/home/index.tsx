@@ -1,4 +1,4 @@
-import { ArticleList } from "../../components/articleList/ArticleList";
+import { ArticleList } from "../../components/articleList";
 import { IArticle } from "../../models/interfaces/article";
 import styles from "./home.module.scss";
 
