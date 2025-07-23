@@ -2,6 +2,7 @@ import Link from "next/link";
 import { IArticle } from "../../models/interfaces/article";
 import Img from "../../shared/img/Img";
 import styles from "./article.module.scss";
+import MoreButton from "../../shared/moreButton";
 
 export function ArticleList({ data }: { data: IArticle[] }) {
   if (!data) {
@@ -17,14 +18,13 @@ export function ArticleList({ data }: { data: IArticle[] }) {
               <Img width={316} height={260} src={mainImage} alt={url} />
             </div>
 
-            {/* <Link href={`/articles/${url}`}> */}
             <div className={styles.name_container}>
               <h3 className={styles.article_name}>{title}</h3>
             </div>
             <div className={styles.published_data}>
               <span>{publishedAt}</span>
             </div>
-            {/* </Link> */}
+            <MoreButton link={`/articles/${url}`} />
           </div>
         );
       })}

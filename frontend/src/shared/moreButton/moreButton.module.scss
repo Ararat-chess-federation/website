@@ -1,0 +1,26 @@
+.btn {
+  background: $primary;
+  color: $white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid $primary;
+  width: 130px;
+
+  &:hover {
+    background: $gradient-primary;
+    color: $secondary;
+    border: 1px solid $gradient-primary;
+  }
+
+  &:focus {
+    background: $gradient-light;
+    color: $primary;
+    border: 1px solid $gradient-srtoke;
+  }
+  .btn_text {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+  }
+}
