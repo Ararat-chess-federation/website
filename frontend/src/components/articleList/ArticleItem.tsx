@@ -20,7 +20,7 @@ export function ArticleItem(props: IArticle) {
       <div className={styles.published_data}>
         <span>{date}</span>
       </div>
-      <div>
+      <div className={styles.btn_container}>
         <MoreButton link={`/articles/${url}`} />
       </div>
     </div>
