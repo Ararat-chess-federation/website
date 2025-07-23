@@ -1,0 +1,38 @@
+.chess_card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  padding: 32px;
+  gap: 32px;
+  background: $gradient-light;
+  border: 1px solid $gradient-srtoke;
+  
+  &__content {
+    max-width: 50%;
+  }
+
+  &__title {
+    font-family: "Noto Serif Armenian", serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: $primary;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    font-size: 16px;
+    color: $primary;
+    margin-bottom: 24px;
+  }
+
+  &__image {
+    width: 440px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}

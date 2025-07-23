@@ -1,5 +1,6 @@
 import { ArticleList } from "../../components/articleList";
 import { IArticle } from "../../models/interfaces/article";
+import { ChessMapCard } from "./components/ChessMapCard";
 import styles from "./home.module.scss";
 
 export async function HomePage(props: { data: IArticle[] }) {
@@ -10,6 +11,9 @@ export async function HomePage(props: { data: IArticle[] }) {
         <h2>Նորություններ</h2>
         <div className={styles.free_line} />
       </div>
+      <section>
+        <ChessMapCard />
+      </section>
       <section className={styles.articles_container}>
         <ArticleList data={data} />
       </section>
