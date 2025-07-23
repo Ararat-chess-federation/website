@@ -2,8 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 16px;
-  padding: 32px;
+  padding: 8%;
   gap: 32px;
   background: $gradient-light;
   border: 1px solid $gradient-srtoke;
@@ -13,17 +12,16 @@
   }
 
   &__title {
-    font-family: "Noto Serif Armenian", serif;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px;
+    font-weight: 700;
     color: $primary;
-    margin-bottom: 16px;
+    margin-bottom: 64px;
   }
 
   &__text {
-    font-size: 16px;
+    font-size: 20px;
     color: $primary;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
   }
 
   &__image {

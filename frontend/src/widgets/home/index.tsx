@@ -7,15 +7,17 @@ export async function HomePage(props: { data: IArticle[] }) {
   const { data } = props;
   return (
     <main className={styles.home_main}>
-      <div className={styles.title_container}>
-        <h2>Նորություններ</h2>
-        <div className={styles.free_line} />
-      </div>
       <section>
         <ChessMapCard />
       </section>
-      <section className={styles.articles_container}>
-        <ArticleList data={data} />
+      <section className={styles.main_content}>
+        <div className={styles.title_container}>
+          <h2>Նորություններ</h2>
+          <div className={styles.free_line} />
+        </div>
+        <div className={styles.articles_container}>
+          <ArticleList data={data} />
+        </div>
       </section>
 
       {/* <MoreButton link="/articles" /> */}
