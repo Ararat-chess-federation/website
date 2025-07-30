@@ -1,4 +1,4 @@
-.btn {
+.contained_btn {
   background: $primary;
   color: $white;
   padding: 8px 16px;
@@ -18,9 +18,24 @@
     color: $primary;
     border: 1px solid $gradient-srtoke;
   }
-  .btn_text {
+  &__text {
     font-weight: 500;
     font-style: normal;
     font-size: 16px;
+  }
+}
+
+.text_btn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: $primary;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+  font-size: 16px;
+  
+  &:hover {
+    color: $pink;
   }
 }

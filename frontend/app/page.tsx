@@ -28,15 +28,6 @@ export default async function Home() {
   return (
     <main>
       <HomePage data={data} />
-      {/* <section className="articles_container">
-          <ArticleList data={data} />
-        </section>
-        <MoreButton link="/articles" />
-      </div>
-      <section className="region_info">
-        <ShortInfo type="branches" />
-        <ShortInfo type="trainers" />
-      </section> */}
     </main>
   );
 }

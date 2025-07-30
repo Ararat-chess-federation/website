@@ -1,6 +1,7 @@
 import { ArticleList } from "../../components/articleList";
 import { IArticle } from "../../models/interfaces/article";
 import { ChessMapCard } from "./components/ChessMapCard";
+import { LinedItem } from "./components/LinedItem";
 import styles from "./home.module.scss";
 
 export async function HomePage(props: { data: IArticle[] }) {
@@ -19,7 +20,10 @@ export async function HomePage(props: { data: IArticle[] }) {
           <ArticleList data={data} />
         </div>
       </section>
-
+      <section className={`${styles.main_content} ${styles.more_content}`}>
+        <LinedItem versionIndex={0} />
+        <LinedItem versionIndex={1} />
+      </section>
       {/* <MoreButton link="/articles" /> */}
       {/* <section className="region_info">
         <ShortInfo type="branches" />

@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 42px;
 }
-.main_content{
+.main_content {
   display: flex;
   flex-direction: column;
   padding: 42px 8%;
@@ -27,6 +27,9 @@
 }
 .region_info {
   display: flex;
+}
+.more_content {
+  gap: 32px;
 }
 
 @media only screen and (max-width: 768px) {

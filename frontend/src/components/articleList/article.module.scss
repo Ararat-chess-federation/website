@@ -1,24 +1,38 @@
+.articles {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
 .article_card {
   padding: 12px;
   display: flex;
   flex-direction: column;
   background: $gradient-light;
-  border: 1px solid $gradient-srtoke;
+  border: 1px solid $lightblue;
   width: 340px;
+  gap: 6px;
+  border-radius: 6px;
 }
 
 .article_photo {
   width: 100%;
+
+  .photo {
+    border-radius: 6px;
+  }
 }
 
 .name_container {
-  height: 80px;
+  height: 68px;
 }
 
 .article_name {
   font-weight: 500;
   font-style: normal;
-  font-size: 20px;
+  font-size: 18px;
   color: $black;
   text-align: left;
   display: -webkit-box;

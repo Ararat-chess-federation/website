@@ -1,12 +1,13 @@
-import Link from "next/link";
-import styles from "./moreButton.module.scss";
-
-export default function MoreButton({ link }: { link: string }) {
-  return (
-    <button className={styles.btn}>
-      <span className={styles.btn_text}>
-        <Link href={link}>Ավելին</Link>
-      </span>
-    </button>
+import ContainedButton from "./ContainedButton";
+import TextButton from "./TextButton";
+interface IProps {
+  link: string;
+  variant?: "contained" | "text";
+}
+export default function MoreButton({ link, variant }: IProps) {
+  return variant === "text" ? (
+    <TextButton link={link} />
+  ) : (
+    <ContainedButton link={link} />
   );
 }
