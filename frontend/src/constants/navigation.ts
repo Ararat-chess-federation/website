@@ -71,3 +71,14 @@ export const LEFT_MENU: INavigation[] = [
   //   title: "Կայքի թիմը",
   // },
 ];
+export const FOOTER_MENU: INavigation[] = [
+  {
+    link: "/about",
+    title: "Մեր մասին",
+  },
+  {
+    link: "/ratings",
+    title: "Վարկանիշներ",
+  },
+  { link: "/useful", title: "Օգտակար հղումներ" },
+];

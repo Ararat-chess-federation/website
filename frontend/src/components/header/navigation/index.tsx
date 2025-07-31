@@ -2,6 +2,7 @@ import Link from "next/link";
 import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { NAVIGATION, NAVIGATIONBTN } from "./constants";
 import styles from "./nav.module.scss";
+import { LinkItem } from "../../../shared/linkItem";
 
 export default function Navigation() {
   return (
@@ -10,7 +11,7 @@ export default function Navigation() {
         <ul>
           {NAVIGATION.map((el) => (
             <li key={el.link} className={styles.navLi}>
-              <Link href={el.link}>{el.title}</Link>
+              <LinkItem link={el.link} title={el.title} />
             </li>
           ))}
         </ul>

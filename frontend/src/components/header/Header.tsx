@@ -1,4 +1,4 @@
-import Logo from "./logo/Logo";
+import Logo from "../../shared/logo/Logo";
 import Navigation from "./navigation";
 import LiveTournaments from "./liveTournaments/LiveTournaments";
 import styles from "./header.module.scss";

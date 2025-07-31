@@ -6,6 +6,7 @@ import "../styles/global.css";
 import "./layout.css";
 import { Metadata } from "next";
 import { CSPostHogProvider } from "./providers";
+import { Footer } from "../src/components/footer";
 
 export const dynamic = "force-dynamic";
 
@@ -27,6 +28,7 @@ export default function RootLayout({ children }: ILayout) {
           <main className="main_container">
             <section className="content_container">{children}</section>
           </main>
+          <Footer />
         </body>
       </CSPostHogProvider>
     </html>
