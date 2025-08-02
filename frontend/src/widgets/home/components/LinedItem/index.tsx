@@ -5,6 +5,7 @@ import figures from "../images/chess_figures.svg";
 import Image from "next/image";
 import MoreButton from "../../../../shared/moreButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
+import { LinedTitle } from "../../../../shared/linedTitle";
 
 const datas = [
   {
@@ -28,10 +29,7 @@ export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
   const data = datas[versionIndex];
   return (
     <div className={styles.branchCard}>
-      <div className={styles.title_container}>
-        <h2>{data.title}</h2>
-        <div className={styles.free_line} />
-      </div>
+      <LinedTitle title={data.title} />
       <div className={styles.content}>
         <div className={styles.image}>
           <Image src={data.img} alt="Map with branches" />

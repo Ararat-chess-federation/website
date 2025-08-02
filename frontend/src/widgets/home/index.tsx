@@ -1,5 +1,6 @@
 import { ArticleList } from "../../components/articleList";
 import { IArticle } from "../../models/interfaces/article";
+import { LinedTitle } from "../../shared/linedTitle";
 import { ChessMapCard } from "./components/ChessMapCard";
 import { LinedItem } from "./components/LinedItem";
 import styles from "./home.module.scss";
@@ -12,10 +13,7 @@ export async function HomePage(props: { data: IArticle[] }) {
         <ChessMapCard />
       </section>
       <section className={styles.main_content}>
-        <div className={styles.title_container}>
-          <h2>Նորություններ</h2>
-          <div className={styles.free_line} />
-        </div>
+        <LinedTitle title="Նորություններ" />
         <div className={styles.articles_container}>
           <ArticleList data={data} />
         </div>
@@ -24,11 +22,6 @@ export async function HomePage(props: { data: IArticle[] }) {
         <LinedItem versionIndex={0} />
         <LinedItem versionIndex={1} />
       </section>
-      {/* <MoreButton link="/articles" /> */}
-      {/* <section className="region_info">
-        <ShortInfo type="branches" />
-        <ShortInfo type="trainers" />
-      </section> */}
     </main>
   );
 }

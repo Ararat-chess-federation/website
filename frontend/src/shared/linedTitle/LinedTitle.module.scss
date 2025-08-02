@@ -1,0 +1,11 @@
+.title_container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: $primary;
+  margin-bottom: 32px;
+  .free_line {
+    border: 1px solid $primary;
+    width: 100%;
+  }
+}

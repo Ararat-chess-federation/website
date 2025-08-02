@@ -2,10 +2,10 @@ import Pagination from "../../src/components/pagination/Pagination";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
 import { siteTitle } from "../../src/constants/titles";
-import "./Articles.css";
 import NotFound from "../not-found";
 import { IMeta } from "../../src/models/interfaces/meta";
 import { ArticleList } from "../../src/components/articleList";
+import styles from "./Articles.module.scss";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,
@@ -43,7 +43,7 @@ export default async function Articles(props: ISearchParams) {
 
   return (
     <section>
-      <div className="articles_list_container">
+      <div className={styles.article_container}>
         <ArticleList data={data} />
       </div>
       <Pagination
