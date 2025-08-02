@@ -1,0 +1,51 @@
+import Img from "../../../src/shared/img/Img";
+import { dateArmFormater } from "../../helpers/dateArmFormater";
+import { IArticle } from "../../models/interfaces/article";
+import { LinedTitle } from "../../shared/linedTitle";
+import LinkButton from "../../shared/linkButton";
+import styles from "./Article.module.scss";
+
+type IArticleParams = Pick<
+  IArticle,
+  "title" | "mainImage" | "articleText" | "fbPost" | "publishedAt"
+>;
+
+export default async function ArticlePage(props: IArticleParams) {
+  const { title, mainImage, articleText, fbPost, publishedAt } = props;
+  const date = dateArmFormater(publishedAt);
+  return (
+    <div className={styles.article_container}>
+      <LinedTitle title="Նորություններ" />
+
+      <div className={styles.article_header}>
+        <div className={styles.article_header_content}>
+          <div className={styles.date_container}>
+            <div className={styles.date}>
+              <span className={styles.date_info}>{date}</span>
+            </div>
+          </div>
+          <div className={styles.article_image}>
+            <Img width={500} height={300} src={mainImage} alt={title} />
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.article_content}>
+        <h1 className={styles.article_title}>{title}</h1>
+        <div>
+          {articleText.map((el) => (
+            <p key={el.id} className={styles.article_text}>
+              {el.paragraph}
+            </p>
+          ))}
+        </div>
+      </div>
+
+      {fbPost && (
+        <div className={styles.article_footer}>
+          <LinkButton link={fbPost} title="Ֆոտոշարք" target="_blank" />
+        </div>
+      )}
+    </div>
+  );
+}

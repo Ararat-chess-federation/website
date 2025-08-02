@@ -3,7 +3,7 @@ import styles from "./linedItem.module.scss";
 import mapImage from "../images/map.svg";
 import figures from "../images/chess_figures.svg";
 import Image from "next/image";
-import MoreButton from "../../../../shared/moreButton";
+import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
 import { LinedTitle } from "../../../../shared/linedTitle";
 

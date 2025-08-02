@@ -1,7 +1,7 @@
 import { IArticle } from "../../models/interfaces/article";
 import Img from "../../shared/img/Img";
 import styles from "./article.module.scss";
-import MoreButton from "../../shared/moreButton";
+import MoreButton from "../../shared/linkButton";
 import { dateArmFormater } from "../../helpers/dateArmFormater";
 
 export function ArticleItem(props: IArticle) {
