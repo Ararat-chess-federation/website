@@ -1,0 +1,25 @@
+$primary: #1a1146;
+$secondary: #f0f3fb;
+$black: #0c0c0c;
+$white: #ffffff;
+$lightgrey: #c1c1c1;
+$lightblue: #d4dcf4;
+$pink: #3b55e6;
+$strong-pink: #3D307B;
+
+$gradient-light: linear-gradient(
+  90deg,
+  rgba(228, 233, 249, 0.9) 0.96%,
+  rgba(228, 233, 249, 0.1) 51.44%,
+  rgba(228, 233, 249, 0.9) 100%
+);
+$gradient-dark: linear-gradient(90deg, #1a1146 0%, #402aac 100%);
+$gradient-srtoke: linear-gradient(90deg, #d4dcf4 0%, #dae3ff 100%);
+$gradient-primary: linear-gradient(90deg, #3d2f81 0%, #3d307b 100%);
+$gradient-footer: linear-gradient(
+  90deg,
+  #342b62 0.96%,
+  #463989 51.44%,
+  #382886 100%
+);
+$gradient-stroke-footer: linear-gradient(90deg, #3d2f81 0%, #3d307b 100%);

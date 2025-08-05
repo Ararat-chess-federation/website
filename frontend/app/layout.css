@@ -3,17 +3,14 @@
   width: 100%;
   padding-top: 60px;
 }
-
+.content_container {
+  width: 100%;
+}
 .left_menu_container {
   width: 15%;
   background-color: var(--primary-color);
   color: var(--secondary-color);
   height: calc(100vh - 60px);
-}
-
-.content_container {
-  padding: 24px;
-  width: 70%;
 }
 
 .links_container {
@@ -28,10 +25,6 @@
 
   .left_menu_container {
     display: none;
-  }
-
-  .content_container {
-    width: 100%;
   }
 
   .links_container {

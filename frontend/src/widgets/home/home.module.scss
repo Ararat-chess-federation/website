@@ -1,0 +1,32 @@
+.home_main {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+.main_content {
+  display: flex;
+  flex-direction: column;
+  padding: 42px 8%;
+}
+.articles_container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.region_info {
+  display: flex;
+}
+.more_content {
+  gap: 32px;
+}
+
+@media only screen and (max-width: 768px) {
+  .region_info {
+    display: block;
+  }
+
+  .short_info_container {
+    width: 100%;
+  }
+}

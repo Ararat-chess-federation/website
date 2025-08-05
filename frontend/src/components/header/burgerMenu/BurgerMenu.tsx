@@ -1,41 +1,52 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import { LEFT_MENU, NAVIGATION } from "../../../constants/navigation";
-import "./BurgerMenu.css";
+import Image from "next/image";
+import * as React from "react";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { LEFT_MENU } from "../../../constants/navigation";
+import BurgerIcon from "./icons/MenuIcon.svg";
+import { IconButton } from "@mui/material";
 
-export default function BurgerMenu() {
-  const [isChecked, setIsChecked] = useState(false);
-  const pathName = usePathname();
-
-  useEffect(() => {
-    setIsChecked(false);
-  }, [pathName]);
+export default function BasicMenu() {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
-    <div className="burger_menu">
-      <input
-        checked={isChecked}
-        onChange={() => setIsChecked(!isChecked)}
-        type="checkbox"
-        id="burger_menuAvPaa"
-      />
-      <label id="burger" htmlFor="burger_menuAvPaa">
-        <div></div>
-        <div></div>
-        <div></div>
-      </label>
-      <nav id="burger_menu">
-        <ul>
-          {NAVIGATION.concat(LEFT_MENU).map((el) => (
-            <li key={el.link} className="nav_li">
-              <Link href={el.link}>{el.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <div>
+      <IconButton
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        <Image alt="menu" src={BurgerIcon} />
+      </IconButton>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        slotProps={{
+          list: {
+            "aria-labelledby": "basic-button",
+          },
+        }}
+      >
+        {LEFT_MENU.map((el) => (
+          <MenuItem key={el.link} onClick={handleClose}>
+            <Link href={el.link}>{el.title}</Link>
+          </MenuItem>
+        ))}
+      </Menu>
     </div>
   );
 }

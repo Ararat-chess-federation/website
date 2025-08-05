@@ -1,4 +1,20 @@
 :root {
   --primary-color: #1a1146;
   --secondary-color: #f0f3fb;
+  --gradient-border: #d4dcf4;
+  --gradient-light: linear-gradient(
+    90deg,
+    rgba(228, 233, 249, 0.9) 0.96%,
+    rgba(228, 233, 249, 0.1) 51.44%,
+    rgba(228, 233, 249, 0.9) 100%
+  );
+  --black: #0c0c0c;
+  --white: #fff;
+  --gradient-stroke-footer: #3d2f81;
+  --gradient-footer: linear-gradient(
+    90deg,
+    #342b62 0.96%,
+    #463989 51.44%,
+    #382886 100%
+  );
 }

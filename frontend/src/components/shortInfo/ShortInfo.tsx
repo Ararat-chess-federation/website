@@ -2,7 +2,7 @@ import Image from "next/image";
 import { use } from "react";
 import mainTrainer from "../../../public/mainTrainer.webp";
 import getData from "../../helpers/getData";
-import MoreButton from "../moreButton/MoreButton";
+import MoreButton from "../../shared/linkButton";
 import mainBranch from "../../../public/mainBranch.webp";
 import "./ShortInfo.css";
 
