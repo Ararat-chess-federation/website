@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "./ChessMapCard.module.scss";
-import chessMap from "../images/chess.svg";
+import chessMap from "../assets/chess.svg";
 import MoreButton from "../../../../shared/linkButton";
 
 export const ChessMapCard = () => {

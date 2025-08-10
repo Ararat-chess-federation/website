@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./linedItem.module.scss";
-import mapImage from "../images/map.svg";
-import figures from "../images/chess_figures.svg";
+import mapImage from "../assets/map.svg";
+import figures from "../assets/chess_figures.svg";
 import Image from "next/image";
 import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";

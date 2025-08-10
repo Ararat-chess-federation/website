@@ -1,0 +1,12 @@
+.address {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  gap: 4px;
+  color: $primary;
+
+  .address_title {
+    font-weight: 600;
+    margin-right: 4px;
+  }
+}

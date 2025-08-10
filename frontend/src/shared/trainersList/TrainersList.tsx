@@ -1,20 +1,19 @@
 import Link from "next/link";
 import { ITrainer } from "../../models/interfaces/trainer";
-import "./TrainersList.css";
+import styles from "./trainersList.module.scss";
 
 export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
   return (
-    <div className="branches_list_container">
-      <span>Մարզիչներ՝ </span>
-      <ul className="branches_trainer_list">
-        {trainers.map((el) => (
-          <li key={el.url} className="branches_trainer">
-            <Link href={`/trainers/${el.url}`}>
-              {el.fullName}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <p className={styles.branches_main}>
+      <span className={styles.branches_title}>Մարզիչներ՝ </span>
+      {trainers.map((el, i) => (
+        <span key={el.url}>
+          <Link href={`/trainers/${el.url}`} className={styles.trainer_name}>
+            {el.fullName}
+          </Link>
+          {i < trainers.length - 1 ? ", " : ""}
+        </span>
+      ))}
+    </p>
   );
 }
