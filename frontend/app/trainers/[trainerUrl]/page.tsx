@@ -2,7 +2,6 @@ import BranchesList from "../../../src/shared/branchesList/BranchesList";
 import PhoneNumber from "../../../src/shared/phoneNumber/PhoneNumber";
 import getData from "../../../src/helpers/getData";
 import { ITrainer } from "../../../src/models/interfaces/trainer";
-import "../trainers.css";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
 import getImageSrc from "../../../src/helpers/getMediaSrc";

@@ -8,7 +8,7 @@ export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
       <span className={styles.branches_title}>Մարզիչներ՝ </span>
       {trainers.map((el, i) => (
         <span key={el.url}>
-          <Link href={`/trainers/${el.url}`} className={styles.trainer_name}>
+          <Link href={`/trainers?${el.url}`} className={styles.trainer_name}>
             {el.fullName}
           </Link>
           {i < trainers.length - 1 ? ", " : ""}
