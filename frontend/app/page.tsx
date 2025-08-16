@@ -2,7 +2,7 @@ import getData from "../src/helpers/getData";
 import { IArticle } from "../src/models/interfaces/article";
 import "./Home.css";
 import { siteTitle } from "../src/constants/titles";
-import { HomePage } from "../src/widgets/home";
+import { HomePage } from "../src/widgets/HomePage";
 
 export const metadata = {
   title: siteTitle,

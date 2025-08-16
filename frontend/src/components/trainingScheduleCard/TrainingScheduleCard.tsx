@@ -17,7 +17,6 @@ export default function TrainingScheduleCard({
     trainerName: trainer.fullName,
     scheduleTexts: scheduleData[index].paragraph,
   }));
-  console.log("Training Data:", trainingData);
   return (
     <div className={styles.training_card}>
       <h3 className={styles.training_title}>Պարապմունքի օրեր</h3>

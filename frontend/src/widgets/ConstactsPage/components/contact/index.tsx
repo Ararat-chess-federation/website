@@ -1,5 +1,5 @@
 import Image from "next/image";
-import "./Contact.css"
+import styles from "./contact.module.scss";
 
 interface IContactProps {
   img: string;
@@ -17,21 +17,14 @@ export default function Contact({
   additionalText,
 }: IContactProps) {
   return (
-    <div className="contact">
-      <span>
+    <a href={link} target="_blank" rel="noopener noreferrer">
+      <div className={styles.contact}>
         <Image src={img} alt={alt} width={24} height={24} />
-      </span>
-      <span>
-        <a
-          className="contact_link"
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {text}
-        </a>
-      </span>
-      <span>{additionalText}</span>
-    </div>
+        <div className={styles.contact_info}>
+          <span>{additionalText}</span>
+          <span>{text}</span>
+        </div>
+      </div>
+    </a>
   );
 }

@@ -5,7 +5,7 @@ import FigureImage from "./assets/images/figures.png";
 import Image from "next/image";
 
 export function UsefulPage({ links }: { links: string }) {
-  console.log("links", links);
+
   return (
     <main className={styles.useful_page}>
       <LinedTitle title="Օգտակար հղումներ" />

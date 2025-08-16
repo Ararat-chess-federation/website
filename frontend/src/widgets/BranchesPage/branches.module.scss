@@ -4,6 +4,9 @@
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 .branches_container {
   display: grid;

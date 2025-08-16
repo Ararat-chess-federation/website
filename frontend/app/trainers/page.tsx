@@ -2,7 +2,7 @@ import getData from "../../src/helpers/getData";
 import { ITrainer } from "../../src/models/interfaces/trainer";
 import { siteTitle } from "../../src/constants/titles";
 import NotFound from "../not-found";
-import TrainersPage from "../../src/widgets/Trainers";
+import TrainersPage from "../../src/widgets/TrainersPage";
 
 export const metadata = {
   title: `Մարզիչներ | ${siteTitle}`,

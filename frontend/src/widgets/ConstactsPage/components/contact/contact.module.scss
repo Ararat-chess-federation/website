@@ -1,0 +1,19 @@
+.contact {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px;
+  gap: 12px;
+  border-radius: 6px;
+  background: $gradient-light;
+  backdrop-filter: blur(40px);
+  border: $lightblue;
+  height: 100px;
+  max-width: 520px;
+}
+
+.contact_info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
