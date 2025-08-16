@@ -1,4 +1,4 @@
-import "./Grid.css";
+import styles from "./Grid.module.scss";
 
 export type IGrid = "national" | "qualification-rules";
 
@@ -6,9 +6,10 @@ interface IGridProps {
   onClick: (grid: IGrid) => void;
   type: IGrid;
   grid: IGrid;
+  isActive: boolean;
 }
 
-export default function Grid({ onClick, type, grid }: IGridProps) {
+export default function Grid({ onClick, type, grid, isActive }: IGridProps) {
   const texts = {
     national: "Ազգային",
     "qualification-rules": "Կարգեր",
@@ -17,12 +18,12 @@ export default function Grid({ onClick, type, grid }: IGridProps) {
   const active = grid === type ? "grid" : "";
 
   return (
-    <span
+    <div
       data-active={active}
-      className="rating_grid"
+      className={`${styles.rating_grid} ${isActive ? styles.active : ""}`}
       onClick={() => onClick(type)}
     >
-      {texts[type]}
-    </span>
+      <span>{texts[type]}</span>
+    </div>
   );
 }

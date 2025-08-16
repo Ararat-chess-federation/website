@@ -1,0 +1,19 @@
+.rating_grid {
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40;
+  background: $gradient-light;
+  border: 1px solid $lightblue;
+  color: $primary;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  background: $primary;
+  border: 1px solid $primary;
+  color: $white;
+}

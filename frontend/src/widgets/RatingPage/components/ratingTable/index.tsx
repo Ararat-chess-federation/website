@@ -1,6 +1,8 @@
+import styles from "./table.module.scss";
+
 export default function RatingTable({ ratings }: { ratings: string[][] }) {
   return (
-    <table>
+    <table className={styles.rating_table}>
       <thead>
         <tr>
           {ratings[0].map((el: string) => (
