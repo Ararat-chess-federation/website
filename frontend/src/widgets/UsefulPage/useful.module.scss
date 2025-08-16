@@ -1,0 +1,82 @@
+.useful_page {
+  padding: 42px 8%;
+  display: flex;
+  flex-direction: column;
+}
+.details_container {
+  position: relative;
+}
+.useful_container {
+  h2 {
+    font-weight: 600;
+    font-style: normal;
+    font-size: 24px;
+    text-align: center;
+    color: $primary;
+  }
+  ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    margin-top: 40px;
+
+    li {
+      height: 80px;
+      border-radius: 6px;
+      padding: 24px 16px;
+      background: $gradient_light;
+      border: 1px solid $lightblue;
+      backdrop-filter: blur(40px);
+      font-weight: 400;
+      font-size: 20px;
+      color: $black;
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        background: currentColor;
+        mask: url('data:image/svg+xml;utf8,\
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">\
+          <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />\
+          <polyline points="15 3 21 3 21 9" />\
+          <line x1="10" y1="14" x2="21" y2="3" />\
+          </svg>')
+          no-repeat center / contain;
+        pointer-events: none;
+      }
+
+      a {
+        padding-bottom: 4px;
+        &:hover {
+          border-bottom: 1px solid $primary;
+          transition: border-bottom 1s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+.image_container {
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 74%;
+  right: 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .useful_container {
+    ul {
+      display: grid;
+      grid-template-columns: 100%;
+    }
+  }
+  .image_container{
+    display: none;
+  }
+}

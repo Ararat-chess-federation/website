@@ -2,8 +2,7 @@ import getData from "../../src/helpers/getData";
 import { siteTitle } from "../../src/constants/titles";
 import NotFound from "../not-found";
 import { IUsefulData } from "../../src/models/interfaces/useful";
-import ModifiedMarkdown from "../../src/hok/modifiedMarkdown";
-import "./useful.css";
+import { UsefulPage } from "../../src/widgets/UsefulPage";
 
 export const metadata = {
   title: `Օգտակար հղումներ | ${siteTitle}`,
@@ -19,12 +18,5 @@ export default async function Useful() {
 
   const { links } = data;
 
-  return (
-    <main>
-      <div className="useful_container">
-        <h1>Օգտակար հղումներ</h1>
-        <ModifiedMarkdown>{links}</ModifiedMarkdown>
-      </div>
-    </main>
-  );
+  return <UsefulPage links={links} />;
 }
