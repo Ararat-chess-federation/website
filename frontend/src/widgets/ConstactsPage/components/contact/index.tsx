@@ -21,8 +21,8 @@ export default function Contact({
       <div className={styles.contact}>
         <Image src={img} alt={alt} width={24} height={24} />
         <div className={styles.contact_info}>
-          <span>{additionalText}</span>
-          <span>{text}</span>
+          {additionalText && <span>{additionalText}</span>}
+          {text && <span>{text}</span>}
         </div>
       </div>
     </a>

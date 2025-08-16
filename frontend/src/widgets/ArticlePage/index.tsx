@@ -32,7 +32,7 @@ export default async function ArticlePage(props: IArticleParams) {
 
       <div className={styles.article_content}>
         <h1 className={styles.article_title}>{title}</h1>
-        <div>
+        <div className={styles.article_text_container}>
           {articleText.map((el) => (
             <p key={el.id} className={styles.article_text}>
               {el.paragraph}

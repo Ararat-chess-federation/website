@@ -18,6 +18,7 @@
   background: $gradient-light;
   width: 100%;
   position: relative;
+  border-radius: 6px;
 }
 
 .header {
@@ -75,7 +76,7 @@
 .arrow {
   transition: transform 0.3s ease;
   position: absolute;
-  top: 45%;
+  top: 42%;
   right: 24px;
 }
 .open {
@@ -95,4 +96,6 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }

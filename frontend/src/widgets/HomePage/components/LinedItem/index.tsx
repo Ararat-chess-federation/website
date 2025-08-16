@@ -30,16 +30,18 @@ export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
   return (
     <div className={styles.branchCard}>
       <LinedTitle title={data.title} />
-      <div className={styles.content}>
-        <div className={styles.image}>
-          <Image src={data.img} alt="Map with branches" />
+      <div>
+        <div className={styles.content}>
+          <div className={styles.image}>
+            <Image src={data.img} alt="Map with branches" />
+          </div>
+          <div className={styles.text}>
+            <p>{data.desc}</p>
+          </div>
         </div>
-        <div className={styles.text}>
-          <p>{data.desc}</p>
+        <div className={styles.btn_box}>
+          <MoreButton link={data.link} variant="text" />
         </div>
-      </div>
-      <div className={styles.btn_box}>
-        <MoreButton link={data.link} variant="text" />
       </div>
     </div>
   );
