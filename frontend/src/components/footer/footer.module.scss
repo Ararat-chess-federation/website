@@ -95,6 +95,9 @@
     padding: 16px 4%;
     justify-items: center;
   }
+}
+
+@media only screen and (max-width: 600px) {
   .container {
     grid-area: menu;
   }
@@ -104,9 +107,6 @@
   .partners_container {
     grid-area: partners;
   }
-}
-
-@media only screen and (max-width: 600px) {
   .main_footer {
     grid-template-columns: 1fr;
     gap: 40px;

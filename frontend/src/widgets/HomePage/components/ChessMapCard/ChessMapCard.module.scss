@@ -54,3 +54,10 @@
     scale: 0.5;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  .chess_card_image {
+    left: -25px;
+    scale: 0.5;
+  }
+}
