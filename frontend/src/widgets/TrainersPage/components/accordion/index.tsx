@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./accordion.module.scss";
 import Img from "../../../../shared/img/Img";
 import { IImage } from "../../../../models/interfaces/image";
@@ -7,6 +8,7 @@ import { IBranch } from "../../../../models/interfaces/branch";
 import ChevronIcon from "../../assets/images/Chevron.svg";
 import Image from "next/image";
 import ModifiedMarkdown from "../../../../hok/modifiedMarkdown";
+import { useSearchParams } from "next/navigation";
 
 interface AccordionProfileProps {
   imgSrc: IImage;
@@ -14,6 +16,7 @@ interface AccordionProfileProps {
   branches: IBranch[];
   phone: string;
   bio: string;
+  url: string;
 }
 
 export default function TrainerAccordion({
@@ -22,11 +25,32 @@ export default function TrainerAccordion({
   branches,
   phone,
   bio,
+  url,
 }: AccordionProfileProps) {
   const [open, setOpen] = useState(false);
+  const accordionRef = useRef<HTMLDivElement | null>(null);
+  const params = useSearchParams();
+  const trainerName = params.get("trainer");
+
+  useEffect(() => {
+    if (trainerName === url) {
+      setOpen(true);
+
+      setTimeout(() => {
+        if (accordionRef.current) {
+          const top =
+            accordionRef.current.getBoundingClientRect().top + window.scrollY;
+          window.scrollTo({
+            top: top - 150,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
+    }
+  }, [url]);
 
   return (
-    <div className={styles.trainer_card}>
+    <div className={styles.trainer_card} ref={accordionRef}>
       <div className={styles.details_container}>
         <Img
           width={150}

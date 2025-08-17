@@ -9,7 +9,7 @@ export default function TrainersPage({ data }: { data: ITrainer[] }) {
     <section className={styles.trainers_main}>
       <LinedTitle title="Մարզիչներ" />
       {data.map(
-        ({ fullName, profilePhoto, branches, phoneNumber, id, bio }) => {
+        ({ fullName, profilePhoto, branches, phoneNumber, id, bio, url }) => {
           return (
             <TrainerAccordion
               key={id}
@@ -18,6 +18,7 @@ export default function TrainersPage({ data }: { data: ITrainer[] }) {
               name={fullName}
               phone={phoneNumber}
               bio={bio}
+              url={url}
             />
           );
         }
