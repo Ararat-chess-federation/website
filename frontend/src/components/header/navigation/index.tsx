@@ -8,7 +8,7 @@ export default function Navigation() {
   return (
     <>
       <nav className={styles.nav}>
-        <ul>
+        <ul className={styles.navList}>
           {NAVIGATION.map((el) => (
             <li key={el.link} className={styles.navLi}>
               <LinkItem link={el.link} title={el.title} />
@@ -17,7 +17,7 @@ export default function Navigation() {
         </ul>
       </nav>
       <div className={styles.navBtns}>
-        <Link href={NAVIGATIONBTN.link}>
+        <Link href={NAVIGATIONBTN.link} className={styles.branchesLink}>
           <button className={styles.branchesBtn}>
             <span className={styles.text}>{NAVIGATIONBTN.title}</span>
           </button>

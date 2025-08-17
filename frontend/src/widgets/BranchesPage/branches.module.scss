@@ -1,6 +1,6 @@
 .branches_main {
   padding: 42px 8%;
-  background-image: url('./assets/mapImage.svg');
+  background-image: url("./assets/mapImage.svg");
   background-repeat: no-repeat;
   background-position-x: center;
   background-position-y: center;
@@ -39,7 +39,6 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 20px;
-  // flex-wrap: wrap;
 
   .branch_img {
     border-radius: 4px;
@@ -52,4 +51,29 @@
   background: $gradient-dark;
   height: 1px;
   width: 100%;
+}
+
+@media only screen and (max-width: 800px) {
+  .branches_main {
+    padding: 42px 2%;
+  }
+  .branches_container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .branch_details_container {
+    flex-wrap: wrap;
+  }
+  .image_container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .branch_img {
+    max-width: 250px !important;
+    max-height: none !important;
+  }
 }

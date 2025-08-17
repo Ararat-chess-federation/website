@@ -1,6 +1,4 @@
 import Header from "../src/components/header/Header";
-import LeftMenu from "../src/components/leftMenu/LeftMenu";
-import Links from "../src/components/Links/Links";
 import "../styles/variables.css";
 import "../styles/global.css";
 import "./layout.css";

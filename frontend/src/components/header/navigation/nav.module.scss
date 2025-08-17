@@ -1,8 +1,9 @@
 .nav {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
-  ul {
+  justify-content: center;
+  width: 100%;
+  .navList {
     display: flex;
     align-items: center;
     gap: 20%;
@@ -56,11 +57,23 @@
   justify-content: center;
   gap: 60px;
 }
-// @media only screen and (max-width: 768px) {
-//   .nav {
-//     display: none;
-//   }
-//   .navBtns{
 
-//   }
-// }
+@media only screen and (max-width: 1200px) {
+  .branchesLink {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .navLi {
+    &:nth-child(n + 3) {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .navLi {
+    display: none;
+  }
+}

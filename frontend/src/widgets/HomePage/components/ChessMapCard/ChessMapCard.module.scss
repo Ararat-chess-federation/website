@@ -6,6 +6,7 @@
   gap: 32px;
   background: $gradient-light;
   border: 1px solid $gradient-srtoke;
+  position: relative;
 
   &__content {
     max-width: 50%;
@@ -34,5 +35,22 @@
       height: auto;
       object-fit: contain;
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .chess_card_image {
+    position: absolute;
+    opacity: 0.1;
+    left: 25%;
+  }
+  .chess_card__content {
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .chess_card_image {
+    left: 0;
+    scale: 0.5;
   }
 }

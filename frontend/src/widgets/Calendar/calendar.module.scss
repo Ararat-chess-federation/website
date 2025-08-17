@@ -22,3 +22,13 @@
     letter-spacing: 0%;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .calendar_main {
+    padding: 42px 2%;
+  }
+
+  .calendar_image {
+    min-height: 200px;
+  }
+}

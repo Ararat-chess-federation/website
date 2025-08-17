@@ -12,6 +12,7 @@
 .articles_container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
 }
 
@@ -22,12 +23,8 @@
   gap: 32px;
 }
 
-@media only screen and (max-width: 768px) {
-  .region_info {
-    display: block;
-  }
-
-  .short_info_container {
-    width: 100%;
+@media only screen and (max-width: 600px) {
+  .main_content {
+    padding: 42px 2%;
   }
 }

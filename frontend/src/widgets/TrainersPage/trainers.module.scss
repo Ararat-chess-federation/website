@@ -7,8 +7,8 @@
 }
 
 .trainer_card {
-    width: 100%;
-    background-color: red;
+  width: 100%;
+  background-color: red;
 }
 
 .trainer_img {
@@ -71,5 +71,10 @@
 
   .trainer_info a h2 {
     font-size: 16px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .trainers_main {
+    padding: 42px 2%;
   }
 }

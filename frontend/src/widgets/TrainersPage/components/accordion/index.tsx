@@ -42,7 +42,9 @@ export default function TrainerAccordion({
             <p className={styles.sub_text}>
               Մասնաճյուղեր՝{" "}
               {branches.map((el) => (
-                <span className={styles.branch_name} key={el.id}>{el.title}</span>
+                <span className={styles.branch_name} key={el.id}>
+                  {el.title}
+                </span>
               ))}
             </p>
             <p className={styles.sub_text}>Հեռ.՝ {phone}</p>
@@ -55,8 +57,18 @@ export default function TrainerAccordion({
 
       {open && (
         <div className={styles.accordion_details}>
-          <div />
+          <div className={styles.free_block} />
           <div className={styles.biography}>
+            <div className={styles.img_container}>
+              <Img
+                width={250}
+                height={250}
+                src={imgSrc}
+                alt={name}
+                className={styles.trainer_sub_img}
+                priority={true}
+              />
+            </div>
             <ModifiedMarkdown>{bio}</ModifiedMarkdown>
           </div>
         </div>

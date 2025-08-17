@@ -17,7 +17,7 @@ export default async function Home() {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     sort: "publishDate:desc",
-    limit: 3,
+    limit: 4,
     populate: {
       mainImage: {
         fields: ["url"],

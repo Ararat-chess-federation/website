@@ -12,6 +12,10 @@ export const FULLNAVIGATION: INavigation[] = [
     title: "Մարզիչներ",
   },
   {
+    link: "/calendar",
+    title: "Օրացուցային պլան",
+  },
+  {
     link: "/branches",
     title: "Մասնաճյուղեր",
   },

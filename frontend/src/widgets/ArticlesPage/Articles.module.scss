@@ -4,3 +4,9 @@
   flex-direction: column;
   gap: 40px;
 }
+
+@media only screen and (max-width: 600px) {
+  .article_main {
+    padding: 42px 2%;
+  }
+}

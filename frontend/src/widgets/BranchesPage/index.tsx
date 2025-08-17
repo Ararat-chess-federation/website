@@ -22,13 +22,15 @@ export default async function BranchesPage({ data }: { data: IBranch[] }) {
                 </div>
 
                 <div className={styles.branch_details_container}>
-                  <Img
-                    width={160}
-                    height={120}
-                    src={mainImage}
-                    alt={title}
-                    className={styles.branch_img}
-                  />
+                  <div className={styles.image_container}>
+                    <Img
+                      width={160}
+                      height={120}
+                      src={mainImage}
+                      alt={title}
+                      className={styles.branch_img}
+                    />
+                  </div>
                   <TrainingScheduleCard
                     trainerData={trainers}
                     scheduleData={description}

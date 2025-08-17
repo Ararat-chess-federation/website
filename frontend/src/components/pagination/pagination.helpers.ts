@@ -18,7 +18,7 @@ export const getLengths = (
 ) => {
   return {
     startLength: endNumber - startNumber < 3 ? endNumber - startNumber : 3,
-    endLength: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 3,
+    endLength: totalPages - endNumber < 2 ? totalPages - endNumber + 1 : 2,
   };
 };
 
