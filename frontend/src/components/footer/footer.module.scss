@@ -89,11 +89,20 @@
 }
 
 @media only screen and (max-width: 800px) {
-  .main_footer{
+  .main_footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding: 16px 4%;
     justify-items: center;
+  }
+  .container {
+    grid-area: menu;
+  }
+  .contacts_container {
+    grid-area: info;
+  }
+  .partners_container {
+    grid-area: partners;
   }
 }
 
@@ -101,5 +110,9 @@
   .main_footer {
     grid-template-columns: 1fr;
     gap: 40px;
+    grid-template:
+      "menu" auto
+      "partners" auto
+      "info" auto;
   }
 }
