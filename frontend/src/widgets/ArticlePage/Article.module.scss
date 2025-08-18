@@ -48,6 +48,12 @@
 }
 
 .article_content {
+  ol {
+    padding-left: 8px;
+    li {
+      list-style-type: decimal;
+    }
+  }
   .article_title {
     padding: 26px 0;
     font-weight: 600;
