@@ -32,8 +32,8 @@ export const contactsData = [
   {
     img: phoneIcon,
     alt: "phone",
-    link: "tel:+37498339020",
-    text: "098339020",
+    link: "tel:+37498339025",
+    text: "098339025",
     additionalText: "Կայքի հետ կապված հարցերի դեպքում",
   },
 ];

@@ -28,7 +28,9 @@ export const Footer = () => {
           {RegionInfo.data.map((el) => (
             <React.Fragment key={el.title}>
               <p className={styles.info_title}>{el.title}</p>
-              <p className={styles.info_phone}>{el.phone}</p>
+              <a href={`tel:${el.phone}`}>
+                <p className={styles.info_phone}>{el.phone}</p>
+              </a>
             </React.Fragment>
           ))}
         </div>

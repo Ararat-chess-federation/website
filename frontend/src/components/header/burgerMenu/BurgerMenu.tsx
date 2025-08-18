@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { FULLNAVIGATION } from "../../../constants/navigation";
-import BurgerIcon from "./icons/MenuIcon.svg";
+import BurgerIcon from "./icons/menuIcon.svg";
 import styles from "./menu.module.scss";
 
 const BurgerMenu = () => {
