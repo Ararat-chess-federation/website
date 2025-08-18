@@ -12,7 +12,7 @@ const datas = [
     title: "Մասնաճյուղեր",
     desc: `Արարատի մարզի համայնքներում գործում է 8 մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։`,
     img: mapImage,
-    link: FULLNAVIGATION[2].link,
+    link: FULLNAVIGATION[3].link,
   },
   {
     title: "Մարզիչներ",
