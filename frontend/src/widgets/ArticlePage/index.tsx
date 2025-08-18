@@ -1,6 +1,7 @@
 import Img from "../../../src/shared/img/Img";
 import { dateArmFormater } from "../../helpers/dateArmFormater";
 import { IArticle } from "../../models/interfaces/article";
+import DynamicComponent from "../../shared/dynamicComponent/DynamicComponent";
 import { LinedTitle } from "../../shared/linedTitle";
 import LinkButton from "../../shared/linkButton";
 import styles from "./Article.module.scss";
@@ -34,9 +35,9 @@ export default async function ArticlePage(props: IArticleParams) {
         <h1 className={styles.article_title}>{title}</h1>
         <div className={styles.article_text_container}>
           {articleText.map((el) => (
-            <p key={el.id} className={styles.article_text}>
-              {el.paragraph}
-            </p>
+            <span key={el.id} className={styles.article_text}>
+              <DynamicComponent el={el} key={el.id} />
+            </span>
           ))}
         </div>
       </div>
