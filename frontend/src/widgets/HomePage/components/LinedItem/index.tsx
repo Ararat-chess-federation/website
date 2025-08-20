@@ -7,7 +7,7 @@ import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
 import { LinedTitle } from "../../../../shared/linedTitle";
 
-const datas = [
+const info = [
   {
     title: "Մասնաճյուղեր",
     desc: `Արարատի մարզի համայնքներում գործում է 8 մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։`,
@@ -24,7 +24,7 @@ const datas = [
 
 type VersionIndex = 0 | 1;
 export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
-  const data = datas[versionIndex];
+  const data = info[versionIndex];
   return (
     <div className={styles.branchCard}>
       <LinedTitle title={data.title} />
