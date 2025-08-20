@@ -7,6 +7,10 @@ export const NAVIGATION = [
     link: "/trainers",
     title: "Մարզիչներ",
   },
+  {
+    link: "/ratings",
+    title: "Վարկանիշներ",
+  }
   // {
   //   link: "/calendar",
   //   title: "Օրացուցային պլան",
