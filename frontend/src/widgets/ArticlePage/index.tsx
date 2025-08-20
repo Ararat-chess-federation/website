@@ -1,5 +1,5 @@
 import Img from "../../../src/shared/img/Img";
-import { dateArmFormater } from "../../helpers/dateArmFormater";
+import { dateArmFormatter } from "../../helpers/dateArmFormatter";
 import { IArticle } from "../../models/interfaces/article";
 import DynamicComponent from "../../shared/dynamicComponent/DynamicComponent";
 import { LinedTitle } from "../../shared/linedTitle";
@@ -13,7 +13,7 @@ type IArticleParams = Pick<
 
 export default async function ArticlePage(props: IArticleParams) {
   const { title, mainImage, articleText, fbPost, publishedAt } = props;
-  const date = dateArmFormater(publishedAt);
+  const date = dateArmFormatter(publishedAt);
   return (
     <div className={styles.article_container}>
       <LinedTitle title="Նորություններ" />

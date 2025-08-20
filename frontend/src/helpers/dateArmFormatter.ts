@@ -1,4 +1,4 @@
-export const dateArmFormater = (data: string) => {
+export const dateArmFormatter = (data: string) => {
   const date = new Date(data);
 
   const formatted = date.toLocaleDateString("hy-AM", {
