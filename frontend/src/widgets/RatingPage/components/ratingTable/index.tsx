@@ -17,7 +17,7 @@ export default function RatingTable({ ratings }: { ratings: string[][] }) {
               <td key={idx}>
                 {nextEl.includes("/am/profile") ? (
                   <a href={`https://chessfed.am${nextEl}`} target="_blank">
-                    Պրոֆիլ ՀՇՖ կայքում
+                    ՀՇՖ Պրոֆիլ
                   </a>
                 ) : (
                   nextEl

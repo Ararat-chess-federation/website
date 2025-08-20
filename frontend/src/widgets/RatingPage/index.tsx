@@ -34,8 +34,7 @@ export function RatingPage() {
         type: "ratings",
         params: { grid, page },
       });
-      const clearData = data.map((el) => el.filter((_, i) => i !== 0 && i !== 2))
-      setRatings(clearData);
+      setRatings(data);
       setTotalRows(meta.pagination.total);
       setIsLoading(false);
     };
