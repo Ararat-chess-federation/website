@@ -8,9 +8,13 @@ export const NAVIGATION = [
     title: "Մարզիչներ",
   },
   {
-    link: "/calendar",
-    title: "Օրացուցային պլան",
-  },
+    link: "/ratings",
+    title: "Վարկանիշներ",
+  }
+  // {
+  //   link: "/calendar",
+  //   title: "Օրացուցային պլան",
+  // },
 ];
 
 export const NAVIGATIONBTN = {

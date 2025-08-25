@@ -11,52 +11,14 @@ export const FULLNAVIGATION: INavigation[] = [
     link: "/trainers",
     title: "Մարզիչներ",
   },
-  {
-    link: "/calendar",
-    title: "Օրացուցային պլան",
-  },
-  {
-    link: "/branches",
-    title: "Մասնաճյուղեր",
-  },
-  {
-    link: "/ratings",
-    title: "Վարկանիշներ",
-  },
-  { link: "/useful", title: "Օգտակար հղումներ" },
-  {
-    link: "/about",
-    title: "Մեր մասին",
-  },
-  {
-    link: "/contacts",
-    title: "Կոնտակտներ",
-  },
-];
-export const NAVIGATION: INavigation[] = [
-  {
-    link: "/articles",
-    title: "Նորություններ",
-  },
-  {
-    link: "/trainers",
-    title: "Մարզիչներ",
-  },
-  {
-    link: "/branches",
-    title: "Մասնաճյուղեր",
-  },
-  // {
-  //   link: "/statistic",
-  //   title: "Վիճակագրություն",
-  // },
   // {
   //   link: "/calendar",
   //   title: "Օրացուցային պլան",
   // },
-];
-
-export const LEFT_MENU: INavigation[] = [
+  {
+    link: "/branches",
+    title: "Մասնաճյուղեր",
+  },
   {
     link: "/ratings",
     title: "Վարկանիշներ",
@@ -70,11 +32,8 @@ export const LEFT_MENU: INavigation[] = [
     link: "/contacts",
     title: "Կոնտակտներ",
   },
-  // {
-  //   link: "/team",
-  //   title: "Կայքի թիմը",
-  // },
 ];
+
 export const FOOTER_MENU: INavigation[] = [
   {
     link: "/about",

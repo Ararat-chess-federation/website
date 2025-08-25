@@ -7,18 +7,16 @@ import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
 import { LinedTitle } from "../../../../shared/linedTitle";
 
-const datas = [
+const info = [
   {
     title: "Մասնաճյուղեր",
-    desc: `Արտասահմանի մասնաճյուղերում գործում է 8 մասնաճյուղ, որտեղ շահառու
-            ծառայություններից են օգտվում ավելի քան 600 երեխա:`,
+    desc: `Արարատի մարզի համայնքներում գործում է 8 մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։`,
     img: mapImage,
-    link: FULLNAVIGATION[2].link,
+    link: FULLNAVIGATION[3].link,
   },
   {
     title: "Մարզիչներ",
-    desc: `Արտասահմանի մասնաճյուղերում գործում է 8 մասնաճյուղ, որտեղ շահառու
-            ծառայություններից են օգտվում ավելի քան 600 երեխա:`,
+    desc: `Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում աշխատում է 10 մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։`,
     img: figures,
     link: FULLNAVIGATION[1].link,
   },
@@ -26,7 +24,7 @@ const datas = [
 
 type VersionIndex = 0 | 1;
 export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
-  const data = datas[versionIndex];
+  const data = info[versionIndex];
   return (
     <div className={styles.branchCard}>
       <LinedTitle title={data.title} />
