@@ -15,9 +15,9 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
-    "react-multi-carousel": "^2.8.6",
     "rehype-raw": "^7.0.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@types/node": "^22.13.1",

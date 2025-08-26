@@ -5,7 +5,7 @@ import "./layout.css";
 import { Metadata } from "next";
 import { CSPostHogProvider } from "./providers";
 import { Footer } from "../src/components/footer";
-
+import 'swiper/css';
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {

@@ -27,3 +27,9 @@ figure,
 figcaption {
   text-align: center;
 }
+
+.swiper-slide {
+  display: flex !important;
+  justify-content: center;
+  width: 100%;
+}
