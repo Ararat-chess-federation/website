@@ -2,9 +2,20 @@
   width: 100%;
   min-height: 400px;
   ul {
-    gap: 60px;
+    gap: 30px;
   }
 }
-.carouselItem{
-     width: 340px !important;
+.carouselItem {
+  width: 340px !important;
+}
+
+@media only screen and (max-width: 400px) {
+  .carouselContainer {
+    ul {
+      gap: 10px;
+    }
+  }
+  .carouselItem {
+    width: 300px !important;
+  }
 }
