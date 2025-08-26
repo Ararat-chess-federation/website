@@ -9,17 +9,12 @@ import { IArticle } from "../../../../models/interfaces/article";
 
 const responsive = {
   superLargeDesktop: {
-    breakpoint: { max: 4000, min: 2800 },
-    items: 5,
-    slidesToSlide: 1,
-  },
-  highDesctop: {
-    breakpoint: { max: 2800, min: 1440 },
+    breakpoint: { max: 5000, min: 2000 },
     items: 4,
     slidesToSlide: 1,
   },
   desktop: {
-    breakpoint: { max: 1440, min: 1024 },
+    breakpoint: { max: 2000, min: 1024 },
     items: 3,
     slidesToSlide: 1,
   },
