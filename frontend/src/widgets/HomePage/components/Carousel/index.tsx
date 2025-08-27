@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import { ArticleItem } from "../../../../components/articleList/ArticleItem";
 import { IArticle } from "../../../../models/interfaces/article";
 import { useSlidesCount } from "../helpers/useSlidesCount";
@@ -12,8 +13,13 @@ export default function ArticleCarousel({ data }: { data: IArticle[] }) {
 
   return (
     <Swiper
+      modules={[Autoplay]}
       slidesPerView={count}
-      autoplay
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
       centeredSlides={count <= 1}
       spaceBetween={20}
     >
