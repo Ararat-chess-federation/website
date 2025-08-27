@@ -1,14 +1,15 @@
-import Logo from "./logo/Logo";
-import Navigation from "./navigation/Navigation";
+import Logo from "../../shared/logo/Logo";
+import Navigation from "./navigation";
 import LiveTournaments from "./liveTournaments/LiveTournaments";
-import "./Header.css";
+import styles from "./header.module.scss";
 
 export default function Header() {
   return (
-    <header className="header">
+    <header className={styles.header}>
       <Logo />
       <Navigation />
       <LiveTournaments />
     </header>
   );
 }
+

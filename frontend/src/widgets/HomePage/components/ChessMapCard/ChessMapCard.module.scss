@@ -1,0 +1,63 @@
+.chess_card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8%;
+  gap: 32px;
+  background: $gradient-light;
+  border: 1px solid $gradient-srtoke;
+  position: relative;
+
+  &__content {
+    max-width: 50%;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: $primary;
+    margin-bottom: 64px;
+    text-align: left;
+  }
+
+  &__text {
+    font-size: 20px;
+    color: $primary;
+    margin-bottom: 48px;
+    text-align: left;
+  }
+
+  &__image {
+    width: 440px;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .chess_card_image {
+    position: absolute;
+    opacity: 0.1;
+    left: 25%;
+  }
+  .chess_card__content {
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .chess_card_image {
+    left: 0;
+    scale: 0.5;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .chess_card_image {
+    left: -25px;
+    scale: 0.5;
+  }
+}

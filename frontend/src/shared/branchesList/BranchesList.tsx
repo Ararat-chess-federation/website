@@ -1,4 +1,4 @@
-import Link from "next/link";
+// import Link from "next/link";
 import { IBranch } from "../../models/interfaces/branch";
 import "./BranchesList.css";
 
@@ -10,9 +10,10 @@ export default function BranchesList({ branches }: { branches: IBranch[] }) {
       <ul className="trainer_branches_list">
         {branches.map((el) => (
           <li key={el.url} className="trainer_branches">
-            <Link href={`/branches/${el.url}`}>
+            {/* fix: dont need link like this, dont using */}
+            {/* <Link href={`/branches/${el.url}`}> */}
               {el.title}
-            </Link>
+            {/* </Link> */}
           </li>
         ))}
       </ul>

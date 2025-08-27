@@ -1,0 +1,21 @@
+.branches_main {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  gap: 4px;
+  color: $primary;
+  height: 30px;
+
+  .branches_title {
+    font-weight: 600;
+    margin-right: 4px;
+  }
+  .trainer_name {
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  }
+}

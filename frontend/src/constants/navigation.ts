@@ -2,8 +2,7 @@ interface INavigation {
   link: string;
   title: string;
 }
-
-export const NAVIGATION: INavigation[] = [
+export const FULLNAVIGATION: INavigation[] = [
   {
     link: "/articles",
     title: "Նորություններ",
@@ -12,21 +11,14 @@ export const NAVIGATION: INavigation[] = [
     link: "/trainers",
     title: "Մարզիչներ",
   },
-  {
-    link: "/branches",
-    title: "Մասնաճյուղեր",
-  },
-  // {
-  //   link: "/statistic",
-  //   title: "Վիճակագրություն",
-  // },
   // {
   //   link: "/calendar",
   //   title: "Օրացուցային պլան",
   // },
-];
-
-export const LEFT_MENU: INavigation[] = [
+  {
+    link: "/branches",
+    title: "Մասնաճյուղեր",
+  },
   {
     link: "/ratings",
     title: "Վարկանիշներ",
@@ -40,8 +32,16 @@ export const LEFT_MENU: INavigation[] = [
     link: "/contacts",
     title: "Կոնտակտներ",
   },
-  // {
-  //   link: "/team",
-  //   title: "Կայքի թիմը",
-  // },
+];
+
+export const FOOTER_MENU: INavigation[] = [
+  {
+    link: "/about",
+    title: "Մեր մասին",
+  },
+  {
+    link: "/ratings",
+    title: "Վարկանիշներ",
+  },
+  { link: "/useful", title: "Օգտակար հղումներ" },
 ];

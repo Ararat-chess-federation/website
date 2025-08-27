@@ -1,11 +1,8 @@
 import getData from "../src/helpers/getData";
-import MoreButton from "../src/components/moreButton/MoreButton";
-import ShortInfo from "../src/components/shortInfo/ShortInfo";
 import { IArticle } from "../src/models/interfaces/article";
 import "./Home.css";
-import NotFound from "./not-found";
 import { siteTitle } from "../src/constants/titles";
-import { ArticleList } from "../src/components/articleList/ArticleList";
+import { HomePage } from "../src/widgets/HomePage";
 
 export const metadata = {
   title: siteTitle,
@@ -20,7 +17,7 @@ export default async function Home() {
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     sort: "publishDate:desc",
-    limit: 2,
+    limit: 6,
     populate: {
       mainImage: {
         fields: ["url"],
@@ -30,19 +27,7 @@ export default async function Home() {
 
   return (
     <main>
-      <div>
-        <div>
-          <h2>Վերջին նորություններ</h2>
-        </div>
-        <section className="articles_container">
-          <ArticleList data={data} />
-        </section>
-        <MoreButton link="/articles" />
-      </div>
-      <section className="region_info">
-        <ShortInfo type="branches" />
-        <ShortInfo type="trainers" />
-      </section>
+      <HomePage data={data} />
     </main>
   );
 }

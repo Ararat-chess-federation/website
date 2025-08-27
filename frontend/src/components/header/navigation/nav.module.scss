@@ -1,0 +1,79 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .navList {
+    display: flex;
+    align-items: center;
+    gap: 20%;
+  }
+}
+
+.branchesBtn {
+  position: relative;
+  width: 160px;
+  height: 40px;
+  border-radius: 6px;
+  padding: 10px;
+  border: 1px solid $secondary;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 0;
+
+  .text {
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    color: $secondary;
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: $gradient-footer;
+    opacity: 0;
+    transition: opacity 500ms ease;
+    border-radius: 6px;
+    z-index: 0;
+  }
+
+  &:hover {
+    border: 1px solid $gradient-srtoke;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+}
+
+.navBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .branchesLink {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .navLi {
+    &:nth-child(n + 3) {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .navLi {
+    display: none;
+  }
+}

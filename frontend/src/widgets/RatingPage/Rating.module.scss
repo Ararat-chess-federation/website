@@ -1,0 +1,39 @@
+.rating_container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 42px 8%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.title {
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: $primary;
+  margin-bottom: 20px;
+}
+.rating_link {
+  font-weight: 600;
+  font-size: 16px;
+  color: $primary;
+  padding-left: 4px;
+}
+
+.rating_grid_container {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+  .rating_container {
+    padding: 42px 2%;
+  }
+}

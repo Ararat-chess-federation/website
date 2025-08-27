@@ -19,4 +19,7 @@ module.exports = {
       },
     ],
   },
+  sassOptions: {
+    additionalData: `@use "styles/variables" as *;`,
+  },
 };

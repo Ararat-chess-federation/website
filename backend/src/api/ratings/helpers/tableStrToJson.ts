@@ -9,8 +9,9 @@ export default function tableToJson(tableString: string) {
   const headersMatch = tableString.match(headerRegex);
   const headers = headersMatch
     ? headersMatch
-        .map((header) => header.replace(htmlTagRegex, "").trim())
-        .slice(1)
+      .slice(2)
+      .map((header) => header.replace(htmlTagRegex, "").trim())
+      .filter((el) => el !== "Մարզ")
     : [];
 
   const rows = tableString.match(rowRegex);
@@ -26,13 +27,14 @@ export default function tableToJson(tableString: string) {
       continue;
     }
 
-    const arr = cells.slice(1).map((el) => {
+    const arr = cells.slice(2).map((el) => {
       if (el.includes("href")) {
         return el.match(hrefRegex)?.[1] || null;
       }
 
       return el.replace(htmlTagMatcher, "").trim();
-    });
+    })
+      .filter((el) => el !== "Արարատ");
 
     dataArr.push(arr);
   }

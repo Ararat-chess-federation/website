@@ -1,0 +1,18 @@
+.rating_table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th,
+  td {
+    border: 1px solid $lightblue;
+    padding: 8px;
+  }
+
+  th {
+    background: $gradient-light;
+    text-align: left;
+  }
+  tr > td {
+    background: $white;
+  }
+}

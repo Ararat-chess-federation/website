@@ -1,12 +1,11 @@
 import Header from "../src/components/header/Header";
-import LeftMenu from "../src/components/leftMenu/LeftMenu";
-import Links from "../src/components/Links/Links";
 import "../styles/variables.css";
 import "../styles/global.css";
 import "./layout.css";
 import { Metadata } from "next";
 import { CSPostHogProvider } from "./providers";
-
+import { Footer } from "../src/components/footer";
+import 'swiper/css';
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -25,14 +24,9 @@ export default function RootLayout({ children }: ILayout) {
         <body>
           <Header />
           <main className="main_container">
-            <section className="left_menu_container">
-              <LeftMenu />
-            </section>
             <section className="content_container">{children}</section>
-            <section className="links_container">
-              <Links />
-            </section>
           </main>
+          <Footer />
         </body>
       </CSPostHogProvider>
     </html>

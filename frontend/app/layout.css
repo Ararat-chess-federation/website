@@ -2,18 +2,11 @@
   display: flex;
   width: 100%;
   padding-top: 60px;
-}
-
-.left_menu_container {
-  width: 15%;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 270px);
 }
 
 .content_container {
-  padding: 24px;
-  width: 70%;
+  width: 100%;
 }
 
 .links_container {
@@ -24,14 +17,6 @@
   .main_container {
     display: flex;
     flex-direction: column;
-  }
-
-  .left_menu_container {
-    display: none;
-  }
-
-  .content_container {
-    width: 100%;
   }
 
   .links_container {
