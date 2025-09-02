@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -18,7 +19,7 @@ export function RatingPage() {
   const { replace } = useRouter();
   const searchParams = useSearchParams();
   const pathname = usePathname();
-
+  const t = useTranslations();
   const [grid, setGrid] = useState<IGrid>(
     (searchParams.get("grid") as IGrid) || "national"
   );
@@ -55,18 +56,18 @@ export function RatingPage() {
 
   return (
     <div className={styles.rating_container}>
-      <LinedTitle title="Վարկանիշներ" />
+      <LinedTitle title={t("ratings")} />
       <h1 className={styles.title}>
-        Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշային աղյուսակ
+        {t("rating.ratingTableTitle")}
       </h1>
       <p>
-        *Տվյալները վերցվում են ՀՇՎ կայքից:
+        {t("rating.descriptionChunk1")}
         <Link
           href="https://chessfed.am/am/players-ratings"
           target="_blank"
           className={styles.rating_link}
         >
-          ՀՇՖ վարկանիշային աղյուսակ
+          {t("rating.descriptionChunk2")}
         </Link>
       </p>
       <div className={styles.rating_grid_container}>

@@ -14,13 +14,13 @@ export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
   const info = [
     {
       title: t(FULLNAVIGATION[2].title),
-      desc: `Արարատի մարզի համայնքներում գործում է 8 մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։`,
+      desc: t("LinedItems.0"),
       img: mapImage,
       link: FULLNAVIGATION[2].link,
     },
     {
       title: t(FULLNAVIGATION[1].title),
-      desc: `Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում աշխատում է 10 մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։`,
+      desc: t("LinedItems.1"),
       img: figures,
       link: FULLNAVIGATION[1].link,
     },

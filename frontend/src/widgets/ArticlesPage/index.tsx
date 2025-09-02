@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Pagination from "../../components/pagination/Pagination";
 import { ArticleList } from "../../components/articleList";
 import styles from "./Articles.module.scss";
@@ -13,9 +14,10 @@ interface IProps {
 
 export default async function ArticlesPage(props: IProps) {
   const { data, page, pageSize, paginationTotal } = props;
+  const t = useTranslations();
   return (
     <section className={styles.article_main}>
-      <LinedTitle title="Նորություններ" />
+      <LinedTitle title={t("articles")} />
       <div>
         <ArticleList data={data} />
       </div>

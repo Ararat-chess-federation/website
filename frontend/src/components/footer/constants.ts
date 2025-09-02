@@ -6,20 +6,20 @@ import ArbiterImg from "./images/arbiter.svg";
 import FbImg from "./images/fb.svg";
 
 export const RegionInfo = {
-  title: "Կոնտակտներ",
+  title: "contacts",
   data: [
     {
-      title: "Մարզի պատասխանատու",
+      title: "regionInfo.0",
       link:"+37493881339",
       phone: "093881339",
     },
     {
-      title: "Մրցաշարային հարցերի դեպքում",
+      title: "regionInfo.1",
       link:"+37477898910",
       phone: "077898910",
     },
     {
-      title: "Կայքի հետ կապված հարցերի դեպքում",
+      title: "regionInfo.2",
       link:"+37498339025",
       phone: "098339025",
     },

@@ -1,4 +1,3 @@
-import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent";
 import getData from "../../src/helpers/getData";
 import { IAboutData } from "../../src/models/interfaces/about";
 import { siteTitle } from "../../src/constants/titles";

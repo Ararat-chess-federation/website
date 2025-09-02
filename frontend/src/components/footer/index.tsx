@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import React from "react";
 import styles from "./footer.module.scss";
 import Logo from "../../shared/logo/Logo";
@@ -10,7 +11,6 @@ import { LinkItem } from "../../shared/linkItem";
 import Image from "next/image";
 import FiguresImage from "./images/figures.svg";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 
 export const Footer = () => {
   const t = useTranslations();
@@ -29,7 +29,7 @@ export const Footer = () => {
           <h3 className={styles.title}>{RegionInfo.title}</h3>
           {RegionInfo.data.map((el) => (
             <React.Fragment key={el.title}>
-              <p className={styles.info_title}>{el.title}</p>
+              <p className={styles.info_title}>{t(el.title)}</p>
               <a href={`tel:${el.phone}`}>
                 <p className={styles.info_phone}>{el.phone}</p>
               </a>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { siteTitle } from "../../constants/titles";
 import Contact from "./components/contact";
 import styles from "./contacts.module.scss";
@@ -12,11 +12,12 @@ export const metadata = {
 };
 
 export function ContactsPage() {
+  const t = useTranslations();
   return (
     <main className={styles.contacts_page}>
-      <LinedTitle title="Վարկանիշներ" />
+      <LinedTitle title={t("ratings")} />
 
-      <h1 className={styles.title}>Կոնտակտային տվյալներ</h1>
+      <h1 className={styles.title}>{t("contactsInfo.contactInformation")}</h1>
       <div className={styles.contacts}>
         {contactsData.map((el) => (
           <Contact
@@ -30,11 +31,10 @@ export function ContactsPage() {
         ))}
       </div>
       <p>
-        Ընդունելության կամ որևէ մասնաճյուղի հետ կապված հարցերի դեպքում կարող եք
-        զանգահարել տվյալ մասնաճյուղի մարզչին
+        {t("contactsInfo.trainersDescription")}
       </p>
       <div>
-        <LinkButton link="/trainers" title="Մարզիչների ցանկ" className={styles.trainers_button}/>
+        <LinkButton link="/trainers" title={t("contactsInfo.trainersList")} className={styles.trainers_button}/>
       </div>
     </main>
   );

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import TrainersList from "../../shared/trainersList/TrainersList";
 import Address from "../../shared/address/Address";
 import Img from "../../shared/img/Img";
@@ -7,9 +8,10 @@ import { IBranch } from "../../models/interfaces/branch";
 import { LinedTitle } from "../../shared/linedTitle";
 
 export default async function BranchesPage({ data }: { data: IBranch[] }) {
+  const t = useTranslations();
   return (
     <section className={styles.branches_main}>
-      <LinedTitle title="Մասնաճյուղեր" />
+      <LinedTitle title={t("branches")} />
       <div className={styles.branches_container}>
         {data.map(
           ({ url, mainImage, title, address, trainers, description }) => {

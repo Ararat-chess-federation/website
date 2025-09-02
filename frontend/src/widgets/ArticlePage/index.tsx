@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Img from "../../../src/shared/img/Img";
 import { dateArmFormatter } from "../../helpers/dateArmFormatter";
 import { IArticle } from "../../models/interfaces/article";
@@ -14,9 +15,10 @@ type IArticleParams = Pick<
 export default async function ArticlePage(props: IArticleParams) {
   const { title, mainImage, articleText, fbPost, publishedAt } = props;
   const date = dateArmFormatter(publishedAt);
+  const t = useTranslations();
   return (
     <div className={styles.article_container}>
-      <LinedTitle title="Նորություններ" />
+      <LinedTitle title={t("articles")} />
 
       <div className={styles.article_header}>
         <div className={styles.article_header_content}>
@@ -44,7 +46,7 @@ export default async function ArticlePage(props: IArticleParams) {
 
       {fbPost && (
         <div className={styles.article_footer}>
-          <LinkButton link={fbPost} title="Ֆոտոշարք" target="_blank" />
+          <LinkButton link={fbPost} title={t("photoList")} target="_blank" />
         </div>
       )}
     </div>

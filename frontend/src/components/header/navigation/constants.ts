@@ -1,15 +1,15 @@
 export const NAVIGATION = [
   {
     link: "/articles",
-    title: "Նորություններ",
+    title: "articles",
   },
   {
     link: "/trainers",
-    title: "Մարզիչներ",
+    title: "trainers",
   },
   {
     link: "/ratings",
-    title: "Վարկանիշներ",
+    title: "ratings",
   }
   // {
   //   link: "/calendar",
@@ -19,5 +19,5 @@ export const NAVIGATION = [
 
 export const NAVIGATIONBTN = {
   link: "/branches",
-  title: "Մասնաճյուղեր",
+  title: "branches",
 };

@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { IArticle } from "../../models/interfaces/article";
 import { LinedTitle } from "../../shared/linedTitle";
 import ArticleCarousel from "./components/Carousel";
@@ -7,13 +8,14 @@ import styles from "./home.module.scss";
 
 export async function HomePage(props: { data: IArticle[] }) {
   const { data } = props;
+  const t = useTranslations();
   return (
     <main className={styles.home_main}>
       <section>
         <ChessMapCard />
       </section>
       <section className={styles.main_content}>
-        <LinedTitle title="Նորություններ" />
+        <LinedTitle title={t("articles")} />
         <div className={styles.articles_container}>
           <ArticleCarousel data={data} />
         </div>
