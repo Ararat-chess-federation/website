@@ -1,11 +1,13 @@
+import { Metadata } from "next";
+import "swiper/css";
+import { NextIntlClientProvider } from "next-intl";
+import requestConfig from "../src/i18n/request";
 import Header from "../src/components/header/Header";
 import "../styles/variables.css";
 import "../styles/global.css";
 import "./layout.css";
-import { Metadata } from "next";
 import { CSPostHogProvider } from "./providers";
 import { Footer } from "../src/components/footer";
-import 'swiper/css';
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
@@ -15,18 +17,26 @@ export const metadata: Metadata = {
 
 interface ILayout {
   children: React.ReactNode;
+  params: { locale: string };
 }
 
-export default function RootLayout({ children }: ILayout) {
+export default async function RootLayout({ children, params }: ILayout) {
+  const config = await requestConfig({ locale: params.locale });
+  console.log('params', params)
   return (
-    <html lang="hy">
+    <html lang={config.locale}>
       <CSPostHogProvider>
         <body>
-          <Header />
-          <main className="main_container">
-            <section className="content_container">{children}</section>
-          </main>
-          <Footer />
+          <NextIntlClientProvider
+            locale={config.locale}
+            messages={config.messages}
+          >
+            <Header />
+            <main className="main_container">
+              <section className="content_container">{children}</section>
+            </main>
+            <Footer />
+          </NextIntlClientProvider>
         </body>
       </CSPostHogProvider>
     </html>

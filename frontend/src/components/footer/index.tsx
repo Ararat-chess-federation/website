@@ -10,8 +10,10 @@ import { LinkItem } from "../../shared/linkItem";
 import Image from "next/image";
 import FiguresImage from "./images/figures.svg";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export const Footer = () => {
+  const t = useTranslations();
   return (
     <footer className={styles.footer}>
       <div className={styles.main_footer}>
@@ -19,7 +21,7 @@ export const Footer = () => {
           <Logo className={styles.logo} />
           <div className={styles.menu_block}>
             {FOOTER_MENU.map((el) => (
-              <LinkItem key={el.link} link={el.link} title={el.title} />
+              <LinkItem key={el.link} link={el.link} title={t(el.title)} />
             ))}
           </div>
         </div>

@@ -1,4 +1,3 @@
-import { ArticleList } from "../../components/articleList";
 import { IArticle } from "../../models/interfaces/article";
 import { LinedTitle } from "../../shared/linedTitle";
 import ArticleCarousel from "./components/Carousel";

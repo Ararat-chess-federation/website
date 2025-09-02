@@ -1,47 +1,50 @@
+import { getTranslations } from "next-intl/server";
+
 interface INavigation {
   link: string;
   title: string;
 }
+
 export const FULLNAVIGATION: INavigation[] = [
   {
     link: "/articles",
-    title: "Նորություններ",
+    title: "articles",
   },
   {
     link: "/trainers",
-    title: "Մարզիչներ",
+    title: "trainers",
   },
   // {
   //   link: "/calendar",
-  //   title: "Օրացուցային պլան",
+  //   title: "calendar",
   // },
   {
     link: "/branches",
-    title: "Մասնաճյուղեր",
+    title: "branches",
   },
   {
     link: "/ratings",
-    title: "Վարկանիշներ",
+    title: "ratings",
   },
-  { link: "/useful", title: "Օգտակար հղումներ" },
+  { link: "/useful", title: "useful" },
   {
     link: "/about",
-    title: "Մեր մասին",
+    title: "about",
   },
   {
     link: "/contacts",
-    title: "Կոնտակտներ",
+    title: "contacts",
   },
 ];
 
 export const FOOTER_MENU: INavigation[] = [
   {
     link: "/about",
-    title: "Մեր մասին",
+    title: "about",
   },
   {
     link: "/ratings",
-    title: "Վարկանիշներ",
+    title: "ratings",
   },
-  { link: "/useful", title: "Օգտակար հղումներ" },
+  { link: "/useful", title: "useful" },
 ];
