@@ -7,10 +7,15 @@ import figures from "../assets/chess_figures.svg";
 import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
 import { LinedTitle } from "../../../../shared/linedTitle";
+import { getTranslations } from "next-intl/server";
 
 type VersionIndex = 0 | 1;
-export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
-  const t = useTranslations();
+export const LinedItem = async ({
+  versionIndex,
+}: {
+  versionIndex: VersionIndex;
+}) => {
+  const t = await getTranslations();
   const info = [
     {
       title: t(FULLNAVIGATION[2].title),

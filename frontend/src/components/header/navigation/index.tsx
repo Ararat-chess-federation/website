@@ -1,12 +1,12 @@
-import { useTranslations } from "next-intl";
-import Link from "next/link";
 import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { NAVIGATION, NAVIGATIONBTN } from "./constants";
 import styles from "./nav.module.scss";
 import { LinkItem } from "../../../shared/linkItem";
+import NavigationLink from "../../NavigationLink";
+import { getTranslations } from "next-intl/server";
 
-export default function Navigation() {
-  const t = useTranslations();
+export default async function Navigation() {
+  const t = await getTranslations();
   return (
     <>
       <nav className={styles.nav}>
@@ -19,11 +19,11 @@ export default function Navigation() {
         </ul>
       </nav>
       <div className={styles.navBtns}>
-        <Link href={NAVIGATIONBTN.link} className={styles.branchesLink}>
+        <NavigationLink href={NAVIGATIONBTN.link as '/'} className={styles.branchesLink}>
           <button className={styles.branchesBtn}>
             <span className={styles.text}>{t(NAVIGATIONBTN.title)}</span>
           </button>
-        </Link>
+        </NavigationLink>
         <BurgerMenu />
       </div>
     </>

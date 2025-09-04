@@ -1,9 +1,9 @@
-import getData from "../../src/helpers/getData";
-import { IArticle } from "../../src/models/interfaces/article";
-import { siteTitle } from "../../src/constants/titles";
-import NotFound from "../not-found";
-import { IMeta } from "../../src/models/interfaces/meta";
-import ArticlesPage from "../../src/widgets/ArticlesPage";
+import getData from "../../../src/helpers/getData";
+import { IArticle } from "../../../src/models/interfaces/article";
+import { siteTitle } from "../../../src/constants/titles";
+import NotFound from "../../not-found";
+import { IMeta } from "../../../src/models/interfaces/meta";
+import ArticlesPage from "../../../src/widgets/ArticlesPage";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,

@@ -5,10 +5,11 @@ import ArticleCarousel from "./components/Carousel";
 import { ChessMapCard } from "./components/ChessMapCard";
 import { LinedItem } from "./components/LinedItem";
 import styles from "./home.module.scss";
+import { getTranslations } from "next-intl/server";
 
 export async function HomePage(props: { data: IArticle[] }) {
   const { data } = props;
-  const t = useTranslations();
+  const t = await getTranslations();
   return (
     <main className={styles.home_main}>
       <section>

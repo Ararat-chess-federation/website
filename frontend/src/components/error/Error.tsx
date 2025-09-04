@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useEffect } from "react";
 import "./Error.css";
+import NavigationLink from "../NavigationLink";
 
 export default function Error({ error }: { error: Error }) {
   const t = useTranslations("error");
@@ -18,9 +18,9 @@ export default function Error({ error }: { error: Error }) {
         <li>{t("steps.1")}</li>
         <li>{t("steps.2")}</li>
       </ul>
-      <Link href="/contacts">
+      <NavigationLink href="/contacts">
         <span>{t("link")}</span>
-      </Link>
+      </NavigationLink>
     </div>
   );
 }

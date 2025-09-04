@@ -79,6 +79,27 @@
   top: 0;
 }
 
+.language_block {
+  display: flex;
+  gap: 8px;
+
+  .lang_button {
+    padding: 4px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: border 0.3s ease;
+
+    &:hover {
+      border: 1px solid $white;
+    }
+  }
+}
 @media only screen and (max-width: 1200px) {
   .figures {
     display: none;

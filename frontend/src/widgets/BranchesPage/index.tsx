@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import TrainersList from "../../shared/trainersList/TrainersList";
 import Address from "../../shared/address/Address";
 import Img from "../../shared/img/Img";
@@ -6,9 +5,10 @@ import TrainingScheduleCard from "../../components/trainingScheduleCard/Training
 import styles from "./branches.module.scss";
 import { IBranch } from "../../models/interfaces/branch";
 import { LinedTitle } from "../../shared/linedTitle";
+import { getTranslations } from "next-intl/server";
 
 export default async function BranchesPage({ data }: { data: IBranch[] }) {
-  const t = useTranslations();
+  const t = await getTranslations();
   return (
     <section className={styles.branches_main}>
       <LinedTitle title={t("branches")} />

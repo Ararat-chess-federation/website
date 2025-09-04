@@ -4,9 +4,10 @@ import { useTranslations } from "next-intl";
 import styles from "./ChessMapCard.module.scss";
 import chessMap from "../assets/chess.svg";
 import MoreButton from "../../../../shared/linkButton";
+import { getTranslations } from "next-intl/server";
 
-export const ChessMapCard = () => {
-  const t = useTranslations("federation");
+export const ChessMapCard = async () => {
+  const t = await getTranslations("federation");
   return (
     <div className={styles.chess_card}>
       <div className={styles.chess_card__content}>

@@ -1,8 +1,8 @@
-import getData from "../../src/helpers/getData";
-import { siteTitle } from "../../src/constants/titles";
-import NotFound from "../not-found";
-import { IUsefulData } from "../../src/models/interfaces/useful";
-import { UsefulPage } from "../../src/widgets/UsefulPage";
+import getData from "../../../src/helpers/getData";
+import { siteTitle } from "../../../src/constants/titles";
+import NotFound from "../../not-found";
+import { IUsefulData } from "../../../src/models/interfaces/useful";
+import { UsefulPage } from "../../../src/widgets/UsefulPage";
 
 export const metadata = {
   title: `Օգտակար հղումներ | ${siteTitle}`,

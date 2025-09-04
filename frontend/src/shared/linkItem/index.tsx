@@ -1,6 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import styles from "./linkItem.module.scss";
+import NavigationLink from "../../components/NavigationLink";
 
 interface IProps {
   link: string;
@@ -8,8 +8,8 @@ interface IProps {
 }
 export const LinkItem = ({ link, title }: IProps) => {
   return (
-    <Link href={link} className={styles.link}>
+    <NavigationLink href={link as '/'} className={styles.link}>
       {title}
-    </Link>
+    </NavigationLink>
   );
 };

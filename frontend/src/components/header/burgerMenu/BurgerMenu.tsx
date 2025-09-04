@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { FULLNAVIGATION } from "../../../constants/navigation";
 import BurgerIcon from "./icons/menuIcon.svg";
 import styles from "./menu.module.scss";
+import NavigationLink from "../../NavigationLink";
 
 const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
@@ -41,8 +41,8 @@ const BurgerMenu = () => {
       <div className={`${styles.menu} ${open ? styles.open : ""}`}>
         <ul className={styles.menu_list}>
           {FULLNAVIGATION.map((el) => (
-            <Link
-              href={el.link}
+            <NavigationLink
+              href={el.link as '/'}
               key={el.link}
               onClick={() => setOpen(false)}
               className={styles.menu_item}
@@ -50,7 +50,7 @@ const BurgerMenu = () => {
               <li key={el.link} className={styles.menu_li}>
                 {t(el.title)}
               </li>
-            </Link>
+            </NavigationLink>
           ))}
         </ul>
       </div>

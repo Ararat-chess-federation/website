@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import styles from "./moreButton.module.scss";
+import NavigationLink from "../../components/NavigationLink";
 
 interface IProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   link: string;
@@ -9,10 +9,11 @@ interface IProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 export default function TextButton({ link, title, ...props }: IProps) {
   const t = useTranslations();
   return (
-    <Link href={link} {...props}>
+    // @ts-ignore
+    <NavigationLink href={link} {...props}>
       <button className={styles.text_btn}>
         <span className={styles.text_btn__text}>{title || t("more")}</span>
       </button>
-    </Link>
+    </NavigationLink>
   );
 }

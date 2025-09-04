@@ -1,10 +1,10 @@
-import DynamicComponent from "../../src/shared/dynamicComponent/DynamicComponent";
-import getData from "../../src/helpers/getData";
-import NotFound from "../not-found";
-import { siteTitle } from "../../src/constants/titles";
-import { ICalendarData } from "../../src/models/interfaces/calendar";
-import ModifiedMarkdown from "../../src/hok/modifiedMarkdown";
-import CalendarPage from "../../src/widgets/Calendar";
+import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
+import getData from "../../../src/helpers/getData";
+import NotFound from "../../not-found";
+import { siteTitle } from "../../../src/constants/titles";
+import { ICalendarData } from "../../../src/models/interfaces/calendar";
+import ModifiedMarkdown from "../../../src/hok/modifiedMarkdown";
+import CalendarPage from "../../../src/widgets/Calendar";
 
 export const metadata = {
   title: `Օրացուցային պլան | ${siteTitle}`,

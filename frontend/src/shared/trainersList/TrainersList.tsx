@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { ITrainer } from "../../models/interfaces/trainer";
 import styles from "./trainersList.module.scss";
+import NavigationLink from "../../components/NavigationLink";
 
 export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
   const t = useTranslations();
@@ -10,9 +10,9 @@ export default function TrainersList({ trainers }: { trainers: ITrainer[] }) {
       <span className={styles.branches_title}>{t("trainers")}: </span>
       {trainers.map((el, i) => (
         <span key={el.url}>
-          <Link href={`/trainers?trainer=${el.url}`} className={styles.trainer_name}>
+          <NavigationLink href={`/trainers?trainer=${el.url}` as '/'} className={styles.trainer_name}>
             {el.fullName}
-          </Link>
+          </NavigationLink>
           {i < trainers.length - 1 ? ", " : ""}
         </span>
       ))}

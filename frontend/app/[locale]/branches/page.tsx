@@ -1,8 +1,8 @@
-import getData from "../../src/helpers/getData";
-import { IBranch } from "../../src/models/interfaces/branch";
-import { siteTitle } from "../../src/constants/titles";
-import NotFound from "../not-found";
-import BranchesPage from "../../src/widgets/BranchesPage";
+import getData from "../../../src/helpers/getData";
+import { IBranch } from "../../../src/models/interfaces/branch";
+import { siteTitle } from "../../../src/constants/titles";
+import NotFound from "../../not-found";
+import BranchesPage from "../../../src/widgets/BranchesPage";
 
 export const metadata = {
   title: `Մասնաճյուղեր | ${siteTitle}`,

@@ -1,10 +1,10 @@
 
-import getData from "../../../src/helpers/getData";
-import { IArticle } from "../../../src/models/interfaces/article";
-import { siteTitle } from "../../../src/constants/titles";
-import NotFound from "../../not-found";
-import getImageSrc from "../../../src/helpers/getMediaSrc";
-import ArticlePage from "../../../src/widgets/ArticlePage";
+import getData from "../../../../src/helpers/getData";
+import { IArticle } from "../../../../src/models/interfaces/article";
+import { siteTitle } from "../../../../src/constants/titles";
+import NotFound from "../../../not-found";
+import getImageSrc from "../../../../src/helpers/getMediaSrc";
+import ArticlePage from "../../../../src/widgets/ArticlePage";
 
 interface IArticleParams {
   params: Promise<{ articleUrl: string }>;
