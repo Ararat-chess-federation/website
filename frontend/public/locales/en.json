@@ -1,51 +1,51 @@
 {
-  "articles": "Նորություններ",
-  "trainers": "Մարզիչներ",
-  "calendar": "Օրացուցային պլան",
-  "branches": "Մասնաճյուղեր",
-  "ratings": "Վարկանիշներ",
-  "useful": "Օգտակար հղումներ",
-  "about": "Մեր մասին",
-  "contacts": "Կոնտակտներ",
+  "articles": "News",
+  "trainers": "Coaches",
+  "calendar": "Calendar Plan",
+  "branches": "Branches",
+  "ratings": "Ratings",
+  "useful": "Useful Links",
+  "about": "About Us",
+  "contacts": "Contacts",
   "federation": {
-    "federation_history": "Ֆեդերացիայի պատմություն",
-    "info": "1963 թվականին Տիգրան Պետրոսյանի աշխարհի չեմպիոն դառնալուց հետո Հայաստանում շախմատային բուռն աճ տեղի ունեցավ։ Բազմաթիվ ծնողներ սկսեցին իրենց երեխաներին տանել շախմատի խմբակ։ Շախմատը բուռն զարգացում էր ապրում նաև Արարատի մարզում։"
+    "federation_history": "Federation History",
+    "info": "After Tigran Petrosian became World Champion in 1963, a rapid growth of chess took place in Armenia. Many parents began taking their children to chess groups. Chess was also experiencing strong development in the Ararat region."
   },
-  "more": "Ավելին",
-  "photoList": "Ֆոտոշարք",
+  "more": "More",
+  "photoList": "Photo Gallery",
   "contactsInfo": {
-    "contactInformation": "Կոնտակտային տվյալներ",
-    "trainersList": "Մարզիչների ցանկ",
-    "trainersDescription": "Ընդունելության կամ որևէ մասնաճյուղի հետ կապված հարցերի դեպքում կարող եք զանգահարել տվյալ մասնաճյուղի մարզչին"
+    "contactInformation": "Contact Information",
+    "trainersList": "List of Coaches",
+    "trainersDescription": "For admission or questions related to any branch, you can call the coach of that branch."
   },
   "LinedItems": [
-    "Արարատի մարզի համայնքներում գործում է 8 մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։",
-    "Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում աշխատում է 10 մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։"
+    "There are 8 branches operating in the communities of the Ararat region, where more than 600 children attend chess classes.",
+    "10 coaches work in the chess schools of the Ararat region Chess Federation, passing on their experience and knowledge to future generations."
   ],
   "rating": {
-    "ratingTableTitle": "Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշային աղյուսակ",
-    "descriptionChunk1": "*Տվյալները վերցվում են ՀՇՎ կայքից:",
-    "descriptionChunk2": "ՀՇՖ վարկանիշային աղյուսակ"
+    "ratingTableTitle": "Rating Table of the Ararat Region Chess Federation",
+    "descriptionChunk1": "*The data is taken from the Armenian Chess Federation website.",
+    "descriptionChunk2": "ACF Rating Table"
   },
   "regionInfo": [
-    "Մարզի պատասխանատու",
-    "Մրցաշարային հարցերի դեպքում",
-    "Կայքի հետ կապված հարցերի դեպքում"
+    "Regional Responsible",
+    "For tournament-related questions",
+    "For website-related questions"
   ],
   "error": {
-    "title": "Արքան շախի տակ է։ Ինչ-որ բան սխալ է գնացել",
-    "description": "Մենք բախվեցինք իրավիճակի, որը նախատեսվատ չէր։ Կատարեք հետևյալ քայլերը",
+    "title": "The king is in check. Something went wrong",
+    "description": "We encountered a situation that was not planned. Please take the following steps",
     "steps": [
-      "Թարմացրեք էջը կամ վերադարձեք նախորդ էջ",
-      "Համոզվեք, որ Ձեր ինտերնետ կապը նույնքան ուժեղ է, որքան զինվորային շղթան",
-      "Եթե խնդիրը չի լուծվել, փորձեք կապ հաստատել մեր տեխնիկական գրոսսմայստերների հետ"
+      "Refresh the page or go back to the previous page",
+      "Make sure your internet connection is as strong as a pawn chain",
+      "If the problem persists, try to contact our technical grandmasters"
     ],
-    "link": "Կապ գրոսսմայստերների հետ"
+    "link": "Contact the grandmasters"
   },
   "Manifest": {
     "name": "Ararat en"
   },
   "LocaleLayout": {
-    "title": "Արարատի մարզի շախմատի ֆեդերացիա en"
+    "title": "Ararat Region Chess Federation"
   }
 }
