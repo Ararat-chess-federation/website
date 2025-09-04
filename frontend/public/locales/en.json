@@ -1,6 +1,6 @@
 {
   "articles": "News",
-  "trainers": "Coaches",
+  "trainers": "Trainers",
   "calendar": "Calendar Plan",
   "branches": "Branches",
   "ratings": "Ratings",
@@ -15,12 +15,12 @@
   "photoList": "Photo Gallery",
   "contactsInfo": {
     "contactInformation": "Contact Information",
-    "trainersList": "List of Coaches",
-    "trainersDescription": "For admission or questions related to any branch, you can call the coach of that branch."
+    "trainersList": "List of Trainers",
+    "trainersDescription": "For admission or questions related to any branch, you can call the trainer of that branch."
   },
   "LinedItems": [
     "There are 8 branches operating in the communities of the Ararat region, where more than 600 children attend chess classes.",
-    "10 coaches work in the chess schools of the Ararat region Chess Federation, passing on their experience and knowledge to future generations."
+    "10 trainers work in the chess schools of the Ararat region Chess Federation, passing on their experience and knowledge to future generations."
   ],
   "rating": {
     "ratingTableTitle": "Rating Table of the Ararat Region Chess Federation",
