@@ -3,6 +3,7 @@ import { IArticle } from "../../src/models/interfaces/article";
 import "./Home.css";
 import { siteTitle } from "../../src/constants/titles";
 import { HomePage } from "../../src/widgets/HomePage";
+import { TLang } from "../../src/models/interfaces/getData";
 
 export const metadata = {
   title: siteTitle,
@@ -13,11 +14,13 @@ export const metadata = {
   },
 };
 
-export default async function Home() {
+export default async function Home({ params }: { params: { locale: TLang } }) {
+  const { locale } = await params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     sort: "publishDate:desc",
     limit: 6,
+    locale,
     populate: {
       mainImage: {
         fields: ["url"],

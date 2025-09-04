@@ -48,7 +48,7 @@ export async function generateMetadata(
 }
 
 export default async function RootLayout({ children, params }: ILayout) {
-  const {locale} = await params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
@@ -56,7 +56,7 @@ export default async function RootLayout({ children, params }: ILayout) {
   const messages = await getMessages();
 
   const config = await requestConfig({
-    locale: params.locale,
+    locale: locale,
   } as GetRequestConfigParams);
   return (
     <html lang={config.locale}>

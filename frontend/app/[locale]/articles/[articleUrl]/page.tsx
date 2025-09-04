@@ -5,15 +5,18 @@ import { siteTitle } from "../../../../src/constants/titles";
 import NotFound from "../../../not-found";
 import getImageSrc from "../../../../src/helpers/getMediaSrc";
 import ArticlePage from "../../../../src/widgets/ArticlePage";
+import { TLang } from "../../../../src/models/interfaces/getData";
 
 interface IArticleParams {
-  params: Promise<{ articleUrl: string }>;
+  params: Promise<{ articleUrl: string, locale: TLang }>;
 }
 
 export async function generateMetadata(props: IArticleParams) {
+  const { locale } = await props.params;
   const params = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
+    locale,
     filters: {
       url: params.articleUrl,
     },

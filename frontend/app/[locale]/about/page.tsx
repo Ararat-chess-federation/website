@@ -3,15 +3,18 @@ import { IAboutData } from "../../../src/models/interfaces/about";
 import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
 import { AboutPage } from "../../../src/widgets/AboutPage";
+import { TLang } from "../../../src/models/interfaces/getData";
 
 export const metadata = {
   title: `Մեր մասին | ${siteTitle}`,
   description: "Արարատի մարզի շախմատի ֆեդերացիայի պատմություն",
 };
 
-export default async function About() {
+export default async function About({ params }: { params: { locale: TLang } }) {
+  const { locale } = await params;
   const { data }: { data: IAboutData } = await getData({
     type: "about",
+    locale,
     populate: {
       about: {
         populate: "*",
