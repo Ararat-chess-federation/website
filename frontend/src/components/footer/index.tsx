@@ -18,10 +18,10 @@ import { usePathname, useRouter } from "../../i18n/navigation";
 export const Footer = () => {
   const t = useTranslations();
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname() as '/';
 
   const switchLanguage = (locale: string) => {
-    router.replace(pathname, { locale });
+    router.push(pathname, { locale });
   };
   return (
     <footer className={styles.footer}>

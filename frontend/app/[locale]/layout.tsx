@@ -25,7 +25,7 @@ export const dynamic = "force-dynamic";
 
 interface ILayout {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export function generateStaticParams() {
@@ -44,25 +44,29 @@ export async function generateMetadata(
 
   return {
     title: t("title"),
+    description: t("title"),
   };
 }
 
 export default async function RootLayout({ children, params }: ILayout) {
-  const {locale} = await params;
+  const { locale } = await params;
+
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
-  const messages = await getMessages();
-
-  const config = await requestConfig({
-    locale: params.locale,
-  } as GetRequestConfigParams);
+  let messages;
+  try {
+    messages = (await import(`../../locales/${locale}.json`)).default;
+  } catch (e) {
+    notFound();
+  }
+  console.log("Loaded messages for locale:", locale, messages);
   return (
-    <html lang={config.locale}>
+    <html lang={locale}>
       <CSPostHogProvider>
         <body>
-          <NextIntlClientProvider locale={config.locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
             <Header />
             <main className="main_container">
               <section className="content_container">{children}</section>
