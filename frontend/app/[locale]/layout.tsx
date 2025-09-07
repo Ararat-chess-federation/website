@@ -1,8 +1,12 @@
-import { Metadata } from "next";
 import "swiper/css";
-import { Locale, NextIntlClientProvider, hasLocale } from "next-intl";
-import requestConfig from "../../src/i18n/request";
-import { routing } from "../../src/i18n/routing";
+import {
+  Locale,
+  NextIntlClientProvider,
+  hasLocale,
+  useTranslations,
+} from "next-intl";
+import requestConfig from "../../i18n/request";
+import { routing } from "../../i18n/routing";
 import Header from "../../src/components/header/Header";
 import "../../styles/variables.css";
 import "../../styles/global.css";
@@ -10,22 +14,14 @@ import "./layout.css";
 import { CSPostHogProvider } from "./providers";
 import { Footer } from "../../src/components/footer";
 import { notFound } from "next/navigation";
-import {
-  getMessages,
-  GetRequestConfigParams,
-  getTranslations,
-} from "next-intl/server";
+import { getMessages, getTranslations, getLocale } from "next-intl/server";
+import { messagesMap } from "../../i18n/messages";
 
 export const dynamic = "force-dynamic";
 
-// export const metadata: Metadata = {
-//   title: "Արարատի մարզի շախմատի ֆեդերացիա",
-//   description: "Արարատի մարզի շախմատի ֆեդերացիա",
-// };
-
 interface ILayout {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
+  params: { locale: string };
 }
 
 export function generateStaticParams() {
@@ -48,25 +44,53 @@ export async function generateMetadata(
   };
 }
 
-export default async function RootLayout({ children, params }: ILayout) {
-  const { locale } = await params;
+export default async function LocaleLayout({
+  children,
+  params,
+}: ILayout) {
+  // const { locale } = await params;
+  // const lc = await getLocale();
+  // const message = await getMessages();
+  // console.log("Current locale:", lc);
+  // console.log("Current messages:", message);
+  // if (!hasLocale(routing.locales, locale)) {
+  //   notFound();
+  // }
 
-  if (!hasLocale(routing.locales, locale)) {
+  // let messages;
+  // try {
+  //   messages = (await import(`../../src/messages/${locale}.json`)).default;
+  // } catch (e) {
+  //   notFound();
+  // }
+  // console.log("Loaded messages for locale:", locale, messages);
+
+  // let messages;
+  // try {
+  //   messages = (await import(`../../src/messages/${locale}.json`)).default;
+  // } catch {
+  //   // If the locale is not supported, fallback
+  //   messages = (await import(`../../src/messages/${routing.defaultLocale}.json`))
+  //     .default;
+  // }
+
+  const { locale } = params;
+
+  // robust check — if locale invalid, show 404
+  if (!Object.keys(messagesMap).includes(locale)) {
     notFound();
   }
 
-  let messages;
-  try {
-    messages = (await import(`../../locales/${locale}.json`)).default;
-  } catch (e) {
-    notFound();
-  }
-  console.log("Loaded messages for locale:", locale, messages);
+  const messages = messagesMap[locale as keyof typeof messagesMap];
   return (
     <html lang={locale}>
       <CSPostHogProvider>
         <body>
-          <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider
+            key={locale}
+            locale={locale}
+            messages={messages}
+          >
             <Header />
             <main className="main_container">
               <section className="content_container">{children}</section>

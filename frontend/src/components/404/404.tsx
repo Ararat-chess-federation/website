@@ -1,3 +1,5 @@
+"use client";
+
 import "./404.css";
 import NavigationLink from "../NavigationLink";
 

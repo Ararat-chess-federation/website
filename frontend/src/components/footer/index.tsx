@@ -13,7 +13,7 @@ import { LinkItem } from "../../shared/linkItem";
 import Image from "next/image";
 import FiguresImage from "./images/figures.svg";
 import Link from "next/link";
-import { usePathname, useRouter } from "../../i18n/navigation";
+import { usePathname, useRouter } from "../../../i18n/navigation";
 
 export const Footer = () => {
   const t = useTranslations();

@@ -1,10 +1,12 @@
-import { useTranslations } from "next-intl";
+"use client";
+
+import { getTranslations } from "next-intl/server";
 import { useEffect } from "react";
 import "./Error.css";
 import NavigationLink from "../NavigationLink";
 
-export default function Error({ error }: { error: Error }) {
-  const t = useTranslations("error");
+export default async function Error({ error }: { error: Error }) {
+  const t = await getTranslations("error");
   useEffect(() => {
     console.error(error);
   }, [error]);
