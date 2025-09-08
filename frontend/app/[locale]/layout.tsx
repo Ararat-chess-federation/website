@@ -49,7 +49,7 @@ export default async function LocaleLayout({
   params,
 }: ILayout) {
 
-  const { locale } = params;
+  const { locale } = await params;
 
   // robust check — if locale invalid, show 404
   if (!Object.keys(messagesMap).includes(locale)) {

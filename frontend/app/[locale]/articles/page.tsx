@@ -4,6 +4,7 @@ import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
 import { IMeta } from "../../../src/models/interfaces/meta";
 import ArticlesPage from "../../../src/widgets/ArticlesPage";
+import { TLang } from "../../../src/models/interfaces/getData";
 
 export const metadata = {
   title: `Նորություններ | ${siteTitle}`,
@@ -14,9 +15,11 @@ interface ISearchParams {
   searchParams: Promise<{
     page: string;
   }>;
+  params: { locale: TLang }
 }
 
 export default async function Articles(props: ISearchParams) {
+  const { locale } = await props.params;
   const searchParams = await props.searchParams;
   const pageSize = 12;
   const page = Number(searchParams.page) || 1;
@@ -26,6 +29,7 @@ export default async function Articles(props: ISearchParams) {
   const { data, meta }: { data: IArticle[]; meta: IMeta } = await getData({
     type: "articles",
     sort: "publishDate:desc",
+    locale,
     offset: pageStart,
     limit: pageSize,
     populate: {
