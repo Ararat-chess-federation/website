@@ -1,12 +1,7 @@
-// const createNextIntlPlugin = require("next-intl/plugin");
-// const { routing } = require("./i18n/routing");
 import createNextIntlPlugin from "next-intl/plugin";
-import { routing } from "./i18n/routing.js";
 import { NextConfig } from "next";
 
 const withNextIntl = createNextIntlPlugin();
-
-// /** @type {import('next').NextConfig} */
 
 const nextConfig: NextConfig = {
   images: {
@@ -34,4 +29,3 @@ const nextConfig: NextConfig = {
 };
 
 export default withNextIntl(nextConfig);
-// module.exports = withNextIntl(nextConfig);

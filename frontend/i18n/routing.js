@@ -14,7 +14,7 @@ export const routing = defineRouting({
       "/calendar": "/calendar",
       "/ratings": "/ratings",
       "/trainers": "/trainers",
-      "/userful": "/userful",
+      "/useful": "/useful",
       "/error": "/error",
       "/articles/[articleUrl]": "/articles/[articleUrl]",
     },
