@@ -32,7 +32,7 @@ export const Footer = () => {
             {FOOTER_MENU.map((el) => (
               <LinkItem key={el.link} link={el.link} title={t(el.title)} />
             ))}
-            <div className={styles.language_block}>
+            {/* <div className={styles.language_block}>
               <button className={styles.lang_button} onClick={() => switchLanguage("hy")}>
                 <Image src={AM} alt="AM" />
               </button>
@@ -42,7 +42,7 @@ export const Footer = () => {
               <button className={styles.lang_button} onClick={() => switchLanguage("en")}>
                 <Image src={EN} alt="EN" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={styles.contacts_container}>
