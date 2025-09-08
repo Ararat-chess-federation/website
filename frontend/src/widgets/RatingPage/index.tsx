@@ -78,10 +78,10 @@ export function RatingPage() {
           isActive={grid === "national"}
         />
         <Grid
-          type="qualification-rules"
+          type="qualification_rules"
           onClick={changeQuery}
           grid={grid}
-          isActive={grid === "qualification-rules"}
+          isActive={grid === "qualification_rules"}
         />
       </div>
       {isLoading && <Loading />}

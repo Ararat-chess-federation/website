@@ -1,10 +1,8 @@
-import { useTranslations } from "next-intl";
 import Pagination from "../../components/pagination/Pagination";
 import { ArticleList } from "../../components/articleList";
 import styles from "./Articles.module.scss";
 import { IArticle } from "../../models/interfaces/article";
-import { LinedTitle } from "../../shared/linedTitle";
-import { getTranslations } from "next-intl/server";
+import { Header } from "./Header";
 
 interface IProps {
   data: IArticle[];
@@ -13,12 +11,11 @@ interface IProps {
   paginationTotal: number;
 }
 
-export default async function ArticlesPage(props: IProps) {
+export default function ArticlesPage(props: IProps) {
   const { data, page, pageSize, paginationTotal } = props;
-  const t = await getTranslations();
   return (
     <section className={styles.article_main}>
-      <LinedTitle title={t("articles")} />
+      <Header />
       <div>
         <ArticleList data={data} />
       </div>

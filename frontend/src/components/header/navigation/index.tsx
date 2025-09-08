@@ -1,12 +1,14 @@
+"use client";
+
 import BurgerMenu from "../burgerMenu/BurgerMenu";
 import { NAVIGATION, NAVIGATIONBTN } from "./constants";
 import styles from "./nav.module.scss";
 import { LinkItem } from "../../../shared/linkItem";
 import NavigationLink from "../../NavigationLink";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
-export default async function Navigation() {
-  const t = await getTranslations();
+export default function Navigation() {
+  const t = useTranslations();
   return (
     <>
       <nav className={styles.nav}>
@@ -19,7 +21,10 @@ export default async function Navigation() {
         </ul>
       </nav>
       <div className={styles.navBtns}>
-        <NavigationLink href={NAVIGATIONBTN.link as '/'} className={styles.branchesLink}>
+        <NavigationLink
+          href={NAVIGATIONBTN.link as "/"}
+          className={styles.branchesLink}
+        >
           <button className={styles.branchesBtn}>
             <span className={styles.text}>{t(NAVIGATIONBTN.title)}</span>
           </button>

@@ -1,5 +1,3 @@
-import { getTranslations } from "next-intl/server";
-
 interface INavigation {
   link: string;
   title: string;

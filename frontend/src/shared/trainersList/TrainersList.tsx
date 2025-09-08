@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { ITrainer } from "../../models/interfaces/trainer";
 import styles from "./trainersList.module.scss";

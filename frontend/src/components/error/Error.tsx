@@ -1,12 +1,12 @@
 "use client";
 
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import "./Error.css";
 import NavigationLink from "../NavigationLink";
 
-export default async function Error({ error }: { error: Error }) {
-  const t = await getTranslations("error");
+export default function Error({ error }: { error: Error }) {
+  const t = useTranslations("error");
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -20,7 +20,7 @@ export default async function Error({ error }: { error: Error }) {
         <li>{t("steps.1")}</li>
         <li>{t("steps.2")}</li>
       </ul>
-      <NavigationLink href="/contacts">
+      <NavigationLink href={"/contacts" as "/"}>
         <span>{t("link")}</span>
       </NavigationLink>
     </div>

@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { use } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import styles from "./linedItem.module.scss";
@@ -7,15 +9,10 @@ import figures from "../assets/chess_figures.svg";
 import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
 import { LinedTitle } from "../../../../shared/linedTitle";
-import { getTranslations } from "next-intl/server";
 
 type VersionIndex = 0 | 1;
-export const LinedItem = async ({
-  versionIndex,
-}: {
-  versionIndex: VersionIndex;
-}) => {
-  const t = await getTranslations();
+export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
+  const t =  useTranslations();
   const info = [
     {
       title: t(FULLNAVIGATION[2].title),

@@ -4,14 +4,13 @@ import Img from "../../shared/img/Img";
 import TrainingScheduleCard from "../../components/trainingScheduleCard/TrainingScheduleCard";
 import styles from "./branches.module.scss";
 import { IBranch } from "../../models/interfaces/branch";
-import { LinedTitle } from "../../shared/linedTitle";
-import { getTranslations } from "next-intl/server";
+import { Header } from "./Header";
+
 
 export default async function BranchesPage({ data }: { data: IBranch[] }) {
-  const t = await getTranslations();
   return (
     <section className={styles.branches_main}>
-      <LinedTitle title={t("branches")} />
+      <Header />
       <div className={styles.branches_container}>
         {data.map(
           ({ url, mainImage, title, address, trainers, description }) => {

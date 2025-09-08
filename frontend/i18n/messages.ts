@@ -1,6 +1,6 @@
-import en from "../src/messages/en.json";
-import ru from "../src/messages/ru.json";
-import hy from "../src/messages/hy.json";
+import en from "../messages/en.json";
+import ru from "../messages/ru.json";
+import hy from "../messages/hy.json";
 
 export const messagesMap = {
   en,

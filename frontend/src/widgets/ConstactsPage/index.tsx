@@ -1,10 +1,10 @@
-import { useTranslations } from "next-intl";
 import { siteTitle } from "../../constants/titles";
 import Contact from "./components/contact";
 import styles from "./contacts.module.scss";
 import { contactsData } from "./assets/constants";
-import { LinedTitle } from "../../shared/linedTitle";
 import LinkButton from "../../shared/linkButton";
+import { Header } from "./components/Header";
+import { SecondaryContent } from "./components/SecondaryContent";
 
 export const metadata = {
   title: `Կոնտակտներ | ${siteTitle}`,
@@ -12,12 +12,9 @@ export const metadata = {
 };
 
 export function ContactsPage() {
-  const t = useTranslations();
   return (
     <main className={styles.contacts_page}>
-      <LinedTitle title={t("ratings")} />
-
-      <h1 className={styles.title}>{t("contactsInfo.contactInformation")}</h1>
+      <Header />
       <div className={styles.contacts}>
         {contactsData.map((el) => (
           <Contact
@@ -30,12 +27,7 @@ export function ContactsPage() {
           />
         ))}
       </div>
-      <p>
-        {t("contactsInfo.trainersDescription")}
-      </p>
-      <div>
-        <LinkButton link="/trainers" title={t("contactsInfo.trainersList")} className={styles.trainers_button}/>
-      </div>
+      <SecondaryContent />
     </main>
   );
 }

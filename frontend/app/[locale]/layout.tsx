@@ -48,31 +48,6 @@ export default async function LocaleLayout({
   children,
   params,
 }: ILayout) {
-  // const { locale } = await params;
-  // const lc = await getLocale();
-  // const message = await getMessages();
-  // console.log("Current locale:", lc);
-  // console.log("Current messages:", message);
-  // if (!hasLocale(routing.locales, locale)) {
-  //   notFound();
-  // }
-
-  // let messages;
-  // try {
-  //   messages = (await import(`../../src/messages/${locale}.json`)).default;
-  // } catch (e) {
-  //   notFound();
-  // }
-  // console.log("Loaded messages for locale:", locale, messages);
-
-  // let messages;
-  // try {
-  //   messages = (await import(`../../src/messages/${locale}.json`)).default;
-  // } catch {
-  //   // If the locale is not supported, fallback
-  //   messages = (await import(`../../src/messages/${routing.defaultLocale}.json`))
-  //     .default;
-  // }
 
   const { locale } = params;
 

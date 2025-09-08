@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import styles from "./moreButton.module.scss";
 import NavigationLink from "../../components/NavigationLink";
