@@ -9,14 +9,17 @@ import { IUsefulData } from "./useful";
 
 export type INestedObject = {
   [key: string]:
-    | string
-    | number
-    | boolean
-    | null
-    | INestedObject
-    | INestedObject[]
-    | string[];
+  | string
+  | number
+  | boolean
+  | null
+  | INestedObject
+  | INestedObject[]
+  | string[];
 };
+
+
+export type TLang = "hy" | "en" | "ru";
 
 export interface IDataParams<T extends IUrlTypes> {
   type: T;
@@ -27,6 +30,7 @@ export interface IDataParams<T extends IUrlTypes> {
   sort?: string | string[];
   offset?: number;
   limit?: number;
+  locale?: TLang;
 }
 
 export type TypeMapping = {

@@ -1,0 +1,55 @@
+{
+  "articles": "News",
+  "trainers": "Trainers",
+  "calendar": "Calendar Plan",
+  "branches": "Branches",
+  "ratings": "Ratings",
+  "useful": "Useful Links",
+  "about": "About Us",
+  "contacts": "Contacts",
+  "federation": {
+    "federation_history": "Federation History",
+    "info": "After Tigran Petrosian became World Champion in 1963, a rapid growth of chess took place in Armenia. Many parents began taking their children to chess groups. Chess was also experiencing strong development in the Ararat region."
+  },
+  "more": "More",
+  "photoList": "Photo Gallery",
+  "contactsInfo": {
+    "contactInformation": "Contact Information",
+    "trainersList": "List of Trainers",
+    "trainersDescription": "For admission or questions related to any branch, you can call the trainer of that branch."
+  },
+  "LinedItems": [
+    "There are 8 branches operating in the communities of the Ararat region, where more than 600 children attend chess classes.",
+    "10 trainers work in the chess schools of the Ararat region Chess Federation, passing on their experience and knowledge to future generations."
+  ],
+  "rating": {
+    "ratingTableTitle": "Rating Table of the Ararat Region Chess Federation",
+    "descriptionChunk1": "*The data is taken from the Armenian Chess Federation website.",
+    "descriptionChunk2": "ACF Rating Table"
+  },
+  "regionInfo": [
+    "Regional Responsible",
+    "For tournament-related questions",
+    "For website-related questions"
+  ],
+  "error": {
+    "title": "The king is in check. Something went wrong",
+    "description": "We encountered a situation that was not planned. Please take the following steps",
+    "steps": [
+      "Refresh the page or go back to the previous page",
+      "Make sure your internet connection is as strong as a pawn chain",
+      "If the problem persists, try to contact our technical grandmasters"
+    ],
+    "link": "Contact the grandmasters"
+  },
+  "Manifest": {
+    "name": "Ararat en"
+  },
+  "LocaleLayout": {
+    "title": "Ararat Region Chess Federation"
+  },
+  "Grid": {
+    "national": "National",
+    "qualification_rules": "Categories"
+  }
+}

@@ -2,9 +2,10 @@ import Img from "../../../src/shared/img/Img";
 import { dateArmFormatter } from "../../helpers/dateArmFormatter";
 import { IArticle } from "../../models/interfaces/article";
 import DynamicComponent from "../../shared/dynamicComponent/DynamicComponent";
-import { LinedTitle } from "../../shared/linedTitle";
 import LinkButton from "../../shared/linkButton";
 import styles from "./Article.module.scss";
+import { FbPostLink } from "./FbPostLink";
+import { Header } from "./Header";
 
 type IArticleParams = Pick<
   IArticle,
@@ -16,7 +17,7 @@ export default async function ArticlePage(props: IArticleParams) {
   const date = dateArmFormatter(publishedAt);
   return (
     <div className={styles.article_container}>
-      <LinedTitle title="Նորություններ" />
+      <Header />
 
       <div className={styles.article_header}>
         <div className={styles.article_header_content}>
@@ -44,7 +45,7 @@ export default async function ArticlePage(props: IArticleParams) {
 
       {fbPost && (
         <div className={styles.article_footer}>
-          <LinkButton link={fbPost} title="Ֆոտոշարք" target="_blank" />
+          <FbPostLink fbPost={fbPost} />
         </div>
       )}
     </div>

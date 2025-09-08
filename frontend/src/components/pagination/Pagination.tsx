@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { getLengths, getNumbers, getPages } from "./pagination.helpers";
 import "./Pagination.css";
 import { IPagesNumber, IPagination } from "./models";
+import NavigationLink from "../NavigationLink";
 
 interface IPaginationServer extends IPagination {
   basePath: "/articles";
@@ -30,9 +30,9 @@ export default function Pagination({
     <>
       <div className="pagination">
         {currentPage > 1 && (
-          <Link href={`${basePath}?page=${currentPage - 1}`}>
+          <NavigationLink href={`${basePath}?page=${currentPage - 1}` as '/'}>
             <span className="prev">{"<"}</span>
-          </Link>
+          </NavigationLink>
         )}
 
         <PagesNumbers
@@ -52,9 +52,9 @@ export default function Pagination({
         />
 
         {currentPage < totalPages && (
-          <Link href={`${basePath}?page=${currentPage + 1}`}>
+          <NavigationLink href={`${basePath}?page=${currentPage + 1}` as '/'}>
             <span className="next">{">"}</span>
-          </Link>
+          </NavigationLink>
         )}
       </div>
     </>
@@ -79,11 +79,11 @@ function PagesNumbers({
         const active = page === currentPage ? "page" : "";
 
         return (
-          <Link key={index} href={`${basePath}?page=${page}`}>
+          <NavigationLink key={index} href={`${basePath}?page=${page}` as '/'}>
             <span className="pageNumber" data-active={active}>
               {page}
             </span>
-          </Link>
+          </NavigationLink>
         );
       })}
     </>

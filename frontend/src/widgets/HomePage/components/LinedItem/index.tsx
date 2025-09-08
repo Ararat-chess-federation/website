@@ -1,29 +1,32 @@
-import React from "react";
+"use client";
+
+import React, { use } from "react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./linedItem.module.scss";
 import mapImage from "../assets/map.svg";
 import figures from "../assets/chess_figures.svg";
-import Image from "next/image";
 import MoreButton from "../../../../shared/linkButton";
 import { FULLNAVIGATION } from "../../../../constants/navigation";
 import { LinedTitle } from "../../../../shared/linedTitle";
 
-const info = [
-  {
-    title: "Մասնաճյուղեր",
-    desc: `Արարատի մարզի համայնքներում գործում է 8 մասնաճյուղ, որտեղ շախմատի պարապմունքների են հաճախում ավելի քան 600 երեխա։`,
-    img: mapImage,
-    link: FULLNAVIGATION[2].link,
-  },
-  {
-    title: "Մարզիչներ",
-    desc: `Արարատի մարզի շախմատի ֆեդերացիայի մարզադպրոցներում աշխատում է 10 մարզիչ, ովքեր իրենց փորձն ու գիտելիքներն են փոխանցում ապագա սերնդին։`,
-    img: figures,
-    link: FULLNAVIGATION[1].link,
-  },
-];
-
 type VersionIndex = 0 | 1;
 export const LinedItem = ({ versionIndex }: { versionIndex: VersionIndex }) => {
+  const t =  useTranslations();
+  const info = [
+    {
+      title: t(FULLNAVIGATION[2].title),
+      desc: t("LinedItems.0"),
+      img: mapImage,
+      link: FULLNAVIGATION[2].link,
+    },
+    {
+      title: t(FULLNAVIGATION[1].title),
+      desc: t("LinedItems.1"),
+      img: figures,
+      link: FULLNAVIGATION[1].link,
+    },
+  ];
   const data = info[versionIndex];
   return (
     <div className={styles.branchCard}>

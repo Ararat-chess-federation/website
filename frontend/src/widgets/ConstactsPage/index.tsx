@@ -1,10 +1,10 @@
-import Link from "next/link";
 import { siteTitle } from "../../constants/titles";
 import Contact from "./components/contact";
 import styles from "./contacts.module.scss";
 import { contactsData } from "./assets/constants";
-import { LinedTitle } from "../../shared/linedTitle";
 import LinkButton from "../../shared/linkButton";
+import { Header } from "./components/Header";
+import { SecondaryContent } from "./components/SecondaryContent";
 
 export const metadata = {
   title: `Կոնտակտներ | ${siteTitle}`,
@@ -14,9 +14,7 @@ export const metadata = {
 export function ContactsPage() {
   return (
     <main className={styles.contacts_page}>
-      <LinedTitle title="Վարկանիշներ" />
-
-      <h1 className={styles.title}>Կոնտակտային տվյալներ</h1>
+      <Header />
       <div className={styles.contacts}>
         {contactsData.map((el) => (
           <Contact
@@ -29,13 +27,7 @@ export function ContactsPage() {
           />
         ))}
       </div>
-      <p>
-        Ընդունելության կամ որևէ մասնաճյուղի հետ կապված հարցերի դեպքում կարող եք
-        զանգահարել տվյալ մասնաճյուղի մարզչին
-      </p>
-      <div>
-        <LinkButton link="/trainers" title="Մարզիչների ցանկ" className={styles.trainers_button}/>
-      </div>
+      <SecondaryContent />
     </main>
   );
 }

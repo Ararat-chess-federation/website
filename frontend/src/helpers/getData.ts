@@ -15,6 +15,7 @@ export default async function getData<T extends IUrlTypes>({
   sort = "",
   offset = 0,
   limit = 10,
+  locale = "hy"
 }: IDataParams<T>): Promise<{ data: TypeMapping[T]; meta: IMeta }> {
   const query = qs.stringify(
     {
@@ -22,6 +23,7 @@ export default async function getData<T extends IUrlTypes>({
       fields,
       filters,
       sort,
+      locale,
       pagination: { start: offset, limit },
       ...params,
     },

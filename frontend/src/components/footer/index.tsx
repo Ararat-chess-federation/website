@@ -1,17 +1,28 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import React from "react";
 import styles from "./footer.module.scss";
 import Logo from "../../shared/logo/Logo";
 import { FOOTER_MENU } from "../../constants/navigation";
 import { RegionInfo, PartnersInfo } from "./constants";
-// import AM from "./images/AM.svg";
-// import RU from "./images/RU.svg";
-// import RN from "./images/EN.svg";
+import AM from "./images/AM.svg";
+import RU from "./images/RU.svg";
+import EN from "./images/EN.svg";
 import { LinkItem } from "../../shared/linkItem";
 import Image from "next/image";
 import FiguresImage from "./images/figures.svg";
 import Link from "next/link";
+import { usePathname, useRouter } from "../../../i18n/navigation";
 
 export const Footer = () => {
+  const t = useTranslations();
+  const router = useRouter();
+  const pathname = usePathname() as '/';
+
+  const switchLanguage = (locale: string) => {
+    router.push(pathname, { locale });
+  };
   return (
     <footer className={styles.footer}>
       <div className={styles.main_footer}>
@@ -19,15 +30,26 @@ export const Footer = () => {
           <Logo className={styles.logo} />
           <div className={styles.menu_block}>
             {FOOTER_MENU.map((el) => (
-              <LinkItem key={el.link} link={el.link} title={el.title} />
+              <LinkItem key={el.link} link={el.link} title={t(el.title)} />
             ))}
+            {/* <div className={styles.language_block}>
+              <button className={styles.lang_button} onClick={() => switchLanguage("hy")}>
+                <Image src={AM} alt="AM" />
+              </button>
+              <button className={styles.lang_button} onClick={() => switchLanguage("ru")}>
+                <Image src={RU} alt="RU" />
+              </button>
+              <button className={styles.lang_button} onClick={() => switchLanguage("en")}>
+                <Image src={EN} alt="EN" />
+              </button>
+            </div> */}
           </div>
         </div>
         <div className={styles.contacts_container}>
-          <h3 className={styles.title}>{RegionInfo.title}</h3>
+          <h3 className={styles.title}>{t(RegionInfo.title)}</h3>
           {RegionInfo.data.map((el) => (
             <React.Fragment key={el.title}>
-              <p className={styles.info_title}>{el.title}</p>
+              <p className={styles.info_title}>{t(el.title)}</p>
               <a href={`tel:${el.phone}`}>
                 <p className={styles.info_phone}>{el.phone}</p>
               </a>

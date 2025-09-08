@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import styles from "./accordion.module.scss";
 import Img from "../../../../shared/img/Img";
@@ -31,6 +32,7 @@ export default function TrainerAccordion({
   const accordionRef = useRef<HTMLDivElement | null>(null);
   const params = useSearchParams();
   const trainerName = params.get("trainer");
+  const t = useTranslations();
 
   useEffect(() => {
     if (trainerName === url) {
@@ -64,7 +66,7 @@ export default function TrainerAccordion({
           <div className={styles.trainer_info}>
             <h2 className={styles.trainer_name}>{name}</h2>
             <p className={styles.sub_text}>
-              Մասնաճյուղեր՝{" "}
+              {t("branches")}:{" "}
               {branches.map((el) => (
                 <span className={styles.branch_name} key={el.id}>
                   {el.title}

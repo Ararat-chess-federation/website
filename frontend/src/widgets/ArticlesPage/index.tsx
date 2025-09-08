@@ -2,7 +2,7 @@ import Pagination from "../../components/pagination/Pagination";
 import { ArticleList } from "../../components/articleList";
 import styles from "./Articles.module.scss";
 import { IArticle } from "../../models/interfaces/article";
-import { LinedTitle } from "../../shared/linedTitle";
+import { Header } from "./Header";
 
 interface IProps {
   data: IArticle[];
@@ -11,11 +11,11 @@ interface IProps {
   paginationTotal: number;
 }
 
-export default async function ArticlesPage(props: IProps) {
+export default function ArticlesPage(props: IProps) {
   const { data, page, pageSize, paginationTotal } = props;
   return (
     <section className={styles.article_main}>
-      <LinedTitle title="Նորություններ" />
+      <Header />
       <div>
         <ArticleList data={data} />
       </div>

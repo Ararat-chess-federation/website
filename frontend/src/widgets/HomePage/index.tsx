@@ -1,9 +1,8 @@
-import { ArticleList } from "../../components/articleList";
 import { IArticle } from "../../models/interfaces/article";
-import { LinedTitle } from "../../shared/linedTitle";
 import ArticleCarousel from "./components/Carousel";
 import { ChessMapCard } from "./components/ChessMapCard";
 import { LinedItem } from "./components/LinedItem";
+import { Header } from "./Header";
 import styles from "./home.module.scss";
 
 export async function HomePage(props: { data: IArticle[] }) {
@@ -14,7 +13,7 @@ export async function HomePage(props: { data: IArticle[] }) {
         <ChessMapCard />
       </section>
       <section className={styles.main_content}>
-        <LinedTitle title="Նորություններ" />
+        <Header />
         <div className={styles.articles_container}>
           <ArticleCarousel data={data} />
         </div>

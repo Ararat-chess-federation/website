@@ -1,6 +1,9 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import styles from "./Grid.module.scss";
 
-export type IGrid = "national" | "qualification-rules";
+export type IGrid = "national" | "qualification_rules";
 
 interface IGridProps {
   onClick: (grid: IGrid) => void;
@@ -10,9 +13,11 @@ interface IGridProps {
 }
 
 export default function Grid({ onClick, type, grid, isActive }: IGridProps) {
+
+  const t = useTranslations("Grid")
   const texts = {
-    national: "Ազգային",
-    "qualification-rules": "Կարգեր",
+    national: "national",
+    "qualification_rules": "qualification_rules",
   };
 
   const active = grid === type ? "grid" : "";
@@ -23,7 +28,7 @@ export default function Grid({ onClick, type, grid, isActive }: IGridProps) {
       className={`${styles.rating_grid} ${isActive ? styles.active : ""}`}
       onClick={() => onClick(type)}
     >
-      <span>{texts[type]}</span>
+      <span>{t(texts[type])}</span>
     </div>
   );
 }

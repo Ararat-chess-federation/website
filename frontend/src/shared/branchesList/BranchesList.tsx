@@ -1,19 +1,15 @@
-// import Link from "next/link";
 import { IBranch } from "../../models/interfaces/branch";
 import "./BranchesList.css";
+import { SubTitle } from "./SubTitle";
 
 export default function BranchesList({ branches }: { branches: IBranch[] }) {
   return (
     <div className="trainer_branches_list_container">
-      <p className="trainer_branches_list_title">Մասնաճյուղեր՝</p>
-
+      <SubTitle />
       <ul className="trainer_branches_list">
         {branches.map((el) => (
           <li key={el.url} className="trainer_branches">
-            {/* fix: dont need link like this, dont using */}
-            {/* <Link href={`/branches/${el.url}`}> */}
-              {el.title}
-            {/* </Link> */}
+            {el.title}
           </li>
         ))}
       </ul>
