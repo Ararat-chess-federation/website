@@ -10,12 +10,13 @@ import { Footer } from "../../src/components/footer";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { messagesMap } from "../../i18n/messages";
+import { TLang } from "../../src/models/interfaces/getData";
 
 export const dynamic = "force-dynamic";
 
 interface ILayout {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export function generateStaticParams() {
@@ -28,7 +29,7 @@ export async function generateMetadata(
   const { locale } = await props.params;
 
   const t = await getTranslations({
-    locale: locale as Locale,
+    locale: locale as Locale as TLang,
     namespace: "LocaleLayout",
   });
 
@@ -38,12 +39,8 @@ export async function generateMetadata(
   };
 }
 
-export default async function LocaleLayout({
-  children,
-  params,
-}: ILayout) {
-
-  const { locale } = await params;
+export default async function LocaleLayout(props: ILayout) {
+  const { locale } = await props.params;
 
   // robust check — if locale invalid, show 404
   if (!Object.keys(messagesMap).includes(locale)) {
@@ -62,7 +59,7 @@ export default async function LocaleLayout({
           >
             <Header />
             <main className="main_container">
-              <section className="content_container">{children}</section>
+              <section className="content_container">{props.children}</section>
             </main>
             <Footer />
           </NextIntlClientProvider>

@@ -12,8 +12,12 @@ export const metadata = {
   description: "Արարատի մարզի շախմատի ֆեդերացիայի օրացուցային պլան",
 };
 
-export default async function About({ params }: { params: { locale: TLang } }) {
-  const { locale } = await params;
+interface ICalendarProps {
+  params: Promise<{ locale: TLang }>;
+}
+
+export default async function About(props: ICalendarProps) {
+  const { locale } = await props.params;
   const { data }: { data: ICalendarData } = await getData({ type: "calendar", locale });
 
   if (!data) {

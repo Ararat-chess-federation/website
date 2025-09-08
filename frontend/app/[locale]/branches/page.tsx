@@ -10,8 +10,15 @@ export const metadata = {
   description: "Արարատի մարզի շախմատի ֆեդերացիայի մասնաճյուղերի ցանկ",
 };
 
-export default async function Branches({ params }: { params: { locale: TLang } }) {
-  const { locale } = await params;
+interface IBranchesProps {
+  searchParams: Promise<{
+    page: string;
+  }>;
+  params: Promise<{ locale: TLang }>;
+}
+
+export default async function Branches(props: IBranchesProps) {
+  const { locale } = await props.params;
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
     locale,

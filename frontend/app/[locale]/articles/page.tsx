@@ -11,14 +11,14 @@ export const metadata = {
   description: "Արարատի մարզի շախմատի ֆեդերացիայի նորություններ",
 };
 
-interface ISearchParams {
+interface IArticlesProps {
   searchParams: Promise<{
     page: string;
   }>;
-  params: { locale: TLang }
+  params: Promise<{ locale: TLang }>;
 }
 
-export default async function Articles(props: ISearchParams) {
+export default async function Articles(props: IArticlesProps) {
   const { locale } = await props.params;
   const searchParams = await props.searchParams;
   const pageSize = 12;

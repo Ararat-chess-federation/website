@@ -12,13 +12,12 @@ interface IArticleParams {
 }
 
 export async function generateMetadata(props: IArticleParams) {
-  const { locale } = await props.params;
-  const params = await props.params;
+  const { locale, articleUrl } = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     locale,
     filters: {
-      url: params.articleUrl,
+      url: articleUrl,
     },
   });
 
