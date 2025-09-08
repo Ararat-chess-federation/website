@@ -14,8 +14,12 @@ export const metadata = {
   },
 };
 
-export default async function Home({ params }: { params: { locale: TLang } }) {
-  const { locale } = await params;
+interface IHomeProps {
+  params: Promise<{ locale: TLang }>;
+}
+
+export default async function Home(props: IHomeProps) {
+  const { locale } = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
     sort: "publishDate:desc",

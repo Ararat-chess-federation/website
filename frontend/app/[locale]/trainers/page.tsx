@@ -10,8 +10,12 @@ export const metadata = {
   description: "Արարատի մարզի շախմատի ֆեդերացիայի մարզիչներ",
 };
 
-export default async function Branches({ params }: { params: { locale: TLang } }) {
-  const { locale } = await params;
+interface ITrainersProps{
+  params: Promise<{ locale: TLang }>;
+}
+
+export default async function Branches(props: ITrainersProps) {
+  const { locale } = await props.params;
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
     locale,

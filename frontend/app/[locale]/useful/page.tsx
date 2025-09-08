@@ -10,8 +10,12 @@ export const metadata = {
   description: "Օգտակար հղումներ շախմատի մասին",
 };
 
-export default async function Useful({ params }: { params: { locale: TLang } }) {
-  const { locale } = await params;
+interface IUsefulProps {
+  params: Promise<{ locale: TLang }>;
+}
+
+export default async function Useful(props: IUsefulProps) {
+  const { locale } = await props.params;
   const { data }: { data: IUsefulData } = await getData({ type: "useful", locale });
 
   if (!data) {

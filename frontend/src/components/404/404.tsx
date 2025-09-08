@@ -1,7 +1,7 @@
 "use client";
 
+import Link from "next/link";
 import "./404.css";
-import NavigationLink from "../NavigationLink";
 
 export default function NotFound() {
   return (
@@ -13,9 +13,9 @@ export default function NotFound() {
         <li>Ետ դրեք քայլը և ընտրեք հնարավոր հղում մենյուից</li>
         <li>Կամ հաձայնվեք ոչ-ոքի և վերադարձեք գլխավոր էջ</li>
       </ul>
-      <NavigationLink href="/">
+      <Link href="/">
         <span> Խաղը կրկին սկսել</span>
-      </NavigationLink>
+      </Link>
     </div>
   );
 }

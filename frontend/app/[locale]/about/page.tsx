@@ -9,9 +9,11 @@ export const metadata = {
   title: `Մեր մասին | ${siteTitle}`,
   description: "Արարատի մարզի շախմատի ֆեդերացիայի պատմություն",
 };
-
-export default async function About({ params }: { params: { locale: TLang } }) {
-  const { locale } = await params;
+interface IAboutParams {
+  params: Promise<{ locale: TLang }>;
+}
+export default async function About(props: IAboutParams) {
+  const { locale } = await props.params;
   const { data }: { data: IAboutData } = await getData({
     type: "about",
     locale,
