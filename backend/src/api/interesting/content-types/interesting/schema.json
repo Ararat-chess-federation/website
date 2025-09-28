@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "interestings",
+  "info": {
+    "singularName": "interesting",
+    "pluralName": "interestings",
+    "displayName": "Interesting"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "interesting": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
