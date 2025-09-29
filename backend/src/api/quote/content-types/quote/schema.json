@@ -1,13 +1,13 @@
 {
   "kind": "collectionType",
-  "collectionName": "humors",
+  "collectionName": "quotes",
   "info": {
-    "singularName": "humor",
-    "pluralName": "humors",
-    "displayName": "Humor"
+    "singularName": "quote",
+    "pluralName": "quotes",
+    "displayName": "Quote"
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {
     "i18n": {

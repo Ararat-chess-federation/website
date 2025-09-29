@@ -23,7 +23,7 @@
         }
       }
     },
-    "interesting": {
+    "content": {
       "type": "richtext",
       "pluginOptions": {
         "i18n": {
