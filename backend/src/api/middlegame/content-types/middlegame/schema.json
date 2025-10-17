@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "humors",
+  "collectionName": "middlegames",
   "info": {
-    "singularName": "humor",
-    "pluralName": "humors",
-    "displayName": "Humor"
+    "singularName": "middlegame",
+    "pluralName": "middlegames",
+    "displayName": "Middlegame"
   },
   "options": {
     "draftAndPublish": true
