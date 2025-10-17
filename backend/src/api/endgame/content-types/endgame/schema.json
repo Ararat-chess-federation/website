@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "humors",
+  "collectionName": "endgames",
   "info": {
-    "singularName": "humor",
-    "pluralName": "humors",
-    "displayName": "Humor"
+    "singularName": "endgame",
+    "pluralName": "endgames",
+    "displayName": "Endgame"
   },
   "options": {
     "draftAndPublish": true

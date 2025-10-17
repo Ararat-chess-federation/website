@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "humors",
+  "collectionName": "debuts",
   "info": {
-    "singularName": "humor",
-    "pluralName": "humors",
-    "displayName": "Humor"
+    "singularName": "debut",
+    "pluralName": "debuts",
+    "displayName": "Debut"
   },
   "options": {
     "draftAndPublish": true

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "humors",
+  "collectionName": "advices",
   "info": {
-    "singularName": "humor",
-    "pluralName": "humors",
-    "displayName": "Humor"
+    "singularName": "advice",
+    "pluralName": "advices",
+    "displayName": "Advice"
   },
   "options": {
     "draftAndPublish": true
