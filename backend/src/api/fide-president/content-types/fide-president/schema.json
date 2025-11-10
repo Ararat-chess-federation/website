@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fide_presidents",
+  "info": {
+    "singularName": "fide-president",
+    "pluralName": "fide-presidents",
+    "displayName": "FIDE president"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "content": {
+      "type": "richtext",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
