@@ -17,12 +17,12 @@ export const FULLNAVIGATION: INavigation[] = [
   //   title: "calendar",
   // },
   {
-    link: "/ratings",
-    title: "ratings",
-  },
-  {
     link: "/branches",
     title: "branches",
+  },
+  {
+    link: "/ratings",
+    title: "ratings",
   },
   { link: "/useful", title: "useful" },
   {
