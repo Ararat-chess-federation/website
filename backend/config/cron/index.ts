@@ -40,22 +40,19 @@ export default {
             continue;
           }
 
-          // TODO: test needing
-          const article = { ...postData };
-
           if (postData.mainImage) {
             const { buffer, ext } = await getBufferFromUrl(postData.mainImage);
             const tmpPath = await saveTempFile({ buffer, ext });
             const imageName = getImgFileName(postData.mainImage);
             const uploadedImage = await uploadImageFromUrl(tmpPath, ext, imageName);
 
-            article.mainImage = uploadedImage.id || null;
+            postData.mainImage = uploadedImage.id || null;
           }
 
-          await saveArticle(article);
-          console.log("Added new article", {
-            title: article.title,
-            pubDate: article.publishDate,
+          await saveArticle(postData);
+          console.log("Added new postData", {
+            title: postData.title,
+            pubDate: postData.publishDate,
           });
         }
       } catch (error) {
