@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "next": "^15.3.5",
-    "next-intl": "^4.3.5",
+    "next-intl": "^4.6.0",
     "posthog-js": "^1.306.1",
     "qs": "^6.14.0",
     "react": "^19.2.3",
