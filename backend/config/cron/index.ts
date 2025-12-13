@@ -1,19 +1,22 @@
 import {
+  getBufferFromUrl,
   getDataFromRSS,
+  getImgFileName,
   getLatestArticle,
   getPostData,
   saveArticle,
+  saveTempFile,
   uploadImageFromUrl,
 } from "./helpers/importArticles";
 import checkUpToDate from "./helpers/isUpToDate";
 
 export default {
   importArticlesFromFB: {
-    task: async ({ strapi }) => {
+    task: async () => {
       try {
         const [data, latestArticle] = await Promise.all([
           getDataFromRSS(),
-          getLatestArticle(strapi),
+          getLatestArticle(),
         ]);
 
         for (const post of data) {
@@ -28,6 +31,7 @@ export default {
               latestArticle: latestArticle.publishDate,
               fbArticle: post.pubDate[0],
             });
+
             continue;
           }
 
@@ -36,20 +40,19 @@ export default {
             continue;
           }
 
-          const article = { ...postData };
-
           if (postData.mainImage) {
-            const uploadedImage = await uploadImageFromUrl(
-              postData.mainImage,
-              strapi
-            );
-            article.mainImage = uploadedImage.id || null;
+            const { buffer, ext } = await getBufferFromUrl(postData.mainImage);
+            const tmpPath = await saveTempFile({ buffer, ext });
+            const imageName = getImgFileName(postData.mainImage);
+            const uploadedImage = await uploadImageFromUrl(tmpPath, ext, imageName);
+
+            postData.mainImage = uploadedImage.id || null;
           }
 
-          await saveArticle(article, strapi);
-          console.log("Added new article", {
-            title: article.title,
-            pubDate: article.publishDate,
+          await saveArticle(postData);
+          console.log("Added new postData", {
+            title: postData.title,
+            pubDate: postData.publishDate,
           });
         }
       } catch (error) {
