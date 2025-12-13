@@ -6,7 +6,7 @@ ARG NODE_ENV=production
 
 WORKDIR /opt/
 
-COPY package.json yarn.lock ./
+COPY package.json package-lock.json ./
 
 RUN ["npm", "install"]
 
