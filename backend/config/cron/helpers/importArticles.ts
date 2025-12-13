@@ -1,3 +1,7 @@
+import path from 'path';
+import fsp from 'fs/promises';
+import os from 'os';
+import crypto from 'crypto';
 import { parseStringPromise } from "xml2js";
 
 const API = "api::article.article";
@@ -5,14 +9,14 @@ const BASE_URL = "https://ararat.chessnews.am";
 const RSS_URL =
   "https://fetchrss.com/rss/66f17165789ae466320d993266f17183abe507c1920a28b6.xml";
 
-export async function getLatestArticle(strapi) {
-  const latestArticle = await strapi.entityService.findMany(API, {
+
+export async function getLatestArticle() {
+  const latestArticle = await strapi.documents(API).findFirst({
     sort: { publishDate: "desc" },
-    limit: 1,
     fields: ["publishDate"],
   });
 
-  return latestArticle[0];
+  return latestArticle;
 }
 
 export async function getDataFromRSS() {
@@ -23,38 +27,53 @@ export async function getDataFromRSS() {
   return result.rss.channel[0].item.reverse();
 }
 
-export async function uploadImageFromUrl(imageUrl: string, strapi) {
-  const STRAPI_URL = strapi.config.server.url || "http://localhost:1337";
+export async function getBufferFromUrl(imageUrl: string) {
+  const response = await fetch(imageUrl);
 
-  try {
-    const myImage = await fetch(imageUrl);
-    const myBlob = await myImage.blob();
-
-    const fileName = getImgFileName(imageUrl);
-
-    const formData = new FormData();
-    formData.append("files", myBlob, fileName);
-
-    const imageUploaded = await fetch(`${STRAPI_URL}/api/upload`, {
-      method: "POST",
-      body: formData,
-    });
-
-    if (!imageUploaded.ok) {
-      throw new Error(`Upload failed with status ${imageUploaded.status}`);
-    }
-
-    const res = await imageUploaded.json();
-    return res[0];
-  } catch (error) {
-    console.error("Error:", error);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch image: ${response.status}`);
   }
 
-  function getImgFileName(imageUrl: string): string {
-    const fileNameWithQuery = imageUrl.split("/").pop();
-    const queryStartIdx = fileNameWithQuery.indexOf("?");
+  return {
+    buffer: Buffer.from(await response.arrayBuffer()),
+    ext: response.headers.get('content-type') || 'image/jpeg',
+  };
+}
 
-    return fileNameWithQuery.slice(0, queryStartIdx) || "uploadedImage.jpg";
+export async function saveTempFile({ buffer, ext }: { buffer: Buffer, ext: string }) {
+  const tmpPath = path.join(
+    os.tmpdir(),
+    `strapi-upload-${crypto.randomUUID()}.%${ext.split('/')[1]}`
+  );
+  const uint8 = new Uint8Array(buffer);
+
+  await fsp.writeFile(tmpPath, uint8);
+  return tmpPath;
+}
+
+export function getImgFileName(imageUrl: string) {
+  const fileNameWithQuery = imageUrl.split("/").pop();
+  const queryStartIdx = fileNameWithQuery.indexOf("?");
+
+  return fileNameWithQuery.slice(0, queryStartIdx) || "uploadedImage.jpg";
+}
+
+export async function uploadImageFromUrl(tmpPath: string, ext: string, name: string) {
+  const uploadService = strapi.plugins.upload.services.upload;
+
+  try {
+    const [file] = await uploadService.upload({
+      data: {},
+      files: {
+        filepath: tmpPath,
+        mimetype: ext,
+        originalFilename: name
+      },
+    });
+
+    return file;
+  } finally {
+    await fsp.unlink(tmpPath).catch(() => { });
   }
 }
 
@@ -77,8 +96,8 @@ export function getPostData(post) {
   };
 }
 
-export async function saveArticle(data, strapi) {
-  await strapi.entityService.create(API, {
+export async function saveArticle(data) {
+  await strapi.documents(API).create({
     data,
   });
 }
