@@ -1,5 +1,6 @@
 import type { Core } from "@strapi/strapi";
 
+const DEFAULT_LOCALE_CODE = "hy";
 export default {
   /**
    * An asynchronous register function that runs before
@@ -22,24 +23,38 @@ export default {
         return next();
       }
 
+
       if (context.action === "publish") {
+        if (context.params.locale !== DEFAULT_LOCALE_CODE) {
+          return next()
+        }
+
         const article = await strapi.documents(context.uid).findOne({
           documentId: context.params.documentId,
           populate: ["articleText", "localizations", "mainImage"],
         });
 
-        const translatedDynamicZones = getTranslatedDynamicZones(article.articleText);
+        const existingLocalizations = article.localizations.map((el) => el.locale);
 
-        await strapi.documents(context.uid).update({
-          documentId: article.documentId,
-          locale: 'en',
-          data: {
-            title: "en",
-            url: article.url,
-            mainImage: article.mainImage,
-            articleText: translatedDynamicZones
-          },
-        });
+        const localesList = await getLocalesList();
+
+        for await (const locale of localesList) {
+          if (existingLocalizations.includes(locale)) {
+            continue;
+          }
+
+          const translatedDynamicZones = getTranslatedDynamicZones(article.articleText, locale);
+          await strapi.documents(context.uid).update({
+            documentId: article.documentId,
+            locale: locale,
+            data: {
+              title: translateText(article.title, locale),
+              url: article.url,
+              mainImage: article.mainImage,
+              articleText: translatedDynamicZones
+            },
+          });
+        }
 
         return next()
       }
@@ -49,11 +64,20 @@ export default {
   },
 };
 
-function translateParagraphs(articleText: string, locale: "ru" | "en") {
-  return `${articleText} in language: ${locale}`
+async function getLocalesList() {
+  const localesData = await strapi.plugins.i18n.services.locales.find();
+  console.log({ localesData });
+
+  return localesData
+    .map((locale) => locale.code)
+    .filter((localeCode) => localeCode !== DEFAULT_LOCALE_CODE)
 }
 
-function getTranslatedDynamicZones(dynamicZones) {
+function translateText(text: string, locale: "ru" | "en") {
+  return `${text} in language: ${locale}`
+}
+
+function getTranslatedDynamicZones(dynamicZones, locale) {
   const translatedDynamicZones = [];
 
   for (const dynamicZone of dynamicZones) {
@@ -70,7 +94,7 @@ function getTranslatedDynamicZones(dynamicZones) {
 
     translatedDynamicZones.push({
       __component: "text.paragraph",
-      paragraph: translateParagraphs(dynamicZone.paragraph, "en"),
+      paragraph: translateText(dynamicZone.paragraph, locale),
     });
   }
 
