@@ -19,41 +19,29 @@ export default {
    */
   bootstrap({ strapi }: { strapi: Core.Strapi }) {
     strapi.documents.use(async (context, next) => {
-      if (context.uid !== "api::article.article") {
+      const { uid, action } = context
+      if (uid !== "api::article.article") {
         return next();
       }
 
-
-      if (context.action === "publish") {
-        if (context.params.locale !== DEFAULT_LOCALE_CODE) {
+      if (action === "publish") {
+        const { params } = context;
+        const { documentId, locale } = params;
+        if (locale !== DEFAULT_LOCALE_CODE) {
           return next()
         }
 
-        const article = await strapi.documents(context.uid).findOne({
-          documentId: context.params.documentId,
-          populate: ["articleText", "localizations", "mainImage"],
-        });
-
-        const existingLocalizations = article.localizations.map((el) => el.locale);
-
+        const article = await getArticle({ uid, documentId });
+        const existingLocales = getExistingLocales(article.localizations)
         const localesList = await getLocalesList();
 
         for await (const locale of localesList) {
-          if (existingLocalizations.includes(locale)) {
+          if (existingLocales.includes(locale)) {
             continue;
           }
 
-          const translatedDynamicZones = getTranslatedDynamicZones(article.articleText, locale);
-          await strapi.documents(context.uid).update({
-            documentId: article.documentId,
-            locale: locale,
-            data: {
-              title: translateText(article.title, locale),
-              url: article.url,
-              mainImage: article.mainImage,
-              articleText: translatedDynamicZones
-            },
-          });
+          const translatedDynamicZones = getTranslatedDynamicZones({ dynamicZones: article.articleText, locale });
+          await addLocalization({ article, locale, translatedDynamicZones, uid })
         }
 
         return next()
@@ -64,9 +52,33 @@ export default {
   },
 };
 
+async function addLocalization({ article, uid, locale, translatedDynamicZones }) {
+  await strapi.documents(uid).update({
+    documentId: article.documentId,
+    locale: locale,
+    data: {
+      title: translateText(article.title, locale) as any,
+      url: article.url,
+      mainImage: article.mainImage,
+      articleText: translatedDynamicZones
+    },
+  });
+}
+
+function getExistingLocales(localizations) {
+  return localizations.map((el) => el.locale);
+}
+
+async function getArticle({ uid, documentId }) {
+  return strapi.documents(uid).findOne({
+    documentId: documentId,
+    populate: ["articleText", "localizations", "mainImage"],
+  });
+
+}
+
 async function getLocalesList() {
   const localesData = await strapi.plugins.i18n.services.locales.find();
-  console.log({ localesData });
 
   return localesData
     .map((locale) => locale.code)
@@ -77,7 +89,7 @@ function translateText(text: string, locale: "ru" | "en") {
   return `${text} in language: ${locale}`
 }
 
-function getTranslatedDynamicZones(dynamicZones, locale) {
+function getTranslatedDynamicZones({ dynamicZones, locale }) {
   const translatedDynamicZones = [];
 
   for (const dynamicZone of dynamicZones) {
