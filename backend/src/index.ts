@@ -1,6 +1,8 @@
 import type { Core } from "@strapi/strapi";
+import axios from "axios"
 
 const DEFAULT_LOCALE_CODE = "hy";
+const ARMENIAN_END_OF_SENTENCE = "։"
 export default {
   /**
    * An asynchronous register function that runs before
@@ -40,7 +42,7 @@ export default {
             continue;
           }
 
-          const translatedDynamicZones = getTranslatedDynamicZones({ dynamicZones: article.articleText, locale });
+          const translatedDynamicZones = await getTranslatedDynamicZones({ dynamicZones: article.articleText, locale });
           await addLocalization({ article, locale, translatedDynamicZones, uid })
         }
 
@@ -53,11 +55,12 @@ export default {
 };
 
 async function addLocalization({ article, uid, locale, translatedDynamicZones }) {
+  const translatedTitle = await translateText(article.title, locale);
   await strapi.documents(uid).update({
     documentId: article.documentId,
     locale: locale,
     data: {
-      title: translateText(article.title, locale) as any,
+      title: translatedTitle as any,
       url: article.url,
       mainImage: article.mainImage,
       articleText: translatedDynamicZones
@@ -85,11 +88,24 @@ async function getLocalesList() {
     .filter((localeCode) => localeCode !== DEFAULT_LOCALE_CODE)
 }
 
-function translateText(text: string, locale: "ru" | "en") {
-  return `${text} in language: ${locale}`
+async function translateText(text: string, locale: "ru" | "en") {
+  const fullText = [];
+  const textSplits = text.split("\n");
+
+  for await (const textSplit of textSplits) {
+    if (textSplit.trim() === "") {
+      fullText.push(textSplit);
+      continue
+    }
+    const url = `https://api.mymemory.translated.net/get?q=${textSplit}&langpair=hy|${locale}`
+    const translation = await axios.get(url);
+    fullText.push(translation.data.responseData.translatedText)
+  }
+
+  return fullText.join("\n");
 }
 
-function getTranslatedDynamicZones({ dynamicZones, locale }) {
+async function getTranslatedDynamicZones({ dynamicZones, locale }) {
   const translatedDynamicZones = [];
 
   for (const dynamicZone of dynamicZones) {
@@ -103,10 +119,10 @@ function getTranslatedDynamicZones({ dynamicZones, locale }) {
 
       continue;
     }
-
+    const translatedParagraph = await translateText(dynamicZone.paragraph, locale);
     translatedDynamicZones.push({
       __component: "text.paragraph",
-      paragraph: translateText(dynamicZone.paragraph, locale),
+      paragraph: translatedParagraph
     });
   }
 
