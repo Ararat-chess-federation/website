@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./table.module.scss";
 
 export default function RatingTable({ ratings }: { ratings: string[][] }) {
@@ -17,7 +18,7 @@ export default function RatingTable({ ratings }: { ratings: string[][] }) {
               <td key={idx}>
                 {nextEl.includes("/am/profile") ? (
                   <a href={`https://chessfed.am${nextEl}`} target="_blank">
-                    ՀՇՖ Պրոֆիլ
+                    <Image src="/external.svg" alt="Profile" width={20} height={20} />
                   </a>
                 ) : (
                   nextEl
