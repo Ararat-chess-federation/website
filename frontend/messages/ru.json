@@ -50,6 +50,6 @@
   },
   "Grid": {
     "national": "Национальный",
-    "qualification_rules": "Разряды"
+    "qualification-rules": "Разряды"
   }
 }

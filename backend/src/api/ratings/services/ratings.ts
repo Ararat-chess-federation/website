@@ -13,6 +13,8 @@ export default () => ({
           "X-Requested-With": "XMLHttpRequest",
         },
       });
+console.log({formData});
+      
       const { table, pagination } = response.data;
 
       return { table, pagination };

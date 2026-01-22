@@ -50,6 +50,6 @@
   },
   "Grid": {
     "national": "National",
-    "qualification_rules": "Categories"
+    "qualification-rules": "Categories"
   }
 }
