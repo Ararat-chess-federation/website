@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import styles from "./Grid.module.scss";
 
-export type IGrid = "national" | "qualification_rules";
+export type IGrid = "national" | "qualification-rules";
 
 interface IGridProps {
   onClick: (grid: IGrid) => void;
@@ -17,7 +17,7 @@ export default function Grid({ onClick, type, grid, isActive }: IGridProps) {
   const t = useTranslations("Grid")
   const texts = {
     national: "national",
-    "qualification_rules": "qualification_rules",
+    "qualification-rules": "qualification-rules",
   };
 
   const active = grid === type ? "grid" : "";
