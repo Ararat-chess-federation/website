@@ -13,6 +13,7 @@ export default () => ({
           "X-Requested-With": "XMLHttpRequest",
         },
       });
+      
       const { table, pagination } = response.data;
 
       return { table, pagination };

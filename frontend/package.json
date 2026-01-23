@@ -3,30 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "next": "^15.3.5",
-    "next-intl": "^4.3.5",
-    "posthog-js": "^1.215.6",
-    "qs": "^6.14.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "next": "^16.1.4",
+    "next-intl": "^4.7.0",
+    "posthog-js": "^1.316.0",
+    "qs": "^6.14.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
     "react-markdown": "^10.1.0",
     "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.1",
-    "swiper": "^11.2.10"
+    "swiper": "^12.0.3"
   },
   "devDependencies": {
-    "@types/node": "^22.13.1",
+    "@types/node": "^24.10.4",
     "@types/qs": "^6.14.0",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "sass": "^1.89.2",
-    "typescript": "^5.8.3"
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3"
   },
   "author": {
     "name": "Artyom Sukiasyan",

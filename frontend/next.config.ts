@@ -23,9 +23,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  sassOptions: {
-    additionalData: `@use "styles/variables" as *;`,
-  },
+  // TODO: There is a bug in Next.js: https://github.com/vercel/next.js/issues/87243
+  // We have temporary solution for now: @use "../../../styles/variables" as *; in all scss files
+  // To be removed when the bug is fixed
+
+  // sassOptions: {
+  //   additionalData: `@use "styles/variables" as *;`,
+  // },
 };
 
 export default withNextIntl(nextConfig);
