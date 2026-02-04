@@ -11,14 +11,15 @@ export default {
 };
 
 function appendDateToString(url: string) {
-  const now = new Date();
-  const month = String(now.getMonth() + 1).padStart(2, '0');
-  const year = String(now.getFullYear()).slice(-2);
   const datePattern = /-\d{2}-\d{2}$/;
 
   if (datePattern.test(url)) {
     return url;
   }
+
+  const now = new Date();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const year = String(now.getFullYear()).slice(-2);
 
   return `${url}-${month}-${year}`;
 }
