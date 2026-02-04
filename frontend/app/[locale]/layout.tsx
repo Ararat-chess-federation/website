@@ -5,7 +5,6 @@ import Header from "../../src/components/header/Header";
 import "../../styles/variables.css";
 import "../../styles/global.css";
 import "./layout.css";
-import { CSPostHogProvider } from "./providers";
 import { Footer } from "../../src/components/footer";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
@@ -50,21 +49,19 @@ export default async function LocaleLayout(props: ILayout) {
   const messages = messagesMap[locale as keyof typeof messagesMap];
   return (
     <html lang={locale}>
-      <CSPostHogProvider>
-        <body>
-          <NextIntlClientProvider
-            key={locale}
-            locale={locale}
-            messages={messages}
-          >
-            <Header />
-            <main className="main_container">
-              <section className="content_container">{props.children}</section>
-            </main>
-            <Footer />
-          </NextIntlClientProvider>
-        </body>
-      </CSPostHogProvider>
+      <body>
+        <NextIntlClientProvider
+          key={locale}
+          locale={locale}
+          messages={messages}
+        >
+          <Header />
+          <main className="main_container">
+            <section className="content_container">{props.children}</section>
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }
