@@ -1,9 +1,11 @@
 import NotFound from "../src/components/404/404";
-import { siteTitle } from "../src/constants/titles";
+import generatePageMetadata from "../src/helpers/generatePageMetadata";
+import { IPageProps } from "../src/models/interfaces/params";
 
-export const metadata = {
-  title: `Էջը չի գտնվել | ${siteTitle}`,
-  description: `Էջը չի գտնվել ${siteTitle}`,
-};
+export async function generateMetadata(props: IPageProps) {
+  const { locale } = await props.params;
+
+  return generatePageMetadata({ type: "notFound", locale })
+}
 
 export default NotFound;

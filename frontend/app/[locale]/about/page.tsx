@@ -1,18 +1,17 @@
-import getData from "../../../src/helpers/getData";
-import { IAboutData } from "../../../src/models/interfaces/about";
-import { siteTitle } from "../../../src/constants/titles";
-import NotFound from "../../not-found";
 import { AboutPage } from "../../../src/widgets/AboutPage";
-import { TLang } from "../../../src/models/interfaces/getData";
+import NotFound from "../../not-found";
+import getData from "../../../src/helpers/getData";
+import generateMetadataByLocale from "../../../src/helpers/generatePageMetadata";
+import { IAboutData } from "../../../src/models/interfaces/about";
+import { IPageProps } from "../../../src/models/interfaces/params";
 
-export const metadata = {
-  title: `Մեր մասին | ${siteTitle}`,
-  description: "Արարատի մարզի շախմատի ֆեդերացիայի պատմություն",
-};
-interface IAboutParams {
-  params: Promise<{ locale: TLang }>;
+export async function generateMetadata(props: IPageProps) {
+  const { locale } = await props.params;
+
+  return generateMetadataByLocale({ type: "about", locale });
 }
-export default async function About(props: IAboutParams) {
+
+export default async function About(props: IPageProps) {
   const { locale } = await props.params;
   const { data }: { data: IAboutData } = await getData({
     type: "about",
@@ -28,9 +27,7 @@ export default async function About(props: IAboutParams) {
     return <NotFound />;
   }
 
-  const { about } = data;
-
   return (
-    <AboutPage data={about} />
+    <AboutPage data={data.about} />
   );
 }

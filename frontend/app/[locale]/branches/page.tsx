@@ -1,20 +1,14 @@
-import getData from "../../../src/helpers/getData";
-import { IBranch } from "../../../src/models/interfaces/branch";
-import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
 import BranchesPage from "../../../src/widgets/BranchesPage";
-import { TLang } from "../../../src/models/interfaces/getData";
+import getData from "../../../src/helpers/getData";
+import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
+import { IBranch } from "../../../src/models/interfaces/branch";
+import { IBranchesProps } from "../../../src/models/interfaces/params";
 
-export const metadata = {
-  title: `Մասնաճյուղեր | ${siteTitle}`,
-  description: "Արարատի մարզի շախմատի ֆեդերացիայի մասնաճյուղերի ցանկ",
-};
+export async function generateMetadata(props: IBranchesProps) {
+  const { locale } = await props.params;
 
-interface IBranchesProps {
-  searchParams: Promise<{
-    page: string;
-  }>;
-  params: Promise<{ locale: TLang }>;
+  return generatePageMetadata({ type: "branches", locale })
 }
 
 export default async function Branches(props: IBranchesProps) {
