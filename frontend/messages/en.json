@@ -14,6 +14,7 @@
   "more": "More",
   "photoList": "Photo Gallery",
   "contactsInfo": {
+    "phone":"Phone number:",
     "contactInformation": "Contact Information",
     "trainersList": "List of Trainers",
     "trainersDescription": "For admission or questions related to any branch, you can call the trainer of that branch."

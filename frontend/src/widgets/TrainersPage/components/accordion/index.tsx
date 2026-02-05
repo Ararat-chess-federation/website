@@ -10,6 +10,7 @@ import ChevronIcon from "../../assets/images/Chevron.svg";
 import Image from "next/image";
 import ModifiedMarkdown from "../../../../hok/modifiedMarkdown";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 interface AccordionProfileProps {
   imgSrc: IImage;
@@ -69,11 +70,11 @@ export default function TrainerAccordion({
               {t("branches")}:{" "}
               {branches.map((el) => (
                 <span className={styles.branch_name} key={el.id}>
-                  {el.title}
+                  <Link href={el.url}>{el.title}</Link>
                 </span>
               ))}
             </p>
-            <p className={styles.sub_text}>Հեռ.՝ {phone}</p>
+            <p className={styles.sub_text}>{t("contactsInfo.phone")} <a href={`tel:${phone}`}>{phone}</a></p>
           </div>
           <span className={`${styles.arrow} ${open ? styles.open : ""}`}>
             <Image width={32} height={32} src={ChevronIcon} alt="chevron" />
