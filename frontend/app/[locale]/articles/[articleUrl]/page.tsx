@@ -47,13 +47,14 @@ export default async function Article(props: IArticleProps) {
         populate: "*",
       },
     },
+    locale: params.locale
   });
 
   if (!data?.length) {
     return <NotFound />;
   }
 
-  const { title, mainImage, articleText, fbPost, publishedAt } = data[0];
+  const { title, mainImage, articleText, fbPost, publishedAt, locale } = data[0];
 
   return (
     <ArticlePage
@@ -62,6 +63,7 @@ export default async function Article(props: IArticleProps) {
       fbPost={fbPost}
       mainImage={mainImage}
       publishedAt={publishedAt}
+      locale={locale}
     />
   );
 }

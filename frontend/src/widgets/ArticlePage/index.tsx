@@ -1,5 +1,5 @@
 import Img from "../../../src/shared/img/Img";
-import { dateArmFormatter } from "../../helpers/dateArmFormatter";
+import { dateFormatterByLang } from "../../helpers/dateFormatterByLang";
 import { IArticle } from "../../models/interfaces/article";
 import DynamicComponent from "../../shared/dynamicComponent/DynamicComponent";
 import LinkButton from "../../shared/linkButton";
@@ -9,12 +9,13 @@ import { Header } from "./Header";
 
 type IArticleParams = Pick<
   IArticle,
-  "title" | "mainImage" | "articleText" | "fbPost" | "publishedAt"
+  "title" | "mainImage" | "articleText" | "fbPost" | "publishedAt" | "locale"
 >;
 
 export default async function ArticlePage(props: IArticleParams) {
-  const { title, mainImage, articleText, fbPost, publishedAt } = props;
-  const date = dateArmFormatter(publishedAt);
+  const { title, mainImage, articleText, fbPost, publishedAt, locale } = props;
+  const date = dateFormatterByLang(publishedAt, locale);
+
   return (
     <div className={styles.article_container}>
       <Header />

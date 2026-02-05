@@ -1,3 +1,4 @@
+import { TLang } from "./getData";
 import { IImage } from "./image";
 
 export interface IArticleText {
@@ -20,4 +21,5 @@ export interface IArticle {
   publishDate: string;
   mainImage: IImage;
   articleText: IArticleText[];
+  locale: TLang
 }

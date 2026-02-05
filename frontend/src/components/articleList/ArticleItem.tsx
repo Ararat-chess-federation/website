@@ -2,11 +2,11 @@ import { IArticle } from "../../models/interfaces/article";
 import Img from "../../shared/img/Img";
 import styles from "./article.module.scss";
 import MoreButton from "../../shared/linkButton";
-import { dateArmFormatter } from "../../helpers/dateArmFormatter";
+import { dateFormatterByLang } from "../../helpers/dateFormatterByLang";
 
 export function ArticleItem(props: IArticle) {
-  const { mainImage, url, title, publishedAt } = props;
-  const date = dateArmFormatter(publishedAt);
+  const { mainImage, url, title, publishedAt, locale } = props;
+  const date = dateFormatterByLang(publishedAt, locale);
 
   return (
     <div key={url} className={styles.article_card}>
