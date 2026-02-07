@@ -5,7 +5,7 @@ import React from 'react'
 import { LinedTitle } from '../../shared/linedTitle';
 
 export const Header = () => {
-    const t = useTranslations();
+  const t = useTranslations();
   return (
     <LinedTitle title={t("articles")} />
   )
