@@ -56,5 +56,15 @@
   "Grid": {
     "national": "National",
     "qualification-rules": "Categories"
+  },
+  "NotFound": {
+    "title": "Impossible move",
+    "intro": "It looks like you are trying to make an impossible move on our board",
+    "options": [
+      "Check the link again",
+      "Undo the move and select a possible link from the menu",
+      "Or agree to a draw and return to the main page",
+      "Restart the game"
+    ]
   }
 }
