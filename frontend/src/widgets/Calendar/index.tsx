@@ -1,14 +1,18 @@
+"use client"
+
 import React from "react";
 import ModifiedMarkdown from "../../hok/modifiedMarkdown";
 import { LinedTitle } from "../../shared/linedTitle";
 import styles from "./calendar.module.scss";
 import CalendarImage from "./assets/images/calendarImage.png";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export default function CalendarPage({ calendar }: { calendar: string }) {
+  const t = useTranslations()
   return (
     <section className={styles.calendar_main}>
-      <LinedTitle title="Օրացուցային պլան" />
+      <LinedTitle title={t("calendar")} />
       <Image
         alt="calendar_image"
         src={CalendarImage}
@@ -16,9 +20,7 @@ export default function CalendarPage({ calendar }: { calendar: string }) {
       />
       <div className={styles.calendar_description}>
         <p>
-          *Ժամկետը կախված ՀՇԱ օրացուցային պլանից կարող է փոփոխվել։ Բոլոր
-          մրցաշարերի անցկացման մասին նախօրոք կհայտարարվի կայքում և ֆեյսբուքյան
-          էջում։
+          *{t("calendarInfo.intro")}
         </p>
         <ModifiedMarkdown>{calendar}</ModifiedMarkdown>
       </div>

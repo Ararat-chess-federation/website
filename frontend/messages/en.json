@@ -13,8 +13,11 @@
   },
   "more": "More",
   "photoList": "Photo Gallery",
+  "calendarInfo": {
+    "intro": "The date may change depending on the AHN calendar plan. All tournaments will be announced in advance on the website and Facebook page."
+  },
   "contactsInfo": {
-    "phone":"Phone number:",
+    "phone": "Phone number:",
     "contactInformation": "Contact Information",
     "trainersList": "List of Trainers",
     "trainersDescription": "For admission or questions related to any branch, you can call the trainer of that branch."
