@@ -20,20 +20,20 @@ export const contactsData = [
     alt: "phone",
     link: "tel:+37493881339",
     text: "093881339",
-    additionalText: "Մարզի պատասխանատու",
+    additionalText: "regionInfo.0",
   },
   {
     img: phoneIcon,
     alt: "phone",
     link: "tel:+37477898910",
     text: "077898910",
-    additionalText: "Մրցաշարային հարցերի դեպքում",
+    additionalText: "regionInfo.1",
   },
   {
     img: phoneIcon,
     alt: "phone",
     link: "tel:+37498339025",
     text: "098339025",
-    additionalText: "Կայքի հետ կապված հարցերի դեպքում",
+    additionalText: "regionInfo.2",
   },
 ];
