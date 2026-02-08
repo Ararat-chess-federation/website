@@ -10,13 +10,13 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-users-permissions": "^5.32.0",
-    "@strapi/strapi": "^5.32.0",
-    "mysql2": "^3.14.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.0.0",
-    "styled-components": "^6.0.0",
+    "@strapi/plugin-users-permissions": "^5.35.0",
+    "@strapi/strapi": "^5.35.0",
+    "mysql2": "^3.16.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.3.8",
     "xml2js": "^0.6.2"
   },
   "author": {
@@ -28,7 +28,7 @@
     "uuid": "7c0f27a8-0573-444b-9bc8-0dbc09f67a3b"
   },
   "engines": {
-    "node": ">=18.0.0 <=22.x.x",
+    "node": ">=20.0.0 <=24.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT",

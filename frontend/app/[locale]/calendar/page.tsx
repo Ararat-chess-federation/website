@@ -1,22 +1,17 @@
-import DynamicComponent from "../../../src/shared/dynamicComponent/DynamicComponent";
-import getData from "../../../src/helpers/getData";
 import NotFound from "../../not-found";
-import { siteTitle } from "../../../src/constants/titles";
-import { ICalendarData } from "../../../src/models/interfaces/calendar";
-import ModifiedMarkdown from "../../../src/hok/modifiedMarkdown";
 import CalendarPage from "../../../src/widgets/Calendar";
-import { TLang } from "../../../src/models/interfaces/getData";
+import getData from "../../../src/helpers/getData";
+import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
+import { ICalendarData } from "../../../src/models/interfaces/calendar";
+import { IPageProps } from "../../../src/models/interfaces/params";
 
-export const metadata = {
-  title: `Օրացուցային պլան | ${siteTitle}`,
-  description: "Արարատի մարզի շախմատի ֆեդերացիայի օրացուցային պլան",
-};
+export async function generateMetadata(props: IPageProps) {
+  const { locale } = await props.params;
 
-interface ICalendarProps {
-  params: Promise<{ locale: TLang }>;
+  return generatePageMetadata({ type: "calendar", locale })
 }
 
-export default async function About(props: ICalendarProps) {
+export default async function Calendar(props: IPageProps) {
   const { locale } = await props.params;
   const { data }: { data: ICalendarData } = await getData({ type: "calendar", locale });
 

@@ -13,7 +13,12 @@
   },
   "more": "More",
   "photoList": "Photo Gallery",
+  "calendarInfo": {
+    "intro": "The date may change depending on the AHN calendar plan. All tournaments will be announced in advance on the website and Facebook page."
+  },
   "contactsInfo": {
+    "phone": "Phone number:",
+    "address": "Address:",
     "contactInformation": "Contact Information",
     "trainersList": "List of Trainers",
     "trainersDescription": "For admission or questions related to any branch, you can call the trainer of that branch."
@@ -51,5 +56,15 @@
   "Grid": {
     "national": "National",
     "qualification-rules": "Categories"
+  },
+  "NotFound": {
+    "title": "Impossible move",
+    "intro": "It looks like you are trying to make an impossible move on our board",
+    "options": [
+      "Check the link again",
+      "Undo the move and select a possible link from the menu",
+      "Or agree to a draw and return to the main page",
+      "Restart the game"
+    ]
   }
 }

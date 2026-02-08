@@ -5,13 +5,9 @@ import { siteTitle } from "../../../../src/constants/titles";
 import NotFound from "../../../not-found";
 import getImageSrc from "../../../../src/helpers/getMediaSrc";
 import ArticlePage from "../../../../src/widgets/ArticlePage";
-import { TLang } from "../../../../src/models/interfaces/getData";
+import { IArticleProps } from "../../../../src/models/interfaces/params";
 
-interface IArticleParams {
-  params: Promise<{ articleUrl: string, locale: TLang }>;
-}
-
-export async function generateMetadata(props: IArticleParams) {
+export async function generateMetadata(props: IArticleProps) {
   const { locale, articleUrl } = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
@@ -28,7 +24,7 @@ export async function generateMetadata(props: IArticleParams) {
   const { title, mainImage } = data[0];
 
   return {
-    title: `${title} | ${siteTitle}`,
+    title: `${title} | ${siteTitle[locale]}`,
     description: title,
     openGraph: {
       images: getImageSrc(mainImage),
@@ -36,7 +32,7 @@ export async function generateMetadata(props: IArticleParams) {
   };
 }
 
-export default async function Article(props: IArticleParams) {
+export default async function Article(props: IArticleProps) {
   const params = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",
@@ -51,13 +47,14 @@ export default async function Article(props: IArticleParams) {
         populate: "*",
       },
     },
+    locale: params.locale
   });
 
   if (!data?.length) {
     return <NotFound />;
   }
 
-  const { title, mainImage, articleText, fbPost, publishedAt } = data[0];
+  const { title, mainImage, articleText, fbPost, publishedAt, locale } = data[0];
 
   return (
     <ArticlePage
@@ -66,6 +63,7 @@ export default async function Article(props: IArticleParams) {
       fbPost={fbPost}
       mainImage={mainImage}
       publishedAt={publishedAt}
+      locale={locale}
     />
   );
 }

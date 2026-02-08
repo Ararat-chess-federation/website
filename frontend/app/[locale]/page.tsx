@@ -1,24 +1,26 @@
+import { HomePage } from "../../src/widgets/HomePage";
 import getData from "../../src/helpers/getData";
 import { IArticle } from "../../src/models/interfaces/article";
-import "./Home.css";
 import { siteTitle } from "../../src/constants/titles";
-import { HomePage } from "../../src/widgets/HomePage";
-import { TLang } from "../../src/models/interfaces/getData";
+import { IPageProps } from "../../src/models/interfaces/params";
+import "./Home.css";
 
-export const metadata = {
-  title: siteTitle,
-  description: siteTitle,
-  metadataBase: new URL(`${process.env.PROTOCOL}://${process.env.HOST_NAME}`),
-  openGraph: {
-    images: "/ogLogo.png",
-  },
-};
 
-interface IHomeProps {
-  params: Promise<{ locale: TLang }>;
+
+export async function generateMetadata(props: IPageProps) {
+  const { locale } = await props.params;
+
+  return {
+    title: siteTitle[locale],
+    description: siteTitle[locale],
+    metadataBase: new URL(`${process.env.PROTOCOL}://${process.env.HOST_NAME}/${locale}`),
+    openGraph: {
+      images: "/ogLogo.png",
+    },
+  };
 }
 
-export default async function Home(props: IHomeProps) {
+export default async function Home(props: IPageProps) {
   const { locale } = await props.params;
   const { data }: { data: IArticle[] } = await getData({
     type: "articles",

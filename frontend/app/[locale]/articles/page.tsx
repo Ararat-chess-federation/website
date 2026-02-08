@@ -1,21 +1,15 @@
-import getData from "../../../src/helpers/getData";
-import { IArticle } from "../../../src/models/interfaces/article";
-import { siteTitle } from "../../../src/constants/titles";
 import NotFound from "../../not-found";
-import { IMeta } from "../../../src/models/interfaces/meta";
 import ArticlesPage from "../../../src/widgets/ArticlesPage";
-import { TLang } from "../../../src/models/interfaces/getData";
+import getData from "../../../src/helpers/getData";
+import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
+import { IArticle } from "../../../src/models/interfaces/article";
+import { IMeta } from "../../../src/models/interfaces/meta";
+import { IArticlesProps } from "../../../src/models/interfaces/params";
 
-export const metadata = {
-  title: `Նորություններ | ${siteTitle}`,
-  description: "Արարատի մարզի շախմատի ֆեդերացիայի նորություններ",
-};
+export async function generateMetadata(props: IArticlesProps) {
+  const { locale } = await props.params;
 
-interface IArticlesProps {
-  searchParams: Promise<{
-    page: string;
-  }>;
-  params: Promise<{ locale: TLang }>;
+  return generatePageMetadata({ type: "articles", locale })
 }
 
 export default async function Articles(props: IArticlesProps) {

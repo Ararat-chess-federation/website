@@ -1,20 +1,17 @@
-import getData from "../../../src/helpers/getData";
-import { siteTitle } from "../../../src/constants/titles";
-import NotFound from "../../not-found";
-import { IUsefulData } from "../../../src/models/interfaces/useful";
 import { UsefulPage } from "../../../src/widgets/UsefulPage";
-import { TLang } from "../../../src/models/interfaces/getData";
+import NotFound from "../../not-found";
+import getData from "../../../src/helpers/getData";
+import { IUsefulData } from "../../../src/models/interfaces/useful";
+import { IPageProps } from "../../../src/models/interfaces/params";
+import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
 
-export const metadata = {
-  title: `Օգտակար հղումներ | ${siteTitle}`,
-  description: "Օգտակար հղումներ շախմատի մասին",
-};
+export async function generateMetadata(props: IPageProps) {
+  const { locale } = await props.params;
 
-interface IUsefulProps {
-  params: Promise<{ locale: TLang }>;
+  return generatePageMetadata({ type: "useful", locale })
 }
 
-export default async function Useful(props: IUsefulProps) {
+export default async function Useful(props: IPageProps) {
   const { locale } = await props.params;
   const { data }: { data: IUsefulData } = await getData({ type: "useful", locale });
 

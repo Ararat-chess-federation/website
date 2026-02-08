@@ -1,10 +1,12 @@
-import { siteTitle } from "../../../src/constants/titles";
 import { RatingPage } from "../../../src/widgets/RatingPage";
+import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
+import { IPageProps } from "../../../src/models/interfaces/params";
 
-export const metadata = {
-  title: `Վարկանիշներ և կարգեր | ${siteTitle}`,
-  description: "Արարատի մարզի շախմատի ֆեդերացիայի վարկանիշներ և կարգեր",
-};
+export async function generateMetadata(props: IPageProps) {
+  const { locale } = await props.params;
+
+  return generatePageMetadata({ type: "ratings", locale })
+}
 
 export default function Ratings() {
   return <RatingPage />;
