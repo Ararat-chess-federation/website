@@ -14,6 +14,6 @@ export async function addLocalization({ article, uid, locale, translatedDynamicZ
             url: article.url,
             mainImage: article.mainImage,
             articleText: translatedDynamicZones
-        },
+        } as any, // TODO: fix ts
     });
 }
