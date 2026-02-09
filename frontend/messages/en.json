@@ -16,6 +16,9 @@
   "calendarInfo": {
     "intro": "The date may change depending on the AHN calendar plan. All tournaments will be announced in advance on the website and Facebook page."
   },
+  "branchesInfo": {
+    "trainingDays": "Training days"
+  },
   "contactsInfo": {
     "phone": "Phone number:",
     "address": "Address:",
