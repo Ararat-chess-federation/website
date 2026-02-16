@@ -1,6 +1,7 @@
+import { ITranslatedDynamicZonesProps } from "../models";
 import { translateText } from "./translator";
 
-export async function getTranslatedDynamicZones({ dynamicZones, locale }) {
+export async function getTranslatedDynamicZones({ dynamicZones, locale }: ITranslatedDynamicZonesProps) {
     const translatedDynamicZones = [];
 
     for (const dynamicZone of dynamicZones) {
