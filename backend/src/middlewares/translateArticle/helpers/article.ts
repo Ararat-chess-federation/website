@@ -13,7 +13,8 @@ export async function addLocalization({ article, uid, locale, translatedDynamicZ
             title: article.title, // TODO: translate title
             url: article.url,
             mainImage: article.mainImage,
-            articleText: translatedDynamicZones
+            articleText: translatedDynamicZones,
+            fbPost: article.fbPost,
         } as any, // TODO: fix ts
     });
 }
