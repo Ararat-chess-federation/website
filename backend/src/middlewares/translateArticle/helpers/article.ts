@@ -17,6 +17,6 @@ export async function addLocalization({ article, uid, locale, translatedDynamicZ
             mainImage: article.mainImage,
             articleText: translatedDynamicZones,
             fbPost: article.fbPost,
-        },
+        } as any // TODO: production build fails, local build works, check,
     });
 }

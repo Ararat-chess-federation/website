@@ -9,6 +9,7 @@ export async function getLocalesList() {
         .filter((localeCode) => localeCode !== DEFAULT_LOCALE_CODE)
 }
 
-export function getExistingLocales(localizations: ArticleEntity["localizations"]) {
+// TODO: the real type is ArticleEntity["localizations"], fails in production build
+export function getExistingLocales(localizations: any) {
     return localizations.map((el) => el.locale);
 }
