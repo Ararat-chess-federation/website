@@ -1,6 +1,7 @@
 import axios from "axios"
+import { TLocaleCode } from "../models";
 
-export async function translateText(text: string, locale: "ru" | "en") {
+export async function translateText(text: string, locale: TLocaleCode) {
     const fullText = [];
     const textSplits = text.split("\n");
 

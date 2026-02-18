@@ -1,9 +1,11 @@
+import type { Next } from "koa";
 import { DEFAULT_LOCALE_CODE } from "./constants/locale";
 import { getExistingLocales, getLocalesList } from "./helpers/locales";
 import { addLocalization, getArticle } from "./helpers/article";
 import { getTranslatedDynamicZones } from "./helpers/dynamicZones";
+import { DocumentContext } from "./models";
 
-export default async function translateArticle(context, next) {
+export default async function translateArticle(context: DocumentContext, next: Next) {
     const { uid, action } = context
     if (uid !== "api::article.article") {
         return next();

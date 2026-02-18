@@ -1,11 +1,13 @@
-export async function getArticle({ uid, documentId }) {
+import { ILocalizationProps, TArticleUid } from "../models";
+
+export async function getArticle({ uid, documentId }: { uid: TArticleUid, documentId: string }) {
     return strapi.documents(uid).findOne({
         documentId: documentId,
         populate: ["articleText", "localizations", "mainImage"],
     });
 }
 
-export async function addLocalization({ article, uid, locale, translatedDynamicZones }) {
+export async function addLocalization({ article, uid, locale, translatedDynamicZones }: ILocalizationProps) {
     await strapi.documents(uid).update({
         documentId: article.documentId,
         locale: locale,
@@ -13,7 +15,8 @@ export async function addLocalization({ article, uid, locale, translatedDynamicZ
             title: article.title, // TODO: translate title
             url: article.url,
             mainImage: article.mainImage,
-            articleText: translatedDynamicZones
-        } as any, // TODO: fix ts
+            articleText: translatedDynamicZones,
+            fbPost: article.fbPost,
+        },
     });
 }
