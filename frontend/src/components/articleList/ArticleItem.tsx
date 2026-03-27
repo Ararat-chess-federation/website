@@ -5,8 +5,8 @@ import MoreButton from "../../shared/linkButton";
 import { dateFormatterByLang } from "../../helpers/dateFormatterByLang";
 
 export function ArticleItem(props: IArticle) {
-  const { mainImage, url, title, publishedAt, locale } = props;
-  const date = dateFormatterByLang(publishedAt, locale);
+  const { mainImage, url, title, publishDate, locale } = props;
+  const date = dateFormatterByLang(publishDate, locale);
 
   return (
     <div key={url} className={styles.article_card}>
