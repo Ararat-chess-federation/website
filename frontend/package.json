@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "^16.2.7",
+    "next": "^16.2.9",
     "next-intl": "^4.13.0",
     "qs": "^6.15.2",
     "react": "^19.2.7",
