@@ -12,7 +12,7 @@ export default async function getData<T extends IUrlTypes>({
   filters = {},
   populate = {},
   fields = [],
-  sort = "",
+  sort = "sortOrder:ASC",
   offset = 0,
   limit = 10,
   locale = "hy"
