@@ -18,8 +18,10 @@
     "react-router-dom": "^6.0.0",
     "strapi-plugin-sortable-entries": "^1.3.0",
     "styled-components": "^6.0.0",
-    "sharp": "0.33.5",
     "xml2js": "^0.6.2"
+  },
+  "overrides": {
+    "sharp": "0.33.5"
   },
   "author": {
     "name": "Artyom Sukiasyan",
