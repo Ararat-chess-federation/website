@@ -84,16 +84,51 @@ export function getPostData(post) {
 
   const text = removeImagesFromHtml(post.description[0]);
   const markdown = replaceHtmlToMarkdown(text);
+  const title = post.description[0].split("<br")[0];
 
   return {
-    title: post.title[0],
-    url: post.title[0] + Math.random(),
+    title: title,
+    url: getUrlByTitle(title),
     mainImage: post["media:content"] && post["media:content"][0].$.url,
     fbPost: post.link[0],
     articleText: [{ __component: "text.paragraph", paragraph: markdown }],
     publishDate: new Date(post.pubDate[0]),
     publishedAt: null,
   };
+}
+
+function getUrlByTitle(title) {
+  let url = "";
+
+  if (title.includes("4-րդ")) {
+    url += "finished-4th-category-tournament"
+  }
+
+  if (title.includes("3-րդ")) {
+    url += "finished-3rd-category-tournament"
+  }
+
+  if (title.includes("2-րդ")) {
+    url += "finished-2nd-category-tournament"
+  }
+
+  if (title.toLowerCase().includes("արտաշատ")) {
+    url += "-in-artashat"
+  }
+
+  if (title.toLowerCase().includes("մասիս")) {
+    url += "-in-masis"
+  }
+
+  if (title.toLowerCase().includes("արարատ")) {
+    url += "-in-ararat"
+  }
+
+  if (title.toLowerCase().includes("վեդի")) {
+    url += "-in-vedi"
+  }
+
+  return url;
 }
 
 export async function saveArticle(data) {
