@@ -33,6 +33,9 @@
     "npm": ">=6.0.0"
   },
   "license": "MIT",
+  "overrides": {
+    "sharp": "0.33.5"
+  },
   "devDependencies": {
     "@types/xml2js": "^0.4.14"
   }
