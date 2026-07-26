@@ -16,6 +16,7 @@ export default async function Branches(props: IBranchesProps) {
   const { data }: { data: IBranch[] } = await getData({
     type: "branches",
     locale,
+    sort: "sortOrder:ASC",
     populate: {
       mainImage: {
         fields: ["url"],

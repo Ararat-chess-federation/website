@@ -16,6 +16,7 @@ export default async function Trainers(props: IPageProps) {
   const { data }: { data: ITrainer[] } = await getData({
     type: "trainers",
     locale,
+    sort: "sortOrder:ASC",
     populate: {
       profilePhoto: {
         fields: ["url"],
