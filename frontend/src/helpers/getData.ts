@@ -12,7 +12,7 @@ export default async function getData<T extends IUrlTypes>({
   filters = {},
   populate = {},
   fields = [],
-  sort = "sortOrder:ASC",
+  sort = "",
   offset = 0,
   limit = 10,
   locale = "hy"
@@ -40,7 +40,7 @@ export default async function getData<T extends IUrlTypes>({
     });
 
     if (!res.ok) {
-      throw new Error(`Failed to fetch data: ${res.statusText}`);
+      throw new Error(`${res.statusText} to "${type.toUpperCase()}" with query:${query}`);
     }
 
     return res.json();
