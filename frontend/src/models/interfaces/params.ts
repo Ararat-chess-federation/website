@@ -3,6 +3,7 @@ import { TLang } from "./getData";
 export type TPages =
     "about" |
     "articles" |
+    "blogs" |
     "contacts" |
     "useful" |
     "ratings" |

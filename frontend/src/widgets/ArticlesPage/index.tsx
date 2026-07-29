@@ -13,14 +13,18 @@ interface IProps {
 
 export default function ArticlesPage(props: IProps) {
   const { data, page, pageSize, paginationTotal } = props;
+  const { createdBy } = data[0];
+  const headerTitle = createdBy ? "blog" : "articles";
+  const basePath = createdBy ? "/blogs" : "/articles";
+
   return (
     <section className={styles.article_main}>
-      <Header />
+      <Header title={headerTitle} />
       <div>
         <ArticleList data={data} />
       </div>
       <Pagination
-        basePath="/articles"
+        basePath={basePath}
         currentPage={page}
         pageSize={pageSize}
         totalCount={paginationTotal}

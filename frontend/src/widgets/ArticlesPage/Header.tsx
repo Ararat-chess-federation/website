@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { LinedTitle } from "../../shared/linedTitle";
 
-export const Header = () => {
+export const Header = ({ title }: { title: string }) => {
   const t = useTranslations();
-  return <LinedTitle title={t("articles")} />;
+  return <LinedTitle title={t(title)} />;
 };

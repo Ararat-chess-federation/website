@@ -21,5 +21,9 @@ export interface IArticle {
   publishDate: string;
   mainImage: IImage;
   articleText: IArticleText[];
-  locale: TLang
+  locale: TLang,
+  createdBy: {
+    firstname: string,
+    lastname: string
+  }
 }

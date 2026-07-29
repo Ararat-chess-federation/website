@@ -42,6 +42,7 @@ export type TypeMapping = {
   ratings: IRatings;
   useful: IUsefulData;
   tournament: ITournamentData[];
+  blogs: IArticle[]
 };
 
 export type IUrlTypes = keyof TypeMapping;
