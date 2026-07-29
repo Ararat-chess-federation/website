@@ -50,6 +50,7 @@ export default async function ArticlePage(props: IArticleParams) {
           <FbPostLink fbPost={fbPost} />
         </div>
       )}
+      
       {createdBy && (
         <div className={styles.article_footer}>
           <span>{`${createdBy.firstname} ${createdBy.lastname}`}</span>
