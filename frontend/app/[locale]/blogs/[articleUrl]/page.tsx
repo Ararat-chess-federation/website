@@ -47,11 +47,11 @@ export default async function Blog(props: IArticleProps) {
       articleText: {
         populate: "*",
       },
-      // createdBy: {
-      //   fields: ["firstname", "lastname"]
-      // }
+      createdBy: {
+        fields: ["firstname", "lastname"],
+      },
     },
-    locale: params.locale
+    locale: params.locale,
   });
 
   if (!data?.length) {

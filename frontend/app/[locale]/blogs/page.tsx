@@ -31,8 +31,8 @@ export default async function Blogs(props: IArticlesProps) {
         fields: ["url"],
       },
       createdBy: {
-        fields: ["firstname", "lastname"]
-      }
+        fields: ["firstname", "lastname"],
+      },
     },
   });
 
