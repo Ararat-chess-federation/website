@@ -14,10 +14,9 @@ export default function NotFound() {
         <li>{t("options.0")}</li>
         <li>{t("options.1")}</li>
         <li>{t("options.2")}</li>
-        <li>{t("options.3")}</li>
       </ul>
       <Link href="/">
-        <span>{t("options.0")}</span>
+        <span>{t("options.3")}</span>
       </Link>
     </div>
   );
