@@ -1,9 +1,9 @@
-import NotFound from "../../not-found";
 import BranchesPage from "../../../src/widgets/BranchesPage";
 import getData from "../../../src/helpers/getData";
 import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
 import { IBranch } from "../../../src/models/interfaces/branch";
 import { IBranchesProps } from "../../../src/models/interfaces/params";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: IBranchesProps) {
   const { locale } = await props.params;
@@ -31,7 +31,7 @@ export default async function Branches(props: IBranchesProps) {
   });
 
   if (!data?.length) {
-    return <NotFound />;
+    return notFound();
   }
 
   return <BranchesPage data={data} />;

@@ -4,6 +4,7 @@ import getData from "../../../src/helpers/getData";
 import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
 import { ICalendarData } from "../../../src/models/interfaces/calendar";
 import { IPageProps } from "../../../src/models/interfaces/params";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: IPageProps) {
   const { locale } = await props.params;
@@ -16,7 +17,7 @@ export default async function Calendar(props: IPageProps) {
   const { data }: { data: ICalendarData } = await getData({ type: "calendar", locale });
 
   if (!data) {
-    return <NotFound />;
+    return notFound();
   }
 
   const { calendar } = data;

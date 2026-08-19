@@ -4,6 +4,7 @@ import getData from "../../../src/helpers/getData";
 import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
 import { ITrainer } from "../../../src/models/interfaces/trainer";
 import { IPageProps } from "../../../src/models/interfaces/params";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: IPageProps) {
   const { locale } = await props.params;
@@ -28,7 +29,7 @@ export default async function Trainers(props: IPageProps) {
   });
 
   if (!data?.length) {
-    return <NotFound />;
+    return notFound();
   }
 
   return (

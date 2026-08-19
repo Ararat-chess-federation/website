@@ -1,9 +1,9 @@
 import { AboutPage } from "../../../src/widgets/AboutPage";
-import NotFound from "../../not-found";
 import getData from "../../../src/helpers/getData";
 import generateMetadataByLocale from "../../../src/helpers/generatePageMetadata";
 import { IAboutData } from "../../../src/models/interfaces/about";
 import { IPageProps } from "../../../src/models/interfaces/params";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: IPageProps) {
   const { locale } = await props.params;
@@ -24,7 +24,7 @@ export default async function About(props: IPageProps) {
   });
 
   if (!data) {
-    return <NotFound />;
+    return notFound();
   }
 
   return (

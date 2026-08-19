@@ -5,7 +5,7 @@ import "./404.css";
 import { useTranslations } from "next-intl";
 
 export default function NotFound() {
-  const t = useTranslations("NotFound")
+  const t = useTranslations("ArticleNotFound")
   return (
     <div className="error_container">
       <h1>{t("title")}</h1>
@@ -14,7 +14,6 @@ export default function NotFound() {
         <li>{t("options.0")}</li>
         <li>{t("options.1")}</li>
         <li>{t("options.2")}</li>
-        <li>{t("options.3")}</li>
       </ul>
       <Link href="/">
         <span>{t("options.0")}</span>

@@ -2,10 +2,10 @@
 import getData from "../../../../src/helpers/getData";
 import { IArticle } from "../../../../src/models/interfaces/article";
 import { siteTitle } from "../../../../src/constants/titles";
-import NotFound from "../../../not-found";
 import getImageSrc from "../../../../src/helpers/getMediaSrc";
 import ArticlePage from "../../../../src/widgets/ArticlePage";
 import { IArticleProps } from "../../../../src/models/interfaces/params";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: IArticleProps) {
   const { locale, articleUrl } = await props.params;
@@ -51,7 +51,7 @@ export default async function Article(props: IArticleProps) {
   });
 
   if (!data?.length) {
-    return <NotFound />;
+    return notFound();
   }
 
   const { title, mainImage, articleText, fbPost, publishedAt, locale } = data[0];
