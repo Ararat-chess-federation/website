@@ -23,7 +23,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata(
-  props: Omit<LayoutProps<"/[locale]">, "children">
+  props: Omit<ILayout, "children">
 ) {
   const { locale } = await props.params;
 
