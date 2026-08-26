@@ -29,6 +29,20 @@ export const metadata: IPageMetadata = {
             description: "News of the Ararat Region Chess Federation"
         }
     },
+    blogs: {
+        hy: {
+            title: "Բլոգ",
+            description: "Արարատի մարզի շախմատի ֆեդերացիայի բլոգ"
+        },
+        ru: {
+            title: "Блог",
+            description: "Блог Шахматной федерации Араратской области"
+        },
+        en: {
+            title: "Blog",
+            description: "Blog of the Ararat Region Chess Federation"
+        }
+    },
     contacts: {
         hy: {
             title: "Կոնտակտներ",

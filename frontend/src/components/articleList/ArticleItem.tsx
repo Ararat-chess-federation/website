@@ -5,8 +5,10 @@ import MoreButton from "../../shared/linkButton";
 import { dateFormatterByLang } from "../../helpers/dateFormatterByLang";
 
 export function ArticleItem(props: IArticle) {
-  const { mainImage, url, title, publishDate, locale } = props;
+  const { mainImage, url, title, publishDate, locale, createdBy } = props;
   const date = dateFormatterByLang(publishDate, locale);
+  const { firstname = "", lastname = "" } = createdBy ?? {};
+  const moreLink = createdBy ? "blogs" : "articles"
 
   return (
     <div key={url} className={styles.article_card}>
@@ -25,9 +27,10 @@ export function ArticleItem(props: IArticle) {
       </div>
       <div className={styles.published_data}>
         <span suppressHydrationWarning={true}>{date}</span>
+        <span style={{float:"right"}} suppressHydrationWarning={true}>{`${firstname} ${lastname}`}</span>
       </div>
       <div className={styles.btn_container}>
-        <MoreButton link={`/articles/${url}`} />
+        <MoreButton link={`/${moreLink}/${url}`} />
       </div>
     </div>
   );

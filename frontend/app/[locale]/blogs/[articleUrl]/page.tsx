@@ -2,15 +2,15 @@
 import getData from "../../../../src/helpers/getData";
 import { IArticle } from "../../../../src/models/interfaces/article";
 import { siteTitle } from "../../../../src/constants/titles";
+import NotFound from "../../../not-found";
 import getImageSrc from "../../../../src/helpers/getMediaSrc";
 import ArticlePage from "../../../../src/widgets/ArticlePage";
 import { IArticleProps } from "../../../../src/models/interfaces/params";
-import { notFound } from "next/navigation";
 
 export async function generateMetadata(props: IArticleProps) {
   const { locale, articleUrl } = await props.params;
   const { data }: { data: IArticle[] } = await getData({
-    type: "articles",
+    type: "blogs",
     locale,
     filters: {
       url: articleUrl,
@@ -32,13 +32,14 @@ export async function generateMetadata(props: IArticleProps) {
   };
 }
 
-export default async function Article(props: IArticleProps) {
+export default async function Blog(props: IArticleProps) {
   const params = await props.params;
   const { data }: { data: IArticle[] } = await getData({
-    type: "articles",
+    type: "blogs",
     filters: {
       url: params.articleUrl,
     },
+    limit: 1,
     populate: {
       mainImage: {
         fields: ["url"],
@@ -46,12 +47,15 @@ export default async function Article(props: IArticleProps) {
       articleText: {
         populate: "*",
       },
+      createdBy: {
+        fields: ["firstname", "lastname"],
+      },
     },
-    locale: params.locale
+    locale: params.locale,
   });
 
   if (!data?.length) {
-    return notFound();
+    return <NotFound />;
   }
 
   const { title, mainImage, articleText, fbPost, publishedAt, locale, createdBy } = data[0];

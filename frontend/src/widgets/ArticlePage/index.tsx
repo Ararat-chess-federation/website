@@ -9,16 +9,17 @@ import { Header } from "./Header";
 
 type IArticleParams = Pick<
   IArticle,
-  "title" | "mainImage" | "articleText" | "fbPost" | "publishedAt" | "locale"
+  "title" | "mainImage" | "articleText" | "fbPost" | "publishedAt" | "locale" | "createdBy"
 >;
 
 export default async function ArticlePage(props: IArticleParams) {
-  const { title, mainImage, articleText, fbPost, publishedAt, locale } = props;
+  const { title, mainImage, articleText, fbPost, publishedAt, locale, createdBy } = props;
   const date = dateFormatterByLang(publishedAt, locale);
+  const headerTitle = createdBy ? "blog" : "articles";
 
   return (
     <div className={styles.article_container}>
-      <Header />
+      <Header title={headerTitle} />
 
       <div className={styles.article_header}>
         <div className={styles.article_header_content}>
@@ -47,6 +48,12 @@ export default async function ArticlePage(props: IArticleParams) {
       {fbPost && (
         <div className={styles.article_footer}>
           <FbPostLink fbPost={fbPost} />
+        </div>
+      )}
+      
+      {createdBy && (
+        <div className={styles.article_footer}>
+          <span>{`${createdBy.firstname} ${createdBy.lastname}`}</span>
         </div>
       )}
     </div>
