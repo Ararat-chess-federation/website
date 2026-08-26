@@ -14,4 +14,5 @@ export default ({ env }) => ({
     enabled: true,
     tasks: cronTasks,
   },
+  proxy: { koa: true }, 
 });
