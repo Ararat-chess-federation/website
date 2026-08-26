@@ -1,5 +1,4 @@
 .error_container {
-  text-align: center;
   width: 100%;
   padding: 20px;
   background-color: var(--white-bg);
@@ -19,10 +18,12 @@
 .error_container ul {
   list-style-type: none;
   padding: 0;
+  margin-top: 16px;
   margin-bottom: 24px;
 }
 
 .error_container li {
+  list-style-type: circle;
   margin-bottom: 10px;
 }
 
