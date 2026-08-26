@@ -7,22 +7,40 @@
     "displayName": "Blog"
   },
   "options": {
-    "draftAndPublish": true,
-    "populateCreatorFields": true
+    "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "url": {
       "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "required": true,
       "unique": true
     },
     "title": {
       "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "required": true
     },
     "mainImage": {
       "type": "media",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
       "multiple": false,
       "required": true,
       "allowedTypes": [
@@ -31,6 +49,11 @@
     },
     "articleText": {
       "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "components": [
         "img.img-with-description",
         "text.paragraph",
@@ -38,7 +61,12 @@
       ]
     },
     "publishDate": {
-      "type": "date"
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     }
   }
 }
