@@ -69,5 +69,14 @@
       "Or agree to a draw and return to the main page",
       "Restart the game"
     ]
+  },
+  "ArticleNotFound": {
+    "title": "This article hasn't been translated yet",
+    "intro": "This article is currently available in Armenian. A translation in your selected language will be available soon.",
+    "options": [
+      "Read the article in Armenian",
+      "View all available translations",
+      "Go to the homepage"
+    ]
   }
 }

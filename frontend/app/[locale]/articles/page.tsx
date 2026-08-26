@@ -5,6 +5,7 @@ import generatePageMetadata from "../../../src/helpers/generatePageMetadata";
 import { IArticle } from "../../../src/models/interfaces/article";
 import { IMeta } from "../../../src/models/interfaces/meta";
 import { IArticlesProps } from "../../../src/models/interfaces/params";
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata(props: IArticlesProps) {
   const { locale } = await props.params;
@@ -34,7 +35,7 @@ export default async function Articles(props: IArticlesProps) {
   });
 
   if (!data?.length) {
-    return <NotFound />;
+    return notFound();
   }
 
   return (
