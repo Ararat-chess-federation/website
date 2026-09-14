@@ -54,7 +54,7 @@ export default async function Article(props: IArticleProps) {
     return notFound();
   }
 
-  const { title, mainImage, articleText, fbPost, publishedAt, locale, createdBy } = data[0];
+  const { title, mainImage, articleText, fbPost, publishDate, locale, createdBy } = data[0];
 
   return (
     <ArticlePage
@@ -62,7 +62,7 @@ export default async function Article(props: IArticleProps) {
       articleText={articleText}
       fbPost={fbPost}
       mainImage={mainImage}
-      publishedAt={publishedAt}
+      publishedAt={publishDate}
       locale={locale}
       createdBy={createdBy}
     />
