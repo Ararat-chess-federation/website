@@ -1,12 +1,17 @@
 export default {
   async beforeCreate(event) {
-    const { publishDate, url } = event.params.data;
+    const { publishDate, url, locale } = event.params.data;
     event.params.data.publishDate = publishDate ? publishDate : new Date();
-    event.params.data.url = appendDateToString(url ?? "");
+
+    if (locale === "hy") {
+      event.params.data.url = appendDateToString(url ?? "");
+    }
   },
   async beforeUpdate(event) {
-    const { url } = event.params.data;
-    event.params.data.url = appendDateToString(url ?? "");
+    const { url, locale } = event.params.data;
+    if (locale === "hy") {
+      event.params.data.url = appendDateToString(url ?? "");
+    }
   }
 };
 
