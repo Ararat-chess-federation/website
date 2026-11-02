@@ -10,13 +10,13 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-users-permissions": "^5.52.2",
-    "@strapi/strapi": "^5.52.2",
+    "@strapi/plugin-users-permissions": "^5.60.0",
+    "@strapi/strapi": "^5.60.0",
     "mysql2": "3.20.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.30.3",
-    "strapi-plugin-sortable-entries": "^1.3.0",
+    "strapi-plugin-sortable-entries": "^1.4.2",
     "styled-components": "^6.0.0",
     "xml2js": "^0.6.2"
   },
