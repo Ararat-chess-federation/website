@@ -4,7 +4,7 @@ import { IPagesNumber, IPagination } from "./models";
 import NavigationLink from "../NavigationLink";
 
 interface IPaginationServer extends IPagination {
-  basePath: "/articles" | "/blogs";
+  basePath: string;
 }
 
 export default function Pagination({

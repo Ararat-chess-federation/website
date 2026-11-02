@@ -24,6 +24,9 @@ export const FULLNAVIGATION: INavigation[] = [
     link: "/ratings",
     title: "ratings",
   },
+  { link: "/learn", title: "learn" },
+  { link: "/entertainment", title: "entertainment" },
+  { link: "/history", title: "history" },
   { link: "/useful", title: "useful" },
   {
     link: "/about",
