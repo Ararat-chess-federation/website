@@ -157,7 +157,7 @@ export const metadata: IPageMetadata = {
     },
     entertainment: {
         hy: {
-            title: "Զվարճանք",
+            title: "Ժամանց",
             description: "Շախմատային ֆիլմեր, մեջբերումներ, հումոր և հետաքրքիր փաստեր",
         },
         ru: {
