@@ -9,7 +9,10 @@ export interface ITopic {
   slug: string;
   type: TTopicTypes;
   display?: TTopicDisplay;
+  sort?: string[];
 }
+
+const ADMIN_SORT = ["sortOrder:asc", "createdAt:asc"];
 
 export const SECTIONS: Record<TSection, ITopic[]> = {
   learn: [
@@ -25,9 +28,9 @@ export const SECTIONS: Record<TSection, ITopic[]> = {
     { slug: "facts", type: "interestings", display: "box" },
   ],
   history: [
-    { slug: "world-champions", type: "world-champions" },
-    { slug: "armenian-champions", type: "armenian-champions" },
-    { slug: "fide-presidents", type: "fide-presidents" },
+    { slug: "world-champions", type: "world-champions", sort: ADMIN_SORT },
+    { slug: "armenian-champions", type: "armenian-champions", sort: ADMIN_SORT },
+    { slug: "fide-presidents", type: "fide-presidents", sort: ADMIN_SORT },
   ],
 };
 
