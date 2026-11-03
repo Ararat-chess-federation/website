@@ -8,6 +8,23 @@
   "about": "About Us",
   "blog": "Blog",
   "contacts": "Contacts",
+  "learn": "Learn Chess",
+  "entertainment": "Entertainment",
+  "history": "History",
+  "topicsEmpty": "Materials will be added soon.",
+  "topics": {
+    "debuts": "Openings",
+    "middlegames": "Middlegame",
+    "endgames": "Endgame",
+    "advices": "Tips",
+    "world-champions": "World Champions",
+    "armenian-champions": "Armenian Champions",
+    "fide-presidents": "FIDE Presidents",
+    "films": "Films",
+    "quotes": "Quotes",
+    "humor": "Humor",
+    "facts": "Interesting Facts"
+  },
   "federation": {
     "federation_history": "Federation History",
     "info": "After Tigran Petrosian became World Champion in 1963, a rapid growth of chess took place in Armenia. Many parents began taking their children to chess groups. Chess was also experiencing strong development in the Ararat region."

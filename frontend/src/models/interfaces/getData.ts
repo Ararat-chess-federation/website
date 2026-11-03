@@ -4,6 +4,7 @@ import { IBranch } from "./branch";
 import { ICalendarData } from "./calendar";
 import { IRatings } from "./ratings";
 import { ITournamentData } from "./tournament";
+import { ITopicItem } from "./topic";
 import { ITrainer } from "./trainer";
 import { IUsefulData } from "./useful";
 
@@ -42,7 +43,22 @@ export type TypeMapping = {
   ratings: IRatings;
   useful: IUsefulData;
   tournament: ITournamentData[];
-  blogs: IArticle[]
-};
+  blogs: IArticle[];
+} & TopicTypeMapping;
+
+export type TTopicTypes =
+  | "advices"
+  | "armenian-champions"
+  | "debuts"
+  | "endgames"
+  | "fide-presidents"
+  | "films"
+  | "humors"
+  | "interestings"
+  | "middlegames"
+  | "quotes"
+  | "world-champions";
+
+type TopicTypeMapping = { [K in TTopicTypes]: ITopicItem[] };
 
 export type IUrlTypes = keyof TypeMapping;

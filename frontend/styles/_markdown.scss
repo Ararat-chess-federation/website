@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+@mixin markdown-content {
+  a {
+    text-decoration: underline;
+  }
+  ul,
+  ol {
+    padding-left: 20px;
+  }
+  ul li {
+    list-style-type: disc;
+  }
+  ol li {
+    list-style-type: decimal;
+  }
+  blockquote {
+    border-left: 3px solid $primary;
+    padding-left: 12px;
+    font-style: italic;
+  }
+  img,
+  iframe {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+  img {
+    height: auto;
+  }
+}

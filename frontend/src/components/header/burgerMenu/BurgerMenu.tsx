@@ -42,16 +42,15 @@ const BurgerMenu = () => {
       <div className={`${styles.menu} ${open ? styles.open : ""}`}>
         <ul className={styles.menu_list}>
           {FULLNAVIGATION.map((el) => (
-            <NavigationLink
-              href={el.link as '/'}
-              key={el.link}
-              onClick={() => setOpen(false)}
-              className={styles.menu_item}
-            >
-              <li key={el.link} className={styles.menu_li}>
+            <li key={el.link} className={styles.menu_item}>
+              <NavigationLink
+                href={el.link as '/'}
+                onClick={() => setOpen(false)}
+                className={styles.menu_li}
+              >
                 {t(el.title)}
-              </li>
-            </NavigationLink>
+              </NavigationLink>
+            </li>
           ))}
         </ul>
       </div>

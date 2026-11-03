@@ -10,7 +10,10 @@ export type TPages =
     "calendar" |
     "trainers" |
     "notFound" |
-    "branches";
+    "branches" |
+    "learn" |
+    "entertainment" |
+    "history";
 
 export interface IPageProps {
     params: Promise<{ locale: TLang }>;

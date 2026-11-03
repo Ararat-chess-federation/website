@@ -140,5 +140,47 @@ export const metadata: IPageMetadata = {
             title: "Branches",
             description: "List of branches of the Ararat Region Chess Federation",
         }
+    },
+    learn: {
+        hy: {
+            title: "Ուսուցում",
+            description: "Շախմատի դեբյուտներ, միջնախաղ, վերջնախաղ և խորհուրդներ",
+        },
+        ru: {
+            title: "Обучение",
+            description: "Шахматные дебюты, миттельшпиль, эндшпиль и советы",
+        },
+        en: {
+            title: "Learn Chess",
+            description: "Chess openings, middlegame, endgame and tips",
+        }
+    },
+    entertainment: {
+        hy: {
+            title: "Ժամանց",
+            description: "Շախմատային ֆիլմեր, մեջբերումներ, հումոր և հետաքրքիր փաստեր",
+        },
+        ru: {
+            title: "Развлечения",
+            description: "Шахматные фильмы, цитаты, юмор и интересные факты",
+        },
+        en: {
+            title: "Entertainment",
+            description: "Chess films, quotes, humor and interesting facts",
+        }
+    },
+    history: {
+        hy: {
+            title: "Պատմություն",
+            description: "Աշխարհի և Հայաստանի շախմատի չեմպիոններ, ՖԻԴԵ-ի նախագահներ",
+        },
+        ru: {
+            title: "История",
+            description: "Чемпионы мира и Армении по шахматам, президенты ФИДЕ",
+        },
+        en: {
+            title: "History",
+            description: "World and Armenian chess champions, FIDE presidents",
+        }
     }
 }
