@@ -34,11 +34,16 @@ export default function TopicPage({
 
       {data.length ? (
         <div className={display === "box" ? styles.grid : styles.list}>
-          {data.map(({ documentId, title, content }) =>
+          {data.map(({ documentId, title, content, mainImage }) =>
             display === "box" ? (
               <ContentBox key={documentId} title={title} content={content} />
             ) : (
-              <ContentAccordion key={documentId} title={title} content={content} />
+              <ContentAccordion
+                key={documentId}
+                title={title}
+                content={content}
+                image={mainImage}
+              />
             )
           )}
         </div>

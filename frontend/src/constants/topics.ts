@@ -10,6 +10,7 @@ export interface ITopic {
   type: TTopicTypes;
   display?: TTopicDisplay;
   sort?: string[];
+  withImage?: boolean;
 }
 
 const ADMIN_SORT = ["sortOrder:asc", "createdAt:asc"];
@@ -22,15 +23,30 @@ export const SECTIONS: Record<TSection, ITopic[]> = {
     { slug: "advices", type: "advices" },
   ],
   entertainment: [
-    { slug: "films", type: "films" },
+    { slug: "films", type: "films", withImage: true },
     { slug: "quotes", type: "quotes", display: "box" },
     { slug: "humor", type: "humors", display: "box" },
     { slug: "facts", type: "interestings", display: "box" },
   ],
   history: [
-    { slug: "world-champions", type: "world-champions", sort: ADMIN_SORT },
-    { slug: "armenian-champions", type: "armenian-champions", sort: ADMIN_SORT },
-    { slug: "fide-presidents", type: "fide-presidents", sort: ADMIN_SORT },
+    {
+      slug: "world-champions",
+      type: "world-champions",
+      sort: ADMIN_SORT,
+      withImage: true,
+    },
+    {
+      slug: "armenian-champions",
+      type: "armenian-champions",
+      sort: ADMIN_SORT,
+      withImage: true,
+    },
+    {
+      slug: "fide-presidents",
+      type: "fide-presidents",
+      sort: ADMIN_SORT,
+      withImage: true,
+    },
   ],
 };
 

@@ -67,6 +67,7 @@ export async function renderTopicPage(
     locale,
     sort: topic.sort ?? "createdAt:asc",
     fields: ["documentId", "title", "content"],
+    populate: topic.withImage ? { mainImage: { fields: ["url"] } } : {},
     offset: (page - 1) * PAGE_SIZE,
     limit: PAGE_SIZE,
   });
