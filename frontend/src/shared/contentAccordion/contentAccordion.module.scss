@@ -5,6 +5,25 @@
   flex-direction: column;
 }
 
+.with_image {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  column-gap: 20px;
+
+  .header {
+    min-height: 120px;
+  }
+
+  .content {
+    grid-column: 2;
+  }
+}
+
+.image {
+  border: 1px solid $lightblue;
+  border-radius: 6px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -55,6 +74,18 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .with_image {
+    grid-template-columns: 64px minmax(0, 1fr);
+    column-gap: 12px;
+
+    .header {
+      min-height: 64px;
+    }
+
+    .content {
+      grid-column: 1 / -1;
+    }
+  }
   .header {
     padding: 16px;
   }

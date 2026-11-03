@@ -65,8 +65,9 @@ export async function renderTopicPage(
   const { data, meta } = await getData({
     type: topic.type,
     locale,
-    sort: "createdAt:asc",
+    sort: topic.sort ?? "createdAt:asc",
     fields: ["documentId", "title", "content"],
+    populate: topic.withImage ? { mainImage: { fields: ["url"] } } : {},
     offset: (page - 1) * PAGE_SIZE,
     limit: PAGE_SIZE,
   });
