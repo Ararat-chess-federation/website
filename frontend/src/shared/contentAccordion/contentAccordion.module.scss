@@ -1,3 +1,5 @@
+@use "styles/markdown";
+
 .accordion {
   display: flex;
   flex-direction: column;
@@ -49,32 +51,7 @@
   border-bottom-right-radius: 6px;
   overflow-wrap: anywhere;
 
-  a {
-    text-decoration: underline;
-  }
-  ul,
-  ol {
-    padding-left: 20px;
-  }
-  ul li {
-    list-style-type: disc;
-  }
-  ol li {
-    list-style-type: decimal;
-  }
-  blockquote {
-    border-left: 3px solid $primary;
-    padding-left: 12px;
-    font-style: italic;
-  }
-  img,
-  iframe {
-    max-width: 100%;
-    border-radius: 6px;
-  }
-  img {
-    height: auto;
-  }
+  @include markdown.markdown-content;
 }
 
 @media only screen and (max-width: 600px) {

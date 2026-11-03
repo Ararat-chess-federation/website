@@ -75,6 +75,7 @@ export async function renderTopicPage(
     <TopicPage
       section={section}
       slug={slug}
+      display={topic.display}
       data={data ?? []}
       page={page}
       pageSize={PAGE_SIZE}

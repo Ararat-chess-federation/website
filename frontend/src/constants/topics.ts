@@ -3,9 +3,12 @@ import { TTopicTypes } from "../models/interfaces/getData";
 
 export type TSection = Extract<TPages, "learn" | "entertainment" | "history">;
 
+export type TTopicDisplay = "accordion" | "box";
+
 export interface ITopic {
   slug: string;
   type: TTopicTypes;
+  display?: TTopicDisplay;
 }
 
 export const SECTIONS: Record<TSection, ITopic[]> = {
@@ -17,9 +20,9 @@ export const SECTIONS: Record<TSection, ITopic[]> = {
   ],
   entertainment: [
     { slug: "films", type: "films" },
-    { slug: "quotes", type: "quotes" },
-    { slug: "humor", type: "humors" },
-    { slug: "facts", type: "interestings" },
+    { slug: "quotes", type: "quotes", display: "box" },
+    { slug: "humor", type: "humors", display: "box" },
+    { slug: "facts", type: "interestings", display: "box" },
   ],
   history: [
     { slug: "world-champions", type: "world-champions" },
