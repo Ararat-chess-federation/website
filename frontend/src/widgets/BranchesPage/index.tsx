@@ -5,17 +5,19 @@ import TrainingScheduleCard from "../../components/trainingScheduleCard/Training
 import styles from "./branches.module.scss";
 import { IBranch } from "../../models/interfaces/branch";
 import { Header } from "./Header";
+import { ScrollToBranch } from "./ScrollToBranch";
 
 
 export default async function BranchesPage({ data }: { data: IBranch[] }) {
   return (
     <section className={styles.branches_main}>
       <Header />
+      <ScrollToBranch />
       <div className={styles.branches_container}>
         {data.map(
           ({ url, mainImage, title, address, trainers, description }) => {
             return (
-              <div key={url} className={styles.branch_card}>
+              <div key={url} id={`branch-${url}`} className={styles.branch_card}>
                 <div className={styles.branch_info}>
                   <h2 className={styles.branch_name}>{title}</h2>
                   <Address address={address} />

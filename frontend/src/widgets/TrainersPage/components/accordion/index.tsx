@@ -10,7 +10,7 @@ import ChevronIcon from "../../assets/images/Chevron.svg";
 import Image from "next/image";
 import ModifiedMarkdown from "../../../../hok/modifiedMarkdown";
 import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import NavigationLink from "../../../../components/NavigationLink";
 
 interface AccordionProfileProps {
   imgSrc: IImage;
@@ -70,7 +70,9 @@ export default function TrainerAccordion({
               {t("branches")}:{" "}
               {branches.map((el) => (
                 <span className={styles.branch_name} key={el.id}>
-                  <Link href={el.url}>{el.title}</Link>
+                  <NavigationLink href={`/branches?branch=${el.url}` as "/"}>
+                    {el.title}
+                  </NavigationLink>
                 </span>
               ))}
             </p>
