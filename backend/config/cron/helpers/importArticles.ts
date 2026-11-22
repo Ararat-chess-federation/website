@@ -9,6 +9,15 @@ const BASE_URL = "https://ararat.chessnews.am";
 const RSS_URL =
   "https://fetchrss.com/rss/66f17165789ae466320d993266f17183abe507c1920a28b6.xml";
 
+export interface IImportedPost {
+  title: string;
+  text: string;
+  imageUrl?: string;
+  fbPost: string;
+  date: Date;
+}
+
+export type TImportResult = "created" | "duplicate";
 
 export async function getLatestArticle() {
   const latestArticle = await strapi.documents(API).findFirst({
@@ -43,7 +52,7 @@ export async function getBufferFromUrl(imageUrl: string) {
 export async function saveTempFile({ buffer, ext }: { buffer: Buffer, ext: string }) {
   const tmpPath = path.join(
     os.tmpdir(),
-    `strapi-upload-${crypto.randomUUID()}.%${ext.split('/')[1]}`
+    `strapi-upload-${crypto.randomUUID()}.${ext.split('/')[1]}`
   );
   const uint8 = new Uint8Array(buffer);
 
@@ -52,10 +61,9 @@ export async function saveTempFile({ buffer, ext }: { buffer: Buffer, ext: strin
 }
 
 export function getImgFileName(imageUrl: string) {
-  const fileNameWithQuery = imageUrl.split("/").pop();
-  const queryStartIdx = fileNameWithQuery.indexOf("?");
+  const fileName = new URL(imageUrl).pathname.split("/").pop();
 
-  return fileNameWithQuery.slice(0, queryStartIdx) || "uploadedImage.jpg";
+  return fileName || "uploadedImage.jpg";
 }
 
 export async function uploadImageFromUrl(tmpPath: string, ext: string, name: string) {
@@ -77,58 +85,123 @@ export async function uploadImageFromUrl(tmpPath: string, ext: string, name: str
   }
 }
 
-export function getPostData(post) {
-  if (post.description[0].includes(BASE_URL)) {
-    return { articleText: "" };
+export function getPostData(post): IImportedPost | null {
+  const description: string = post.description[0];
+
+  if (description.includes(BASE_URL)) {
+    return null;
   }
 
-  const text = removeImagesFromHtml(post.description[0]);
-  const markdown = replaceHtmlToMarkdown(text);
-  const title = post.description[0].split("<br")[0];
+  const text = replaceHtmlToMarkdown(removeImagesFromHtml(description));
+
+  if (!text) {
+    return null;
+  }
 
   return {
-    title: title,
-    url: getUrlByTitle(title),
-    mainImage: post["media:content"] && post["media:content"][0].$.url,
+    title: decodeHtmlEntities(description.split("<br")[0]).trim(),
+    text,
+    imageUrl: post["media:content"] && post["media:content"][0].$.url,
     fbPost: post.link[0],
-    articleText: [{ __component: "text.paragraph", paragraph: markdown }],
-    publishDate: new Date(post.pubDate[0]),
-    publishedAt: null,
+    date: new Date(post.pubDate[0]),
   };
 }
 
-function getUrlByTitle(title) {
-  let url = "";
+export function getPostDataFromGraph(post: {
+  message?: string;
+  created_time: string;
+  full_picture?: string;
+  permalink_url: string;
+}): IImportedPost | null {
+  const message = post.message?.trim();
 
-  if (title.includes("4-րդ")) {
-    url += "finished-4th-category-tournament"
+  if (!message || message.includes(BASE_URL)) {
+    return null;
   }
 
-  if (title.includes("3-րդ")) {
-    url += "finished-3rd-category-tournament"
+  return {
+    title: message.split("\n")[0].trim(),
+    text: message.replace(/\r?\n/g, "  \n"),
+    imageUrl: post.full_picture,
+    fbPost: post.permalink_url,
+    date: new Date(post.created_time),
+  };
+}
+
+export async function importArticle(post: IImportedPost): Promise<TImportResult> {
+  const publishDate = post.date.toISOString().slice(0, 10);
+
+  if (await findImportedArticle(post, publishDate)) {
+    return "duplicate";
   }
 
-  if (title.includes("2-րդ")) {
-    url += "finished-2nd-category-tournament"
+  let mainImage = null;
+
+  if (post.imageUrl) {
+    const { buffer, ext } = await getBufferFromUrl(post.imageUrl);
+    const tmpPath = await saveTempFile({ buffer, ext });
+    const uploadedImage = await uploadImageFromUrl(tmpPath, ext, getImgFileName(post.imageUrl));
+
+    mainImage = uploadedImage?.id || null;
   }
 
-  if (title.toLowerCase().includes("արտաշատ")) {
-    url += "-in-artashat"
-  }
+  await saveArticle({
+    title: post.title,
+    url: await getUniqueUrl(getUrlByTitle(post.title) || `news-${publishDate}`),
+    mainImage,
+    fbPost: post.fbPost,
+    articleText: [{ __component: "text.paragraph", paragraph: post.text }],
+    publishDate,
+  });
 
-  if (title.toLowerCase().includes("մասիս")) {
-    url += "-in-masis"
-  }
+  return "created";
+}
 
-  if (title.toLowerCase().includes("արարատ")) {
-    url += "-in-ararat"
-  }
+async function findImportedArticle(post: IImportedPost, publishDate: string) {
+  return strapi.documents(API).findFirst({
+    fields: ["id"],
+    filters: {
+      $or: [
+        { fbPost: post.fbPost },
+        { title: post.title, publishDate },
+      ],
+    },
+  });
+}
 
-  if (title.toLowerCase().includes("վեդի")) {
-    url += "-in-vedi"
+async function getUniqueUrl(baseUrl: string) {
+  let url = baseUrl;
+
+  for (let i = 2; await strapi.documents(API).findFirst({ fields: ["id"], filters: { url } }); i++) {
+    url = `${baseUrl}-${i}`;
   }
 
   return url;
+}
+
+function getUrlByTitle(title: string) {
+  const lowerTitle = title.toLowerCase();
+  const categories = {
+    "4-րդ": "finished-4th-category-tournament",
+    "3-րդ": "finished-3rd-category-tournament",
+    "2-րդ": "finished-2nd-category-tournament",
+  };
+  const places = {
+    "արտաշատ": "in-artashat",
+    "մասիս": "in-masis",
+    "վեդի": "in-vedi",
+    "արարատ": "in-ararat",
+  };
+
+  const category = Object.entries(categories).find(([key]) => lowerTitle.includes(key))?.[1];
+
+  if (!category) {
+    return "";
+  }
+
+  const place = Object.entries(places).find(([key]) => lowerTitle.includes(key))?.[1];
+
+  return place ? `${category}-${place}` : category;
 }
 
 export async function saveArticle(data) {
@@ -144,5 +217,15 @@ function replaceHtmlToMarkdown(html: string) {
 function removeImagesFromHtml(html: string) {
   const imgStartIdx = html.indexOf("<img");
 
-  return html.slice(0, imgStartIdx);
+  return imgStartIdx === -1 ? html : html.slice(0, imgStartIdx);
+}
+
+function decodeHtmlEntities(text: string) {
+  return text
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;/g, "'")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&");
 }
