@@ -1,0 +1,198 @@
+.status {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  gap: 48px;
+  max-width: 900px;
+  margin: 24px auto 48px;
+  padding: 40px 48px;
+  background: $gradient-light;
+  border: 1px solid $lightblue;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(26, 17, 70, 0.08);
+}
+
+.visual {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  height: 100%;
+  border: 4px solid $primary;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.light {
+  background: $secondary;
+}
+
+.dark {
+  background: $lightblue;
+}
+
+.piece {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "DejaVu Sans", serif;
+  font-size: 120px;
+  line-height: 1;
+  color: $primary;
+  text-shadow: 0 6px 16px rgba(26, 17, 70, 0.25);
+}
+
+.fallen {
+  transform: rotate(-80deg) translateX(-12px);
+}
+
+.code {
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  padding: 6px 14px;
+  background: $gradient-dark;
+  color: $white;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(26, 17, 70, 0.3);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: $primary;
+}
+
+.title {
+  text-align: left;
+  font-size: 30px;
+  line-height: 1.25;
+}
+
+.intro {
+  font-size: 17px;
+  line-height: 1.5;
+  color: $black;
+}
+
+.tips {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tip {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $black;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    background: $pink;
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 10px 20px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid $primary;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.primary {
+  background: $primary;
+  color: $white;
+
+  &:hover {
+    background: $gradient-primary;
+  }
+}
+
+.secondary {
+  background: transparent;
+  color: $primary;
+
+  &:hover {
+    background: $lightblue;
+  }
+}
+
+.button:focus-visible {
+  outline: 3px solid $pink;
+  outline-offset: 2px;
+}
+
+@media only screen and (max-width: 768px) {
+  .status {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 32px;
+    margin: 16px;
+    padding: 32px 20px;
+  }
+
+  .visual {
+    width: 160px;
+    height: 160px;
+  }
+
+  .piece {
+    font-size: 88px;
+  }
+
+  .code {
+    font-size: 18px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .intro {
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .button {
+    flex: 1 1 100%;
+  }
+}

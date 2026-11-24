@@ -66,7 +66,8 @@
       "Make sure your internet connection is as strong as a pawn chain",
       "If the problem persists, try to contact our technical grandmasters"
     ],
-    "link": "Contact the grandmasters"
+    "link": "Contact the grandmasters",
+    "retry": "Try again"
   },
   "Manifest": {
     "name": "Ararat en"
