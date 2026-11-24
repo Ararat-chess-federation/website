@@ -144,7 +144,7 @@ export const metadata: IPageMetadata = {
     learn: {
         hy: {
             title: "Ուսուցում",
-            description: "Շախմատի դեբյուտներ, միջնախաղ, վերջնախաղ և խորհուրդներ",
+            description: "Շախմատի սկզբնախաղ, միջնախաղ, վերջնախաղ և խորհուրդներ",
         },
         ru: {
             title: "Обучение",
