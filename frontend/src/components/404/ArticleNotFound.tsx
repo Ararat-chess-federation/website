@@ -1,22 +1,43 @@
 "use client";
 
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import "./404.css";
+import { useLocale, useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import NavigationLink from "../NavigationLink";
+import StatusPage, { statusStyles as s } from "../statusPage/StatusPage";
 
-export default function NotFound() {
-  const t = useTranslations("ArticleNotFound")
+export default function ArticleNotFound() {
+  const t = useTranslations("ArticleNotFound");
+  const locale = useLocale();
+  const { articleUrl } = useParams<{ articleUrl: string }>();
+  const showArmenian = locale !== "hy" && !!articleUrl;
+
   return (
-    <div className="error_container">
-      <h1>{t("title")}</h1>
-      <p>{t("intro")}</p>
-      <ul>
-        <li>{t("options.0")}</li>
-        <li>{t("options.1")}</li>
-      </ul>
-      <Link href="/">
-        <span>{t("options.2")}</span>
-      </Link>
-    </div>
+    <StatusPage
+      piece="♝"
+      title={t("title")}
+      intro={t("intro")}
+      actions={
+        <>
+          {showArmenian && (
+            <NavigationLink
+              href={`/articles/${articleUrl}` as "/"}
+              locale="hy"
+              className={`${s.button} ${s.primary}`}
+            >
+              {t("options.0")}
+            </NavigationLink>
+          )}
+          <NavigationLink
+            href={"/articles" as "/"}
+            className={`${s.button} ${showArmenian ? s.secondary : s.primary}`}
+          >
+            {t("options.1")}
+          </NavigationLink>
+          <NavigationLink href="/" className={`${s.button} ${s.secondary}`}>
+            {t("options.2")}
+          </NavigationLink>
+        </>
+      }
+    />
   );
 }
